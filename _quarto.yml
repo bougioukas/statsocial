@@ -3,19 +3,45 @@ project:
 
 book:
   title: "Basic Statistics for Social Sciences"
-  author: "Konstantinos I. Bougioukas"
-  date: "10/1/2024"
+  subtitle: "1st Edition"
+  author: 
+    - name: "Konstantinos I. Bougioukas, PhD"
+      orcid: "0000-0002-6533-1391"
+  date: today
   chapters:
     - index.qmd
     - intro.qmd
     - summary.qmd
     - references.qmd
 
+  page-footer: 
+    left: "Copyright 2023, Konstantinos I. Bougioukas" 
+  back-to-top-navigation: true
+
 bibliography: references.bib
+reference-location: margin
+
+share:
+  permalink: "https://statsocial.netlify.app/"
+  description: "Basic Statistics for Social Sciences"
+  twitter: true
+  facebook: true
+  linkedin: true
 
 format:
   html:
-    theme: cosmo
+    theme:
+      light: [cosmo, custom.scss]
+    grid:
+      sidebar-width: 270px
+      body-width: 840px
+      margin-width: 250px
+    fontsize: 1.22em
+    linestretch: 1.5
+    toc-title: "On this page"
+    link-external-newwindow: true
+    number-depth: 3
+    html-math-method: mathjax
   pdf:
     documentclass: scrreprt
 

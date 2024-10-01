@@ -1,0 +1,120 @@
+/*-- scss:defaults --*/
+
+
+// Base document colors
+$link-color: #288BAB;
+$code-block-bg: #EDEFF1;
+$code-color: #1F618D;
+$code-bg: #FFFFFF;
+
+$callout-border-scale: 1%;
+$callout-icon-scale: 10%;
+
+
+$callout-margin-top: 1.0rem;
+$callout-margin-bottom: 1.7rem;
+
+$callout-color-warning: #F72D93;
+$callout-color-caution: #EEAA2C;
+$callout-color-important: #FCE762;
+$callout-color-tip: #540375;
+$callout-color-note: #540375;
+
+
+
+/*-- scss:rules --*/
+
+
+.sidebar-title {
+  color: #288BAB;;
+}
+
+div.sidebar-item-container .active {
+  font-weight: bold;
+}
+
+.sidebar nav[role=doc-toc] ul>li>a.active, .sidebar nav[role=doc-toc] ul>li>ul>li>a.active{
+  font-weight: bold;
+}
+
+img.quarto-cover-image {
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+}
+
+
+
+
+/* Headings ------------------------------------------------------ */
+
+#title-block-header.quarto-title-block.default .quarto-title h1.title {
+  margin-bottom: 0.5rem;
+}
+
+
+h2 {
+  margin-top: 2rem;
+  margin-bottom: 1.0rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+h3 { margin-top: 1.7em; margin-bottom: 0.6rem; font-size: 1.2rem; font-weight: 500; }
+h4 { margin-top: 1.6em; font-size: 1.1rem; font-weight: 500; }
+h5 { margin-top: 1.5em; font-size: 1rem; }
+
+
+.quarto-section-identifier {
+  color: #288BAB;
+  font-weight: normal;
+}
+
+
+/* Content Boxes
+------------------------------------------------------------ */
+ 
+.content-box-blue,
+.content-box-gray,
+.content-box-green,
+.content-box-purple,
+.content-box-red,
+.content-box-yellow {
+    margin: 0 0 40px;
+    overflow: hidden;
+    padding: 15px;
+}
+ 
+.content-box-blue {
+    background-color: #d8ecf7;
+    border: 1px solid #afcde3;
+    margin: 0 0 40px;
+    overflow: hidden;
+    padding: 15px;
+}
+ 
+.content-box-gray {
+    background-color: #e2e2e2;
+    border: 1px solid #bdbdbd;
+}
+ 
+.content-box-green {
+    background-color: #d9edc2;
+    border: 1px solid #b2ce96;
+    margin: 0 0 40px;
+    overflow: hidden;
+    padding: 15px;
+}
+ 
+.content-box-purple {
+    background-color: #e2e2f9;
+    border: 1px solid #bebde9;
+}
+ 
+.content-box-red {
+    background-color: #f9dbdb;
+    border: 1px solid #e9b3b3;
+}
+ 
+.content-box-yellow {
+    background-color: #fef5c4;
+    border: 1px solid #fadf98;
+}
+
