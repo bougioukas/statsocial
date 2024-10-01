@@ -2,12 +2,16 @@ project:
   type: book
 
 book:
-  title: "Basic Statistics for Social Sciences"
+  title: "Basic Statistics for the Social Sciences"
   subtitle: "1st Edition"
   author: 
     - name: "Konstantinos I. Bougioukas, PhD"
       orcid: "0000-0002-6533-1391"
   date: today
+  cover-image: images/cover.png
+  favicon: images/cover.png
+  #sidebar:
+    #logo: "images/lollipop2.png"
   chapters:
     - index.qmd
     - intro.qmd
@@ -24,7 +28,7 @@ reference-location: margin
 
 share:
   permalink: "https://statsocial.netlify.app/"
-  description: "Basic Statistics for Social Sciences"
+  description: "Basic Statistics for the Social Sciences"
   twitter: true
   facebook: true
   linkedin: true
