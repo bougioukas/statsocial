@@ -2,8 +2,8 @@ project:
   type: book
 
 book:
-  title: "statcocial1"
-  author: "Norah Jones"
+  title: "Basic Statistics for Social Sciences"
+  author: "Konstantinos I. Bougioukas"
   date: "10/1/2024"
   chapters:
     - index.qmd
