@@ -1,7 +1,7 @@
 # Welcome! {.unnumbered}
 
 
-This open course introduces students to key concepts and statistical methods used in the quantitative social and behavioral sciences to describe and test hypotheses about the social world. Students will learn to: 
+This open course introduces students to key concepts and statistical methods used in the quantitative social and behavioral sciences to describe and test hypotheses about the social world and human behavior. Students will learn to: 
 
 -   Describe and summarize data distributions.
 
