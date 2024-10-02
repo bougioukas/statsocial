@@ -1,5 +1,20 @@
-# Preface {.unnumbered}
+# Welcome! {.unnumbered}
 
-This is a Quarto book.
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+This open course introduces students to key concepts and statistical methods used in the quantitative social and behavioral sciences to describe and test hypotheses about the social world. Students will learn to: 
+
+-   Describe and summarize data distributions.
+
+-   Formulate and test various types of research hypotheses.
+
+-   Analyze associations between factors, characteristics, or events.
+
+-   Interpret and critically evaluate published statistics.
+
+
+The student may also learn about the proper use of graphing and statistical software.
+
+
+{{< qrcode https://statsocial.netlify.app/ width=100 height=100 colorDark='#0011bb' >}}
+
+
