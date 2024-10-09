@@ -168,7 +168,7 @@ Data variables can be one of four **measure types**:
 
  
 
-and one of three **data types**:
+Additionally, data variables can be one of three **data types**:
 
 -   **Integer**: These are full numbers e.g. 1, 2, 3, ... 100, etc. - Integers can be used for all three measure types . When used for Nominal/Ordinal data numbers will represent labels e.g. male=1; female=2.
 
@@ -198,15 +198,15 @@ The measure types are designated by the symbol in the header of the variable's c
 
 ### The dataset
 
-It is possible to simply begin typing values into the Jamovi spreadsheet as we would with any other spreadsheet software. Alternatively, existing data sets in a range of formats (OMV, Excel, CSV, SPSS, R data, Stata, SAS) can be opened in Jamovi. We will use the dataset named `rses` as an example (@fig-rses).
+It is possible to simply begin typing values into the Jamovi spreadsheet as we would with any other spreadsheet software. Alternatively, existing datasets in a range of formats (OMV, Excel, CSV, SPSS, R data, Stata, SAS) can be opened in Jamovi. We will use the following dataset as an example (@fig-rses).
 
 ```{r}
 #| echo: false
 #| label: fig-rses
-#| fig-cap: Table with raw data of rses data set.
+#| fig-cap: Table with raw data.
 
-DT::datatable(rses, extensions = c('Scroller', 'Buttons'), 
-              options = list(deferRender = F, dom = 'Bt', columnDefs = list(list(className = 'dt-center', targets = 1:6)), scrollY = 452, scroller = TRUE, scrollX = T, pageLength = 10, buttons = 'excel'))
+DT::datatable(rses, extensions = c('Scroller', 'Buttons'), rownames = FALSE,
+              options = list(deferRender = F, dom = 'Bt', columnDefs = list(list(className = 'dt-center', targets = 1:6)), scrollY = 452, scroller = TRUE, scrollX = T, pageLength = 10, buttons = 'csv'))
 
 ```
 
@@ -216,6 +216,74 @@ The meta-data (data about the data) for this dataset are as following:
 2.  **age:** age in years
 3.  **time_spend:** hours spent on social media
 4.  **$q_1 ... q_{10}$:** Ten questions (items) of Rosenberg Self-Esteem Scale (RSES). The 10 items are answered on a four point scale ranging from strongly disagree to strongly agree.(0 = Strongly Disagree, 1 = Disagree, 2 = Agree, 3 = Strongly Agree)
+
+
+### Opening the file
+
+To open this `csv` file, click on the **File** tab ![](images/hbars.png){width="28" height="17"} at the top left hand corner (just left of the **Variables** tab) (@fig-tab_analysis_file).
+
+![Click on the File tab](images/tab_analysis_file.png){#fig-tab_analysis_file}
+
+
+This will open the menu shown in @fig-open_file. Select '**Open**' and then '**This PC**'. Choose the downloaded file from the files listed on '**Browse**' which are stored on our computer folders:
+
+```{r}
+#| label: fig-open_file
+#| fig-align: left
+#| out-width: "95%"
+#| echo: false
+#| fig-cap: Open an existing file stored on our computer into Jamovi.
+
+knitr::include_graphics(here::here("images", "open_file.png"))
+```
+
+
+ 
+
+The flowchart of the process is:
+
+```{mermaid}
+flowchart LR
+  A(File tab) -.-> B(Open) -.-> C(This PC) -.-> D(Browse) -.-> E(Open \n 'the downloaded file')
+```
+
+ 
+
+We should see data now in the Spreadsheet view (@fig-dataset).
+
+```{r}
+#| label: fig-dataset
+#| fig-align: left
+#| out-width: "95%"
+#| echo: false
+#| fig-cap: Our dataset.
+
+knitr::include_graphics(here::here("images", "dataset.png"))
+```
+
+
+As we can see this is a data set with `r nrow(rses)` observations and `r ncol(rses)` variables. JAMOVI has classified all the variables as nominal ![](images/nominal.png){width="24" height="22"}; however, only the `sex` variable is actually nominal. 
+
+
+## Transforming data
+
+
+### Changing the measure type
+
+First, we will change the measure type from nominal to continuous for all  variables except `sex`.
+For example, double-click on the variable name `age`. This will open an additional menu at the top of the JAMOVI screen, as shown in @fig-type_age:
+
+![Extra menu for data variables.](images/type_age.png){#fig-type_age width="90%"}
+
+
+From the drop-down list of "Measure type" we select the continuous type ![](images/continuous.png){width="23" height="21"}, as shown in @fig-type_age2.
+
+![Extra menu for data variables.](images/type_age2.png){#fig-type_age2 width="80%"}
+
+
+
+The categorical variable `sex` is coded as 1 for males and 2 for females, and it is stored as nominal ![](images/nominal.png){width="24" height="22"}. 
+
 
 
 
