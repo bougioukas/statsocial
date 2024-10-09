@@ -1,0 +1,224 @@
+# LAB I: Introduction to Jamovi {#sec-lab1}
+
+```{r}
+#| include: false
+
+library(tidyverse)
+library(here)
+
+library(fontawesome)
+
+
+library(readxl)
+rses <- read_excel(here("data", "rses.xlsx"))
+```
+
+When we have finished this Lab, we should be able to:
+
+::: {.callout-caution icon="false"}
+## Learning objectives
+
+-   Navigate Jamovi, import files and transform the data.
+-   Filter data.
+-   Compute new variables based on other variables in our data.
+-   Transform existing variables.
+:::
+
+ 
+
+## Why Jamovi?
+
+Jamovi is a new fee open "3rd generation" statistical software that is built on top of the programming language R (@fig-jamovi_0). Designed from the ground up to be easy to use, Jamovi is a compelling alternative to costly statistical products such as SPSS and SAS.
+
+![Jamovi is free and open statistical software](images/jamovi_0.png){#fig-jamovi_0 width="95%"}
+
+::: {.callout-note icon="false"}
+## **Some other advantages are:**
+
+1.  Point-and-click environment
+2.  It provides informative tables and neat visuals
+3.  Enables integration with R
+4.  Gives access to a user guide and community resources from the Jamovi website
+:::
+
+## Downloading and installing Jamovi
+
+**Jamovi** is available for Windows (64-bit), macOS, Linux and ChromeOS. Installation on desktop is quite straight-forward. Just go to the Jamovi download page <https://www.jamovi.org/download.html>, and download the latest version (current release) for your operating system.
+
+## Navigating Jamovi
+
+When jamovi first opens, we will see a screen something like in @fig-jamovi1.
+
+```{r}
+#| label: fig-jamovi1
+#| fig-align: left
+#| out-width: "95%"
+#| echo: false
+#| fig-cap: Jamovi starts up!.
+
+knitr::include_graphics(here::here("images", "jamovi1.png"))
+```
+
+To the left is the spreadsheet view, and to the right is where the results of statistical tests appear. Down the middle is a bar separating these two regions, and this can be dragged to the left or the right to change their sizes.
+
+ 
+
+Let's take a quick look at the Jamovi Main Menu, referred to hereafter as the **Menu**, as shown in @fig-menu1. This Menu is displayed at the very top of the Jamovi screen:
+
+```{r}
+#| label: fig-menu1
+#| fig-align: left
+#| out-width: "95%"
+#| echo: false
+#| fig-cap: The menu bar provides access to all functions of the program.
+
+knitr::include_graphics(here::here("images", "menu1.png"))
+```
+
+There are six tabs in the Menu (from left to right): **File** (a layer with three horizontal levels $\equiv$), **Variables**, **Data**, **Analyses**, **Edit**, and **Settings** (the three dots $\vdots$ at the top right of the window) tabs. A toolbar appears whenever we click on a Menu tab (@tbl-menu).
+
+ 
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+| Menu tab                                                                                                                                                    | Toolbar                                                                                                                                             |
++:============================================================================================================================================================+:====================================================================================================================================================+
+| 1.  **File tab** ($\equiv$)                                                                                                                                 | ![](images/tab_file.png){width="40%"}                                                                                                               |
+|                                                                                                                                                             |                                                                                                                                                     |
+|     The file tab ![](images/hbars.png){width="24" height="17"} allows us to open/import existing files, save and export our files.                          |                                                                                                                                                     |
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+| 2.  **Variables tab**                                                                                                                                       | ![](images/tab_variables.png){width="100%"}                                                                                                         |
+|                                                                                                                                                             |                                                                                                                                                     |
+|     This allows us to view and search our variables in a list view.                                                                                         | This view allows us to easily navigate our variables and do the following:                                                                          |
+|                                                                                                                                                             |                                                                                                                                                     |
+|                                                                                                                                                             | -   Search for a variable by scrolling through the list or search for one by name.                                                                  |
+|                                                                                                                                                             |                                                                                                                                                     |
+|                                                                                                                                                             | -   Edit the variable names and descriptions by double-clicking in the relevant field.                                                              |
+|                                                                                                                                                             |                                                                                                                                                     |
+|                                                                                                                                                             | -   Edit our variable details by double-clicking on the data symbol (the screen will appear for us to add all the necessary information).           |
+|                                                                                                                                                             |                                                                                                                                                     |
+|                                                                                                                                                             | -   Create a new variable by clicking on the![](images/plus_icon.png){width="34"} in the bottom right corner. |
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+| 3.  **Data tab**                                                                                                                                            | ![](images/tab_data.png){width="100%"}                                                                                                              |
+|                                                                                                                                                             |                                                                                                                                                     |
+|     Here we will see our raw data which are organised like Excel in rows and columns. We can also manipulate our data and add new variables when necessary. | Specifically, this tab allows us to do the following:                                                                                               |
+|                                                                                                                                                             |                                                                                                                                                     |
+|                                                                                                                                                             | -   Rename and add details to existing variables. Click on the *Setup* button, or double-click on the variable we want to manage.                   |
+|                                                                                                                                                             |                                                                                                                                                     |
+|                                                                                                                                                             | -   Compute and transform variables                                                                                                                 |
+|                                                                                                                                                             |                                                                                                                                                     |
+|                                                                                                                                                             | -   Add and/or Delete variables (columns)                                                                                                           |
+|                                                                                                                                                             |                                                                                                                                                     |
+|                                                                                                                                                             | -   Add Filters                                                                                                                                     |
+|                                                                                                                                                             |                                                                                                                                                     |
+|                                                                                                                                                             | -   Add and/or Delete Rows                                                                                                                          |
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+| 4.  **Analyses tab**                                                                                                                                        | ![](images/tab_analysis.png)                                                                                                                        |
+|                                                                                                                                                             |                                                                                                                                                     |
+|     It includes the available statistical analyses that can be performed by Jamovi.                                                                         | We will spend most of our time in the Analyses Tab. The following six modules are pre-installed:                                                    |
+|                                                                                                                                                             |                                                                                                                                                     |
+|                                                                                                                                                             | -   Exploration                                                                                                                                     |
+|                                                                                                                                                             |                                                                                                                                                     |
+|                                                                                                                                                             | -   T-Tests                                                                                                                                         |
+|                                                                                                                                                             |                                                                                                                                                     |
+|                                                                                                                                                             | -   ANOVA                                                                                                                                           |
+|                                                                                                                                                             |                                                                                                                                                     |
+|                                                                                                                                                             | -   Regression                                                                                                                                      |
+|                                                                                                                                                             |                                                                                                                                                     |
+|                                                                                                                                                             | -   Frequencies                                                                                                                                     |
+|                                                                                                                                                             |                                                                                                                                                     |
+|                                                                                                                                                             | -   Factor                                                                                                                                          |
+|                                                                                                                                                             |                                                                                                                                                     |
+|                                                                                                                                                             | For example, if we want to perform regression analysis, we simply click the ''Regression" button.                                                   |
+|                                                                                                                                                             |                                                                                                                                                     |
+|                                                                                                                                                             | All other modules need to be installed using the **Modules** button (Plus button) in our top-right ![](images/modules.png){width="44"}             |
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+| 5.  **Edit tab**                                                                                                                                            | ![](images/tab_edit.png)                                                                                                                            |
+|                                                                                                                                                             |                                                                                                                                                     |
+|     It includes a toolbar similar to a word processor.                                                                                                      | We can add extra information to our results using the buttons that are very similar to what we would find in Word (though there are fewer options). |
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+| 6.  **Settings tab**                                                                                                                                        | ![](images/prefrences.png){width="170"}                                                                                                             |
+|                                                                                                                                                             |                                                                                                                                                     |
+|     (the three dots ${\vdots}$ at the top right of the window)                                                                                              | We can apply our preferences for a number of settings such as:                                                                                      |
+|                                                                                                                                                             |                                                                                                                                                     |
+|     ![](images/dots.png){width="14" height="29"}                                                                                                            | -   How many decimal numbers we want.                                                                                                               |
+|                                                                                                                                                             |                                                                                                                                                     |
+|     It includes the application settings that can be manged by the users according to their preferences.                                                    | -   If we want to learn R, we can also display the R syntax.                                                                                        |
+|                                                                                                                                                             |                                                                                                                                                     |
+|                                                                                                                                                             | -   Our graph colour scheme                                                                                                                         |
+|                                                                                                                                                             |                                                                                                                                                     |
+|                                                                                                                                                             | -   Our default missing value.                                                                                                                      |
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+
+: Menu and toolbars of Jamovi {#tbl-menu}
+
+
+ 
+
+## Types of Variables in Jamovi
+
+Data variables can be one of four **measure types**:
+
+-   ![](images/nominal.png){width="24" height="22"} **Nominal**: This type is for nominal categorical variables.
+
+-   ![](images/ordinal.png){width="26"} **Ordinal**: This type is for ordinal categorical variables.
+
+-   ![](images/continuous.png){width="23" height="21"} **Continuous** : this type is for variables with numeric values which are considered to be of *Interval* or *Ratio* scales.
+
+-   ![](images/id.png){width="24"} **ID**: This will usally be our first column. This can be text or numbers, but it should be unique to each row.
+
+ 
+
+and one of three **data types**:
+
+-   **Integer**: These are full numbers e.g. 1, 2, 3, ... 100, etc. - Integers can be used for all three measure types . When used for Nominal/Ordinal data numbers will represent labels e.g. male=1; female=2.
+
+-   **Decimal:** These are numbers with decimal points. e.g. 1.3, 5.6, 7.8, etc. - This will usually only be used for continuous data.
+
+-   **Text:** This can be used for ordinal and nominal data.
+
+The measure types are designated by the symbol in the header of the variable's column. Note that some combinations of data-type and measure-type don't make sense, and Jamovi won't let us choose these.
+
++---------------+----------------+----------------+----------------+
+|               |                | Measure        |                |
++===============+================+================+================+
+| **Data**      | Nominal        | Ordinal        | Continuous     |
++---------------+----------------+----------------+----------------+
+| Integer       | ${\checkmark}$ | ${\checkmark}$ | ${\checkmark}$ |
++---------------+----------------+----------------+----------------+
+| Decimal       |                |                | ${\checkmark}$ |
++---------------+----------------+----------------+----------------+
+| Text          | ${\checkmark}$ | ${\checkmark}$ |                |
++---------------+----------------+----------------+----------------+
+
+: Types of data and measures {#tbl-types}
+
+ 
+
+## Importing data
+
+### The dataset
+
+It is possible to simply begin typing values into the Jamovi spreadsheet as we would with any other spreadsheet software. Alternatively, existing data sets in a range of formats (OMV, Excel, CSV, SPSS, R data, Stata, SAS) can be opened in Jamovi. We will use the dataset named `rses` as an example (@fig-rses).
+
+```{r}
+#| echo: false
+#| label: fig-rses
+#| fig-cap: Table with raw data of rses data set.
+
+DT::datatable(rses, extensions = c('Scroller', 'Buttons'), 
+              options = list(deferRender = F, dom = 'Bt', columnDefs = list(list(className = 'dt-center', targets = 1:6)), scrollY = 452, scroller = TRUE, scrollX = T, pageLength = 10, buttons = 'excel'))
+
+```
+
+The meta-data (data about the data) for this dataset are as following:
+
+1.  **sex:** sex (1 = male, 2 = female)
+2.  **age:** age in years
+3.  **time_spend:** hours spent on social media
+4.  **$q_1 ... q_{10}$:** Ten questions (items) of Rosenberg Self-Esteem Scale (RSES). The 10 items are answered on a four point scale ranging from strongly disagree to strongly agree.(0 = Strongly Disagree, 1 = Disagree, 2 = Agree, 3 = Strongly Agree)
+
+
+
+
+
+

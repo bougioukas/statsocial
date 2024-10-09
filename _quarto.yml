@@ -12,8 +12,12 @@ book:
   favicon: images/cover.png
   chapters:
     - index.qmd
-    - intro.qmd
-    - summary.qmd
+    - part: "Statistical Thinking"
+      chapters:
+        - intro.qmd
+    - part: "Jamovi LAB"
+      chapters:
+        - lab1.qmd
     - references.qmd
 
   page-footer: 

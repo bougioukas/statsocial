@@ -16,6 +16,7 @@
     "section": "",
     "text": "1.1 The discipline of Statistics\nStatistics relies heavily on probability theory and encompasses empirical methods for collecting, organizing, summarizing, and presenting data, with the objective of drawing inferences about the population from which the data are derived. It includes different theoretical frameworks such as traditional (frequentist) statistics and Bayesian statistics. In this course, we will cover classical parametric and nonparametric statistical tests of traditional statistics.\nThe discipline of traditional (frequentist) statistics includes two main branches (Figure 1.1):\nflowchart LR\n  \n    A[Traditional &lt;br/&gt; Statistics]--- B[Descriptive statistics]\n    A --- C[Inferential statistics]\n    B --- D[Measures of frequency: &lt;br/&gt; e.g., frequency, percentage.]\n    B --- E[Measures of location &lt;br/&gt; and dispersion: &lt;br/&gt; e.g., mean, standard deviation.]\n    C --- H[Estimation]\n    C --- I[Hypothesis Testing]\n    style A color:#980000, stroke:#333,stroke-width:4px\n    \n\n\n\n\nFigure 1.1: The discipline of statistics and its two branches, descriptive statistics and inferential statistics",
     "crumbs": [
+      "Statistical Thinking",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
   },
@@ -26,6 +27,7 @@
     "section": "",
     "text": "Descriptive statistics that includes measures of frequency and measures of location and dispersion. It also includes a description of the shape of the data distributions.\nInferential statistics that aims at generalizing conclusions made on a sample to a whole population. It includes estimation and hypothesis testing.",
     "crumbs": [
+      "Statistical Thinking",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
   },
@@ -36,7 +38,74 @@
     "section": "1.2 Data and variables",
     "text": "1.2 Data and variables\nData in the social and health sciences refers to the information collected and analyzed to understand human behavior, societal structures and interactions. This data originates from various sources, each offering unique insights into different aspects of human and societal dynamics. These sources include:\n\nSelf-Reports:  These are collected through interviews, questionnaires, and surveys, capturing individual experiences, behaviors, and attitudes. They provide qualitative insights that enhance our understanding of personal perspectives and social phenomena.\nInternet and Social Media:  These platforms generate vast amounts of data on online interactions, behaviors, and social trends, offering valuable information on how people communicate and engage in the digital space.\nWearable Technology:  Devices such as smartwatches, fitness trackers, smart glasses, and smart clothing equipped with sensors have become revolutionary tools for tracking and monitoring physiological and behavioral metrics in real-time. They provide critical insights into health, fitness, and daily habits.\nElectronic Health Records (EHRs):  EHRs offer detailed information about patients’ medical histories, treatments, and health outcomes, facilitating research on health trends and the effectiveness of interventions.\nHealth Surveillance Systems:  These systems continuously monitor and analyze trends in real-time, including disease outbreaks, vaccination uptake, public health patterns, substance abuse trends, and crime statistics, thereby informing timely interventions and policy decisions.\nClinical Registries:  These collect data on patients with specific medical conditions or treatments, providing valuable insights into health outcomes and social determinants of health.\nBiobanks:  Biobanks store biological samples (e.g., blood, tissue) along with health and lifestyle data, enabling research into the intersections of genetics, environment, and social factors.\n\nSocial, behavioral, and biomedical data can be transformed into information. This information can evolve into knowledge when social scientists and stakeholders interpret and understand it, allowing them to make informed decisions, shape policies, and implement interventions that address societal and health-related challenges more effectively.\n\n\n\n\n\n\nFigure 1.2: From data to knowledge and action.",
     "crumbs": [
+      "Statistical Thinking",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "lab1.html",
+    "href": "lab1.html",
+    "title": "2  LAB I: Introduction to Jamovi",
+    "section": "",
+    "text": "2.1 Why Jamovi?\nJamovi is a new fee open “3rd generation” statistical software that is built on top of the programming language R (Figure 2.1). Designed from the ground up to be easy to use, Jamovi is a compelling alternative to costly statistical products such as SPSS and SAS.",
+    "crumbs": [
+      "Jamovi LAB",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>LAB I: Introduction to Jamovi</span>"
+    ]
+  },
+  {
+    "objectID": "lab1.html#why-jamovi",
+    "href": "lab1.html#why-jamovi",
+    "title": "2  LAB I: Introduction to Jamovi",
+    "section": "",
+    "text": "Figure 2.1: Jamovi is free and open statistical software\n\n\n\n\n\n\n\n\n\nSome other advantages are:\n\n\n\n\nPoint-and-click environment\nIt provides informative tables and neat visuals\nEnables integration with R\nGives access to a user guide and community resources from the Jamovi website",
+    "crumbs": [
+      "Jamovi LAB",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>LAB I: Introduction to Jamovi</span>"
+    ]
+  },
+  {
+    "objectID": "lab1.html#downloading-and-installing-jamovi",
+    "href": "lab1.html#downloading-and-installing-jamovi",
+    "title": "2  LAB I: Introduction to Jamovi",
+    "section": "2.2 Downloading and installing Jamovi",
+    "text": "2.2 Downloading and installing Jamovi\nJamovi is available for Windows (64-bit), macOS, Linux and ChromeOS. Installation on desktop is quite straight-forward. Just go to the Jamovi download page https://www.jamovi.org/download.html, and download the latest version (current release) for your operating system.",
+    "crumbs": [
+      "Jamovi LAB",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>LAB I: Introduction to Jamovi</span>"
+    ]
+  },
+  {
+    "objectID": "lab1.html#navigating-jamovi",
+    "href": "lab1.html#navigating-jamovi",
+    "title": "2  LAB I: Introduction to Jamovi",
+    "section": "2.3 Navigating Jamovi",
+    "text": "2.3 Navigating Jamovi\nWhen jamovi first opens, we will see a screen something like in Figure 2.2.\n\n\n\n\n\n\n\n\nFigure 2.2: Jamovi starts up!.\n\n\n\n\n\nTo the left is the spreadsheet view, and to the right is where the results of statistical tests appear. Down the middle is a bar separating these two regions, and this can be dragged to the left or the right to change their sizes.\n \nLet’s take a quick look at the Jamovi Main Menu, referred to hereafter as the Menu, as shown in Figure 2.3. This Menu is displayed at the very top of the Jamovi screen:\n\n\n\n\n\n\n\n\nFigure 2.3: The menu bar provides access to all functions of the program.\n\n\n\n\n\nThere are six tabs in the Menu (from left to right): File (a layer with three horizontal levels \\(\\equiv\\)), Variables, Data, Analyses, Edit, and Settings (the three dots \\(\\vdots\\) at the top right of the window) tabs. A toolbar appears whenever we click on a Menu tab (Table 2.1).\n \n\n\n\nTable 2.1: Menu and toolbars of Jamovi\n\n\n\n\n\n\n\n\n\nMenu tab\nToolbar\n\n\n\n\n\nFile tab (\\(\\equiv\\))\nThe file tab  allows us to open/import existing files, save and export our files.\n\n\n\n\n\nVariables tab\nThis allows us to view and search our variables in a list view.\n\n\nThis view allows us to easily navigate our variables and do the following:\n\nSearch for a variable by scrolling through the list or search for one by name.\nEdit the variable names and descriptions by double-clicking in the relevant field.\nEdit our variable details by double-clicking on the data symbol (the screen will appear for us to add all the necessary information).\nCreate a new variable by clicking on the in the bottom right corner. |\n\n\n\n\nData tab\nHere we will see our raw data which are organised like Excel in rows and columns. We can also manipulate our data and add new variables when necessary.\n\n\nSpecifically, this tab allows us to do the following:\n\nRename and add details to existing variables. Click on the Setup button, or double-click on the variable we want to manage.\nCompute and transform variables\nAdd and/or Delete variables (columns)\nAdd Filters\nAdd and/or Delete Rows\n\n\n\n\nAnalyses tab\nIt includes the available statistical analyses that can be performed by Jamovi.\n\n\nWe will spend most of our time in the Analyses Tab. The following six modules are pre-installed:\n\nExploration\nT-Tests\nANOVA\nRegression\nFrequencies\nFactor\n\nFor example, if we want to perform regression analysis, we simply click the ’’Regression” button.\nAll other modules need to be installed using the Modules button (Plus button) in our top-right  |\n\n\n\nEdit tab\nIt includes a toolbar similar to a word processor.\n\n\nWe can add extra information to our results using the buttons that are very similar to what we would find in Word (though there are fewer options).\n\n\n\nSettings tab\n(the three dots \\({\\vdots}\\) at the top right of the window)\n\nIt includes the application settings that can be manged by the users according to their preferences.\n\n\nWe can apply our preferences for a number of settings such as:\n\nHow many decimal numbers we want.\nIf we want to learn R, we can also display the R syntax.\nOur graph colour scheme\nOur default missing value.",
+    "crumbs": [
+      "Jamovi LAB",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>LAB I: Introduction to Jamovi</span>"
+    ]
+  },
+  {
+    "objectID": "lab1.html#types-of-variables-in-jamovi",
+    "href": "lab1.html#types-of-variables-in-jamovi",
+    "title": "2  LAB I: Introduction to Jamovi",
+    "section": "2.4 Types of Variables in Jamovi",
+    "text": "2.4 Types of Variables in Jamovi\nData variables can be one of four measure types:\n\n Nominal: This type is for nominal categorical variables.\n Ordinal: This type is for ordinal categorical variables.\n Continuous : this type is for variables with numeric values which are considered to be of Interval or Ratio scales.\n ID: This will usally be our first column. This can be text or numbers, but it should be unique to each row.\n\n \nand one of three data types:\n\nInteger: These are full numbers e.g. 1, 2, 3, … 100, etc. - Integers can be used for all three measure types . When used for Nominal/Ordinal data numbers will represent labels e.g. male=1; female=2.\nDecimal: These are numbers with decimal points. e.g. 1.3, 5.6, 7.8, etc. - This will usually only be used for continuous data.\nText: This can be used for ordinal and nominal data.\n\nThe measure types are designated by the symbol in the header of the variable’s column. Note that some combinations of data-type and measure-type don’t make sense, and Jamovi won’t let us choose these.\n\n\n\nTable 2.2: Types of data and measures\n\n\n\n\n\n\n\n\n\n\n\n\n\nMeasure\n\n\n\n\n\nData\nNominal\nOrdinal\nContinuous\n\n\nInteger\n\\({\\checkmark}\\)\n\\({\\checkmark}\\)\n\\({\\checkmark}\\)\n\n\nDecimal\n\n\n\\({\\checkmark}\\)\n\n\nText\n\\({\\checkmark}\\)\n\\({\\checkmark}\\)",
+    "crumbs": [
+      "Jamovi LAB",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>LAB I: Introduction to Jamovi</span>"
+    ]
+  },
+  {
+    "objectID": "lab1.html#importing-data",
+    "href": "lab1.html#importing-data",
+    "title": "2  LAB I: Introduction to Jamovi",
+    "section": "2.5 Importing data",
+    "text": "2.5 Importing data\n\n2.5.1 The dataset\nIt is possible to simply begin typing values into the Jamovi spreadsheet as we would with any other spreadsheet software. Alternatively, existing data sets in a range of formats (OMV, Excel, CSV, SPSS, R data, Stata, SAS) can be opened in Jamovi. We will use the dataset named rses as an example (Figure 2.4).\n\n\n\n\n\n\n\n\nFigure 2.4: Table with raw data of rses data set.\n\n\n\n\nThe meta-data (data about the data) for this dataset are as following:\n\nsex: sex (1 = male, 2 = female)\nage: age in years\ntime_spend: hours spent on social media\n\\(q_1 ... q_{10}\\): Ten questions (items) of Rosenberg Self-Esteem Scale (RSES). The 10 items are answered on a four point scale ranging from strongly disagree to strongly agree.(0 = Strongly Disagree, 1 = Disagree, 2 = Agree, 3 = Strongly Agree)",
+    "crumbs": [
+      "Jamovi LAB",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>LAB I: Introduction to Jamovi</span>"
     ]
   }
 ]
