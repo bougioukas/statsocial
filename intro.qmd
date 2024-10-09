@@ -1,16 +1,14 @@
 # Introduction {#sec-introduction}
 
-
 ## The discipline of Statistics
 
 Statistics relies heavily on **probability theory** and encompasses empirical methods for collecting, organizing, summarizing, and presenting data, with the objective of drawing inferences about the population from which the data are derived. It includes different theoretical frameworks such as **traditional** (frequentist) statistics and **Bayesian** statistics. In this course, we will cover classical parametric and nonparametric statistical tests of traditional statistics.
 
 The discipline of traditional (frequentist) statistics includes two main branches (@fig-branches):
 
-- **Descriptive** statistics that includes measures of frequency and measures of location and dispersion. It also includes a description of the shape of the data distributions.
+-   **Descriptive** statistics that includes measures of frequency and measures of location and dispersion. It also includes a description of the shape of the data distributions.
 
-- **Inferential** statistics that aims at generalizing conclusions made on a sample to a whole population. It includes estimation and hypothesis testing.
-
+-   **Inferential** statistics that aims at generalizing conclusions made on a sample to a whole population. It includes estimation and hypothesis testing.
 
 ```{mermaid}
 %%| label: fig-branches
@@ -33,24 +31,24 @@ flowchart LR
 
 ## Data and variables
 
-Data in the social sciences refers to the information collected and analyzed to understand human behavior, societal structures and interactions. This data can come from a variety of sources, each offering unique insights into different aspects of human and societal dynamics. These sources include:
-
--   **Electronic Health Records (EHRs):** Provide detailed information about patients' medical histories, treatments, and health outcomes.
-
--   **Surveillance Systems:** Continuously monitor and analyze trends in real-time, including disease outbreaks, rollout and uptake of vaccinations, public health patterns, substance abuse trends, and crime statistics, to inform timely interventions and policy decisions.
-
--   **Clinical Registries:** Collect data on patients with specific medical conditions or treatments, offering insights into health outcomes and social determinants of health.
-
--   **Biobanks:** Store biological samples (e.g., blood, tissue) along with health and lifestyle data, helping to study the intersection of genetics, environment, and social factors.
-
--   **Internet and Social Media:** Generate large volumes of data on online interactions, behaviors, and social trends.
-
--   **Self-Reports:** Gather data through interviews, questionnaires, and surveys that capture individual experiences, behaviors, and attitudes, providing qualitative insights that enhance understanding of personal perspectives and social phenomena.
+Data in the social and health sciences refers to the information collected and analyzed to understand human behavior, societal structures and interactions. This data originates from various sources, each offering unique insights into different aspects of human and societal dynamics. These sources include:
 
 
-Social, behavioral, and biomedical **data** can be transformed into **information**. This information can evolve into **knowledge** when social scientists and stakeholders interpret and understand it, allowing them to take informed **actions**.
+-   **Self-Reports:** ![](images/q_icon.png){width="35" height="33"} These are collected through interviews, questionnaires, and surveys, capturing individual experiences, behaviors, and attitudes. They provide qualitative insights that enhance our understanding of personal perspectives and social phenomena.
 
-![From data to knowledge.](images/info.png){#fig-info width="90%"}
+-   **Internet and Social Media:** ![](images/internet_icon.png){width="35" height="33"} These platforms generate vast amounts of data on online interactions, behaviors, and social trends, offering valuable information on how people communicate and engage in the digital space.
+
+-   **Wearable Technology:** ![](images/wearable_icon.png){width="35" height="33"} Devices such as smartwatches, fitness trackers, smart glasses, and smart clothing equipped with sensors have become revolutionary tools for tracking and monitoring physiological and behavioral metrics in real-time. They provide critical insights into health, fitness, and daily habits.
+
+-   **Electronic Health Records (EHRs):** ![](images/ehr_icon.png){width="35" height="33"} EHRs offer detailed information about patients’ medical histories, treatments, and health outcomes, facilitating research on health trends and the effectiveness of interventions.
+
+-   **Health Surveillance Systems:** ![](images/surveillance_icon.png){width="35" height="33"} These systems continuously monitor and analyze trends in real-time, including disease outbreaks, vaccination uptake, public health patterns, substance abuse trends, and crime statistics, thereby informing timely interventions and policy decisions.
+
+-   **Clinical Registries:** ![](images/cl_registry_icon.png){width="35" height="33"} These collect data on patients with specific medical conditions or treatments, providing valuable insights into health outcomes and social determinants of health.
+
+-   **Biobanks:** ![](images/biobank_icon.png){width="35" height="33"} Biobanks store biological samples (e.g., blood, tissue) along with health and lifestyle data, enabling research into the intersections of genetics, environment, and social factors.
 
 
+Social, behavioral, and biomedical **data** can be transformed into **information**. This information can evolve into **knowledge** when social scientists and stakeholders interpret and understand it, allowing them to make **informed decisions**, shape policies, and implement interventions that address societal and health-related challenges more effectively.
 
+![From data to knowledge and action.](images/info.png){#fig-info width="90%"}

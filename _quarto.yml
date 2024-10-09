@@ -10,8 +10,6 @@ book:
   date: today
   cover-image: images/cover.png
   favicon: images/cover.png
-  #sidebar:
-    #logo: "images/lollipop2.png"
   chapters:
     - index.qmd
     - intro.qmd
