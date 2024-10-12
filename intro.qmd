@@ -1,5 +1,10 @@
 # Introduction {#sec-introduction}
 
+```{r}
+#| include: false
+
+library(fontawesome)
+```
 
 When we have finished this chapter, we should be able to:
 
@@ -29,9 +34,20 @@ Knowledge of the fundamental principles of statistics, data analysis, and resear
 
 ## The discipline of Statistics
 
-Statistics relies heavily on **probability theory** and encompasses empirical methods for collecting, organizing, summarizing, and presenting data, with the objective of drawing inferences about the population from which the data are derived. It includes different theoretical frameworks such as **traditional** (frequentist) statistics and **Bayesian** statistics. In this course, we will cover classical parametric and nonparametric statistical tests of traditional statistics.
+The word "statistics" originates from the Latin **"status"**. Initially, it referred to the political state of a region, with "statista" used for recording information like censuses or data on a state's wealth. Over time, the meaning and use of statistics broadened, and its scope evolved.
 
-The discipline of traditional (frequentist) statistics includes two main branches (@fig-branches):
+
+
+
+::: content-box-green
+
+Today, **Statistics** is an applied mathematical science that, according to Croxton and Cowden, can be defined as "the science of collection, presentation, analysis, and interpretation of **numerical data**".
+
+:::
+
+Statistics includes different theoretical frameworks such as **traditional** (frequentist) statistics and **Bayesian** statistics. In this course, we will cover classical parametric and nonparametric statistical tests of traditional statistics. 
+
+Relying heavily on **probability theory** and empirical methods, statistics aims to describe and summarize data as well as to draw inferences about the population from which the data are derived. Therefore, the discipline of traditional (frequentist) statistics includes two main branches (@fig-branches):
 
 -   **Descriptive** statistics that includes measures of frequency and measures of location and dispersion. It also includes a description of the shape of the data distributions.
 
@@ -54,7 +70,7 @@ flowchart LR
     
 ```
 
-In a research study, both descriptive and inferential statistics are commonly used. First, researchers present descriptive statistics (e.g., demographic data, baseline characteristics) to provide a clear snapshot of the sample. Then, inferential statistics are applied to test hypotheses and draw conclusions about the broader population from which the sample was drawn.
+In a research study, **both** descriptive and inferential statistics are commonly used. First, researchers present descriptive statistics (e.g., demographic data, baseline characteristics) to provide a clear snapshot of the sample. Then, inferential statistics are applied to test hypotheses and draw conclusions about the broader population from which the sample was drawn.
 
  
 
