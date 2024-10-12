@@ -70,6 +70,12 @@ In a research study, **both** descriptive and inferential statistics are commonl
 
 We are living in the "Age of Data", where every day, an astonishing 2.5 quintillion ($10^{18}$) bytes of data are generated worldwide. An example of how this era is transforming scientific research can be seen in large-scale multi-ancestry genome-wide association studies (GWAS), which are used to uncover the genetic basis of complex conditions like anxiety disorders. In a recent study, researchers analyzed genomic data from more than 1.2 million individuals across diverse populations, identifying more than 100 genes associated with stress and anxiety [@friligkou2024].
 
+A second example is chatbots, which are designed to simulate conversations with users. ELIZA (1966) was one such program. Its famous "DOCTOR" script emulated a psychotherapist by rephrasing user statements as questions. Modern chatbots, such as ChatGPT and Gemini, are large language models trained on vast datasets using deep learning techniques. These models are capable of understanding and generating human-like text, effectively responding to a wide range of user queries.
+
+![The most famous scenario, “DOCTOR”, simulated a psychotherapist of the Rogerian school.](images/eliza.png){fig-align="center" width=75%}
+
+ 
+
 Data in the social and health sciences refers to the information collected and analyzed to understand human behavior, societal structures and interactions. This data originates from various sources, each offering unique insights into different aspects of human and societal dynamics. These sources include:
 
 -   **Self-Reports:** ![](images/q_icon.png){width="35" height="33"} These are collected through interviews, questionnaires, and surveys, capturing individual experiences, behaviors, and attitudes. They provide qualitative insights that enhance our understanding of personal perspectives and social phenomena.
