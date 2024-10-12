@@ -1,5 +1,32 @@
 # Introduction {#sec-introduction}
 
+
+When we have finished this chapter, we should be able to:
+
+::: {.callout-caution icon="false"}
+## Learning objectives
+
+-   Distinguish descriptive from inferential statistics.
+-   Explain the difference between qualitative and quantitative data.
+-   Understand the difference between dependent and independent variables.
+-   Identify the type of any given variable.
+:::
+
+
+
+## Why learn basic statistics?
+
+Knowledge of the fundamental principles of statistics, data analysis, and research methodology is essential for professionals in psychology and other social sciences today for three main reasons:
+
+-   **Understanding key statistical indicators:** This knowledge allows professionals to interpret data and indicators from sources such as ELSTAT, EUROSTAT, and WHO. With this expertise, they can effectively assess and verify relevant information from around the world, hereby helping to counter misinformation. Key examples of these indicators include population health status, social inequalities, rates of violence and crime, unemployment rates, educational attainment levels, poverty rates, and access to healthcare services.
+
+
+- **Critically analyzing research studies:** Professionals are better equipped to evaluate research studies and their findings, ensuring they can identify strengths, weaknesses, and potential biases.
+
+-   **Conducting independent research:** Familiarity with statistics enables professionals who conduct their own research to collaborate more effectively with statistical experts, enhancing the overall quality of their work.
+
+
+
 ## The discipline of Statistics
 
 Statistics relies heavily on **probability theory** and encompasses empirical methods for collecting, organizing, summarizing, and presenting data, with the objective of drawing inferences about the population from which the data are derived. It includes different theoretical frameworks such as **traditional** (frequentist) statistics and **Bayesian** statistics. In this course, we will cover classical parametric and nonparametric statistical tests of traditional statistics.
@@ -27,12 +54,13 @@ flowchart LR
     
 ```
 
+In a research study, both descriptive and inferential statistics are commonly used. First, researchers present descriptive statistics (e.g., demographic data, baseline characteristics) to provide a clear snapshot of the sample. Then, inferential statistics are applied to test hypotheses and draw conclusions about the broader population from which the sample was drawn.
+
  
 
 ## Data and variables
 
 Data in the social and health sciences refers to the information collected and analyzed to understand human behavior, societal structures and interactions. This data originates from various sources, each offering unique insights into different aspects of human and societal dynamics. These sources include:
-
 
 -   **Self-Reports:** ![](images/q_icon.png){width="35" height="33"} These are collected through interviews, questionnaires, and surveys, capturing individual experiences, behaviors, and attitudes. They provide qualitative insights that enhance our understanding of personal perspectives and social phenomena.
 
@@ -47,7 +75,6 @@ Data in the social and health sciences refers to the information collected and a
 -   **Clinical Registries:** ![](images/cl_registry_icon.png){width="35" height="33"} These collect data on patients with specific medical conditions or treatments, providing valuable insights into health outcomes and social determinants of health.
 
 -   **Biobanks:** ![](images/biobank_icon.png){width="35" height="33"} Biobanks store biological samples (e.g., blood, tissue) along with health and lifestyle data, enabling research into the intersections of genetics, environment, and social factors.
-
 
 Social, behavioral, and biomedical **data** can be transformed into **information**. This information can evolve into **knowledge** when social scientists and stakeholders interpret and understand it, allowing them to make **informed decisions**, shape policies, and implement interventions that address societal and health-related challenges more effectively.
 
