@@ -62,9 +62,10 @@ flowchart LR
 
 In a research study, **both** descriptive and inferential statistics are commonly used. First, researchers present descriptive statistics (e.g., demographic data, baseline characteristics) to provide a clear snapshot of the sample. Then, inferential statistics are applied to test hypotheses and draw conclusions about the broader population from which the sample was drawn.
 
- 
 
 ## Data and variables
+
+### The "Age of data"
 
 ![](images/gwas.png){style="float: left; margin-right: 20px;" fig-align="left" width="200"}
 
@@ -75,20 +76,22 @@ A second example is chatbots, which are designed to simulate conversations with 
 ![The most famous scenario, “DOCTOR”, simulated a psychotherapist of the Rogerian school.](images/eliza.png){#fig-eliza fig-align="center" width=75%}
 
 
-There are three main data structures: structured data, unstructured data, and semi-structured data.
+### Structure of data
 
-**Structured data** generally refer to highly organized tabular data, facilitating straightforward search, analysis, and processing. Examples include data stored in spreadsheets, such as Excel files, or in comma-separated values (CSV) files.
+There are three main data structures:
 
-**Semi-Structured data** are a form of structured data that do not follow a strict tabular format but still have some organizational properties. For example, emails are semi-structured; they include fields like sender, recipient, subject, date, and time, and are also organized into folders such as Inbox, Sent, and Trash.
+-   **Structured data** generally refer to highly organized tabular data, facilitating straightforward search, analysis, and processing. Examples include data stored in spreadsheets, such as Excel files, or in comma-separated values (CSV) files.
 
-**Unstructured data** refer to information that lacks a predefined format or organization, such as open text (e.g., social media posts), images, videos, and other forms of multimedia.
+-   **Semi-Structured data** are a form of structured data that do not follow a strict tabular format but still have some organizational properties. For example, emails are semi-structured; they include fields like sender, recipient, subject, date, and time, and are also organized into folders such as Inbox, Sent, and Trash.
+
+-   **Unstructured data** refer to information that lacks a predefined format or organization, such as open text (e.g., social media posts), images, videos, and other forms of multimedia.
 
 In this course, we use data organized in a structured format, such as spreadsheets. Tabular data refer to data organized in a table with rows and columns. Each row represents an observation (or record), corresponding to a statistical unit in the dataset. The columns represent the variables (or characteristics) of interest.
 Cells are the individual units where rows and columns intersect. Each cell contains a data value corresponding to the observation for that row and the variable for that column.
 
-![A typical excel spreadsheet with row and columns.](images/datable.png){#fig-datable fig-align="center" width=75%}
+![A typical excel spreadsheet with row and columns.](images/datable.png){#fig-datable fig-align="center" width=85%}
 
- 
+### Sources of social and health data
 
 Data in the social and health sciences refers to the information collected and analyzed to understand human behavior, societal structures and interactions. This data originates from various sources, each offering unique insights into different aspects of human and societal dynamics. These sources include:
 
@@ -105,6 +108,9 @@ Data in the social and health sciences refers to the information collected and a
 -   **Clinical Registries:** ![](images/cl_registry_icon.png){width="35" height="33"} These collect data on patients with specific medical conditions or treatments, providing valuable insights into health outcomes and social determinants of health.
 
 -   **Biobanks:** ![](images/biobank_icon.png){width="35" height="33"} Biobanks store biological samples (e.g., blood, tissue) along with health and lifestyle data, enabling research into the intersections of genetics, environment, and social factors.
+
+
+### From data to knowledge and decisions
 
 Social, behavioral, and biomedical **data** can be transformed into **information**. This information can evolve into **knowledge** when social scientists and stakeholders interpret and understand it, allowing them to make **informed decisions**, shape policies, and implement interventions that address societal and health-related challenges more effectively.
 
