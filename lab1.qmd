@@ -16,7 +16,7 @@ rses <- read_excel(here("data", "rses.xlsx"))
 When we have finished this Lab, we should be able to:
 
 ::: {.callout-caution icon="false"}
-## Learning objectives
+## `r fa("circle-dot", prefer_type = "regular", fill = "red")` Learning objectives
 
 -   Navigate Jamovi, import files and transform the data.
 -   Filter data.
@@ -24,7 +24,6 @@ When we have finished this Lab, we should be able to:
 -   Transform existing variables.
 :::
 
- 
 
 ## Why Jamovi?
 
@@ -96,7 +95,7 @@ There are six tabs in the Menu (from left to right): **File** (a layer with thre
 |                                                                                                                                                             |                                                                                                                                                     |
 |                                                                                                                                                             | -   Edit our variable details by double-clicking on the data symbol (the screen will appear for us to add all the necessary information).           |
 |                                                                                                                                                             |                                                                                                                                                     |
-|                                                                                                                                                             | -   Create a new variable by clicking on the![](images/plus_icon.png){width="34"} in the bottom right corner. |
+|                                                                                                                                                             | -   Create a new variable by clicking on the![](images/plus_icon.png){width="34"} in the bottom right corner. \|                                    |
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
 | 3.  **Data tab**                                                                                                                                            | ![](images/tab_data.png){width="100%"}                                                                                                              |
 |                                                                                                                                                             |                                                                                                                                                     |
@@ -130,7 +129,7 @@ There are six tabs in the Menu (from left to right): **File** (a layer with thre
 |                                                                                                                                                             |                                                                                                                                                     |
 |                                                                                                                                                             | For example, if we want to perform regression analysis, we simply click the ''Regression" button.                                                   |
 |                                                                                                                                                             |                                                                                                                                                     |
-|                                                                                                                                                             | All other modules need to be installed using the **Modules** button (Plus button) in our top-right ![](images/modules.png){width="44"}             |
+|                                                                                                                                                             | All other modules need to be installed using the **Modules** button (Plus button) in our top-right ![](images/modules.png){width="44"} \|           |
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
 | 5.  **Edit tab**                                                                                                                                            | ![](images/tab_edit.png)                                                                                                                            |
 |                                                                                                                                                             |                                                                                                                                                     |
@@ -150,7 +149,6 @@ There are six tabs in the Menu (from left to right): **File** (a layer with thre
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
 
 : Menu and toolbars of Jamovi {#tbl-menu}
-
 
  
 
@@ -215,15 +213,13 @@ The meta-data (data about the data) for this dataset are as following:
 1.  **sex:** sex (1 = male, 2 = female)
 2.  **age:** age in years
 3.  **time_spend:** hours spent on social media
-4.  **$q_1 ... q_{10}$:** Ten questions (items) of Rosenberg Self-Esteem Scale (RSES). The 10 items are answered on a four point scale ranging from strongly disagree to strongly agree.(0 = Strongly Disagree, 1 = Disagree, 2 = Agree, 3 = Strongly Agree)
-
+4.  $q_1 ... q_{10}$: Ten questions (items) of Rosenberg Self-Esteem Scale (RSES). The 10 items are answered on a four point scale ranging from strongly disagree to strongly agree.(0 = Strongly Disagree, 1 = Disagree, 2 = Agree, 3 = Strongly Agree)
 
 ### Opening the file
 
 To open this `csv` file, click on the **File** tab ![](images/hbars.png){width="28" height="17"} at the top left hand corner (just left of the **Variables** tab) (@fig-tab_analysis_file).
 
 ![Click on the File tab](images/tab_analysis_file.png){#fig-tab_analysis_file}
-
 
 This will open the menu shown in @fig-open_file. Select '**Open**' and then '**This PC**'. Choose the downloaded file from the files listed on '**Browse**' which are stored on our computer folders:
 
@@ -236,7 +232,6 @@ This will open the menu shown in @fig-open_file. Select '**Open**' and then '**T
 
 knitr::include_graphics(here::here("images", "open_file.png"))
 ```
-
 
  
 
@@ -261,32 +256,18 @@ We should see data now in the Spreadsheet view (@fig-dataset).
 knitr::include_graphics(here::here("images", "dataset.png"))
 ```
 
-
-As we can see this is a data set with `r nrow(rses)` observations and `r ncol(rses)` variables. JAMOVI has classified all the variables as nominal ![](images/nominal.png){width="24" height="22"}; however, only the `sex` variable is actually nominal. 
-
+As we can see this is a data set with `r nrow(rses)` observations and `r ncol(rses)` variables. JAMOVI has classified all the variables as nominal ![](images/nominal.png){width="24" height="22"}; however, only the `sex` variable is actually nominal.
 
 ## Transforming data
 
-
 ### Changing the measure type
 
-First, we will change the measure type from nominal to continuous for all  variables except `sex`.
-For example, double-click on the variable name `age`. This will open an additional menu at the top of the JAMOVI screen, as shown in @fig-type_age:
+First, we will change the measure type from nominal to continuous for all variables except `sex`. For example, double-click on the variable name `age`. This will open an additional menu at the top of the JAMOVI screen, as shown in @fig-type_age:
 
 ![Extra menu for data variables.](images/type_age.png){#fig-type_age width="90%"}
-
 
 From the drop-down list of "Measure type" we select the continuous type ![](images/continuous.png){width="23" height="21"}, as shown in @fig-type_age2.
 
 ![Extra menu for data variables.](images/type_age2.png){#fig-type_age2 width="80%"}
 
-
-
-The categorical variable `sex` is coded as 1 for males and 2 for females, and it is stored as nominal ![](images/nominal.png){width="24" height="22"}. 
-
-
-
-
-
-
-
+The categorical variable `sex` is coded as 1 for males and 2 for females, and it is stored as nominal ![](images/nominal.png){width="24" height="22"}.

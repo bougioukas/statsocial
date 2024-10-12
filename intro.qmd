@@ -9,7 +9,7 @@ library(fontawesome)
 When we have finished this chapter, we should be able to:
 
 ::: {.callout-caution icon="false"}
-## Learning objectives
+## `r fa("circle-dot", prefer_type = "regular", fill = "red")` Learning objectives
 
 -   Distinguish descriptive from inferential statistics.
 -   Explain the difference between qualitative and quantitative data.
@@ -17,35 +17,25 @@ When we have finished this chapter, we should be able to:
 -   Identify the type of any given variable.
 :::
 
-
-
 ## Why learn basic statistics?
 
 Knowledge of the fundamental principles of statistics, data analysis, and research methodology is essential for professionals in psychology and other social sciences today for three main reasons:
 
 -   **Understanding key statistical indicators:** This knowledge allows professionals to interpret data and indicators from sources such as ELSTAT, EUROSTAT, and WHO. With this expertise, they can effectively assess and verify relevant information from around the world, hereby helping to counter misinformation. Key examples of these indicators include population health status, social inequalities, rates of violence and crime, unemployment rates, educational attainment levels, poverty rates, and access to healthcare services.
 
-
-- **Critically analyzing research studies:** Professionals are better equipped to evaluate research studies and their findings, ensuring they can identify strengths, weaknesses, and potential biases.
+-   **Critically analyzing research studies:** Professionals are better equipped to evaluate research studies and their findings, ensuring they can identify strengths, weaknesses, and potential biases.
 
 -   **Conducting independent research:** Familiarity with statistics enables professionals who conduct their own research to collaborate more effectively with statistical experts, enhancing the overall quality of their work.
-
-
 
 ## The discipline of Statistics
 
 The word "statistics" originates from the Latin **"status"**. Initially, it referred to the political state of a region, with "statista" used for recording information like censuses or data on a state's wealth. Over time, the meaning and use of statistics broadened, and its scope evolved.
 
-
-
-
 ::: content-box-green
-
 Today, **Statistics** is an applied mathematical science that, according to Croxton and Cowden, can be defined as "the science of collection, presentation, analysis, and interpretation of **numerical data**".
-
 :::
 
-Statistics includes different theoretical frameworks such as **traditional** (frequentist) statistics and **Bayesian** statistics. In this course, we will cover classical parametric and nonparametric statistical tests of traditional statistics. 
+Statistics includes different theoretical frameworks such as **traditional** (frequentist) statistics and **Bayesian** statistics. In this course, we will cover classical parametric and nonparametric statistical tests of traditional statistics.
 
 Relying heavily on **probability theory** and empirical methods, statistics aims to describe and summarize data as well as to draw inferences about the population from which the data are derived. Therefore, the discipline of traditional (frequentist) statistics includes two main branches (@fig-branches):
 
@@ -75,6 +65,10 @@ In a research study, **both** descriptive and inferential statistics are commonl
  
 
 ## Data and variables
+
+![](images/gwas.png){style="float: left; margin-right: 20px;" fig-align="left" width="200"}
+
+We are living in the "Age of Data", where every day, an astonishing 2.5 quintillion ($10^{18}$) bytes of data are generated worldwide. An example of how this era is transforming scientific research can be seen in large-scale multi-ancestry genome-wide association studies (GWAS), which are used to uncover the genetic basis of complex conditions like anxiety disorders. In a recent study, researchers analyzed genomic data from more than 1.2 million individuals across diverse populations, identifying more than 100 genes associated with stress and anxiety [@friligkou2024].
 
 Data in the social and health sciences refers to the information collected and analyzed to understand human behavior, societal structures and interactions. This data originates from various sources, each offering unique insights into different aspects of human and societal dynamics. These sources include:
 
