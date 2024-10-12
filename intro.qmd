@@ -63,7 +63,7 @@ flowchart LR
 In a research study, **both** descriptive and inferential statistics are commonly used. First, researchers present descriptive statistics (e.g., demographic data, baseline characteristics) to provide a clear snapshot of the sample. Then, inferential statistics are applied to test hypotheses and draw conclusions about the broader population from which the sample was drawn.
 
 
-## Data and variables
+## Talking about data
 
 ### The "Age of data"
 
@@ -115,3 +115,7 @@ Data in the social and health sciences refers to the information collected and a
 Social, behavioral, and biomedical **data** can be transformed into **information**. This information can evolve into **knowledge** when social scientists and stakeholders interpret and understand it, allowing them to make **informed decisions**, shape policies, and implement interventions that address societal and health-related challenges more effectively.
 
 ![From data to knowledge and action.](images/info.png){#fig-info width="90%"}
+
+
+## Variables
+

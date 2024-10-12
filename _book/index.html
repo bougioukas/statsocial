@@ -220,7 +220,7 @@ ul.task-list li input[type="checkbox"] {
 (function() {
   var script = document.currentScript;
   var qrcode = script.previousElementSibling;
-  qrcode.qrcode = new QRCode(qrcode, {"width":"100","colorLight":"#ffffff","colorDark":"#0011bb","text":"https://statsocial.netlify.app/","height":"100"});
+  qrcode.qrcode = new QRCode(qrcode, {"colorLight":"#ffffff","text":"https://statsocial.netlify.app/","height":"100","width":"100","colorDark":"#0011bb"});
   script.remove();
 })();
 </script>
