@@ -72,7 +72,7 @@ We are living in the "Age of Data", where every day, an astonishing 2.5 quintill
 
 A second example is chatbots, which are designed to simulate conversations with users. ELIZA (1966) was one such program. Its famous "DOCTOR" script emulated a psychotherapist by rephrasing user statements as questions. Modern chatbots, such as ChatGPT and Gemini, are large language models trained on vast datasets using deep learning techniques. These models are capable of understanding and generating human-like text, effectively responding to a wide range of user queries.
 
-![The most famous scenario, “DOCTOR”, simulated a psychotherapist of the Rogerian school.](images/eliza.png){fig-align="center" width=75%}
+![The most famous scenario, “DOCTOR”, simulated a psychotherapist of the Rogerian school.](images/eliza.png){#fig-eliza fig-align="center" width=75%}
 
  
 
