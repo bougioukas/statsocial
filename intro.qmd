@@ -74,6 +74,20 @@ A second example is chatbots, which are designed to simulate conversations with 
 
 ![The most famous scenario, “DOCTOR”, simulated a psychotherapist of the Rogerian school.](images/eliza.png){#fig-eliza fig-align="center" width=75%}
 
+
+There are three main data structures: structured data, unstructured data, and semi-structured data.
+
+**Structured data** generally refer to highly organized tabular data, facilitating straightforward search, analysis, and processing. Examples include data stored in spreadsheets, such as Excel files, or in comma-separated values (CSV) files.
+
+**Semi-Structured data** are a form of structured data that do not follow a strict tabular format but still have some organizational properties. For example, emails are semi-structured; they include fields like sender, recipient, subject, date, and time, and are also organized into folders such as Inbox, Sent, and Trash.
+
+**Unstructured data** refer to information that lacks a predefined format or organization, such as open text (e.g., social media posts), images, videos, and other forms of multimedia.
+
+In this course, we use data organized in a structured format, such as spreadsheets. Tabular data refer to data organized in a table with rows and columns. Each row represents an observation (or record), corresponding to a statistical unit in the dataset. The columns represent the variables (or characteristics) of interest.
+Cells are the individual units where rows and columns intersect. Each cell contains a data value corresponding to the observation for that row and the variable for that column.
+
+![A typical excel spreadsheet with row and columns.](images/datable.png){#fig-datable fig-align="center" width=75%}
+
  
 
 Data in the social and health sciences refers to the information collected and analyzed to understand human behavior, societal structures and interactions. This data originates from various sources, each offering unique insights into different aspects of human and societal dynamics. These sources include:
