@@ -138,14 +138,18 @@ An important socio-economic indicator at country level is the percentage of peop
 
 ![The percentage of people at risk of poverty or social exclusion in Eurozone. Greece (EL) is highlihgted.](images/poverty.png){#fig-poverty width="70%"}
 
-In 2023, over a quarter (26.1%) of the Greek population was at risk of poverty or social exclusion, ranking Greece (EL) among the highest in the Eurozone, just behind Spain (ES; 26.5%), as shown in @fig-poverty.  
+In 2023, over a quarter (26.1%) of the Greek population was at risk of poverty or social exclusion, ranking Greece (EL) among the highest in the Eurozone, just behind Spain (ES; 26.5%), as shown in @fig-poverty. 
+
+ 
+
 
 **Example 2**
 
 ![](images/violence.png){style="float: left; margin-right: 20px;" fig-align="left" width="100"}
 
 
-Violence against women and gender inequalities represent critical public health and social challenges that demand urgent attention. This report, based on data from 2018 and published in May 2021, created by the World Health Organization, the London School of Hygiene and Tropical Medicine and the South African Medical Research Council presents data on the prevalence of violence against women.
+Gender inequalities and violence against women and girls are urgent social and public health issues that require immediate attention.
+A report, based on data from 2018 and published in May 2021, conducted by the World Health Organization, the London School of Hygiene and Tropical Medicine and the South African Medical Research Council, presents findings on the prevalence of violence against women.
 
 The report found that the global lifetime prevalence of intimate partner
 violence among ever-partnered women was **30.0%** (95% CI = 27.8% to 32.2%).
@@ -165,6 +169,13 @@ This indicates that the prevalence of violence against women can differ signific
 
 The report also references the [Kirabati case](https://iris.who.int/handle/10665/207758); a country consisting of 33 islands situated in the central Pacific Ocean. The family health study revealed an alarming prevalence of violence against women in Kiribati, with 68% of women aged 15–49 who had been in a relationship reporting experiences of violence (emotional, physical, and/or sexual) from a partner.
 This finding highlights how social statistics can assist in identifying **rare cases** (extreme values) to raise global concern and prompt immediate action.
+
+
+
+The following YouTube video from *UN Women* is a campaign aimed at raising awareness about violence against women and girls.
+
+{{< video https://www.youtube.com/watch?v=W_ZPHPutN-c title="Ending Violence against women and girls">}}
+
 
 
 ## Variables
