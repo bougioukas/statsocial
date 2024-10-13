@@ -131,8 +131,7 @@ An important socio-economic indicator at country level is the percentage of peop
 
 ![The percentage of people at risk of poverty or social exclusion in Eurozone. Greece (EL) is highlihgted.](images/poverty.png){#fig-poverty width="70%"}
 
-In 2023, over a quarter of the Greek population (EL) is at risk of poverty or social exclusion, with a percentage of 26.1%, ranking Greece among the highest in the Eurozone, just below Spain (ES) at 26.5%.
-
+In 2023, over a quarter of the Greek population was at risk of poverty or social exclusion, with a percentage of 26.1%, ranking Greece (EL) among the highest in the Eurozone, just below Spain (ES) at 26.5%.
  
 
 **EXAMPLE 2**
