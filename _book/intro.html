@@ -329,17 +329,20 @@ Figure&nbsp;1.1: The discipline of statistics and its two branches, descriptive 
 </figure>
 </div>
 <p>We are living in the “Age of Data”, where every day, an astonishing 2.5 quintillion (<span class="math inline">\(10^{18}\)</span>) bytes of data are generated worldwide. An example of how this era is transforming scientific research can be seen in large-scale multi-ancestry genome-wide association studies (GWAS), which are used to uncover the genetic basis of complex conditions like anxiety disorders. In a recent study, researchers analyzed genomic data from more than 1.2 million individuals across diverse populations, identifying more than 100 genes associated with stress and anxiety <span class="citation" data-cites="friligkou2024">(<a href="references.html#ref-friligkou2024" role="doc-biblioref">Friligkou et al. 2024</a>)</span>.</p>
-<p>A second example is chatbots, which are designed to simulate conversations with users. ELIZA (1966) was one such program. Its famous “DOCTOR” script emulated a psychotherapist by rephrasing user statements as questions. Modern chatbots, such as ChatGPT and Gemini, are large language models trained on vast datasets using deep learning techniques. These models are capable of understanding and generating human-like text, effectively responding to a wide range of user queries.</p>
-<div id="fig-eliza" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<p>A second example is chatbots, which are designed to simulate conversations with users. ELIZA (1966) was one such program. Its famous “DOCTOR” script emulated a psychotherapist by rephrasing user statements as questions (<a href="#fig-eliza" class="quarto-xref">Figure&nbsp;<span>1.2</span></a>). Modern chatbots, such as ChatGPT, Gemini and Copilot, are large language models trained on <strong>vast datasets</strong> using deep learning techniques. These models are capable of understanding and generating human-like text, effectively responding to a wide range of user queries.</p>
+<div id="fig-eliza" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The most famous scenario simulated a psychotherapist of the Rogerian school.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-eliza-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/eliza.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%">
+<img src="images/eliza.png" class="img-fluid figure-img" style="width:75.0%" alt="The most famous scenario simulated a psychotherapist of the Rogerian school.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-eliza-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1.2: The most famous scenario, “DOCTOR”, simulated a psychotherapist of the Rogerian school.
+Figure&nbsp;1.2: The most famous scenario simulated a psychotherapist of the Rogerian school.
 </figcaption>
 </figure>
 </div>
+<p>&nbsp;</p>
+<p>Next is a YouTube video that explores the history of Eliza.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/zhxNI7V2IxM" title="The History of ELIZA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
 <section id="structure-of-data" class="level3" data-number="1.3.2">
 <h3 data-number="1.3.2" class="anchored" data-anchor-id="structure-of-data"><span class="header-section-number">1.3.2</span> Structure of data</h3>
@@ -349,11 +352,11 @@ Figure&nbsp;1.2: The most famous scenario, “DOCTOR”, simulated a psychothera
 <li><p><strong>Semi-Structured data</strong> are a form of structured data that do not follow a strict tabular format but still have some organizational properties. For example, emails are semi-structured; they include fields like sender, recipient, subject, date, and time, and are also organized into folders such as Inbox, Sent, and Trash.</p></li>
 <li><p><strong>Unstructured data</strong> refer to information that lacks a predefined format or organization, such as open text (e.g., social media posts), images, videos, and other forms of multimedia.</p></li>
 </ul>
-<p>In this course, we use data organized in a structured format, such as spreadsheets. Tabular data refer to data organized in a table with rows and columns. Each row represents an observation (or record), corresponding to a statistical unit in the dataset. The columns represent the variables (or characteristics) of interest. Cells are the individual units where rows and columns intersect. Each cell contains a data value corresponding to the observation for that row and the variable for that column.</p>
-<div id="fig-datable" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<p>In this course, we use data organized in a structured format, such as spreadsheets. Tabular data refer to data organized in a table with rows and columns (<a href="#fig-datable" class="quarto-xref">Figure&nbsp;<span>1.3</span></a>). Each row represents an observation (or record), corresponding to a statistical unit in the dataset. The columns represent the variables (or characteristics) of interest. Cells are the individual units where rows and columns intersect. Each cell contains a data value corresponding to the observation for that row and the variable for that column.</p>
+<div id="fig-datable" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A typical excel spreadsheet with row and columns.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-datable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/datable.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%">
+<img src="images/datable.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%" alt="A typical excel spreadsheet with row and columns.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-datable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.3: A typical excel spreadsheet with row and columns.
@@ -376,11 +379,11 @@ Figure&nbsp;1.3: A typical excel spreadsheet with row and columns.
 </section>
 <section id="from-data-to-knowledge-and-decisions" class="level3" data-number="1.3.4">
 <h3 data-number="1.3.4" class="anchored" data-anchor-id="from-data-to-knowledge-and-decisions"><span class="header-section-number">1.3.4</span> From data to knowledge and decisions</h3>
-<p>Social, behavioral, and biomedical <strong>data</strong> can be transformed into <strong>information</strong>. This information can evolve into <strong>knowledge</strong> when social scientists and stakeholders interpret and understand it, allowing them to make <strong>informed decisions</strong>, shape policies, and implement interventions that address societal and health-related challenges more effectively.</p>
-<div id="fig-info" class="quarto-float quarto-figure quarto-figure-center anchored">
+<p>Social, behavioral, and biomedical <strong>data</strong> can be transformed into <strong>information</strong>. This information can evolve into <strong>knowledge</strong> when social scientists and stakeholders interpret and understand it, allowing them to make <strong>informed decisions</strong>, shape policies, and implement interventions that address societal and health-related challenges more effectively (<a href="#fig-info" class="quarto-xref">Figure&nbsp;<span>1.4</span></a>).</p>
+<div id="fig-info" class="quarto-float quarto-figure quarto-figure-center anchored" alt="From data to knowledge and action.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-info-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/info.png" class="img-fluid figure-img" style="width:90.0%">
+<img src="images/info.png" class="img-fluid figure-img" style="width:90.0%" alt="From data to knowledge and action.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-info-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.4: From data to knowledge and action.
@@ -394,7 +397,7 @@ Figure&nbsp;1.4: From data to knowledge and action.
 <p>Social statistics is a field of statistics applied in the social sciences to study social phenomena and trends. It employs various statistical methods of data collection, such as censuses, social surveys, and administrative records. These methods are commonly used by government agencies, institutions, and researchers to analyze data related to social life, human behavior, and society as a whole.</p>
 <p>The primary goal of social statistics is to provide objective, quantitative evidence that aids in understanding and interpreting social issues, ultimately informing the development of appropriate social policies.</p>
 <p>Let’s take a look at some examples.</p>
-<p><strong>EXAMPLE 1</strong></p>
+<p><strong>Example 1</strong></p>
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
 <p><img src="images/elstat_icon.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="float: left; margin-right: 20px;" width="100"></p>
@@ -412,8 +415,8 @@ Figure&nbsp;1.5: The percentage of people at risk of poverty or social exclusion
 </figcaption>
 </figure>
 </div>
-<p>In 2023, over a quarter of the Greek population was at risk of poverty or social exclusion, with a percentage of 26.1%, ranking Greece (EL) among the highest in the Eurozone, just below Spain (ES) at 26.5%. &nbsp;</p>
-<p><strong>EXAMPLE 2</strong></p>
+<p>In 2023, over a quarter (26.1%) of the Greek population was at risk of poverty or social exclusion, ranking Greece (EL) among the highest in the Eurozone, just behind Spain (ES; 26.5%), as shown in <a href="#fig-poverty" class="quarto-xref">Figure&nbsp;<span>1.5</span></a>. &nbsp;</p>
+<p><strong>Example 2</strong></p>
 </section>
 <section id="variables" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="variables"><span class="header-section-number">1.5</span> Variables</h2>
