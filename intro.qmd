@@ -74,13 +74,11 @@ A second example is chatbots, which are designed to simulate conversations with 
 
 ![The most famous scenario simulated a psychotherapist of the Rogerian school.](images/eliza.png){#fig-eliza width="75%" fig-alt="The most famous scenario simulated a psychotherapist of the Rogerian school."}
 
-
  
 
 Next is a YouTube video that explores the history of Eliza and chatbots.
 
 {{< video https://www.youtube.com/watch?v=zhxNI7V2IxM title="The History of ELIZA">}}
-
 
 ### Structure of data
 
@@ -122,11 +120,11 @@ Social, behavioral, and biomedical **data** can be transformed into **informatio
 
 ## Social Statistics
 
-Social statistics is a field of statistics applied in the social sciences to study social phenomena and trends. It employs various statistical methods of data collection, such as censuses, social surveys, and administrative records. These methods are commonly used by government agencies, institutions, and researchers to analyze data related to social life, human behavior, and society as a whole.
+**Social statistics** is a field of statistics applied in the social sciences to study **social phenomena** and **trends**. It employs various statistical methods of data collection, such as censuses, social surveys, and administrative records. These methods are commonly used by international organizations, government agencies, institutions, and researchers to analyze data related to social life, human behavior, and society as a whole.
 
 The primary goal of social statistics is to provide objective, quantitative evidence that aids in understanding and interpreting social issues, ultimately informing the development of appropriate social policies.
 
-Let's take a look at some examples.
+Let's explore some examples of **official statistics** from national governments and international organizations.
 
 **Example 1**
 
@@ -138,38 +136,27 @@ An important socio-economic indicator at country level is the percentage of peop
 
 ![The percentage of people at risk of poverty or social exclusion in Eurozone. Greece (EL) is highlihgted.](images/poverty.png){#fig-poverty width="70%"}
 
-In 2023, over a quarter (26.1%) of the Greek population was at risk of poverty or social exclusion, ranking Greece (EL) among the highest in the Eurozone, just behind Spain (ES; 26.5%), as shown in @fig-poverty. 
+In 2023, over a quarter (26.1%) of the Greek population was at risk of poverty or social exclusion, ranking Greece (EL) among the highest in the Eurozone, just behind Spain (ES; 26.5%), as shown in @fig-poverty.
 
  
-
 
 **Example 2**
 
 ![](images/violence.png){style="float: left; margin-right: 20px;" fig-align="left" width="100"}
 
+Gender inequalities and violence against women and girls are urgent social and public health issues that require immediate attention. A report, based on data from 2018 and published in May 2021, conducted by the World Health Organization, the London School of Hygiene and Tropical Medicine and the South African Medical Research Council, presents findings on the prevalence of violence against women.
 
-Gender inequalities and violence against women and girls are urgent social and public health issues that require immediate attention.
-A report, based on data from 2018 and published in May 2021, conducted by the World Health Organization, the London School of Hygiene and Tropical Medicine and the South African Medical Research Council, presents findings on the prevalence of violence against women.
-
-The report found that the global lifetime prevalence of intimate partner
-violence among ever-partnered women was **30.0%** (95% CI = 27.8% to 32.2%).
+The report found that the global lifetime prevalence of intimate partner violence among ever-partnered women was **30.0%** (95% CI = 27.8% to 32.2%).
 
 ::: content-box-purple
 It is important to note that this estimated percentage (30%) is accompanied by a confidence interval (CI), which indicates a range from 27.8% to 32.2%. This interval reflects the precision of the estimate, and we will discuss it further in the subsequent sections of the course.
 :::
 
-The report also mentioned that the prevalence of intimate partner
-violence among ever-partnered women was highest in the WHO African, Eastern Mediterranean and South-East Asia Regions with an estimated prevalence of approximately 37%. In contrast, the prevalence was lower in the high-income regions of America (23%) and the European and Western Pacific Regions (25%).
-This indicates that the prevalence of violence against women can differ significantly among regions, influenced by a range of socio-economic factors. In statistical terms, this suggests that there is a large **variance** in the data.
-
-
+The report also mentioned that the prevalence of intimate partner violence among ever-partnered women was highest in the WHO African, Eastern Mediterranean and South-East Asia Regions with an estimated prevalence of approximately 37%. In contrast, the prevalence was lower in the high-income regions of America (23%) and the European and Western Pacific Regions (25%). This indicates that the prevalence of violence against women can differ significantly among regions, influenced by a range of socio-economic factors. In statistical terms, this suggests that there is a large **variance** in the data.
 
 ![](images/kirabati.png){style="float: left; margin-right: 20px;" fig-align="left" width="300"}
 
-
-The report also references the [Kiribati case](https://iris.who.int/handle/10665/207758); a country consisting of 33 islands situated in the central Pacific Ocean. The 
-[Kiribati family health study](https://pacific.unfpa.org/sites/default/files/pub-pdf/Kiribati-Family-Health-and-Support-Study_0.pdf) revealed an alarming prevalence of violence against women in Kiribati, with 68% of women aged 15–49 who had been in a relationship reporting experiences of violence (emotional, physical, and/or sexual) from a partner.
-This finding highlights how social statistics can assist in identifying **rare cases** (extreme values) to raise global concern and prompt immediate action.
+The report also references the [Kiribati case](https://iris.who.int/handle/10665/207758); a country consisting of 33 islands situated in the central Pacific Ocean. The [Kiribati family health study](https://pacific.unfpa.org/sites/default/files/pub-pdf/Kiribati-Family-Health-and-Support-Study_0.pdf) revealed an alarming prevalence of violence against women in Kiribati, with 68% of women aged 15–49 who had been in a relationship reporting experiences of violence (emotional, physical, and/or sexual) from a partner. This finding highlights how social statistics can assist in identifying **rare cases** (extreme values) to raise global concern and prompt immediate action.
 
 The following YouTube video from *UN Women* is a campaign aimed at raising awareness about violence against women and girls.
 
@@ -179,49 +166,49 @@ The following YouTube video from *UN Women* is a campaign aimed at raising aware
 
 ## Variables
 
-
 ### Dependent and independent variables
 
-A **variable** is a quantity or characteristic that is free to vary, or take on different values. Researchers design studies to test whether changes to one or more variables are associated with changes in another variable of interest. 
-
+A **variable** is a quantity or characteristic that is free to vary, or take on different values. Researchers design studies to test whether changes to one or more variables are associated with changes in another variable of interest.
 
 ![](images/falls.png){style="float: left; margin-right: 20px;" fig-align="left" width="200"}
 
 For example, if researchers hypothesize that a psychological intervention can help prevent falls in older adults living in the community more effectively than a standard approach, they could create a study to test this hypothesis. Participants would be randomly assigned to one of two groups: the experimental group, which receives the psychological intervention aimed at preventing falls, and the control group, which receives the conventional intervention.
 
-In this study, the type of intervention each participant received (i.e., the psychological intervention vs. the conventional intervention) is the **independent variable** (X), as it is the variable that the researchers manipulate. The **dependent** variable (Y), or the outcome variable, is the  rate of falls over a time period, as it reflects the effect or outcome that the researchers measure to determine whether the intervention has an impact on reducing falls among older adults living in the community.
-
-
+In this example, the type of intervention each participant received (i.e., the psychological intervention vs. the conventional intervention) is the **independent variable** (X), as it is the variable that the researchers manipulate. The **dependent** variable (Y), or the outcome variable, is the rate of falls over a time period, as it reflects the effect or outcome that the researchers measure to determine whether the intervention has an impact on reducing falls among older adults living in the community.
 
 ::: content-box-yellow
-An **independent variable** (X) is the variable that is changed or controlled in a research study to examine its effect on another variable, which is referred to as the dependent variable (outcome Y).
+An **independent variable** (X) is the variable that is changed or controlled in a research study to examine its effect on another variable (Y), which is referred to as the dependent variable (outcome).
 
-A **dependent variable** (Y) is the variable that is measured and assessed in a research study and is influenced by the independent variables (Xs) being studied (i.e., it represents the outcome of the experiment).
+A **dependent variable** (Y) is the variable that is measured and assessed in a research study and is influenced by the independent variables (Xs) being studied (i.e., it represents the outcome of the study).
 
-
-- **Diagram of a bivariable model** 
-
-```{mermaid}
-%%| fig-align: center
-
-flowchart LR
-  A(Independent \nvariable X) -.-> B(Dependent \nvariable Y)
-```
+It is important to note that we can build simple bivariate models or more complex and realistc multivariable models:
 
 
+-   **Diagram of a Bivariate Model (X → Y)**
 
-- **Diagram of multivariable model** 
+In this model, X is assumed to influence or predict Y. It's commonly used to explore simple cause-and-effect associations or correlations, such as how a psychological intervention (X) might affect rate of falls in elderly (Y).
 
 ```{mermaid}
 %%| fig-align: center
 
 flowchart LR
-  A(Independent \nvariable X1) -.-> B(Dependent \nvariable Y)
-  C(Independent \nvariable X2) -.-> B
-  D(Independent \nvariable X3) -.-> B
+  A(Independent variable X \ne.g. Psychological Intervention) -.-> B(Dependent variable Y \ne.g. Rate of falls)
 ```
+
+-   **Diagram of Multivariable Model (X1, X2, X3 → Y) **
+
+This model allows for a more complex analysis, where several factors are considered simultaneously. For example, it can be used to study 
+how a psychological intervention, gender, and balance (X1, X2, X3) together might affect rate of falls in elderly (Y), helping to capture the combined effects of multiple influences on the outcome.
+
+
+```{mermaid}
+%%| fig-align: center
+
+flowchart LR
+  A(Independent variable X1 \ne.g. psychological intervention) -.-> B(Dependent variable Y \ne.g. Rate of falls)
+  C(Independent variable X2 \ne.g. gender) -.-> B
+  D(Independent variable X3 \ne.g. balance) -.-> B
+```
+
 
 :::
-
-
-

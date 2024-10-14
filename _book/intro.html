@@ -397,9 +397,9 @@ Figure&nbsp;1.4: From data to knowledge and action.
 </section>
 <section id="social-statistics" class="level2" data-number="1.4">
 <h2 data-number="1.4" class="anchored" data-anchor-id="social-statistics"><span class="header-section-number">1.4</span> Social Statistics</h2>
-<p>Social statistics is a field of statistics applied in the social sciences to study social phenomena and trends. It employs various statistical methods of data collection, such as censuses, social surveys, and administrative records. These methods are commonly used by government agencies, institutions, and researchers to analyze data related to social life, human behavior, and society as a whole.</p>
+<p><strong>Social statistics</strong> is a field of statistics applied in the social sciences to study <strong>social phenomena</strong> and <strong>trends</strong>. It employs various statistical methods of data collection, such as censuses, social surveys, and administrative records. These methods are commonly used by international organizations, government agencies, institutions, and researchers to analyze data related to social life, human behavior, and society as a whole.</p>
 <p>The primary goal of social statistics is to provide objective, quantitative evidence that aids in understanding and interpreting social issues, ultimately informing the development of appropriate social policies.</p>
-<p>Let’s take a look at some examples.</p>
+<p>Let’s explore some examples of <strong>official statistics</strong> from national governments and international organizations.</p>
 <p><strong>Example 1</strong></p>
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
@@ -453,20 +453,22 @@ Figure&nbsp;1.5: The percentage of people at risk of poverty or social exclusion
 </figure>
 </div>
 <p>For example, if researchers hypothesize that a psychological intervention can help prevent falls in older adults living in the community more effectively than a standard approach, they could create a study to test this hypothesis. Participants would be randomly assigned to one of two groups: the experimental group, which receives the psychological intervention aimed at preventing falls, and the control group, which receives the conventional intervention.</p>
-<p>In this study, the type of intervention each participant received (i.e., the psychological intervention vs.&nbsp;the conventional intervention) is the <strong>independent variable</strong> (X), as it is the variable that the researchers manipulate. The <strong>dependent</strong> variable (Y), or the outcome variable, is the rate of falls over a time period, as it reflects the effect or outcome that the researchers measure to determine whether the intervention has an impact on reducing falls among older adults living in the community.</p>
+<p>In this example, the type of intervention each participant received (i.e., the psychological intervention vs.&nbsp;the conventional intervention) is the <strong>independent variable</strong> (X), as it is the variable that the researchers manipulate. The <strong>dependent</strong> variable (Y), or the outcome variable, is the rate of falls over a time period, as it reflects the effect or outcome that the researchers measure to determine whether the intervention has an impact on reducing falls among older adults living in the community.</p>
 <div class="content-box-yellow">
-<p>An <strong>independent variable</strong> (X) is the variable that is changed or controlled in a research study to examine its effect on another variable, which is referred to as the dependent variable (outcome Y).</p>
-<p>A <strong>dependent variable</strong> (Y) is the variable that is measured and assessed in a research study and is influenced by the independent variables (Xs) being studied (i.e., it represents the outcome of the experiment).</p>
+<p>An <strong>independent variable</strong> (X) is the variable that is changed or controlled in a research study to examine its effect on another variable (Y), which is referred to as the dependent variable (outcome).</p>
+<p>A <strong>dependent variable</strong> (Y) is the variable that is measured and assessed in a research study and is influenced by the independent variables (Xs) being studied (i.e., it represents the outcome of the study).</p>
+<p>It is important to note that we can build simple bivariate models or more complex and realistc multivariable models:</p>
 <ul>
-<li><strong>Diagram of a bivariable model</strong></li>
+<li><strong>Diagram of a Bivariate Model (X → Y)</strong></li>
 </ul>
+<p>In this model, X is assumed to influence or predict Y. It’s commonly used to explore simple cause-and-effect associations or correlations, such as how a psychological intervention (X) might affect rate of falls in elderly (Y).</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
 <pre class="mermaid mermaid-js">flowchart LR
-  A(Independent \nvariable X) -.-&gt; B(Dependent \nvariable Y)
+  A(Independent variable X \ne.g. Psychological Intervention) -.-&gt; B(Dependent variable Y \ne.g. Rate of falls)
 </pre>
 </div>
 <p></p></figure><p></p>
@@ -474,17 +476,18 @@ Figure&nbsp;1.5: The percentage of people at risk of poverty or social exclusion
 </div>
 </div>
 <ul>
-<li><strong>Diagram of multivariable model</strong></li>
+<li><strong>Diagram of Multivariable Model (X1, X2, X3 → Y) </strong></li>
 </ul>
+<p>This model allows for a more complex analysis, where several factors are considered simultaneously. For example, it can be used to study how a psychological intervention, gender, and balance (X1, X2, X3) together might affect rate of falls in elderly (Y), helping to capture the combined effects of multiple influences on the outcome.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
 <pre class="mermaid mermaid-js">flowchart LR
-  A(Independent \nvariable X1) -.-&gt; B(Dependent \nvariable Y)
-  C(Independent \nvariable X2) -.-&gt; B
-  D(Independent \nvariable X3) -.-&gt; B
+  A(Independent variable X1 \ne.g. psychological intervention) -.-&gt; B(Dependent variable Y \ne.g. Rate of falls)
+  C(Independent variable X2 \ne.g. gender) -.-&gt; B
+  D(Independent variable X3 \ne.g. balance) -.-&gt; B
 </pre>
 </div>
 <p></p></figure><p></p>
