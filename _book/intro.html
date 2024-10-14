@@ -227,7 +227,8 @@ window.Quarto = {
   <li><a href="#social-statistics" id="toc-social-statistics" class="nav-link" data-scroll-target="#social-statistics"><span class="header-section-number">1.4</span> Social Statistics</a></li>
   <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables"><span class="header-section-number">1.5</span> Variables</a>
   <ul class="collapse">
-  <li><a href="#dependent-and-independent-variables" id="toc-dependent-and-independent-variables" class="nav-link" data-scroll-target="#dependent-and-independent-variables"><span class="header-section-number">1.5.1</span> Dependent and independent variables</a></li>
+  <li><a href="#independent-and-dependent-and-variables" id="toc-independent-and-dependent-and-variables" class="nav-link" data-scroll-target="#independent-and-dependent-and-variables"><span class="header-section-number">1.5.1</span> Independent and dependent and variables</a></li>
+  <li><a href="#confounding-variable" id="toc-confounding-variable" class="nav-link" data-scroll-target="#confounding-variable"><span class="header-section-number">1.5.2</span> Confounding variable</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -356,7 +357,7 @@ Figure&nbsp;1.2: The most famous scenario simulated a psychotherapist of the Rog
 <li><p><strong>Unstructured data</strong> refer to information that lacks a predefined format or organization, such as open text (e.g., social media posts), images, videos, and other forms of multimedia.</p></li>
 </ul>
 <p>In this course, we use data organized in a structured format, such as spreadsheets. Tabular data refer to data organized in a table with rows and columns (<a href="#fig-datable" class="quarto-xref">Figure&nbsp;<span>1.3</span></a>). Each row represents an observation (or record), corresponding to a statistical unit in the dataset. The columns represent the variables (or characteristics) of interest. Cells are the individual units where rows and columns intersect. Each cell contains a data value corresponding to the observation for that row and the variable for that column.</p>
-<div id="fig-datable" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A typical excel spreadsheet with row and columns.">
+<div id="fig-datable" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A typical excel spreadsheet with row and columns." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-datable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/datable.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%" alt="A typical excel spreadsheet with row and columns.">
@@ -444,20 +445,20 @@ Figure&nbsp;1.5: The percentage of people at risk of poverty or social exclusion
 </section>
 <section id="variables" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="variables"><span class="header-section-number">1.5</span> Variables</h2>
-<section id="dependent-and-independent-variables" class="level3" data-number="1.5.1">
-<h3 data-number="1.5.1" class="anchored" data-anchor-id="dependent-and-independent-variables"><span class="header-section-number">1.5.1</span> Dependent and independent variables</h3>
+<section id="independent-and-dependent-and-variables" class="level3" data-number="1.5.1">
+<h3 data-number="1.5.1" class="anchored" data-anchor-id="independent-and-dependent-and-variables"><span class="header-section-number">1.5.1</span> Independent and dependent and variables</h3>
 <p>A <strong>variable</strong> is a quantity or characteristic that is free to vary, or take on different values. Researchers design studies to test whether changes to one or more variables are associated with changes in another variable of interest.</p>
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
 <p><img src="images/falls.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="float: left; margin-right: 20px;" width="200"></p>
 </figure>
 </div>
-<p>For example, if researchers hypothesize that a psychological intervention can help prevent falls in older adults living in the community more effectively than a standard approach, they could create a study to test this hypothesis. Participants would be randomly assigned to one of two groups: the experimental group, which receives the psychological intervention aimed at preventing falls, and the control group, which receives the conventional intervention.</p>
-<p>In this example, the type of intervention each participant received (i.e., the psychological intervention vs.&nbsp;the conventional intervention) is the <strong>independent variable</strong> (X), as it is the variable that the researchers manipulate. The <strong>dependent</strong> variable (Y), or the outcome variable, is the rate of falls over a time period, as it reflects the effect or outcome that the researchers measure to determine whether the intervention has an impact on reducing falls among older adults living in the community.</p>
+<p>For example, if researchers hypothesize that a psychological intervention can help prevent falls in older adults living in the community more effectively than a standard approach, they could create a study to test this hypothesis. Participants would be randomly assigned to one of two groups: the experimental group, which receives the psychological intervention aimed at preventing falls, and the control group, which receives the usual care.</p>
+<p>In this example, the type of intervention each participant received (i.e., the psychological intervention vs.&nbsp;usual care) is the <strong>independent variable</strong> (X), as it is the variable that the researchers manipulate. The <strong>dependent</strong> variable (Y), or the outcome variable, is the rate of falls over a time period, as it reflects the effect or outcome that the researchers measure to determine whether the intervention has an impact on reducing falls among older adults living in the community.</p>
 <div class="content-box-yellow">
-<p>An <strong>independent variable</strong> (X) is the variable that is changed or controlled in a research study to examine its effect on another variable (Y), which is referred to as the dependent variable (outcome).</p>
-<p>A <strong>dependent variable</strong> (Y) is the variable that is measured and assessed in a research study and is influenced by the independent variables (Xs) being studied (i.e., it represents the outcome of the study).</p>
-<p>It is important to note that we can build simple bivariate models or more complex and realistc multivariable models:</p>
+<p>An <strong>independent variable</strong> (X) is the variable that is changed or controlled in a research study to examine its effect on another variable (Y), which represents the outcome being measured.</p>
+<p>A <strong>dependent variable</strong> (Y) is the variable that is measured and assessed in a research study, influenced by the independent variables (Xs) being studied. It represents the outcome of the study.</p>
+<p>It is important to note that we can construct both simple bivariate models and more complex, realistic multivariable models:</p>
 <ul>
 <li><strong>Diagram of a Bivariate Model (X → Y)</strong></li>
 </ul>
@@ -468,7 +469,7 @@ Figure&nbsp;1.5: The percentage of people at risk of poverty or social exclusion
 <p></p><figure class="figure"><p></p>
 <div>
 <pre class="mermaid mermaid-js">flowchart LR
-  A(Independent variable X \ne.g. Psychological Intervention) -.-&gt; B(Dependent variable Y \ne.g. Rate of falls)
+  A(Independent variable X \ne.g. psychological intervention) -.-&gt; B(Dependent variable Y \ne.g. Rate of falls)
 </pre>
 </div>
 <p></p></figure><p></p>
@@ -491,6 +492,57 @@ Figure&nbsp;1.5: The percentage of people at risk of poverty or social exclusion
 </pre>
 </div>
 <p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+<p>&nbsp;</p>
+</section>
+<section id="confounding-variable" class="level3" data-number="1.5.2">
+<h3 data-number="1.5.2" class="anchored" data-anchor-id="confounding-variable"><span class="header-section-number">1.5.2</span> Confounding variable</h3>
+<p>It is often essential to analyze the association between an independent variable (X) and a dependent variable (Y) while considering confounding variables, which should be controlled to prevent distortion of results.</p>
+<div class="content-box-green">
+<p>A confounding variable is defined as one that is related with both the independent and the dependent variables and does not lie on the causal pathway between them.</p>
+</div>
+<p>For example, consider a study investigating the link between caffeine intake (X) and lung cancer (Y). Without accounting for confounding variables, such as smoking, the results may suggest a misleading association between caffeine and lung cancer that is not truly causal.</p>
+<div id="fig-confounder" class="quarto-float quarto-figure quarto-figure-center anchored" alt="From data to knowledge and action.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-confounder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/confounder.png" class="img-fluid figure-img" style="width:70.0%" alt="From data to knowledge and action.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-confounder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.6: From data to knowledge and action.
+</figcaption>
+</figure>
+</div>
+<p>Smoking may be a potential confounding variable because is:</p>
+<ul>
+<li><p><strong>Related to Caffeine Consumption:</strong> Smokers often consume more caffeine (e.g., through coffee or energy drinks).</p></li>
+<li><p><strong>Direct Cause of Lung Cancer:</strong> Smoking is a well-established cause of lung cancer and significantly increases the risk of developing the disease.</p></li>
+<li><p><strong>Not Part of the Causal Pathway:</strong> Smoking does not lie in the causal pathway between caffeine and lung cancer.</p></li>
+</ul>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<svg aria-hidden="true" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#1DC5CE;overflow:visible;position:relative;"><path d="M123.6 391.3c12.9-9.4 29.6-11.8 44.6-6.4c26.5 9.6 56.2 15.1 87.8 15.1c124.7 0 208-80.5 208-160s-83.3-160-208-160S48 160.5 48 240c0 32 12.4 62.8 35.7 89.2c8.6 9.7 12.8 22.5 11.8 35.5c-1.4 18.1-5.7 34.7-11.3 49.4c17-7.9 31.1-16.7 39.4-22.7zM21.2 431.9c1.8-2.7 3.5-5.4 5.1-8.1c10-16.6 19.5-38.4 21.4-62.9C17.7 326.8 0 285.1 0 240C0 125.1 114.6 32 256 32s256 93.1 256 208s-114.6 208-256 208c-37.1 0-72.3-6.4-104.1-17.9c-11.9 8.7-31.3 20.6-54.3 30.6c-15.1 6.6-32.3 12.6-50.1 16.1c-.8 .2-1.6 .3-2.4 .5c-4.4 .8-8.7 1.5-13.2 1.9c-.2 0-.5 .1-.7 .1c-5.1 .5-10.2 .8-15.3 .8c-6.5 0-12.3-3.9-14.8-9.9c-2.5-6-1.1-12.8 3.4-17.4c4.1-4.2 7.8-8.7 11.3-13.5c1.7-2.3 3.3-4.6 4.8-6.9c.1-.2 .2-.3 .3-.5z"></path></svg> Comment
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The causal pathway refers to the sequence of events or mechanisms through which an independent variable influences a dependent variable. It demonstrates how changes in the independent variable lead to changes in the dependent variable, often involving intermediary variables.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  A(Independent variable X \ne.g. exercise) -.-&gt; B(Intermediate variable W \ne.g. release of endorphins)-.-&gt;C(Dependent variable Y \ne.g. improved mood)
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
 </div>
 </div>
 </div>

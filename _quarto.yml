@@ -43,7 +43,7 @@ format:
       sidebar-width: 270px
       body-width: 840px
       margin-width: 250px
-    fontsize: 1.22em
+    fontsize: 1.25em
     linestretch: 1.5
     toc-title: "On this page"
     link-external-newwindow: true
