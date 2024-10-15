@@ -227,8 +227,13 @@ window.Quarto = {
   <li><a href="#social-statistics" id="toc-social-statistics" class="nav-link" data-scroll-target="#social-statistics"><span class="header-section-number">1.4</span> Social Statistics</a></li>
   <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables"><span class="header-section-number">1.5</span> Variables</a>
   <ul class="collapse">
-  <li><a href="#independent-and-dependent-and-variables" id="toc-independent-and-dependent-and-variables" class="nav-link" data-scroll-target="#independent-and-dependent-and-variables"><span class="header-section-number">1.5.1</span> Independent and dependent and variables</a></li>
+  <li><a href="#independent-and-dependent-variables" id="toc-independent-and-dependent-variables" class="nav-link" data-scroll-target="#independent-and-dependent-variables"><span class="header-section-number">1.5.1</span> Independent and dependent variables</a></li>
   <li><a href="#confounding-variable" id="toc-confounding-variable" class="nav-link" data-scroll-target="#confounding-variable"><span class="header-section-number">1.5.2</span> Confounding variable</a></li>
+  </ul></li>
+  <li><a href="#types-of-data-in-variables" id="toc-types-of-data-in-variables" class="nav-link" data-scroll-target="#types-of-data-in-variables"><span class="header-section-number">1.6</span> Types of data in variables</a>
+  <ul class="collapse">
+  <li><a href="#categorical-data" id="toc-categorical-data" class="nav-link" data-scroll-target="#categorical-data"><span class="header-section-number">1.6.1</span> Categorical data</a></li>
+  <li><a href="#numerical-data" id="toc-numerical-data" class="nav-link" data-scroll-target="#numerical-data"><span class="header-section-number">1.6.2</span> Numerical data</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -357,7 +362,7 @@ Figure&nbsp;1.2: The most famous scenario simulated a psychotherapist of the Rog
 <li><p><strong>Unstructured data</strong> refer to information that lacks a predefined format or organization, such as open text (e.g., social media posts), images, videos, and other forms of multimedia.</p></li>
 </ul>
 <p>In this course, we use data organized in a structured format, such as spreadsheets. Tabular data refer to data organized in a table with rows and columns (<a href="#fig-datable" class="quarto-xref">Figure&nbsp;<span>1.3</span></a>). Each row represents an observation (or record), corresponding to a statistical unit in the dataset. The columns represent the variables (or characteristics) of interest. Cells are the individual units where rows and columns intersect. Each cell contains a data value corresponding to the observation for that row and the variable for that column.</p>
-<div id="fig-datable" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A typical excel spreadsheet with row and columns." data-fig-align="center">
+<div id="fig-datable" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A typical excel spreadsheet with row and columns.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-datable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/datable.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%" alt="A typical excel spreadsheet with row and columns.">
@@ -445,8 +450,8 @@ Figure&nbsp;1.5: The percentage of people at risk of poverty or social exclusion
 </section>
 <section id="variables" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="variables"><span class="header-section-number">1.5</span> Variables</h2>
-<section id="independent-and-dependent-and-variables" class="level3" data-number="1.5.1">
-<h3 data-number="1.5.1" class="anchored" data-anchor-id="independent-and-dependent-and-variables"><span class="header-section-number">1.5.1</span> Independent and dependent and variables</h3>
+<section id="independent-and-dependent-variables" class="level3" data-number="1.5.1">
+<h3 data-number="1.5.1" class="anchored" data-anchor-id="independent-and-dependent-variables"><span class="header-section-number">1.5.1</span> Independent and dependent variables</h3>
 <p>A <strong>variable</strong> is a quantity or characteristic that is free to vary, or take on different values. Researchers design studies to test whether changes to one or more variables are associated with changes in another variable of interest.</p>
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
@@ -477,7 +482,7 @@ Figure&nbsp;1.5: The percentage of people at risk of poverty or social exclusion
 </div>
 </div>
 <ul>
-<li><strong>Diagram of Multivariable Model (X1, X2, X3 → Y) </strong></li>
+<li><strong>Diagram of Multivariable Model (X1, X2, X3 → Y)</strong></li>
 </ul>
 <p>This model allows for a more complex analysis, where several factors are considered simultaneously. For example, it can be used to study how a psychological intervention, gender, and balance (X1, X2, X3) together might affect rate of falls in elderly (Y), helping to capture the combined effects of multiple influences on the outcome.</p>
 <div class="cell" data-layout-align="center">
@@ -504,7 +509,7 @@ Figure&nbsp;1.5: The percentage of people at risk of poverty or social exclusion
 <div class="content-box-green">
 <p>A confounding variable is defined as one that is related with both the independent and the dependent variables and does not lie on the causal pathway between them.</p>
 </div>
-<p>For example, consider a study investigating the link between caffeine intake (X) and lung cancer (Y). Without accounting for confounding variables, such as smoking, the results may suggest a misleading association between caffeine and lung cancer that is not truly causal.</p>
+<p>For example, consider a study investigating the link between caffeine intake (X) and lung cancer (Y). Without accounting for confounding variables, such as smoking, the results may suggest a misleading association between caffeine and occurrence of lung cancer that is not truly causal.</p>
 <div id="fig-confounder" class="quarto-float quarto-figure quarto-figure-center anchored" alt="From data to knowledge and action.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-confounder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -515,11 +520,11 @@ Figure&nbsp;1.6: From data to knowledge and action.
 </figcaption>
 </figure>
 </div>
-<p>Smoking may be a potential confounding variable because is:</p>
+<p>Smoking may be a potential confounding variable because it is:</p>
 <ul>
-<li><p><strong>Related to Caffeine Consumption:</strong> Smokers often consume more caffeine (e.g., through coffee or energy drinks).</p></li>
-<li><p><strong>Direct Cause of Lung Cancer:</strong> Smoking is a well-established cause of lung cancer and significantly increases the risk of developing the disease.</p></li>
-<li><p><strong>Not Part of the Causal Pathway:</strong> Smoking does not lie in the causal pathway between caffeine and lung cancer.</p></li>
+<li><p><strong>related to caffeine consumption:</strong> Smokers often consume more caffeine (e.g., through coffee or energy drinks).</p></li>
+<li><p><strong>direct Cause of lung cancer:</strong> Smoking is a well-established cause of lung cancer and significantly increases the risk of developing the disease.</p></li>
+<li><p><strong>not directly part of the causal pathway:</strong> Smoking does not lie in the causal pathway between caffeine and lung cancer.</p></li>
 </ul>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -547,11 +552,126 @@ Figure&nbsp;1.6: From data to knowledge and action.
 </div>
 </div>
 </div>
+<p>Confounding can be controlled either before or after a study is conducted. Various methods are available to control for confounding, including matching, stratification, and more advanced multivariate techniques <span class="citation" data-cites="grimes2002">(<a href="references.html#ref-grimes2002" role="doc-biblioref">Grimes and Schulz 2002</a>)</span>.</p>
+<ul>
+<li><p><strong>Pairwise matching:</strong> In a case-control study where smoking is considered a confounding variable, cases and controls can be matched based on smoking status.</p></li>
+<li><p><strong>Stratification:</strong> After a study is conducted, results can be stratified by levels of the confounding variable. In the smoking example, results would be calculated separately for smokers and non-smokers to determine if the same effect occurs independently of smoking.</p></li>
+<li><p><strong>Multivariate techniques:</strong> Mathematical modelling examines the potential effect of one variable while simultaneously controlling for the effect of many other variables.</p></li>
+</ul>
+</section>
+</section>
+<section id="types-of-data-in-variables" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="types-of-data-in-variables"><span class="header-section-number">1.6</span> Types of data in variables</h2>
+<p>Data in variables can be either <strong>categorical</strong> or <strong>numerical</strong> (otherwise known as qualitative and quantitative) in nature (<a href="#fig-data_types" class="quarto-xref">Figure&nbsp;<span>1.7</span></a>):</p>
+<div class="cell" data-fig-width="9" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-data_types" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-data_types-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-data_types">flowchart TB
+    A[Data in variables]---&gt; B[Categorical data]
+    A[Data in variables]---&gt; C[Numerical data]
+    B ---&gt; E[Nominal&lt;br&gt;e.g. eye color \nbrown/blue/green etc.]
+    B ---&gt; F[Ordinal&lt;br&gt;e.g. degree of pain&lt;br&gt;minimal/moderate/&lt;br&gt;severe/unbearable, \nlikert scale]
+    C ---&gt; G[Discrete&lt;br&gt;e.g. number of children]
+    C ---&gt; H[Numerical&lt;br&gt;e.g. height, reaction time]
+    
+   style E color:#980000, stroke:#333,stroke-width:4px
+   style F color:#980000, stroke:#333,stroke-width:4px
+   style G color:#980000, stroke:#333,stroke-width:4px
+   style H color:#980000, stroke:#333,stroke-width:4px
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-data_types-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.7: Broad classification of the different types of data with examples.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>&nbsp;</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <strong>type of data</strong> in variables is an important factor in determining the most appropriate <strong>statistical analysis</strong> of the data.</p>
+</div>
+</div>
+<section id="categorical-data" class="level3" data-number="1.6.1">
+<h3 data-number="1.6.1" class="anchored" data-anchor-id="categorical-data"><span class="header-section-number">1.6.1</span> Categorical data</h3>
+<p><strong>A. Nominal data</strong></p>
+<p>Nominal data consists of distinct, unordered categories that are labeled but not measured, only <strong>counted</strong>. These categories can be binary, such as diagnosed/not diagnosed with depression, or they can have more than two categories, such as <strong>eye color</strong> (e.g., brown, blue, green, gray) or <strong>type of therapy</strong> (e.g., cognitive-behavioral therapy, psychoanalysis, humanistic therapy).</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Numerical representation of categories are just codes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We can represent diagnosed/not diagnosed with depression as 1/0 and cognitive-behavioral therapy/psychoanalysis/humanistic therapy as 1/2/3 for therapy type. Unlike numerical data, the numbers assigned to categories do not have mathematical meaning; they are merely <strong>codes</strong>.</p>
+</div>
+</div>
+<p>&nbsp;</p>
+<p><strong>B. Ordinal data</strong></p>
+<p>When categories can be ordered, the data are of <strong>ordinal type</strong>. For example, patients may rate their <strong>pain</strong> as minimal, moderate, severe, or unbearable. In this case, there is a natural order to the values, as moderate pain is more intense than minimal but less than severe. Another common example of ordinal data is the <strong>Likert scale</strong>, where respondents might indicate their level of agreement with a statement on a scale such as from 1 (strongly disagree) to 5 (strongly agree).</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+IMPORTANT
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Ordinal data are often transformed into binary data to simplify analysis, presentation, and interpretation, though this can result in a <strong>loss of information</strong>.</p></li>
+<li><p>Although the <strong>Likert scale</strong> consists of ordered categories, the levels can be <strong>treated like numeric data</strong>, allowing scores from a questionnaire to be summed or averaged for a comprehensive assessment of respondents’ attitudes or feelings (total score of the participant).</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="numerical-data" class="level3" data-number="1.6.2">
+<h3 data-number="1.6.2" class="anchored" data-anchor-id="numerical-data"><span class="header-section-number">1.6.2</span> Numerical data</h3>
+<p><strong>A. Discrete data</strong></p>
+<p>Discrete data can take only a <strong>finite number of values</strong> (usually integers) in a range, for example, the number of children in a family or the number of days missed from work. Other examples are often <strong>counts per unit of time</strong> such as the number of visits to the psychotherapist in a year, or the number of epileptic seizures a patient has per month.</p>
+<p>In practice discrete data are often treated in statistical analyses as if they were ordinal data. Although this approach may be acceptable, it may not fully optimize the use of our data.</p>
+<p><strong>B. Continuous data</strong></p>
+<p>Continuous data are numbers (usually with units) that can <strong>theoretically</strong> take <strong>any value</strong> within a given range. Examples of continuous variables include <strong>height</strong>, <strong>weight</strong>, <strong>body temperature</strong>, <strong>reaction time</strong>, and <strong>scores on tests</strong> that assess cognitive ability. However, in practice, these variables are often measured <strong>discretely</strong>, constrained by the precision of measuring instruments and the study’s specific objectives. For instance, although height can be a continuous value, it is typically recorded in discrete steps. A person may measure 172.345 cm tall, but this would usually be recorded as 172 cm.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Categorization of numerical data leads to a loss of information
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It is important to note that continuous data are often categorized to create categorical variables. For example, body mass index (BMI), which is a continuous variable, is typically converted into an ordinal variable with four categories: underweight, normal weight, overweight, and obesity. However, dividing continuous variables into categories results in a <strong>considerable loss of information</strong>.</p>
+</div>
+</div>
+<p>Next is a YouTube video that comprehensively describes the different types of variables.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/ZxV-kf0yBss" title="Variables and Types of Variables" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-friligkou2024" class="csl-entry" role="listitem">
 Friligkou, Eleni, Solveig Løkhammer, Brenda Cabrera-Mendoza, Jie Shen, Jun He, Giovanni Deiana, Mihaela Diana Zanoaga, et al. 2024. <span>“Gene Discovery and Biological Insights into Anxiety Disorders from a Large-Scale Multi-Ancestry Genome-Wide Association Study.”</span> <em>Nature Genetics</em>, September. <a href="https://doi.org/10.1038/s41588-024-01908-2">https://doi.org/10.1038/s41588-024-01908-2</a>.
+</div>
+<div id="ref-grimes2002" class="csl-entry" role="listitem">
+Grimes, David A, and Kenneth F Schulz. 2002. <span>“Bias and Causal Associations in Observational Research.”</span> <em>The Lancet</em> 359 (9302): 248–52. <a href="https://doi.org/10.1016/s0140-6736(02)07451-2">https://doi.org/10.1016/s0140-6736(02)07451-2</a>.
 </div>
 </div>
 </section>

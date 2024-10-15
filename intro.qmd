@@ -166,7 +166,7 @@ The following YouTube video from *UN Women* is a campaign aimed at raising aware
 
 ## Variables
 
-### Independent and dependent and  variables
+### Independent and dependent variables
 
 A **variable** is a quantity or characteristic that is free to vary, or take on different values. Researchers design studies to test whether changes to one or more variables are associated with changes in another variable of interest.
 
@@ -194,11 +194,9 @@ flowchart LR
   A(Independent variable X \ne.g. psychological intervention) -.-> B(Dependent variable Y \ne.g. Rate of falls)
 ```
 
--   **Diagram of Multivariable Model (X1, X2, X3 → Y) **
+-   **Diagram of Multivariable Model (X1, X2, X3 → Y)**
 
-This model allows for a more complex analysis, where several factors are considered simultaneously. For example, it can be used to study 
-how a psychological intervention, gender, and balance (X1, X2, X3) together might affect rate of falls in elderly (Y), helping to capture the combined effects of multiple influences on the outcome.
-
+This model allows for a more complex analysis, where several factors are considered simultaneously. For example, it can be used to study how a psychological intervention, gender, and balance (X1, X2, X3) together might affect rate of falls in elderly (Y), helping to capture the combined effects of multiple influences on the outcome.
 
 ```{mermaid}
 %%| fig-align: center
@@ -208,11 +206,9 @@ flowchart LR
   C(Independent variable X2 \ne.g. gender) -.-> B
   D(Independent variable X3 \ne.g. balance) -.-> B
 ```
-
 :::
 
  
-
 
 ### Confounding variable
 
@@ -222,19 +218,17 @@ It is often essential to analyze the association between an independent variable
 A confounding variable is defined as one that is related with both the independent and the dependent variables and does not lie on the causal pathway between them.
 :::
 
-For example, consider a study investigating the link between caffeine intake (X) and lung cancer (Y). Without accounting for confounding variables, such as smoking, the results may suggest a misleading association between caffeine and lung cancer that is not truly causal.
+For example, consider a study investigating the link between caffeine intake (X) and lung cancer (Y). Without accounting for confounding variables, such as smoking, the results may suggest a misleading association between caffeine and occurrence of lung cancer that is not truly causal.
 
 ![From data to knowledge and action.](images/confounder.png){#fig-confounder width="70%" fig-alt="From data to knowledge and action."}
 
-Smoking may be a potential confounding variable because is:
+Smoking may be a potential confounding variable because it is:
 
--   **Related to Caffeine Consumption:** Smokers often consume more caffeine (e.g., through coffee or energy drinks).
+-   **related to caffeine consumption:** Smokers often consume more caffeine (e.g., through coffee or energy drinks).
 
--   **Direct Cause of Lung Cancer:** Smoking is a well-established cause of lung cancer and significantly increases the risk of developing the disease.
+-   **direct Cause of lung cancer:** Smoking is a well-established cause of lung cancer and significantly increases the risk of developing the disease.
 
--   **Not Part of the Causal Pathway:** Smoking does not lie in the causal pathway between caffeine and lung cancer.
-
-
+-   **not directly part of the causal pathway:** Smoking does not lie in the causal pathway between caffeine and lung cancer.
 
 ::: {.callout-tip icon="false"}
 ## `r fa("comment", fill = "#1DC5CE")` Comment
@@ -247,8 +241,113 @@ The causal pathway refers to the sequence of events or mechanisms through which 
 flowchart LR
   A(Independent variable X \ne.g. exercise) -.-> B(Intermediate variable W \ne.g. release of endorphins)-.->C(Dependent variable Y \ne.g. improved mood)
 ```
+:::
+
+Confounding can be controlled either before or after a study is conducted. Various methods are available to control for confounding, including matching, stratification, and more advanced multivariate techniques [@grimes2002].
+
+- **Pairwise matching:** In a case-control study where smoking is considered a confounding variable, cases and controls can be matched based on smoking status.
+
+
+- **Stratification:** After a study is conducted, results can be stratified by levels of the confounding variable. In the smoking example, results would be calculated separately for smokers and non-smokers to determine if the same effect occurs independently of smoking.
+
+
+- **Multivariate techniques:**  Mathematical modelling examines the potential effect of one variable while simultaneously controlling for the effect of many other variables.
+
+
+## Types of data in variables
+
+Data in variables can be either **categorical** or **numerical** (otherwise known as qualitative and quantitative) in nature (@fig-data_types):
+
+```{mermaid}
+%%| label: fig-data_types
+%%| fig-width: 9
+%%| fig-cap: Broad classification of the different types of data with examples.
+
+flowchart TB
+    A[Data in variables]---> B[Categorical data]
+    A[Data in variables]---> C[Numerical data]
+    B ---> E[Nominal<br>e.g. eye color \nbrown/blue/green etc.]
+    B ---> F[Ordinal<br>e.g. degree of pain<br>minimal/moderate/<br>severe/unbearable, \nlikert scale]
+    C ---> G[Discrete<br>e.g. number of children]
+    C ---> H[Numerical<br>e.g. height, reaction time]
+    
+   style E color:#980000, stroke:#333,stroke-width:4px
+   style F color:#980000, stroke:#333,stroke-width:4px
+   style G color:#980000, stroke:#333,stroke-width:4px
+   style H color:#980000, stroke:#333,stroke-width:4px
+```
+
+ 
+
+
+::: {.callout-tip icon="false"}
+## Note
+
+The **type of data** in variables is an important factor in determining the most appropriate **statistical analysis** of the data.      
+:::
+
+
+### Categorical data
+
+**A. Nominal data**
+
+Nominal data consists of distinct, unordered categories that are labeled but not measured, only **counted**. These categories can be binary, such as diagnosed/not diagnosed with depression, or they can have more than two categories, such as **eye color** (e.g., brown, blue, green, gray) or **type of therapy** (e.g., cognitive-behavioral therapy, psychoanalysis, humanistic therapy).
+
+
+::: callout-important
+## Numerical representation of categories are just codes
+
+We can represent diagnosed/not diagnosed with depression as 1/0 and cognitive-behavioral therapy/psychoanalysis/humanistic therapy as 1/2/3 for therapy type. Unlike numerical data, the numbers assigned to categories do not have mathematical meaning; they are merely **codes**.
+:::
+
+ 
+
+**B. Ordinal data**
+
+When categories can be ordered, the data are of **ordinal type**. For example, patients may rate their **pain** as minimal, moderate, severe, or unbearable. In this case, there is a natural order to the values, as moderate pain is more intense than minimal but less than severe.
+Another common example of ordinal data is the **Likert scale**, where respondents might indicate their level of agreement with a statement on a scale such as from 1 (strongly disagree) to 5 (strongly agree).
+
+
+
+::: callout-important
+## IMPORTANT
+
+- Ordinal data are often transformed into binary data to simplify analysis, presentation, and interpretation, though this can result in a **loss of information**.
+
+
+- Although the **Likert scale** consists of ordered categories, the levels can be **treated like numeric data**, allowing scores from a questionnaire to be summed or averaged for a comprehensive assessment of respondents' attitudes or feelings (total score of the participant).
 
 :::
+
+
+
+### Numerical data
+
+**A. Discrete data**
+
+Discrete data can take only a **finite number of values** (usually integers) in a range, for example, the number of children in a family or the number of days missed from work. Other examples are often **counts per unit of time** such as the number of visits to the psychotherapist in a year, or the number of epileptic seizures a patient has per month.
+
+In practice discrete data are often treated in statistical analyses as if they were ordinal data. Although this approach may be acceptable, it may not fully optimize the use of our data.
+
+\vspace{15pt}
+
+
+**B. Continuous data**
+
+Continuous data are numbers (usually with units) that can **theoretically** take **any value** within a given range. Examples of continuous variables include **height**, **weight**, **body temperature**, **reaction time**, and **scores on tests** that assess cognitive ability. 
+However, in practice, these variables are often measured **discretely**, constrained by the precision of measuring instruments and the study's specific objectives. For instance, although height can be a continuous value, it is typically recorded in discrete steps. A person may measure 172.345 cm tall, but this would usually be recorded as 172 cm.
+
+::: callout-important
+## Categorization of numerical data leads to a loss of information
+
+It is important to note that continuous data are often categorized to create categorical variables. For example, body mass index (BMI), which is a continuous variable, is typically converted into an ordinal variable with four categories: underweight, normal weight, overweight, and obesity. However, dividing continuous variables into categories results in a **considerable loss of information**.
+:::
+
+
+Next is a YouTube video that comprehensively describes the different types of variables.
+
+{{< video https://www.youtube.com/watch?v=ZxV-kf0yBss&t=2s title="Variables and Types of Variables">}}
+
 
 
 
