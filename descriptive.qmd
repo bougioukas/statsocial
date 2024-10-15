@@ -1,0 +1,71 @@
+# Descriptive statistics {#sec-descriptive}
+
+```{r}
+#| include: false
+
+library(tidyverse)
+library(here)
+library(kableExtra)
+
+library(fontawesome)
+
+library(questionr)
+
+
+
+library(readxl)
+rses <- read_excel(here("data", "rses.xlsx"))
+```
+
+
+When we have finished this chapter, we should be able to:
+
+::: {.callout-caution icon="false"}
+## `r fa("circle-dot", prefer_type = "regular", fill = "red")` Learning objectives
+
+-   Use frequency counts and percentages to describe categorical variables.
+-   Display frequency distributions for categorical variables using bar plots.
+-   Use statistical measures such as mean, median, standard deviation and interquartile range to describe numerical variables.
+-   Generate and assess visualizations like histograms, density plots, and box plots to understand the distribution and spread of numerical data.
+
+:::
+
+
+## Summarizing categorical data (Frequency Statistics)
+
+The first step in analyzing a categorical variable is to count the occurrences of each label and calculate their frequencies. The resulting collection of these frequencies for all possible categories is known as the **frequency distribution** of the variable. We can also express the frequencies as **proportions** of the total number of observations, which are called relative frequencies or **percentages** (%).
+
+Let's ceate a a frequency table for the `sex` variable:
+
+```{r}
+#| echo: false
+
+rses$sex <- factor(rses$sex, labels = c("male", "female"))
+
+freq(rses$sex, cum = T, total = T, valid = F) |> 
+  kbl() |> 
+  kable_paper("hover")
+```
+
+ 
+
+The table displays the following:
+
+-   **Absolute frequency (n):** The number of participants in each category (male: 109, female: 149).
+
+-   **Percentage (%):** The proportion of participants in each category relative to the total number of participants (relative frequency) multiplied by $100\%$ (male: $109/258 \times 100\% = 42.2\%$, female: $149/258 \times 100\% = 57.8\%$).
+
+-   **Cumulative percentage (%cum):** The sum of the percentage contributions of all categories up to and including the current one (male: 42.2%, male plus female: 42.2% + 57.8% = 100%).
+
+Note that the percentages in both "$\%$" and "$cum\%$" columns of the table sum up to 100%.
+
+
+
+
+
+
+
+
+
+
+

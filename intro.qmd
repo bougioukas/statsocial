@@ -12,9 +12,10 @@ When we have finished this chapter, we should be able to:
 ## `r fa("circle-dot", prefer_type = "regular", fill = "red")` Learning objectives
 
 -   Distinguish descriptive from inferential statistics.
--   Explain the difference between qualitative and quantitative data.
--   Understand the difference between dependent and independent variables.
--   Identify the type of any given variable.
+-   Understand the importance of data and identify the main sources of primary data.
+-   Comprehend the importance of social statistics.
+-   Understand the difference between dependent and independent variables, and be introduced to the concept of confounding.
+-   Explain the difference between qualitative and quantitative data, and identify the type of any given variable.
 :::
 
 ## Why learn basic statistics?
@@ -334,7 +335,7 @@ In practice discrete data are often treated in statistical analyses as if they w
 
 **B. Continuous data**
 
-Continuous data are numbers (usually with units) that can **theoretically** take **any value** within a given range. Examples of continuous variables include **height**, **weight**, **body temperature**, **reaction time**, and **scores on tests** that assess cognitive ability. 
+Continuous data are numbers (usually with units) that can **theoretically** take **any value** within a given range. Examples of continuous variables include **height**, **weight**, **body temperature**, and **reaction time**.
 However, in practice, these variables are often measured **discretely**, constrained by the precision of measuring instruments and the study's specific objectives. For instance, although height can be a continuous value, it is typically recorded in discrete steps. A person may measure 172.345 cm tall, but this would usually be recorded as 172 cm.
 
 ::: callout-important
