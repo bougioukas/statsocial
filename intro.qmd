@@ -344,10 +344,12 @@ It is important to note that continuous data are often categorized to create cat
 :::
 
 
-Next is a YouTube video that comprehensively describes the different types of variables.
+Next is a YouTube video from Associate Professor of Teaching Mike Marin from the University of British Columbia that comprehensively describes the different types of variables.
+
+
+Next is a YouTube video by Associate Professor Mike Marin from the University of British Columbia that comprehensively explains the different types of variables.
 
 {{< video https://www.youtube.com/watch?v=ZxV-kf0yBss&t=2s title="Variables and Types of Variables">}}
-
 
 
 
