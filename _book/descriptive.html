@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -69,9 +89,35 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
 
-<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+
+<script src="site_libs/datatables-binding-0.33/datatables.js"></script>
+
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+
+<script src="site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+
+<link href="site_libs/dt-ext-buttons-1.13.6/css/buttons.dataTables.min.css" rel="stylesheet">
+
+<script src="site_libs/dt-ext-buttons-1.13.6/js/dataTables.buttons.min.js"></script>
+
+<script src="site_libs/dt-ext-buttons-1.13.6/js/buttons.html5.min.js"></script>
+
+<script src="site_libs/dt-ext-buttons-1.13.6/js/buttons.colVis.min.js"></script>
+
+<script src="site_libs/dt-ext-buttons-1.13.6/js/buttons.print.min.js"></script>
+
+<link href="site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+
+<script src="site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
 
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -202,7 +248,12 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#summarizing-categorical-data-frequency-statistics" id="toc-summarizing-categorical-data-frequency-statistics" class="nav-link active" data-scroll-target="#summarizing-categorical-data-frequency-statistics"><span class="header-section-number">2.1</span> Summarizing categorical data (Frequency Statistics)</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link active" data-scroll-target="#data"><span class="header-section-number">2.1</span> Data</a></li>
+  <li><a href="#summarizing-categorical-data-frequency-statistics" id="toc-summarizing-categorical-data-frequency-statistics" class="nav-link" data-scroll-target="#summarizing-categorical-data-frequency-statistics"><span class="header-section-number">2.2</span> Summarizing categorical data (Frequency Statistics)</a>
+  <ul class="collapse">
+  <li><a href="#one-variable-tables" id="toc-one-variable-tables" class="nav-link" data-scroll-target="#one-variable-tables"><span class="header-section-number">2.2.1</span> One variable tables</a></li>
+  <li><a href="#two-variable-tables-contingency-tables" id="toc-two-variable-tables-contingency-tables" class="nav-link" data-scroll-target="#two-variable-tables-contingency-tables"><span class="header-section-number">2.2.2</span> Two variable tables (Contingency tables)</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -247,56 +298,109 @@ window.Quarto = {
 </ul>
 </div>
 </div>
-<section id="summarizing-categorical-data-frequency-statistics" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="summarizing-categorical-data-frequency-statistics"><span class="header-section-number">2.1</span> Summarizing categorical data (Frequency Statistics)</h2>
-<p>The first step in analyzing a categorical variable is to count the occurrences of each label and calculate their frequencies. The resulting collection of these frequencies for all possible categories is known as the <strong>frequency distribution</strong> of the variable. We can also express the frequencies as <strong>proportions</strong> of the total number of observations, which are called relative frequencies or <strong>percentages</strong> (%).</p>
-<p>Let’s ceate a a frequency table for the <code>sex</code> variable:</p>
+<p>&nbsp;</p>
+<section id="data" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="data"><span class="header-section-number">2.1</span> Data</h2>
+<p>We will explore a dataset containing 258 participants (rows) and 8 variables (columns). The variables include sex (female/male), age (in years), time spent on the internet and social media (in hours), the total score (0-30) from responses to 10 questions on the Rosenberg Self-Esteem Scale (<a href="https://socy.umd.edu/about-us/using-rosenberg-self-esteem-scale">RSES</a>), and the categorization of that score into three levels: low (0-15), medium (16-19), and high (20-30) level of self-esteem <span class="citation" data-cites="garcía2019">(<a href="references.html#ref-garcía2019" role="doc-biblioref">García et al. 2019</a>)</span>.</p>
+<p>&nbsp;</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="lightable-paper lightable-hover caption-top table table-sm table-striped small" data-quarto-postprocess="true">
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">n</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">%</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">%cum</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">male</td>
-<td style="text-align: right;">109</td>
-<td style="text-align: right;">42.2</td>
-<td style="text-align: right;">42.2</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">female</td>
-<td style="text-align: right;">149</td>
-<td style="text-align: right;">57.8</td>
-<td style="text-align: right;">100.0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Total</td>
-<td style="text-align: right;">258</td>
-<td style="text-align: right;">100.0</td>
-<td style="text-align: right;">100.0</td>
-</tr>
-</tbody>
-</table>
-
-
+<div class="datatables html-widget html-fill-item" id="htmlwidget-1a1931626b1466e30893" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-1a1931626b1466e30893">{"x":{"filter":"none","vertical":false,"extensions":["Buttons"],"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103","104","105","106","107","108","109","110","111","112","113","114","115","116","117","118","119","120","121","122","123","124","125","126","127","128","129","130","131","132","133","134","135","136","137","138","139","140","141","142","143","144","145","146","147","148","149","150","151","152","153","154","155","156","157","158","159","160","161","162","163","164","165","166","167","168","169","170","171","172","173","174","175","176","177","178","179","180","181","182","183","184","185","186","187","188","189","190","191","192","193","194","195","196","197","198","199","200","201","202","203","204","205","206","207","208","209","210","211","212","213","214","215","216","217","218","219","220","221","222","223","224","225","226","227","228","229","230","231","232","233","234","235","236","237","238","239","240","241","242","243","244","245","246","247","248","249","250","251","252","253","254","255","256","257","258"],["female","female","male","male","male","male","female","male","female","female","female","female","male","female","female","female","female","female","female","female","male","female","male","male","female","male","female","female","male","female","female","female","female","female","female","male","female","female","female","female","male","female","female","male","female","female","female","male","male","female","male","female","female","male","male","female","male","female","female","male","female","male","female","female","female","female","male","female","male","female","male","male","female","male","female","male","female","male","female","female","male","female","female","male","female","female","male","female","female","male","female","female","male","female","female","female","female","female","female","female","female","male","female","female","male","female","female","male","male","male","female","female","male","female","female","male","male","female","male","male","female","female","male","female","female","male","female","male","female","male","female","female","female","female","female","male","male","male","female","male","female","female","female","female","male","female","female","female","male","female","male","male","female","female","male","female","male","female","male","male","female","female","male","female","male","female","female","male","male","male","male","male","female","female","female","female","female","female","female","male","male","female","male","female","male","male","male","male","male","male","female","male","male","male","male","male","female","male","male","male","male","female","female","male","female","female","male","male","female","female","male","male","male","male","female","male","female","female","male","female","male","male","male","female","female","female","female","female","female","female","male","female","female","male","female","female","male","male","female","female","female","male","female","female","male","female","female","female","female","female","female","male","male","male","female","male","male","male"],[18,19,18,17,17,18,18,17,18,14,17,20,17,18,17,17,18,18,22,14,16,14,17,18,15,18,18,17,16,20,18,20,16,20,16,18,17,19,20,17,20,18,17,20,16,14,20,18,18,18,21,17,18,14,22,16,16,19,17,17,22,21,19,21,19,16,17,16,19,21,17,18,17,18,16,16,18,17,18,17,17,18,20,20,21,18,21,20,18,16,19,19,16,20,21,17,17,21,20,19,17,18,20,20,19,20,16,18,16,19,19,18,19,15,18,18,18,21,18,16,18,18,17,20,19,20,19,16,21,16,16,15,15,17,15,19,18,15,18,16,18,17,19,19,18,17,16,15,15,20,17,22,14,16,17,19,18,19,19,19,19,20,18,15,21,18,18,18,21,18,21,17,19,18,22,16,20,15,15,20,15,15,17,16,21,15,15,17,18,18,21,18,16,21,17,18,19,17,17,18,15,18,16,19,19,14,18,17,19,19,17,17,16,16,17,16,17,15,16,17,15,15,16,16,18,18,20,20,19,17,17,18,18,19,18,18,15,18,17,19,18,17,17,22,18,19,22,22,19,16,22,15,15,18,17,15,22,14],[9,3,3,12,3,3,7,3,2,3,3,1,3,7,3,3,9,13,1,1,1,5,1,2,3,3,5,9,5,5,9,7,5,3,3,3,7,5,3,3,5,3,3,4,15,0,0,0,0,3,3,4,5,1,3,1,3,5,3,1,5,5,4,3,4,5,5,5,1,3,5,3,4,5,7,5,1,3,3,3,5,8,3,1,3,5,3,5,3,3,2,1,1,4,7,3,7,8,7,7,7,4,4,4,4,1,1,4,4,5,5,7,1,7,5,4,7,16,4,4,9,4,5,4,10,4,7,7,5,4,4,4,4,5,5,5,4,1,5,4,12,5,7,7,4,4,4,0,12,4,5,4,7,4,18,8,0,5,5,5,4,4,4,6,4,6,8,3,3,6,3,2,3,6,13,6,3,12,6,3,3,8,3,6,2,3,3,3,5,5,8,2,3,3,5,2,2,3,3,3,8,3,8,5,6,6,6,3,6,3,4,4,4,6,10,4,6,4,4,6,6,6,2,8,6,12,6,6,4,6,10,8,8,2,6,4,2,4,8,2,1,4,2,6,2,7,5,6,4,2,6,2,2,5,7,5,8,4],[26,13,18,19,18,20,17,19,19,24,27,21,15,14,9,9,19,6,14,18,14,19,4,16,17,25,19,15,16,18,9,20,7,11,22,18,14,11,20,9,17,16,6,22,17,20,19,17,18,14,21,15,12,12,19,18,22,17,17,20,18,24,7,21,8,15,17,9,19,9,17,20,14,20,19,21,16,19,18,18,12,6,20,27,8,17,14,15,16,13,7,9,23,14,10,12,13,13,20,22,14,21,22,14,22,17,17,25,14,15,13,13,12,19,12,23,20,12,23,19,15,14,17,19,9,18,8,13,14,18,13,13,13,19,14,13,12,18,19,23,8,21,7,7,16,20,17,23,15,11,27,12,21,23,17,7,22,14,26,26,22,15,19,17,17,12,14,19,16,18,19,20,24,18,15,18,22,8,17,17,19,13,10,6,27,18,19,17,24,3,15,20,15,13,16,22,14,17,17,25,19,20,14,18,10,21,19,17,10,24,10,19,15,27,10,14,10,25,23,10,19,19,26,13,18,24,15,15,16,14,10,21,21,21,18,13,21,12,14,8,17,21,20,23,16,8,23,23,24,17,23,12,12,18,13,19,18,21],["high","low","medium","medium","medium","high","medium","medium","medium","high","high","high","low","low","low","low","medium","low","low","medium","low","medium","low","medium","medium","high","medium","low","medium","medium","low","high","low","low","high","medium","low","low","high","low","medium","medium","low","high","medium","high","medium","medium","medium","low","high","low","low","low","medium","medium","high","medium","medium","high","medium","high","low","high","low","low","medium","low","medium","low","medium","high","low","high","medium","high","medium","medium","medium","medium","low","low","high","high","low","medium","low","low","medium","low","low","low","high","low","low","low","low","low","high","high","low","high","high","low","high","medium","medium","high","low","low","low","low","low","medium","low","high","high","low","high","medium","low","low","medium","medium","low","medium","low","low","low","medium","low","low","low","medium","low","low","low","medium","medium","high","low","high","low","low","medium","high","medium","high","low","low","high","low","high","high","medium","low","high","low","high","high","high","low","medium","medium","medium","low","low","medium","medium","medium","medium","high","high","medium","low","medium","high","low","medium","medium","medium","low","low","low","high","medium","medium","medium","high","low","low","high","low","low","medium","high","low","medium","medium","high","medium","high","low","medium","low","high","medium","medium","low","high","low","medium","low","high","low","low","low","high","high","low","medium","medium","high","low","medium","high","low","low","medium","low","low","high","high","high","medium","low","high","low","low","low","medium","high","high","high","medium","low","high","high","high","medium","high","low","low","medium","low","medium","medium","high"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>sex<\/th>\n      <th>age<\/th>\n      <th>time_spent<\/th>\n      <th>Score<\/th>\n      <th>Score_cat<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"tip","columnDefs":[{"className":"dt-right","targets":[2,3,4]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"sex","targets":1},{"name":"age","targets":2},{"name":"time_spent","targets":3},{"name":"Score","targets":4},{"name":"Score_cat","targets":5}],"order":[],"autoWidth":false,"orderClasses":false},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>&nbsp;</p>
+</section>
+<section id="summarizing-categorical-data-frequency-statistics" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="summarizing-categorical-data-frequency-statistics"><span class="header-section-number">2.2</span> Summarizing categorical data (Frequency Statistics)</h2>
+<section id="one-variable-tables" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="one-variable-tables"><span class="header-section-number">2.2.1</span> One variable tables</h3>
+<p>The first step in analyzing a categorical variable is to count the occurrences of each label and calculate their frequencies. The resulting collection of these frequencies for all possible categories is known as the <strong>frequency distribution</strong> of the variable. We can also express the frequencies as <strong>proportions</strong> of the total number of observations, which are called relative frequencies or <strong>percentages</strong> (%).</p>
+<p><strong>Sex variable</strong></p>
+<p>Let’s create a a frequency table for the <code>sex</code> variable:</p>
+<div id="fig-tb001" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-tb001-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/tb001.png" class="img-fluid figure-img" style="width:65.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tb001-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.1: frequency table for the sex variable.
+</figcaption>
+</figure>
+</div>
 <p>The table displays the following:</p>
 <ul>
 <li><p><strong>Absolute frequency (n):</strong> The number of participants in each category (male: 109, female: 149).</p></li>
 <li><p><strong>Percentage (%):</strong> The proportion of participants in each category relative to the total number of participants (relative frequency) multiplied by <span class="math inline">\(100\%\)</span> (male: <span class="math inline">\(109/258 \times 100\% = 42.2\%\)</span>, female: <span class="math inline">\(149/258 \times 100\% = 57.8\%\)</span>).</p></li>
-<li><p><strong>Cumulative percentage (%cum):</strong> The sum of the percentage contributions of all categories up to and including the current one (male: 42.2%, male plus female: 42.2% + 57.8% = 100%).</p></li>
+<li><p><strong>Cumulative percentage (%):</strong> The sum of the percentage contributions of all categories up to and including the current one (male: 42.2%, male plus female: 42.2% + 57.8% = 100%).</p></li>
 </ul>
 <p>Note that the percentages in both “<span class="math inline">\(\%\)</span>” and “<span class="math inline">\(cum\%\)</span>” columns of the table sum up to 100%.</p>
+<p>&nbsp;</p>
+<p><strong>Score_cat variable</strong></p>
+<p>Similarly, we can create the frequency table for the <code>Score_cat</code> variable:</p>
+<div id="fig-tb002" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-tb002-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/tb002.png" class="img-fluid figure-img" style="width:65.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tb002-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.2: Frequency table for the the levels of self-esteem variable
+</figcaption>
+</figure>
+</div>
+<p>In the above table, we observe that 40.3% (104 out of 258) of participants have low level of self-esteem.</p>
+<p>&nbsp;</p>
+</section>
+<section id="two-variable-tables-contingency-tables" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="two-variable-tables-contingency-tables"><span class="header-section-number">2.2.2</span> Two variable tables (Contingency tables)</h3>
+<p><strong>A. Frequency contingency table</strong></p>
+<p>In addition to tabulating each categorical variable separately, we might be interested in the distribution of self-esteem levels (categorized as low, medium, and high) among male and female participants in the dataset. This can be achieved by creating a frequency <strong>contingency table</strong>, as shown in <a href="#fig-tb0" class="quarto-xref">Figure&nbsp;<span>2.3</span></a>. Each cell value in the table represents the number of occurrences (or frequency) corresponding to the combination of categories from the two different variables.</p>
+<div id="fig-tb0" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-tb0-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/tb0.png" class="img-fluid figure-img" style="width:65.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tb0-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.3: Frequency contingency table. Each cell value in the table represents the count corresponding to the combination of categories from the two variables.
+</figcaption>
+</figure>
+</div>
+<p><strong>Note:</strong> The table also typically includes <strong>row and column totals</strong>, also known as marginal totals, that sum the counts for each row and column, respectively.</p>
+<p>&nbsp;</p>
+<p><strong>B. Joint distribution contingency table</strong></p>
+<p>A <strong>joint distribution</strong> contingency table displays both the frequency of observations across categories of two variables and the <strong>percentage distributions</strong> of those frequencies. The percentages are calculated by dividing the frequency in each cell by the <strong>overall total</strong> (258), then multiplying the result by 100. This shows the percentage of the total observations that fall into each category combination.</p>
+<div id="fig-tb1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-tb1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/tb1.png" class="img-fluid figure-img" style="width:75.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tb1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.4: Joint distribution contingency table. The percentages are calculated by dividing the frequency in each cell by the overall total.
+</figcaption>
+</figure>
+</div>
+<p>&nbsp;</p>
+<p><strong>C. Conditional distribution contingency table</strong></p>
+<p>Suppose we are interested in the distribution of self-esteem for each sex. Since we are <strong>conditioning</strong> on sex, we divide each cell’s frequency by the corresponding <strong>row total</strong> (row marginal total), rather than the overall total. This approach allows us to observe the conditional distribution of self-esteem levels within each sex group. For example, the percentage of participants with low-level self-esteem, given that the participant is female, is approximately (78/149) x 100 ≈ 52.3%.</p>
+<div id="fig-tb2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-tb2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/tb2.png" class="img-fluid figure-img" style="width:75.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tb2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.5: Conditional distribution contingency table. The percentages are calculated by dividing the frequency in each cell by the row marginal total.
+</figcaption>
+</figure>
+</div>
+<p>This data indicates notable differences in self-esteem levels between male and female participants. Specifically, the percentage of female participants with low self-esteem (52.3%) is substantially greater than that of male participants (23.9%).</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-garcía2019" class="csl-entry" role="listitem">
+García, Jorge Acosta, Francisco Checa y Olmos, Manuel Lucas Matheu, and Tesifón Parrón Carreño. 2019. <span>“Self Esteem Levels Vs Global Scores on the Rosenberg Self-Esteem Scale.”</span> <em>Heliyon</em> 5 (3): e01378. <a href="https://doi.org/10.1016/j.heliyon.2019.e01378">https://doi.org/10.1016/j.heliyon.2019.e01378</a>.
+</div>
+</div>
+</section>
 </section>
 
 </main> <!-- /main -->

@@ -14,9 +14,10 @@ library(questionr)
 
 
 library(readxl)
-rses <- read_excel(here("data", "rses.xlsx"))
+rses1 <- read_excel(here("data", "rses1.xlsx"))
+rses1$sex <- factor(rses1$sex, labels = c("male", "female"))
+rses1$Score_cat <- factor(rses1$Score_cat, levels = c("low", "medium", "high"))
 ```
-
 
 When we have finished this chapter, we should be able to:
 
@@ -27,27 +28,43 @@ When we have finished this chapter, we should be able to:
 -   Display frequency distributions for categorical variables using bar plots.
 -   Use statistical measures such as mean, median, standard deviation and interquartile range to describe numerical variables.
 -   Generate and assess visualizations like histograms, density plots, and box plots to understand the distribution and spread of numerical data.
-
 :::
 
+ 
 
-## Summarizing categorical data (Frequency Statistics)
+## Data
 
-The first step in analyzing a categorical variable is to count the occurrences of each label and calculate their frequencies. The resulting collection of these frequencies for all possible categories is known as the **frequency distribution** of the variable. We can also express the frequencies as **proportions** of the total number of observations, which are called relative frequencies or **percentages** (%).
+We will explore a dataset containing 258 participants (rows) and 8 variables (columns). The variables include sex (female/male), age (in years), time spent on the internet and social media (in hours), the total score (0-30) from responses to 10 questions on the Rosenberg Self-Esteem Scale ([RSES](https://socy.umd.edu/about-us/using-rosenberg-self-esteem-scale)), and the categorization of that score into three levels: low (0-15), medium (16-19), and high (20-30) level of self-esteem [@garcía2019].
 
-Let's ceate a a frequency table for the `sex` variable:
+ 
 
 ```{r}
 #| echo: false
+#| message: false
 
-rses$sex <- factor(rses$sex, labels = c("male", "female"))
+DT::datatable(
+  rses1, extensions = 'Buttons', options = list(
+    dom = 'tip'
+  )
+)
 
-freq(rses$sex, cum = T, total = T, valid = F) |> 
-  kbl() |> 
-  kable_paper("hover")
 ```
 
  
+
+## Summarizing categorical data (Frequency Statistics)
+
+
+### One variable tables
+
+The first step in analyzing a categorical variable is to count the occurrences of each label and calculate their frequencies. The resulting collection of these frequencies for all possible categories is known as the **frequency distribution** of the variable. We can also express the frequencies as **proportions** of the total number of observations, which are called relative frequencies or **percentages** (%).
+
+
+**Sex variable**
+
+Let's create a a frequency table for the `sex` variable:
+
+![frequency table for the sex variable.](images/tb001.png){#fig-tb001 width="65%"}
 
 The table displays the following:
 
@@ -55,17 +72,55 @@ The table displays the following:
 
 -   **Percentage (%):** The proportion of participants in each category relative to the total number of participants (relative frequency) multiplied by $100\%$ (male: $109/258 \times 100\% = 42.2\%$, female: $149/258 \times 100\% = 57.8\%$).
 
--   **Cumulative percentage (%cum):** The sum of the percentage contributions of all categories up to and including the current one (male: 42.2%, male plus female: 42.2% + 57.8% = 100%).
+-   **Cumulative percentage (%):** The sum of the percentage contributions of all categories up to and including the current one (male: 42.2%, male plus female: 42.2% + 57.8% = 100%).
 
 Note that the percentages in both "$\%$" and "$cum\%$" columns of the table sum up to 100%.
 
+ 
+
+**Score_cat variable**
+
+Similarly, we can create the frequency table for the `Score_cat` variable:
+
+![Frequency table for the the levels of self-esteem variable](images/tb002.png){#fig-tb002 width="65%"}
+
+In the above table, we observe that 40.3% (104 out of 258) of participants have low level of self-esteem.
+
+
+ 
+
+### Two variable tables (Contingency tables)
+
+**A. Frequency contingency table**
+
+In addition to tabulating each categorical variable separately, we might be interested in the distribution of self-esteem levels (categorized as low, medium, and high) among male and female participants in the dataset. 
+This can be achieved by creating a frequency **contingency table**, as shown in @fig-tb0. Each cell value in the table represents the number of occurrences (or frequency) corresponding to the combination of categories from the two different variables.
+
+
+![Frequency contingency table. Each cell value in the table represents the count corresponding to the combination of categories from the two variables.](images/tb0.png){#fig-tb0 width="65%"}
+
+**Note:** The table also typically includes **row and column totals**, also known as marginal totals, that sum the counts for each row and column,  respectively.
+
+ 
+
+**B. Joint distribution contingency table**
+
+A **joint distribution** contingency table displays both the frequency of observations across categories of two variables and the **percentage distributions** of those frequencies. The percentages are calculated by dividing the frequency in each cell by the **overall total** (258), then multiplying the result by 100. This shows the percentage of the total observations that fall into each category combination.
+
+![Joint distribution contingency table. The percentages are calculated by dividing the frequency in each cell by the overall total.](images/tb1.png){#fig-tb1 width="75%"}
 
 
 
+ 
 
 
+**C. Conditional distribution contingency table**
 
+Suppose we are interested in the distribution of self-esteem for each sex. Since we are **conditioning** on sex, we divide each cell's frequency by the corresponding **row total** (row marginal total), rather than the overall total. This approach allows us to observe the conditional distribution of self-esteem levels within each sex group.
+For example, the percentage of participants with low-level self-esteem, given that the participant is female, is approximately (78/149) x 100 ≈ 52.3\%. 
 
+![Conditional distribution contingency table. The percentages are calculated by dividing the frequency in each cell by the row marginal total.](images/tb2.png){#fig-tb2 width="75%"}
 
+This data indicates notable differences in self-esteem levels between male and female participants. Specifically, the percentage of female participants with low self-esteem (52.3%) is substantially greater than that of male participants (23.9%).
 
 
