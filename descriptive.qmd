@@ -8,10 +8,11 @@ library(here)
 library(kableExtra)
 
 library(fontawesome)
-
+library(scales)
+library(ggsci)
+library(ggpubr)
+library(MESS)
 library(questionr)
-
-
 
 library(readxl)
 rses1 <- read_excel(here("data", "rses1.xlsx"))
@@ -78,9 +79,9 @@ Note that the percentages in both "$\%$" and "$cum\%$" columns of the table sum 
 
  
 
-**Score_cat variable**
+**Score_cat variable (self-esteem)**
 
-Similarly, we can create the frequency table for the `Score_cat` variable:
+Similarly, we can create the frequency table for the `Score_cat` (self-esteem) variable:
 
 ![Frequency table for the the levels of self-esteem variable](images/tb002.png){#fig-tb002 width="65%"}
 
@@ -110,7 +111,6 @@ A **joint distribution** contingency table displays both the frequency of observ
 ![Joint distribution contingency table. The percentages are calculated by dividing the frequency in each cell by the overall total.](images/tb1.png){#fig-tb1 width="75%"}
 
 
-
  
 
 
@@ -124,3 +124,173 @@ For example, the percentage of participants with low-level self-esteem, given th
 This data indicates notable differences in self-esteem levels between male and female participants. Specifically, the percentage of female participants with low self-esteem (52.3%) is substantially greater than that of male participants (23.9%).
 
 
+## Displaying categorical data
+
+While frequency tables are extremely useful, the best way to investigate a dataset is to plot it. For categorical variables, such as `sex` and `Score_cat`, it is straightforward to present the number in each category, usually indicating the frequency and the percentage of total number of participants. When shown graphically this is called a **bar plot**.
+
+### Simple bar plot
+
+A simple bar plot is a common data visualization for comparing categories in a single variable. @fig-simplebar0 illustrates the frequency distribution of levels of self-esteem. The horizontal axis (*x-axis*) displays the different self-esteem categories, ordered according to increasing self-esteem levels, while the vertical axis (y-axis) shows the frequency of each category.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-simplebar0
+#| fig-cap: Bar plot showing the frequency distribution of the levels of self-esteem.
+#| fig-width: 5
+#| fig-height: 4.5
+
+# create a data frame with self-esteem categories and their counts
+dat0 <- rses1 |> 
+  count(Score_cat)
+
+# plot the data
+ggplot(dat0, aes(x = Score_cat, y = n)) +
+  geom_col(width=0.65, fill = "#0073C2") +
+  geom_text(aes(label=n),
+            vjust=1.6, color = "white", size = 3.5) +
+  labs(x = "Self-esteem", y = "Frequency") +
+  theme_minimal(base_size = 14)
+```
+
+\vspace{15pt}
+
+
+If the y-axis represents percentages (%), then each bar's height corresponds to the percentage of participants in that category. For example, the percentage of participants classified as with low self-esteem is 40.2% (172/428).
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-simplebar01
+#| fig-cap: Bar plot showing the percentage of participants for each level of self-esteem.
+#| fig-width: 5
+#| fig-height: 4.5
+
+
+# create a data frame with self-esteem categories, their counts, and percentages
+dat1 <- dat0 |> 
+  mutate(pct = round_percent(n, 1))
+
+# plot the data
+ggplot(dat1, aes(x = Score_cat, y = pct)) +
+  geom_col(width=0.65, fill = "#0073C2") +
+  geom_text(aes(label=paste0(pct, "%")),
+            vjust=1.6, color = "white", size = 3.5) +
+  labs(x = "Self-esteem category", y = "Percentage") +
+  scale_y_continuous(labels = scales::percent_format(scale = 1)) +
+  theme_minimal(base_size = 14)
+```
+
+
+
+::: callout-important
+## Tips for a simple bar plot
+
+-   All bars should have equal width and equal spacing between them.
+-   The height of each bar should correspond to the data it represents.
+-   The bars should be plotted against a common zero-valued baseline.
+
+:::
+
+\vspace{10pt}
+
+### Side-by-side and grouped bar plots
+
+If the data are further classified based on the participant's `sex`, it becomes impractical to present this information to a single bar plot. In such cases, a side-by-side bar plot (@fig-sidebar) or, even better, a grouped bar plot (@fig-groupbar) can facilitate easier visual comparisons.
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-sidebar
+#| fig-cap: Side-by-side bar plot showing by self-esteem category and sex.
+#| fig-width: 7
+#| fig-height: 5.5
+
+# create a data frame with ordered BMI categories and their counts by sex
+dat2 <- rses1 |> 
+  count(Score_cat, sex) |>  
+  group_by(sex) |> 
+  mutate(pct = round_percent(n, 1)) |> 
+  ungroup()
+
+ggplot(dat2) + 
+  geom_col(aes(Score_cat, pct, fill = sex), width = 0.7, position = "dodge") +
+  geom_text(aes(Score_cat, pct, label = paste0(pct, "%"), 
+                group = sex), color = "white", size = 3.5, vjust=1.2,
+            position = position_dodge(width = .9)) +
+  labs(x = "Self-esteem category", y = "Percentage") +
+  scale_y_continuous(labels = scales::percent_format(scale = 1)) +
+  scale_fill_jco() +
+  theme_minimal(base_size = 14) +
+  theme(legend.position="none",
+        axis.text.x = element_text(angle = 45, hjust = 1)) +
+  facet_wrap(~sex, ncol = 2)
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-groupbar
+#| fig-cap: Grouped bar plot showing by self-esteem category and sex.
+#| fig-width: 8
+#| fig-height: 5
+
+ggplot(dat2) + 
+  geom_col(aes(Score_cat, pct, fill = sex), width = 0.8, position = "dodge") +
+  geom_text(aes(Score_cat, pct, label = paste0(pct, "%"), 
+                group = sex), color = "white", size = 3.5, vjust=1.2,
+            position = position_dodge(width = .9)) +
+  labs(x = "Self-esteem category", y = "Percentage") +
+  scale_y_continuous(labels = scales::percent_format(scale = 1)) +
+  scale_fill_jco() +
+  theme_minimal(base_size = 14)
+
+```
+
+
+
+### Stacked bar plot
+
+Unlike side-by-side or grouped bar plots, **stacked bar plots** segment their bars. A **100% Stack Bar Plot** displays the percentage-of-the-whole of each group, making it easier to discern relative differences between quantities within each group (@fig-stackbar).
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-stackbar
+#| fig-cap: A horizontal stacked bar plot showing the distribution of self-esteem stratified by sex.
+#| fig-width: 8
+#| fig-height: 2.5
+
+# create a data frame with BMI categories and their counts by sex
+dat3 <- rses1 |> 
+  group_by(sex) |> 
+  count(Score_cat) |> 
+  mutate(pct = round_percent(n, 2)) |> 
+  ungroup()
+
+ggplot(dat3, aes(x = sex, y = pct, fill = forcats::fct_rev(Score_cat)))+
+  geom_bar(stat = "identity", width = 0.8)+
+  geom_text(aes(label = paste0(round(pct, 1), "%"), y = pct), size = 3,
+            position = position_stack(vjust = 0.5)) +
+  coord_flip()+
+  scale_fill_simpsons() +
+  scale_y_continuous(labels = scales::percent_format(scale = 1))+
+  labs(x = "Sex", y = "Percentage", fill = "Self-esteem category") +
+  theme_minimal(base_size = 10)
+```
+
+\vspace{10pt}
+
+::: callout-warning
+## Caution
+
+One consideration when using stacked bar plots is the number of variable levels: with many categories, stacked bar plots can become confusing.
+:::
