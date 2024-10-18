@@ -55,11 +55,9 @@ DT::datatable(
 
 ## Summarizing categorical data (Frequency Statistics)
 
-
 ### One variable tables
 
 The first step in analyzing a categorical variable is to count the occurrences of each label and calculate their frequencies. The resulting collection of these frequencies for all possible categories is known as the **frequency distribution** of the variable. We can also express the frequencies as **proportions** of the total number of observations, which are called relative frequencies or **percentages** (%).
-
 
 **Sex variable**
 
@@ -87,20 +85,17 @@ Similarly, we can create the frequency table for the `Score_cat` (self-esteem) v
 
 In the above table, we observe that 40.3% (104 out of 258) of participants have low level of self-esteem.
 
-
  
 
 ### Two variable tables (Contingency tables)
 
 **A. Frequency contingency table**
 
-In addition to tabulating each categorical variable separately, we might be interested in the distribution of self-esteem levels (categorized as low, medium, and high) among male and female participants in the dataset. 
-This can be achieved by creating a frequency **contingency table**, as shown in @fig-tb0. Each cell value in the table represents the number of occurrences (or frequency) corresponding to the combination of categories from the two different variables.
+In addition to tabulating each categorical variable separately, we might be interested in the distribution of self-esteem levels (categorized as low, medium, and high) among male and female participants in the dataset. This can be achieved by creating a frequency **contingency table**, as shown in @fig-tb0. Each cell value in the table represents the number of occurrences (or frequency) corresponding to the combination of categories from the two different variables.
 
+![Frequency contingency table. Each cell value in the table represents the count corresponding to the combination of categories from the two variables.](images/tb0.png){#fig-tb0 width="70%"}
 
-![Frequency contingency table. Each cell value in the table represents the count corresponding to the combination of categories from the two variables.](images/tb0.png){#fig-tb0 width="65%"}
-
-**Note:** The table also typically includes **row and column totals**, also known as marginal totals, that sum the counts for each row and column,  respectively.
+**Note:** The table also typically includes **row and column totals**, also known as marginal totals, that sum the counts for each row and column, respectively.
 
  
 
@@ -110,19 +105,15 @@ A **joint distribution** contingency table displays both the frequency of observ
 
 ![Joint distribution contingency table. The percentages are calculated by dividing the frequency in each cell by the overall total.](images/tb1.png){#fig-tb1 width="75%"}
 
-
  
-
 
 **C. Conditional distribution contingency table**
 
-Suppose we are interested in the distribution of self-esteem for each sex. Since we are **conditioning** on sex, we divide each cell's frequency by the corresponding **row total** (row marginal total), rather than the overall total. This approach allows us to observe the conditional distribution of self-esteem levels within each sex group.
-For example, the percentage of participants with low-level self-esteem, given that the participant is female, is approximately (78/149) x 100 ≈ 52.3\%. 
+Suppose we are interested in the distribution of self-esteem for each sex. Since we are **conditioning** on sex, we divide each cell's frequency by the corresponding **row total** (row marginal total), rather than the overall total. This approach allows us to observe the conditional distribution of self-esteem levels within each sex group. For example, the percentage of participants with low-level self-esteem, given that the participant is female, is approximately (78/149) x 100 ≈ 52.3%.
 
 ![Conditional distribution contingency table. The percentages are calculated by dividing the frequency in each cell by the row marginal total.](images/tb2.png){#fig-tb2 width="75%"}
 
 This data indicates notable differences in self-esteem levels between male and female participants. Specifically, the percentage of female participants with low self-esteem (52.3%) is substantially greater than that of male participants (23.9%).
-
 
 ## Displaying categorical data
 
@@ -156,9 +147,7 @@ ggplot(dat0, aes(x = Score_cat, y = n)) +
 
 \vspace{15pt}
 
-
 If the y-axis represents percentages (%), then each bar's height corresponds to the percentage of participants in that category. For example, the percentage of participants classified as with low self-esteem is 40.2% (172/428).
-
 
 ```{r}
 #| echo: false
@@ -184,15 +173,12 @@ ggplot(dat1, aes(x = Score_cat, y = pct)) +
   theme_minimal(base_size = 14)
 ```
 
-
-
 ::: callout-important
 ## Tips for a simple bar plot
 
 -   All bars should have equal width and equal spacing between them.
 -   The height of each bar should correspond to the data it represents.
 -   The bars should be plotted against a common zero-valued baseline.
-
 :::
 
 \vspace{10pt}
@@ -200,7 +186,6 @@ ggplot(dat1, aes(x = Score_cat, y = pct)) +
 ### Side-by-side and grouped bar plots
 
 If the data are further classified based on the participant's `sex`, it becomes impractical to present this information to a single bar plot. In such cases, a side-by-side bar plot (@fig-sidebar) or, even better, a grouped bar plot (@fig-groupbar) can facilitate easier visual comparisons.
-
 
 ```{r}
 #| echo: false
@@ -232,7 +217,6 @@ ggplot(dat2) +
   facet_wrap(~sex, ncol = 2)
 ```
 
-
 ```{r}
 #| echo: false
 #| warning: false
@@ -247,14 +231,12 @@ ggplot(dat2) +
   geom_text(aes(Score_cat, pct, label = paste0(pct, "%"), 
                 group = sex), color = "white", size = 3.5, vjust=1.2,
             position = position_dodge(width = .9)) +
-  labs(x = "Self-esteem category", y = "Percentage") +
+  labs(x = "Self-esteem", y = "Percentage") +
   scale_y_continuous(labels = scales::percent_format(scale = 1)) +
   scale_fill_jco() +
   theme_minimal(base_size = 14)
 
 ```
-
-
 
 ### Stacked bar plot
 
