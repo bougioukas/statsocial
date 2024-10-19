@@ -55,9 +55,11 @@ DT::datatable(
 
 ## Summarizing categorical data (Frequency Statistics)
 
-### One variable tables
+### One variable frequency tables
 
-The first step in analyzing a categorical variable is to count the occurrences of each label and calculate their frequencies. The resulting collection of these frequencies for all possible categories is known as the **frequency distribution** of the variable. We can also express the frequencies as **proportions** of the total number of observations, which are called relative frequencies or **percentages** (%).
+The first step in analyzing a categorical variable is to count the occurrences of each label and calculate their frequencies. This collection of frequencies for all possible categories is known as the **frequency distribution** of the variable. Additionally, we can express these frequencies as proportions of the total number of observations, which are referred to as **relative frequencies**. If we multiply these proportions by 100, we obtain **percentages** (%).
+
+ 
 
 **Sex variable**
 
@@ -69,11 +71,62 @@ The table displays the following:
 
 -   **Absolute frequency (n):** The number of participants in each category (male: 109, female: 149).
 
--   **Percentage (%):** The proportion of participants in each category relative to the total number of participants (relative frequency) multiplied by $100\%$ (male: $109/258 \times 100\% = 42.2\%$, female: $149/258 \times 100\% = 57.8\%$).
+-   **Percentage (%):** The proportion of participants in each category relative to the total number of participants (relative frequency) multiplied by 100% (male: 109/258 x 100 = 42.2%, female: 149/258 x 100 = 57.8%). Note that the percentages sum up to 100% (42.2% + 57.8%).
 
--   **Cumulative percentage (%):** The sum of the percentage contributions of all categories up to and including the current one (male: 42.2%, male plus female: 42.2% + 57.8% = 100%).
+-   **Cumulative percentage (%):** The sum of the percentage contributions of all categories up to and including the current one. For example, for the male category, the cumulative percentage is 42.2%. When combining male and female categories, the cumulative percentage is 42.2% + 57.8% = 100%. Therefore, the final cumulative percentage must equal 100%.
 
-Note that the percentages in both "$\%$" and "$cum\%$" columns of the table sum up to 100%.
+
+While frequency tables are extremely useful, plotting the data often provides a clearer presentation. For categorical variables, such as sex, it is straightforward to display the number of occurrences in each category using **bar plots**. The x-axis typically represents the categories of the variable—in this case, "male" and "female". The y-axis represents the frequency or count of occurrences for each category.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-barsex1
+#| fig-cap: Bar plot showing the frequency distribution of the sex.
+#| fig-width: 5
+#| fig-height: 4.5
+
+# create a data frame with sex groups and their counts
+dat0 <- rses1 |> 
+  count(sex)
+
+# plot the data
+ggplot(dat0, aes(x = sex, y = n)) +
+  geom_col(width=0.65, fill = "#0073C2") +
+  geom_text(aes(label=n),
+            vjust=1.6, color = "white", size = 3.5) +
+  labs(x = "Sex", y = "Frequency") +
+  theme_minimal(base_size = 14)
+```
+
+\vspace{15pt}
+
+If the y-axis represents percentages (%), then each bar's height corresponds to the percentage of participants in that category. For example, the percentage of female participants is 57.8%.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-barsex2
+#| fig-cap: Bar plot showing the percentage of participants for each level of self-esteem.
+#| fig-width: 5
+#| fig-height: 4.5
+
+
+# create a data frame with self-esteem levels, their counts, and percentages
+dat1 <- dat0 |> 
+  mutate(pct = round_percent(n, 1))
+
+# plot the data
+ggplot(dat1, aes(x = sex, y = pct)) +
+  geom_col(width=0.65, fill = "#0073C2") +
+  geom_text(aes(label=paste0(pct, "%")),
+            vjust=1.6, color = "white", size = 3.5) +
+  labs(x = "Sex", y = "Percentage") +
+  scale_y_continuous(labels = scales::percent_format(scale = 1)) +
+  theme_minimal(base_size = 14)
+```
 
  
 
@@ -83,9 +136,71 @@ Similarly, we can create the frequency table for the `Score_cat` (self-esteem) v
 
 ![Frequency table for the levels of self-esteem.](images/tb002.png){#fig-tb002 width="70%"}
 
-In the above table, we observe that 40.3% (104 out of 258) of participants have low level of self-esteem.
+In the above table, we observe that 40.3% (104 out of 258) of participants have a low level of self-esteem. When we combine the low and medium categories, the cumulative percentage is: 40.3% + 32.6% = 72.9%. Finally, for all categories (low, medium, high), the cumulative percentage sums to 72.9% + 27.1% = 100%.
+
+
+@fig-baresteem1 illustrates the frequency distribution of self-esteem. The horizontal axis (*x-axis*) displays the different self-esteem categories, ordered according to increasing self-esteem levels, while the vertical axis (y-axis) shows the frequency of each category.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-baresteem1
+#| fig-cap: Bar plot showing the frequency for each level of self-esteem.
+#| fig-width: 5
+#| fig-height: 4.5
+
+
+# create a data frame with self-esteem levels and their counts
+dat2 <- rses1 |> 
+  count(Score_cat)
+
+# plot the data
+ggplot(dat2, aes(x = Score_cat, y = n)) +
+  geom_col(width=0.65, fill = "#0073C2") +
+  geom_text(aes(label=n),
+            vjust=1.6, color = "white", size = 3.5) +
+  labs(x = "Self-esteem", y = "Frequency") +
+  theme_minimal(base_size = 14)
+```
+
+
+@fig-baresteem2 illustrates the distribution of self-esteem using percentages. Most participants fall into the category of low self-esteem, accounting for 40.3% (172 out of 428), highlighting a significant portion of the sample that may benefit from targeted interventions or support.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-baresteem2
+#| fig-cap: Bar plot showing the percentage of participants for each level of self-esteem.
+#| fig-width: 5
+#| fig-height: 4.5
+
+
+# create a data frame with self-esteem levels, their counts, and percentages
+dat3 <- dat2 |> 
+  mutate(pct = round_percent(n, 1))
+
+# plot the data
+ggplot(dat3, aes(x = Score_cat, y = pct)) +
+  geom_col(width=0.65, fill = "#0073C2") +
+  geom_text(aes(label=paste0(pct, "%")),
+            vjust=1.6, color = "white", size = 3.5) +
+  labs(x = "Self-esteem", y = "Percentage") +
+  scale_y_continuous(labels = scales::percent_format(scale = 1)) +
+  theme_minimal(base_size = 14)
+```
 
  
+
+::: callout-important
+## Tips for simple bar plots
+
+-   All bars should have equal width and equal spacing between them.
+-   The height of each bar should correspond to the data it represents.
+-   The bars should be plotted against a **common zero-valued baseline**.
+:::
+
 
 ### Two variable tables (Contingency tables)
 
@@ -96,6 +211,7 @@ In addition to tabulating each categorical variable separately, we might be inte
 ![Frequency contingency table which cross tabulates sex and self-esteem levels. Each cell value in the table represents the count corresponding to the combination of categories from the two variables.](images/tb0.png){#fig-tb0 width="70%"}
 
 **Note:** The table also typically includes **row and column totals**, also known as marginal totals, that sum the counts for each row and column, respectively.
+
 
  
 
@@ -114,7 +230,7 @@ By **conditioning** on sex, we divide each cell's frequency by the corresponding
 
 ![Conditional distribution contingency table. The percentages are calculated by dividing the frequency in each cell by the row marginal total.](images/tb2.png){#fig-tb2 width="75%"}
 
-This data indicates notable differences in self-esteem levels between male and female participants. Specifically, the percentage of female participants with low self-esteem (52.4%) is substantially greater than that of male participants (23.9%).
+This data analysis indicates notable differences in self-esteem levels between male and female participants. Specifically, the percentage of female participants with low self-esteem (52.4%) is substantially greater than that of male participants (23.9%).
 
  
 
@@ -125,79 +241,7 @@ If we are interested in the distribution of **sex** within each self-esteem leve
 
 :::
 
-
-
-## Displaying categorical data
-
-While frequency tables are extremely useful, the best way to investigate a dataset is to plot it. For categorical variables, such as `sex` and `Score_cat`, it is straightforward to present the number in each category, usually indicating the frequency and the percentage of total number of participants. When shown graphically this is called a **bar plot**.
-
-### Simple bar plot
-
-A simple bar plot is a common data visualization for comparing categories in a single variable. @fig-simplebar0 illustrates the frequency distribution of levels of self-esteem. The horizontal axis (*x-axis*) displays the different self-esteem categories, ordered according to increasing self-esteem levels, while the vertical axis (y-axis) shows the frequency of each category.
-
-```{r}
-#| echo: false
-#| warning: false
-#| message: false
-#| label: fig-simplebar0
-#| fig-cap: Bar plot showing the frequency distribution of the levels of self-esteem.
-#| fig-width: 5
-#| fig-height: 4.5
-
-# create a data frame with self-esteem levels and their counts
-dat0 <- rses1 |> 
-  count(Score_cat)
-
-# plot the data
-ggplot(dat0, aes(x = Score_cat, y = n)) +
-  geom_col(width=0.65, fill = "#0073C2") +
-  geom_text(aes(label=n),
-            vjust=1.6, color = "white", size = 3.5) +
-  labs(x = "Self-esteem", y = "Frequency") +
-  theme_minimal(base_size = 14)
-```
-
-\vspace{15pt}
-
-If the y-axis represents percentages (%), then each bar's height corresponds to the percentage of participants in that category. For example, the percentage of participants classified as with low self-esteem is 40.2% (172/428).
-
-```{r}
-#| echo: false
-#| warning: false
-#| message: false
-#| label: fig-simplebar01
-#| fig-cap: Bar plot showing the percentage of participants for each level of self-esteem.
-#| fig-width: 5
-#| fig-height: 4.5
-
-
-# create a data frame with self-esteem levels, their counts, and percentages
-dat1 <- dat0 |> 
-  mutate(pct = round_percent(n, 1))
-
-# plot the data
-ggplot(dat1, aes(x = Score_cat, y = pct)) +
-  geom_col(width=0.65, fill = "#0073C2") +
-  geom_text(aes(label=paste0(pct, "%")),
-            vjust=1.6, color = "white", size = 3.5) +
-  labs(x = "Self-esteem", y = "Percentage") +
-  scale_y_continuous(labels = scales::percent_format(scale = 1)) +
-  theme_minimal(base_size = 14)
-```
-
-::: callout-important
-## Tips for a simple bar plot
-
--   All bars should have equal width and equal spacing between them.
--   The height of each bar should correspond to the data it represents.
--   The bars should be plotted against a common zero-valued baseline.
-:::
-
-\vspace{10pt}
-
-### Side-by-side and grouped bar plots
-
-If the data are further classified based on the participant's `sex`, it becomes impractical to present this information to a single bar plot. In such cases, a side-by-side bar plot (@fig-sidebar) or, even better, a grouped bar plot (@fig-groupbar) can facilitate easier visual comparisons.
+We can also graphically present the data in the table shown in @fig-tb2. A side-by-side bar plot (@fig-sidebar) or, preferably, a grouped bar plot (@fig-groupbar) can facilitate easier visual comparisons.
 
 ```{r}
 #| echo: false
@@ -209,13 +253,13 @@ If the data are further classified based on the participant's `sex`, it becomes 
 #| fig-height: 5.5
 
 # create a data frame with ordered self-esteem levels and their counts by sex
-dat2 <- rses1 |> 
+dat4 <- rses1 |> 
   count(Score_cat, sex) |>  
   group_by(sex) |> 
   mutate(pct = round_percent(n, 1)) |> 
   ungroup()
 
-ggplot(dat2) + 
+ggplot(dat4) + 
   geom_col(aes(Score_cat, pct, fill = sex), width = 0.7, position = "dodge") +
   geom_text(aes(Score_cat, pct, label = paste0(pct, "%"), 
                 group = sex), color = "white", size = 3.5, vjust=1.2,
@@ -238,7 +282,7 @@ ggplot(dat2) +
 #| fig-width: 8
 #| fig-height: 5
 
-ggplot(dat2) + 
+ggplot(dat4) + 
   geom_col(aes(Score_cat, pct, fill = sex), width = 0.8, position = "dodge") +
   geom_text(aes(Score_cat, pct, label = paste0(pct, "%"), 
                 group = sex), color = "white", size = 3.5, vjust=1.2,
@@ -250,9 +294,9 @@ ggplot(dat2) +
 
 ```
 
-### Stacked bar plot
+Alternatively, we can create a stacked bar plot, where the bars are segmented by self-esteem levels. @fig-stackbar illustrates a **100% stacked bar plot**, which displays the percentage of each self-esteem level (low, medium, high) among male and female participants, emphasizing the relative differences within each group. 
+For example, the plot shows that a higher proportion of females have low self-esteem (52.4%) compared to males (23.9%), while males have a higher proportion of medium (43.1%) and high self-esteem (33%) compared to females.
 
-Unlike side-by-side or grouped bar plots, **stacked bar plots** segment their bars. A **100% Stack Bar Plot** displays the percentage-of-the-whole of each group, making it easier to discern relative differences between quantities within each group (@fig-stackbar).
 
 ```{r}
 #| echo: false
@@ -264,13 +308,13 @@ Unlike side-by-side or grouped bar plots, **stacked bar plots** segment their ba
 #| fig-height: 2.5
 
 # create a data frame with self-esteem levels and their counts by sex
-dat3 <- rses1 |> 
+dat5 <- rses1 |> 
   group_by(sex) |> 
   count(Score_cat) |> 
   mutate(pct = round_percent(n, 2)) |> 
   ungroup()
 
-ggplot(dat3, aes(x = sex, y = pct, fill = forcats::fct_rev(Score_cat)))+
+ggplot(dat5, aes(x = sex, y = pct, fill = forcats::fct_rev(Score_cat)))+
   geom_bar(stat = "identity", width = 0.8)+
   geom_text(aes(label = paste0(round(pct, 1), "%"), y = pct), size = 3,
             position = position_stack(vjust = 0.5)) +
@@ -280,6 +324,7 @@ ggplot(dat3, aes(x = sex, y = pct, fill = forcats::fct_rev(Score_cat)))+
   labs(x = "Sex", y = "Percentage", fill = "Self-esteem") +
   theme_minimal(base_size = 14)
 ```
+
 
 \vspace{10pt}
 
