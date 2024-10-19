@@ -35,7 +35,7 @@ When we have finished this chapter, we should be able to:
 
 ## Data
 
-We will explore a dataset containing 258 participants (rows) and 8 variables (columns). The variables include sex (female/male), age (in years), time spent on the internet and social media (in hours), the total score (0-30) from responses to 10 questions on the Rosenberg Self-Esteem Scale ([RSES](https://socy.umd.edu/about-us/using-rosenberg-self-esteem-scale)), and the categorization of that score into three levels: low (0-15), medium (16-19), and high (20-30) level of self-esteem [@garcía2019].
+We will explore a dataset containing 258 participants (rows) and 8 variables (columns). The variables include sex (female/male), age (in years), time spent on the internet and social media (in hours), the total score (0-30) from responses to 10 questions on the Rosenberg Self-Esteem Scale ([RSES](https://socy.umd.edu/about-us/using-rosenberg-self-esteem-scale)), and the categorization of that score into three levels of self-esteem: low (0-15), medium (16-19), and high (20-30)  [@garcía2019].
 
  
 
@@ -63,7 +63,7 @@ The first step in analyzing a categorical variable is to count the occurrences o
 
 Let's create a a frequency table for the `sex` variable:
 
-![frequency table for the sex variable.](images/tb001.png){#fig-tb001 width="65%"}
+![Fequency table for the sex.](images/tb001.png){#fig-tb001 width="70%"}
 
 The table displays the following:
 
@@ -81,7 +81,7 @@ Note that the percentages in both "$\%$" and "$cum\%$" columns of the table sum 
 
 Similarly, we can create the frequency table for the `Score_cat` (self-esteem) variable:
 
-![Frequency table for the the levels of self-esteem variable](images/tb002.png){#fig-tb002 width="65%"}
+![Frequency table for the levels of self-esteem.](images/tb002.png){#fig-tb002 width="70%"}
 
 In the above table, we observe that 40.3% (104 out of 258) of participants have low level of self-esteem.
 
@@ -91,9 +91,9 @@ In the above table, we observe that 40.3% (104 out of 258) of participants have 
 
 **A. Frequency contingency table**
 
-In addition to tabulating each categorical variable separately, we might be interested in the distribution of self-esteem levels (categorized as low, medium, and high) among male and female participants in the dataset. This can be achieved by creating a frequency **contingency table**, as shown in @fig-tb0. Each cell value in the table represents the number of occurrences (or frequency) corresponding to the combination of categories from the two different variables.
+In addition to tabulating each categorical variable separately, we might be interested in the distribution of self-esteem levels (categorized as low, medium, and high) among male and female participants in the dataset. This can be achieved by creating a frequency **contingency table**, as shown in @fig-tb0. Each cell value in the table represents the number of occurrences (frequency) corresponding to the combination of categories from the two different variables.
 
-![Frequency contingency table. Each cell value in the table represents the count corresponding to the combination of categories from the two variables.](images/tb0.png){#fig-tb0 width="70%"}
+![Frequency contingency table which cross tabulates sex and self-esteem levels. Each cell value in the table represents the count corresponding to the combination of categories from the two variables.](images/tb0.png){#fig-tb0 width="70%"}
 
 **Note:** The table also typically includes **row and column totals**, also known as marginal totals, that sum the counts for each row and column, respectively.
 
@@ -109,11 +109,23 @@ A **joint distribution** contingency table displays both the frequency of observ
 
 **C. Conditional distribution contingency table**
 
-Suppose we are interested in the distribution of self-esteem for each sex. Since we are **conditioning** on sex, we divide each cell's frequency by the corresponding **row total** (row marginal total), rather than the overall total. This approach allows us to observe the conditional distribution of self-esteem levels within each sex group. For example, the percentage of participants with low-level self-esteem, given that the participant is female, is approximately (78/149) x 100 ≈ 52.3%.
+Suppose we are interested in the distribution of **self-esteem levels** within each sex group, meaning we are observing how self-esteem vary **among males** and **among females**.
+By **conditioning** on sex, we divide each cell's frequency by the corresponding **row total** (row marginal total), rather than the overall total. This method allows us to examine the **conditional distribution** of self-esteem within each sex group. For example, the percentage of participants with low self-esteem, given that the participant is female, is calculated as (78/149) x 100 ≈ 52.4%.
 
 ![Conditional distribution contingency table. The percentages are calculated by dividing the frequency in each cell by the row marginal total.](images/tb2.png){#fig-tb2 width="75%"}
 
-This data indicates notable differences in self-esteem levels between male and female participants. Specifically, the percentage of female participants with low self-esteem (52.3%) is substantially greater than that of male participants (23.9%).
+This data indicates notable differences in self-esteem levels between male and female participants. Specifically, the percentage of female participants with low self-esteem (52.4%) is substantially greater than that of male participants (23.9%).
+
+ 
+
+::: {.callout-tip icon="false"}
+## `r fa("comment", fill = "#1DC5CE")` Comment
+
+If we are interested in the distribution of **sex** within each self-esteem level, focusing on how the proportion of males and females varies within each self-esteem category, we condition on self-esteem. This means we divide each cell's frequency by the corresponding **column total**. For example, among those with low self-esteem, the percentage of females is (78/104) x 100 ≈ 75.0%
+
+:::
+
+
 
 ## Displaying categorical data
 
@@ -132,7 +144,7 @@ A simple bar plot is a common data visualization for comparing categories in a s
 #| fig-width: 5
 #| fig-height: 4.5
 
-# create a data frame with self-esteem categories and their counts
+# create a data frame with self-esteem levels and their counts
 dat0 <- rses1 |> 
   count(Score_cat)
 
@@ -159,7 +171,7 @@ If the y-axis represents percentages (%), then each bar's height corresponds to 
 #| fig-height: 4.5
 
 
-# create a data frame with self-esteem categories, their counts, and percentages
+# create a data frame with self-esteem levels, their counts, and percentages
 dat1 <- dat0 |> 
   mutate(pct = round_percent(n, 1))
 
@@ -168,7 +180,7 @@ ggplot(dat1, aes(x = Score_cat, y = pct)) +
   geom_col(width=0.65, fill = "#0073C2") +
   geom_text(aes(label=paste0(pct, "%")),
             vjust=1.6, color = "white", size = 3.5) +
-  labs(x = "Self-esteem category", y = "Percentage") +
+  labs(x = "Self-esteem", y = "Percentage") +
   scale_y_continuous(labels = scales::percent_format(scale = 1)) +
   theme_minimal(base_size = 14)
 ```
@@ -192,11 +204,11 @@ If the data are further classified based on the participant's `sex`, it becomes 
 #| warning: false
 #| message: false
 #| label: fig-sidebar
-#| fig-cap: Side-by-side bar plot showing by self-esteem category and sex.
+#| fig-cap: Side-by-side bar plot showing by self-esteem level and sex.
 #| fig-width: 7
 #| fig-height: 5.5
 
-# create a data frame with ordered BMI categories and their counts by sex
+# create a data frame with ordered self-esteem levels and their counts by sex
 dat2 <- rses1 |> 
   count(Score_cat, sex) |>  
   group_by(sex) |> 
@@ -208,7 +220,7 @@ ggplot(dat2) +
   geom_text(aes(Score_cat, pct, label = paste0(pct, "%"), 
                 group = sex), color = "white", size = 3.5, vjust=1.2,
             position = position_dodge(width = .9)) +
-  labs(x = "Self-esteem category", y = "Percentage") +
+  labs(x = "Self-esteem", y = "Percentage") +
   scale_y_continuous(labels = scales::percent_format(scale = 1)) +
   scale_fill_jco() +
   theme_minimal(base_size = 14) +
@@ -222,7 +234,7 @@ ggplot(dat2) +
 #| warning: false
 #| message: false
 #| label: fig-groupbar
-#| fig-cap: Grouped bar plot showing by self-esteem category and sex.
+#| fig-cap: Grouped bar plot showing by self-esteem level and sex.
 #| fig-width: 8
 #| fig-height: 5
 
@@ -251,7 +263,7 @@ Unlike side-by-side or grouped bar plots, **stacked bar plots** segment their ba
 #| fig-width: 8
 #| fig-height: 2.5
 
-# create a data frame with BMI categories and their counts by sex
+# create a data frame with self-esteem levels and their counts by sex
 dat3 <- rses1 |> 
   group_by(sex) |> 
   count(Score_cat) |> 
@@ -265,8 +277,8 @@ ggplot(dat3, aes(x = sex, y = pct, fill = forcats::fct_rev(Score_cat)))+
   coord_flip()+
   scale_fill_simpsons() +
   scale_y_continuous(labels = scales::percent_format(scale = 1))+
-  labs(x = "Sex", y = "Percentage", fill = "Self-esteem category") +
-  theme_minimal(base_size = 10)
+  labs(x = "Sex", y = "Percentage", fill = "Self-esteem") +
+  theme_minimal(base_size = 14)
 ```
 
 \vspace{10pt}
