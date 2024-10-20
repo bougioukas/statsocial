@@ -35,7 +35,7 @@ When we have finished this chapter, we should be able to:
 
 ## Data
 
-We will explore a dataset containing 258 participants (rows) and 8 variables (columns). The variables include sex (female/male), age (in years), time spent on the internet and social media (in hours), the total score (0-30) from responses to 10 questions on the Rosenberg Self-Esteem Scale ([RSES](https://socy.umd.edu/about-us/using-rosenberg-self-esteem-scale)), and the categorization of that score into three levels of self-esteem: low (0-15), medium (16-19), and high (20-30)  [@garcía2019].
+We will explore a dataset containing 258 participants (rows) and 8 variables (columns). The variables include sex (female/male), age (in years), time spent on the internet and social media (in hours), the total score (0-30) from responses to 10 questions on the Rosenberg Self-Esteem Scale ([RSES](https://socy.umd.edu/about-us/using-rosenberg-self-esteem-scale)), and the categorization of that score into three levels of self-esteem: low (0-15), medium (16-19), and high (20-30) [@garcía2019].
 
  
 
@@ -74,7 +74,6 @@ The table displays the following:
 -   **Percentage (%):** The proportion of participants in each category relative to the total number of participants (relative frequency) multiplied by 100% (male: 109/258 x 100 = 42.2%, female: 149/258 x 100 = 57.8%). Note that the percentages sum up to 100% (42.2% + 57.8%).
 
 -   **Cumulative percentage (%):** The sum of the percentage contributions of all categories up to and including the current one. For example, for the male category, the cumulative percentage is 42.2%. When combining male and female categories, the cumulative percentage is 42.2% + 57.8% = 100%. Therefore, the final cumulative percentage must equal 100%.
-
 
 While frequency tables are extremely useful, plotting the data often provides a clearer presentation. For categorical variables, such as sex, it is straightforward to display the number of occurrences in each category using **bar plots**. The x-axis typically represents the categories of the variable—in this case, "male" and "female". The y-axis represents the frequency or count of occurrences for each category.
 
@@ -138,7 +137,6 @@ Similarly, we can create the frequency table for the `Score_cat` (self-esteem) v
 
 In the above table, we observe that 40.3% (104 out of 258) of participants have a low level of self-esteem. When we combine the low and medium categories, the cumulative percentage is: 40.3% + 32.6% = 72.9%. Finally, for all categories (low, medium, high), the cumulative percentage sums to 72.9% + 27.1% = 100%.
 
-
 @fig-baresteem1 illustrates the frequency distribution of self-esteem. The horizontal axis (*x-axis*) displays the different self-esteem categories, ordered according to increasing self-esteem levels, while the vertical axis (y-axis) shows the frequency of each category.
 
 ```{r}
@@ -163,7 +161,6 @@ ggplot(dat2, aes(x = Score_cat, y = n)) +
   labs(x = "Self-esteem", y = "Frequency") +
   theme_minimal(base_size = 14)
 ```
-
 
 @fig-baresteem2 illustrates the distribution of self-esteem using percentages. Most participants fall into the category of low self-esteem, accounting for 40.3% (172 out of 428), highlighting a significant portion of the sample that may benefit from targeted interventions or support.
 
@@ -201,7 +198,6 @@ ggplot(dat3, aes(x = Score_cat, y = pct)) +
 -   The bars should be plotted against a **common zero-valued baseline**.
 :::
 
-
 ### Two variable tables (Contingency tables) and plots
 
 **A. Frequency contingency table**
@@ -211,7 +207,6 @@ In addition to tabulating each categorical variable separately, we might be inte
 ![Frequency contingency table which cross tabulates sex and self-esteem levels. Each cell value in the table represents the count corresponding to the combination of categories from the two variables.](images/tb0.png){#fig-tb0 width="70%"}
 
 **Note:** The table also typically includes **row and column totals**, also known as marginal totals, that sum the counts for each row and column, respectively.
-
 
  
 
@@ -225,19 +220,16 @@ A **joint distribution** contingency table displays both the frequency of observ
 
 **C. Conditional distribution contingency table**
 
-Suppose we are interested in the distribution of **self-esteem levels** within each sex group, meaning we are observing how self-esteem vary **among males** and **among females**.
-By **conditioning** on sex, we divide each cell's frequency by the corresponding **row total** (row marginal total), rather than the overall total. This method allows us to examine the **conditional distribution** of self-esteem within each sex group. For example, the percentage of participants with low self-esteem, given that the participant is female, is calculated as (78/149) x 100 ≈ 52.4%.
+Suppose we are interested in the distribution of **self-esteem levels** within each sex group, meaning we are observing how self-esteem vary **among males** and **among females**. By **conditioning** on sex, we divide each cell's frequency by the corresponding **row total** (row marginal total), rather than the overall total. This method allows us to examine the **conditional distribution** of self-esteem within each sex group. For example, the percentage of participants with low self-esteem, given that the participant is female, is calculated as (78/149) x 100 ≈ 52.4%.
 
 ![Conditional distribution contingency table. The percentages are calculated by dividing the frequency in each cell by the row marginal total.](images/tb2.png){#fig-tb2 width="75%"}
 
 This data analysis indicates notable differences in self-esteem levels between male and female participants. Specifically, the percentage of female participants with low self-esteem (52.4%) is substantially greater than that of male participants (23.9%).
 
-
 ::: {.callout-tip icon="false"}
 ## `r fa("comment", fill = "#1DC5CE")` Comment
 
 If we are interested in the distribution of **sex** within each self-esteem level, focusing on how the proportion of males and females varies within each self-esteem category, we condition on self-esteem. This means we divide each cell's frequency by the corresponding **column total**. For example, among those with low self-esteem, the percentage of females is (78/104) x 100 ≈ 75.0%
-
 :::
 
  
@@ -295,9 +287,7 @@ ggplot(dat4) +
 
 ```
 
-Alternatively, we can create a stacked bar plot, where the bars are segmented by self-esteem levels. @fig-stackbar illustrates a **100% stacked bar plot**, which displays the percentage of each self-esteem level (low, medium, high) among male and female participants, emphasizing the relative differences within each group. 
-For example, the plot shows that a higher proportion of females have low self-esteem (52.4%) compared to males (23.9%), while males have a higher proportion of medium (43.1%) and high self-esteem (33%) compared to females.
-
+Alternatively, we can create a stacked bar plot, where the bars are segmented by self-esteem levels. @fig-stackbar illustrates a **100% stacked bar plot**, which displays the percentage of each self-esteem level (low, medium, high) among male and female participants, emphasizing the relative differences within each group. For example, the plot shows that a higher proportion of females have low self-esteem (52.4%) compared to males (23.9%), while males have a higher proportion of medium (43.1%) and high self-esteem (33%) compared to females.
 
 ```{r}
 #| echo: false
@@ -326,7 +316,6 @@ ggplot(dat5, aes(x = sex, y = pct, fill = forcats::fct_rev(Score_cat)))+
   theme_minimal(base_size = 14)
 ```
 
-
 \vspace{10pt}
 
 ::: callout-warning
@@ -347,12 +336,12 @@ Summary measures are **single numerical values** that summarize a set of data. N
 
  
 
-| **Measures of Central Location** | **Measures of Dispersion**                     |
-|:---------------------------------|:-----------------------------------------------|
-| • Mean                           | • Variance                                     |
-| • Median                         | • Standard Deviation                           |
-| • Mode                           | • Range (Minimum, Maximum)                     |
-|                                  | • Interquartile Range (1st and 3rd Quartiles)  |
+| **Measures of Central Location** | **Measures of Dispersion** |
+|:-----------------------------|:-----------------------------------------|
+| • Mean | • Variance |
+| • Median | • Standard Deviation |
+| • Mode | • Range (Minimum, Maximum) |
+|  | • Interquartile Range (1st and 3rd Quartiles) |
 
 : Common summary measures of central location and dispersion {#tbl-measures}
 
@@ -360,9 +349,7 @@ Summary measures are **single numerical values** that summarize a set of data. N
 
 Additionally, **measures of shape** such as the sample coefficients of **skewness** and **kurtosis** provide further insights by revealing the overall shape and characteristics of the distribution.
 
-
 ### Measures of central location
-
 
 **A. Sample Mean or Average**
 
@@ -370,20 +357,24 @@ Additionally, **measures of shape** such as the sample coefficients of **skewnes
 The arithmetic mean, or average, denoted as $\bar{x}$, is calculated by dividing the sum of all values by the total number of values.
 :::
 
-**_Example_**
 
-The number of hours per day spent on the internet by 15-year-old females with low self-esteem in our subset are as follows:
+$$\bar{x}= \frac{Sum \ of \ values}{Number \ of \ values}$$ {#eq-mean}
+
+
+
+***Example***
+
+We subset the data to a smaller sample to make it easier to manually calculate the summary measures. As an example, we will use the number of hours per day spent on the internet by 15-year-old females with low self-esteem, which are as follows:
 
 $$ 5 \ \ \ \ \  4  \ \ \ \ \ 12 \ \ \ \ \  8 \ \ \ \ \  4 $$
 
-To calculate the mean ($\bar{x}$), we use the formula:
+To calculate the mean, we use the @eq-mean:
 
-$$\bar{x}= \frac{Sum \ of \ values}{Number \ of \ values} = \frac{5 + 4 + 12 + 8 + 4}{5} = \frac{33}{5} = 6.6 \ hours$$ 
+$$\bar{x} = \frac{5 + 4 + 12 + 8 + 4}{5} = \frac{33}{5} = 6.6 \ hours$$
 
  
 
-Suppose we add the value of 24 to the data: 
-$$ 5 \ \ \ \ \  4  \ \ \ \ \ 12 \ \ \ \ \  8 \ \ \ \ \  4 \ \ \ \ \ {\textbf{24}}$$
+Suppose we add the value of 24 to the data: $$ 5 \ \ \ \ \  4  \ \ \ \ \ 12 \ \ \ \ \  8 \ \ \ \ \  4 \ \ \ \ \  \underline{24}$$
 
 The new mean, $\bar{x}_{new}$, is calculated as follows:
 
@@ -394,12 +385,10 @@ We observe that the mean is sensitive to extreme values, such as the inclusion o
  
 
 ::: content-box-blue
-
 **Advantages of mean**
 
 -   It uses all the data values in the calculation and is the balance point of the data.
 -   It is algebraically defined and thus mathematically manageable.
-
 
 **Disadvantages of mean**
 
@@ -411,45 +400,37 @@ We observe that the mean is sensitive to extreme values, such as the inclusion o
 
 **B. Median of the sample**
 
-The **sample median**, denoted as *md*, is an alternative measure of location that is less sensitive to outliers than mean. 
+The **sample median**, denoted as *md*, is an alternative measure of location that is less sensitive to outliers than mean.
 
 ::: content-box-purple
-
 The median is calculated by first sorting the observed values (i.e. arranging them in an ascending or descending order) and selecting the middle one. If the number of observations is **odd**, the median corresponds to the number in the middle of the sorted values. If the number of observations is **even**, the median is the average of the two middle numbers.
-
 :::
 
-
-**_Example_**
+***Example***
 
 First, we sort the observed values from smallest to largest:
 
 **Observed values:** $\ \ \ \ \ 5 \ \ \ \ \  4  \ \ \ \ \ 12 \ \ \ \ \  8 \ \ \ \ \  4$
 
-**Sorted values:**   $\ \ \ \ \ \ \ \ \ \ 4 \ \ \ \ \  4 \ \ \ \ \   5 \ \ \ \ \  8  \ \ \ \ \ 12$
+**Sorted values:** $\ \ \ \ \ \ \ \ \  4 \ \ \ \ \  4 \ \ \ \ \ \  5 \ \ \ \ \ \  8  \ \ \ \ \ 12$
 
+The number of observations is 5, which is an odd number; therefore, the median corresponds to the value in the middle of the sorted data:
 
-The number of observations is 5, which is an odd number; therefore, the median corresponds to the value in the middle of the sorted data: 
+$$ 4 \ \ \ \ \ 4 \ \ \ \ \ \textcolor{black}{\textbf{5}} \ \ \ \ \ 8 \ \ \ \ \ 12 $$
 
-
-$$ 4 \ \ \ \ \ 4 \ \ \ \ \ \textcolor{red}{\textbf{5}} \ \ \ \ \ 8 \ \ \ \ \ 12 $$
-
-
-$$md = 5 \ hours$$ 
- 
+$$md = 5 \ hours$$  
 
 Let's add the value of 24 to the data. In this case, the number of observations becomes 6, which is an even number. The new median, $md_{new}$, is the average of the two middle numbers, 5 and 8:
 
-$$ 4 \ \ \ \ \ 4 \ \ \ \ \ \textcolor{red}{\textbf{5}} \ \ \ \ \ \textcolor{red}{\textbf{8}} \ \ \ \ \ 12 \ \ \ \ \ 24$$
+$$ 4 \ \ \ \ \ 4 \ \ \ \ \ \textcolor{black}{\textbf{5}} \ \ \ \ \ \textcolor{black}{\textbf{8}} \ \ \ \ \ 12 \ \ \ \ \ \underline{24}$$
 
-$$md_{new} = \frac{5 + 8}{2} = \frac{13}{2} = 6.5 \ hours$$ 
+$$md_{new} = \frac{5 + 8}{2} = \frac{13}{2} = 6.5 \ hours$$
 
 We observe that the median is not strongly influenced by the addition of the extreme value of 24; the median increased from 5 to 6.5.
 
  
 
 ::: content-box-blue
-
 **Advantages of median**
 
 -   It is resistant to extreme values (outliers) compared to the mean.
@@ -459,7 +440,6 @@ We observe that the median is not strongly influenced by the addition of the ext
 **Disadvantages of median**
 
 -   It ignores the actual values of the data points, potentially losing some information about the data.
-
 :::
 
  
@@ -469,39 +449,205 @@ We observe that the median is not strongly influenced by the addition of the ext
 Another measure of location is the **mode** of the sample.
 
 ::: content-box-purple
-
-Mode represents the value that occurs **most frequently** in a set of data values. 
-
+Mode represents the value that occurs **most frequently** in a set of data values.
 :::
+
+***Example***
 
 In our example, the value of 4 appears twice in the data:
 
-$$ 5 \ \ \ \ \ \textcolor{red}{\textbf{4}} \ \ \ \ \ 12 \ \ \ \ \ 8 \ \ \ \ \ \textcolor{red}{\textbf{4}} $$
+$$ 5 \ \ \ \ \ \textcolor{black}{\textbf{4}} \ \ \ \ \ 12 \ \ \ \ \ 8 \ \ \ \ \ \textcolor{black}{\textbf{4}} $$
 
 Therefore, the mode is:
 
 $$ Mode = 4$$
 
-
 It's important to note that some datasets may not have a mode if each value occurs only once. For example, if we replace one of the fours with a three:
 
-$$ 5 \ \ \ \ \  \textbf{3}  \ \ \ \ \ 12 \ \ \ \ \  8 \ \ \ \ \  4 $$
-In this case, no value repeats, so the dataset has no mode.
+$$ 5 \ \ \ \ \  \underline{3}  \ \ \ \ \ 12 \ \ \ \ \  8 \ \ \ \ \  4 $$ In this case, no value repeats, so the dataset has no mode.
 
  
 
 However, if we replace the 12 with an 8, the dataset becomes:
 
-$$ 5 \ \ \ \ \  \textcolor{red}{\textbf{4}}  \ \ \ \ \ \textcolor{green}{\textbf{8}} \ \ \ \ \  \textcolor{green}{\textbf{8}} \ \ \ \ \  \textcolor{red}{\textbf{4}} $$
+$$ 5 \ \ \ \ \  \textcolor{red}{\textbf{4}}  \ \ \ \ \ \underline{\textcolor{green}{\textbf{8}}} \ \ \ \ \  \textcolor{green}{\textbf{8}} \ \ \ \ \  \textcolor{red}{\textbf{4}} $$
 
 Here, both 4 and 8 appear twice, making the dataset bimodal, meaning it has two modes.
 
+$$ \textcolor{red}{Mode1 = 4}$$ and
+
+$$ \textcolor{green}{Mode2 = 8}$$
+
+ 
+
+::: {.callout-tip icon="false"}
+## `r fa("comment", fill = "#1DC5CE")` Comment
+
+While the mode is less commonly used for numerical data, it can be a useful measure of central tendency for categorical data, representing the category with the highest frequency.
+:::
+
+ 
+
+### Measures of dispersion
+
+**A. Range of the sample**
+
+The **minimum (min)** value represents the lowest value observed in a dataset, while the **maximum (max)** value represents the highest value. These values provide valuable insights into the range and potential outliers within the dataset.
+
+::: content-box-purple
+In mathematics, the **range** is the difference between the maximum and minimum values in a data set.
+:::
+
+$$range = Max - Min$$ {#eq-range}
+
+
+***Example***
+
+In our example, the minimum is Min = 4 hours, and the maximum is Max = 12 hours. 
+
+$$ \textcolor{black}{\textbf{4}} \ \ \ \ \  4 \ \ \ \ \ 5  \ \ \ \ \ 8 \ \ \ \ \ \textcolor{black}{\textbf{12}}$$
+
+Therefore, according to @eq-range:
+
+$$ range = 12 - 4 = 8 \ hours$$
+
+ 
+
+Let's add the extreme value of 24 to the data.
+
+$$ \textcolor{black}{\textbf{4}} \ \ \ \ \ 4 \ \ \ \ \ 5  \ \ \ \ \ 8 \ \ \ \ \ 12 \ \ \ \ \ \underline{\textcolor{black}{\textbf{24}}}$$ 
+
+In this case, the range becomes:
+
+$$range = 24 -4 = 20 \ hours$$
+
+::: content-box-gray
+The main disadvantages of the range as a measure of dispersion are its sensitivity to outliers and the fact that it uses only the extreme values, ignoring all other data points.
+:::
+
+ 
+
+**B. Inter-quartile range of the sample**
+
+A quantile indicates the value below which a certain proportion of the data falls. The most commonly used quantiles are known as **quartiles**:
+
+-   **$Q_1$ (lower quartile)** represents the value at which 25% of the data falls below it and 75% falls above it.
+
+-   **$Q_2$ (median)** is the middle value when the data is arranged in ascending or descending order.
+
+-   **$Q_3$ (upper quartile)** represents the value at which 75% of the data falls below it and 25% falls above it.
+
+::: content-box-purple
+Interquartile range is the difference between the third quartile (or upper quartile) and the first quartile (or lower quartile) in an ordered data set.
+:::
+
+
+$$IQR = Q_3 - Q_1$$ {#eq-iqr} 
 
 
 
+![Quartiles and inter-quartile range.](images/iqr.png){#fig-iqr width="50%"}
+
+
+It is important to note that there are numerous definitions of sample quantiles used in statistical software packages, and discussing them is beyond the scope of this introductory course [@hyndman1996]. Therefore, we will rely on the results provided by Jamovi.
+
+
+***Example***
+
+In our example, the first quartile is $Q_1 = 4$ hours, and the third quartile is $Q_3 = 8$ hours.
+
+$$ 4 \ \ \ \ \  \textcolor{black}{\textbf{4}} \ \ \ \ \ 5  \ \ \ \ \ \textcolor{black}{\textbf{8}} \ \ \ \ \ 12$$
+
+Therefore, the inter-quartile range is:
+
+$$IQR = Q_3 - Q1 = 8 - 4 = 4$$
+
+ 
+
+After adding an extreme value such as 24, our example dataset is as follows: 
+
+$$ 4 \ \ \ \ \ 4 \ \ \ \ \ 5  \ \ \ \ \ 8 \ \ \ \ \ 12 \ \ \ \ \ \underline{24}$$ 
+
+
+We would expect $Q_1$ to have a value between 4 and 5, and $Q_3$ to fall between 8 and 12. JAMOVI provides $Q_1 = 4.25$ hours, and $Q_3 =11$ hours. Therefore, the new inter-quartile range is:
+
+$$IQR_{new} = Q_3 - Q1 = 11 - 4.25 = 6.75$$
+
+
+::: content-box-gray
+
+As with the range, greater variability in the data typically leads to a larger IQR. However, unlike the range, the **IQR is resistant to outliers**, as it is not influenced by observations below the first quartile or above the third quartile.
+:::
+
+ 
+
+**C. Sample variance**
+
+Sample variance, denoted as $s^2$, is a measure of spread of the data based on the **deviations** of the data values from the mean. However, when we average these deviations, the sum always equals zero. This occurs because the mean acts as a balance point where the total positive and negative deviations cancel each other out. To resolve this issue, we calculate the variance using **squared deviations**, which ensures that all values contribute positively to the measure of spread.
+
+
+::: content-box-purple
+
+Mathematically, the sample variance, $s^2$, is calculated as the sum of the squared deviations from the sample mean, divided by the number of observations minus 1.
+:::
+
+
+$$s^2 = \frac{\text{Sum of squared deviations}}{\text{Number of values} - 1}$$ {#eq-var} 
 
 
 
+***Example***
+
+The original values are:
+
+$$ 5 \ \ \ \ \  4  \ \ \ \ \ 12 \ \ \ \ \  8 \ \ \ \ \  4 $$
+
+and we have calculated the mean, $\bar{x} = 6.6$. The deviation from the mean for the first value is calculated as 5 - 6.6 = -1.6, and for the second value, it is 4 - 6.6 = -2.6, and so on.
 
 
+Thus, according to @eq-var:
+
+$$
+\begin{align*}
+s^2 &= \frac{(5 - 6.6)^2 + (4 - 6.6)^2 + (12 - 6.6)^2 + (8 - 6.6)^2 + (4 - 6.6)^2}{5 - 1} \\
+    &= \frac{(-1.6)^2 + (-2.6)^2 + (5.4)^2 + (1.4)^2 + (-2.6)^2}{4} \\
+    &= \frac{2.56 + 6.76 + 29.16 + 1.96 + 6.76}{4} \\
+    &= \frac{47.20}{4} \\
+    &= 11.80 \ hours^2
+\end{align*}
+$$
+
+The variance, being expressed in square units, is not the preferred metric for describing the variability of data.
+
+ 
+
+**D. Standard deviation of the sample**
+
+Standard deviation is a typical distance of observations from the mean.
+
+
+::: content-box-purple
+
+Standard deviation, denoted as *s* or *sd*, represents the typical distance of observations from the mean. It is calculated as the square root of the sample variance.
+
+:::
+
+
+$$s = \sqrt{s^2}$$ {#eq-sd} 
+
+
+
+***Example***
+ 
+The standard deviation is:
+
+$$s = \sqrt{11.8} = 3.44 \ hours$$
+
+ and is expressed in the same units as the original values.
+
+::: content-box-gray
+
+The standard deviation uses all observations in a dataset for its calculation and is expressed in the same units as the original data. However, it is sensitive to outliers, which can substantially  influence its value.
+
+:::
 
