@@ -378,7 +378,7 @@ Suppose we add the value of 24 to the data: $$ 5 \ \ \ \ \  4  \ \ \ \ \ 12 \ \ 
 
 The new mean, $\bar{x}_{new}$, is calculated as follows:
 
-$$\bar{x}_{new}= \frac{5 + 4 + 12 + 8 + 4 + 24}{6} = \frac{57}{6} \approx 9.5 \ hours$$
+$$\bar{x}_{new}= \frac{5 + 4 + 12 + 8 + 4 + 24}{6} = \frac{57}{6} = 9.5 \ hours$$
 
 We observe that the mean is sensitive to extreme values, such as the inclusion of 24 hours in this data (noting that 24 hours is the maximum possible in a single day). After adding this extreme value, the mean increased from 6.6 to 9.5. This significant rise of 2.9 hours illustrates how outliers can distort the average, making it less representative of the dataset.
 
@@ -617,6 +617,21 @@ s^2 &= \frac{(5 - 6.6)^2 + (4 - 6.6)^2 + (12 - 6.6)^2 + (8 - 6.6)^2 + (4 - 6.6)^
 \end{align*}
 $$
 
+ 
+
+After adding 24 to the data, the new mean is $\bar{x}_{new} = 9.5$, and the variance is calculated as follows:
+
+$$
+\begin{align*}
+s^2 &= \frac{(5 - 9.5)^2 + (4 - 9.5)^2 + (12 - 9.5)^2 + (8 - 9.5)^2 + (4 - 9.5)^2 + (24 - 9.5)^2}{6 - 1} \\
+    &= \frac{(-4.5)^2 + (-5.5)^2 + (2.5)^2 + (-1.5)^2 + (-5.5)^2 + (14.5)^2}{5} \\
+    &= \frac{20.25 + 30.25 + 6.25 + 2.25 + 30.25 + 210.25}{5} \\
+    &= \frac{299.5}{5} \\
+    &= 59.9 \ hours^2
+\end{align*}
+$$
+
+
 The variance, being expressed in square units, is not the preferred metric for describing the variability of data.
 
  
@@ -643,7 +658,13 @@ The standard deviation is:
 
 $$s = \sqrt{11.8} = 3.44 \ hours$$
 
- and is expressed in the same units as the original values.
+and is expressed in the same units as the original data values.
+
+ 
+
+With the addition of the value 25, the standard deviation becomes:
+
+$$s = \sqrt{59.9} = 7.74 \ hours$$
 
 ::: content-box-gray
 
