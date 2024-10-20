@@ -55,7 +55,7 @@ DT::datatable(
 
 ## Summarizing categorical data (Frequency Statistics)
 
-### One variable frequency tables
+### One variable frequency tables and plots
 
 The first step in analyzing a categorical variable is to count the occurrences of each label and calculate their frequencies. This collection of frequencies for all possible categories is known as the **frequency distribution** of the variable. Additionally, we can express these frequencies as proportions of the total number of observations, which are referred to as **relative frequencies**. If we multiply these proportions by 100, we obtain **percentages** (%).
 
@@ -202,7 +202,7 @@ ggplot(dat3, aes(x = Score_cat, y = pct)) +
 :::
 
 
-### Two variable tables (Contingency tables)
+### Two variable tables (Contingency tables) and plots
 
 **A. Frequency contingency table**
 
@@ -232,7 +232,6 @@ By **conditioning** on sex, we divide each cell's frequency by the corresponding
 
 This data analysis indicates notable differences in self-esteem levels between male and female participants. Specifically, the percentage of female participants with low self-esteem (52.4%) is substantially greater than that of male participants (23.9%).
 
- 
 
 ::: {.callout-tip icon="false"}
 ## `r fa("comment", fill = "#1DC5CE")` Comment
@@ -240,6 +239,8 @@ This data analysis indicates notable differences in self-esteem levels between m
 If we are interested in the distribution of **sex** within each self-esteem level, focusing on how the proportion of males and females varies within each self-esteem category, we condition on self-esteem. This means we divide each cell's frequency by the corresponding **column total**. For example, among those with low self-esteem, the percentage of females is (78/104) x 100 ≈ 75.0%
 
 :::
+
+ 
 
 We can also graphically present the data in the table shown in @fig-tb2. A side-by-side bar plot (@fig-sidebar) or, preferably, a grouped bar plot (@fig-groupbar) can facilitate easier visual comparisons.
 
@@ -333,3 +334,174 @@ ggplot(dat5, aes(x = sex, y = pct, fill = forcats::fct_rev(Score_cat)))+
 
 One consideration when using stacked bar plots is the number of variable levels: with many categories, stacked bar plots can become confusing.
 :::
+
+ 
+
+## Summarizing numerical data (Summary Statistics) and plots
+
+Summary measures are **single numerical values** that summarize a set of data. Numeric data can be described using two main types of summary measures (\@tbl-measures).
+
+1.  Measures of **central location**: These describe the "center" of the data distribution. Common examples include the mean, median, and mode.
+
+2.  Measures of **dispersion**: These quantify the spread of values around the central value. Examples include the range, interquartile range (IQR), variance, and standard deviation.
+
+ 
+
+| **Measures of Central Location** | **Measures of Dispersion**                     |
+|:---------------------------------|:-----------------------------------------------|
+| • Mean                           | • Variance                                     |
+| • Median                         | • Standard Deviation                           |
+| • Mode                           | • Range (Minimum, Maximum)                     |
+|                                  | • Interquartile Range (1st and 3rd Quartiles)  |
+
+: Common summary measures of central location and dispersion {#tbl-measures}
+
+ 
+
+Additionally, **measures of shape** such as the sample coefficients of **skewness** and **kurtosis** provide further insights by revealing the overall shape and characteristics of the distribution.
+
+
+### Measures of central location
+
+
+**A. Sample Mean or Average**
+
+::: content-box-purple
+The arithmetic mean, or average, denoted as $\bar{x}$, is calculated by dividing the sum of all values by the total number of values.
+:::
+
+**_Example_**
+
+The number of hours per day spent on the internet by 15-year-old females with low self-esteem in our subset are as follows:
+
+$$ 5 \ \ \ \ \  4  \ \ \ \ \ 12 \ \ \ \ \  8 \ \ \ \ \  4 $$
+
+To calculate the mean ($\bar{x}$), we use the formula:
+
+$$\bar{x}= \frac{Sum \ of \ values}{Number \ of \ values} = \frac{5 + 4 + 12 + 8 + 4}{5} = \frac{33}{5} = 6.6 \ hours$$ 
+
+ 
+
+Suppose we add the value of 24 to the data: 
+$$ 5 \ \ \ \ \  4  \ \ \ \ \ 12 \ \ \ \ \  8 \ \ \ \ \  4 \ \ \ \ \ {\textbf{24}}$$
+
+The new mean, $\bar{x}_{new}$, is calculated as follows:
+
+$$\bar{x}_{new}= \frac{5 + 4 + 12 + 8 + 4 + 24}{6} = \frac{57}{6} \approx 9.5 \ hours$$
+
+We observe that the mean is sensitive to extreme values, such as the inclusion of 24 hours in this data (noting that 24 hours is the maximum possible in a single day). After adding this extreme value, the mean increased from 6.6 to 9.5. This significant rise of 2.9 hours illustrates how outliers can distort the average, making it less representative of the dataset.
+
+ 
+
+::: content-box-blue
+
+**Advantages of mean**
+
+-   It uses all the data values in the calculation and is the balance point of the data.
+-   It is algebraically defined and thus mathematically manageable.
+
+
+**Disadvantages of mean**
+
+-   It is highly influenced by the presence of **outliers**—values that are abnormally high or low—making it a non-resistant summary measure.
+-   It cannot be easily determined by simply inspecting the data and is usually not equal to any of the individual values in the sample.
+:::
+
+ 
+
+**B. Median of the sample**
+
+The **sample median**, denoted as *md*, is an alternative measure of location that is less sensitive to outliers than mean. 
+
+::: content-box-purple
+
+The median is calculated by first sorting the observed values (i.e. arranging them in an ascending or descending order) and selecting the middle one. If the number of observations is **odd**, the median corresponds to the number in the middle of the sorted values. If the number of observations is **even**, the median is the average of the two middle numbers.
+
+:::
+
+
+**_Example_**
+
+First, we sort the observed values from smallest to largest:
+
+**Observed values:** $\ \ \ \ \ 5 \ \ \ \ \  4  \ \ \ \ \ 12 \ \ \ \ \  8 \ \ \ \ \  4$
+
+**Sorted values:**   $\ \ \ \ \ \ \ \ \ \ 4 \ \ \ \ \  4 \ \ \ \ \   5 \ \ \ \ \  8  \ \ \ \ \ 12$
+
+
+The number of observations is 5, which is an odd number; therefore, the median corresponds to the value in the middle of the sorted data: 
+
+
+$$ 4 \ \ \ \ \ 4 \ \ \ \ \ \textcolor{red}{\textbf{5}} \ \ \ \ \ 8 \ \ \ \ \ 12 $$
+
+
+$$md = 5 \ hours$$ 
+ 
+
+Let's add the value of 24 to the data. In this case, the number of observations becomes 6, which is an even number. The new median, $md_{new}$, is the average of the two middle numbers, 5 and 8:
+
+$$ 4 \ \ \ \ \ 4 \ \ \ \ \ \textcolor{red}{\textbf{5}} \ \ \ \ \ \textcolor{red}{\textbf{8}} \ \ \ \ \ 12 \ \ \ \ \ 24$$
+
+$$md_{new} = \frac{5 + 8}{2} = \frac{13}{2} = 6.5 \ hours$$ 
+
+We observe that the median is not strongly influenced by the addition of the extreme value of 24; the median increased from 5 to 6.5.
+
+ 
+
+::: content-box-blue
+
+**Advantages of median**
+
+-   It is resistant to extreme values (outliers) compared to the mean.
+
+-   For data measured on an ordinal scale (e.g., rankings), the median is often more meaningful than the mean.
+
+**Disadvantages of median**
+
+-   It ignores the actual values of the data points, potentially losing some information about the data.
+
+:::
+
+ 
+
+**C. Mode of the sample**
+
+Another measure of location is the **mode** of the sample.
+
+::: content-box-purple
+
+Mode represents the value that occurs **most frequently** in a set of data values. 
+
+:::
+
+In our example, the value of 4 appears twice in the data:
+
+$$ 5 \ \ \ \ \ \textcolor{red}{\textbf{4}} \ \ \ \ \ 12 \ \ \ \ \ 8 \ \ \ \ \ \textcolor{red}{\textbf{4}} $$
+
+Therefore, the mode is:
+
+$$ Mode = 4$$
+
+
+It's important to note that some datasets may not have a mode if each value occurs only once. For example, if we replace one of the fours with a three:
+
+$$ 5 \ \ \ \ \  \textbf{3}  \ \ \ \ \ 12 \ \ \ \ \  8 \ \ \ \ \  4 $$
+In this case, no value repeats, so the dataset has no mode.
+
+ 
+
+However, if we replace the 12 with an 8, the dataset becomes:
+
+$$ 5 \ \ \ \ \  \textcolor{red}{\textbf{4}}  \ \ \ \ \ \textcolor{green}{\textbf{8}} \ \ \ \ \  \textcolor{green}{\textbf{8}} \ \ \ \ \  \textcolor{red}{\textbf{4}} $$
+
+Here, both 4 and 8 appear twice, making the dataset bimodal, meaning it has two modes.
+
+
+
+
+
+
+
+
+
+

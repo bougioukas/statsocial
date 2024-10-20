@@ -120,6 +120,35 @@ div.csl-indent {
 <script src="site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
 
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -222,8 +251,12 @@ div.csl-indent {
   <li><a href="#data" id="toc-data" class="nav-link active" data-scroll-target="#data"><span class="header-section-number">2.1</span> Data</a></li>
   <li><a href="#summarizing-categorical-data-frequency-statistics" id="toc-summarizing-categorical-data-frequency-statistics" class="nav-link" data-scroll-target="#summarizing-categorical-data-frequency-statistics"><span class="header-section-number">2.2</span> Summarizing categorical data (Frequency Statistics)</a>
   <ul class="collapse">
-  <li><a href="#one-variable-frequency-tables" id="toc-one-variable-frequency-tables" class="nav-link" data-scroll-target="#one-variable-frequency-tables"><span class="header-section-number">2.2.1</span> One variable frequency tables</a></li>
-  <li><a href="#two-variable-tables-contingency-tables" id="toc-two-variable-tables-contingency-tables" class="nav-link" data-scroll-target="#two-variable-tables-contingency-tables"><span class="header-section-number">2.2.2</span> Two variable tables (Contingency tables)</a></li>
+  <li><a href="#one-variable-frequency-tables-and-plots" id="toc-one-variable-frequency-tables-and-plots" class="nav-link" data-scroll-target="#one-variable-frequency-tables-and-plots"><span class="header-section-number">2.2.1</span> One variable frequency tables and plots</a></li>
+  <li><a href="#two-variable-tables-contingency-tables-and-plots" id="toc-two-variable-tables-contingency-tables-and-plots" class="nav-link" data-scroll-target="#two-variable-tables-contingency-tables-and-plots"><span class="header-section-number">2.2.2</span> Two variable tables (Contingency tables) and plots</a></li>
+  </ul></li>
+  <li><a href="#summarizing-numerical-data-summary-statistics-and-plots" id="toc-summarizing-numerical-data-summary-statistics-and-plots" class="nav-link" data-scroll-target="#summarizing-numerical-data-summary-statistics-and-plots"><span class="header-section-number">2.3</span> Summarizing numerical data (Summary Statistics) and plots</a>
+  <ul class="collapse">
+  <li><a href="#measures-of-central-location" id="toc-measures-of-central-location" class="nav-link" data-scroll-target="#measures-of-central-location"><span class="header-section-number">2.3.1</span> Measures of central location</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -276,16 +309,16 @@ div.csl-indent {
 <p>&nbsp;</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-3b2ea0c098385c60cb01" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-3b2ea0c098385c60cb01">{"x":{"filter":"none","vertical":false,"extensions":["Buttons"],"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103","104","105","106","107","108","109","110","111","112","113","114","115","116","117","118","119","120","121","122","123","124","125","126","127","128","129","130","131","132","133","134","135","136","137","138","139","140","141","142","143","144","145","146","147","148","149","150","151","152","153","154","155","156","157","158","159","160","161","162","163","164","165","166","167","168","169","170","171","172","173","174","175","176","177","178","179","180","181","182","183","184","185","186","187","188","189","190","191","192","193","194","195","196","197","198","199","200","201","202","203","204","205","206","207","208","209","210","211","212","213","214","215","216","217","218","219","220","221","222","223","224","225","226","227","228","229","230","231","232","233","234","235","236","237","238","239","240","241","242","243","244","245","246","247","248","249","250","251","252","253","254","255","256","257","258"],["female","female","male","male","male","male","female","male","female","female","female","female","male","female","female","female","female","female","female","female","male","female","male","male","female","male","female","female","male","female","female","female","female","female","female","male","female","female","female","female","male","female","female","male","female","female","female","male","male","female","male","female","female","male","male","female","male","female","female","male","female","male","female","female","female","female","male","female","male","female","male","male","female","male","female","male","female","male","female","female","male","female","female","male","female","female","male","female","female","male","female","female","male","female","female","female","female","female","female","female","female","male","female","female","male","female","female","male","male","male","female","female","male","female","female","male","male","female","male","male","female","female","male","female","female","male","female","male","female","male","female","female","female","female","female","male","male","male","female","male","female","female","female","female","male","female","female","female","male","female","male","male","female","female","male","female","male","female","male","male","female","female","male","female","male","female","female","male","male","male","male","male","female","female","female","female","female","female","female","male","male","female","male","female","male","male","male","male","male","male","female","male","male","male","male","male","female","male","male","male","male","female","female","male","female","female","male","male","female","female","male","male","male","male","female","male","female","female","male","female","male","male","male","female","female","female","female","female","female","female","male","female","female","male","female","female","male","male","female","female","female","male","female","female","male","female","female","female","female","female","female","male","male","male","female","male","male","male"],[18,19,18,17,17,18,18,17,18,14,17,20,17,18,17,17,18,18,22,14,16,14,17,18,15,18,18,17,16,20,18,20,16,20,16,18,17,19,20,17,20,18,17,20,16,14,20,18,18,18,21,17,18,14,22,16,16,19,17,17,22,21,19,21,19,16,17,16,19,21,17,18,17,18,16,16,18,17,18,17,17,18,20,20,21,18,21,20,18,16,19,19,16,20,21,17,17,21,20,19,17,18,20,20,19,20,16,18,16,19,19,18,19,15,18,18,18,21,18,16,18,18,17,20,19,20,19,16,21,16,16,15,15,17,15,19,18,15,18,16,18,17,19,19,18,17,16,15,15,20,17,22,14,16,17,19,18,19,19,19,19,20,18,15,21,18,18,18,21,18,21,17,19,18,22,16,20,15,15,20,15,15,17,16,21,15,15,17,18,18,21,18,16,21,17,18,19,17,17,18,15,18,16,19,19,14,18,17,19,19,17,17,16,16,17,16,17,15,16,17,15,15,16,16,18,18,20,20,19,17,17,18,18,19,18,18,15,18,17,19,18,17,17,22,18,19,22,22,19,16,22,15,15,18,17,15,22,14],[9,3,3,12,3,3,7,3,2,3,3,1,3,7,3,3,9,13,1,1,1,5,1,2,3,3,5,9,5,5,9,7,5,3,3,3,7,5,3,3,5,3,3,4,15,0,0,0,0,3,3,4,5,1,3,1,3,5,3,1,5,5,4,3,4,5,5,5,1,3,5,3,4,5,7,5,1,3,3,3,5,8,3,1,3,5,3,5,3,3,2,1,1,4,7,3,7,8,7,7,7,4,4,4,4,1,1,4,4,5,5,7,1,7,5,4,7,16,4,4,9,4,5,4,10,4,7,7,5,4,4,4,4,5,5,5,4,1,5,4,12,5,7,7,4,4,4,0,12,4,5,4,7,4,18,8,0,5,5,5,4,4,4,6,4,6,8,3,3,6,3,2,3,6,13,6,3,12,6,3,3,8,3,6,2,3,3,3,5,5,8,2,3,3,5,2,2,3,3,3,8,3,8,5,6,6,6,3,6,3,4,4,4,6,10,4,6,4,4,6,6,6,2,8,6,12,6,6,4,6,10,8,8,2,6,4,2,4,8,2,1,4,2,6,2,7,5,6,4,2,6,2,2,5,7,5,8,4],[26,13,18,19,18,20,17,19,19,24,27,21,15,14,9,9,19,6,14,18,14,19,4,16,17,25,19,15,16,18,9,20,7,11,22,18,14,11,20,9,17,16,6,22,17,20,19,17,18,14,21,15,12,12,19,18,22,17,17,20,18,24,7,21,8,15,17,9,19,9,17,20,14,20,19,21,16,19,18,18,12,6,20,27,8,17,14,15,16,13,7,9,23,14,10,12,13,13,20,22,14,21,22,14,22,17,17,25,14,15,13,13,12,19,12,23,20,12,23,19,15,14,17,19,9,18,8,13,14,18,13,13,13,19,14,13,12,18,19,23,8,21,7,7,16,20,17,23,15,11,27,12,21,23,17,7,22,14,26,26,22,15,19,17,17,12,14,19,16,18,19,20,24,18,15,18,22,8,17,17,19,13,10,6,27,18,19,17,24,3,15,20,15,13,16,22,14,17,17,25,19,20,14,18,10,21,19,17,10,24,10,19,15,27,10,14,10,25,23,10,19,19,26,13,18,24,15,15,16,14,10,21,21,21,18,13,21,12,14,8,17,21,20,23,16,8,23,23,24,17,23,12,12,18,13,19,18,21],["high","low","medium","medium","medium","high","medium","medium","medium","high","high","high","low","low","low","low","medium","low","low","medium","low","medium","low","medium","medium","high","medium","low","medium","medium","low","high","low","low","high","medium","low","low","high","low","medium","medium","low","high","medium","high","medium","medium","medium","low","high","low","low","low","medium","medium","high","medium","medium","high","medium","high","low","high","low","low","medium","low","medium","low","medium","high","low","high","medium","high","medium","medium","medium","medium","low","low","high","high","low","medium","low","low","medium","low","low","low","high","low","low","low","low","low","high","high","low","high","high","low","high","medium","medium","high","low","low","low","low","low","medium","low","high","high","low","high","medium","low","low","medium","medium","low","medium","low","low","low","medium","low","low","low","medium","low","low","low","medium","medium","high","low","high","low","low","medium","high","medium","high","low","low","high","low","high","high","medium","low","high","low","high","high","high","low","medium","medium","medium","low","low","medium","medium","medium","medium","high","high","medium","low","medium","high","low","medium","medium","medium","low","low","low","high","medium","medium","medium","high","low","low","high","low","low","medium","high","low","medium","medium","high","medium","high","low","medium","low","high","medium","medium","low","high","low","medium","low","high","low","low","low","high","high","low","medium","medium","high","low","medium","high","low","low","medium","low","low","high","high","high","medium","low","high","low","low","low","medium","high","high","high","medium","low","high","high","high","medium","high","low","low","medium","low","medium","medium","high"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>sex<\/th>\n      <th>age<\/th>\n      <th>time_spent<\/th>\n      <th>Score<\/th>\n      <th>Score_cat<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"tip","columnDefs":[{"className":"dt-right","targets":[2,3,4]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"sex","targets":1},{"name":"age","targets":2},{"name":"time_spent","targets":3},{"name":"Score","targets":4},{"name":"Score_cat","targets":5}],"order":[],"autoWidth":false,"orderClasses":false},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-7cfabd2bc3204f082428" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-7cfabd2bc3204f082428">{"x":{"filter":"none","vertical":false,"extensions":["Buttons"],"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103","104","105","106","107","108","109","110","111","112","113","114","115","116","117","118","119","120","121","122","123","124","125","126","127","128","129","130","131","132","133","134","135","136","137","138","139","140","141","142","143","144","145","146","147","148","149","150","151","152","153","154","155","156","157","158","159","160","161","162","163","164","165","166","167","168","169","170","171","172","173","174","175","176","177","178","179","180","181","182","183","184","185","186","187","188","189","190","191","192","193","194","195","196","197","198","199","200","201","202","203","204","205","206","207","208","209","210","211","212","213","214","215","216","217","218","219","220","221","222","223","224","225","226","227","228","229","230","231","232","233","234","235","236","237","238","239","240","241","242","243","244","245","246","247","248","249","250","251","252","253","254","255","256","257","258"],["female","female","male","male","male","male","female","male","female","female","female","female","male","female","female","female","female","female","female","female","male","female","male","male","female","male","female","female","male","female","female","female","female","female","female","male","female","female","female","female","male","female","female","male","female","female","female","male","male","female","male","female","female","male","male","female","male","female","female","male","female","male","female","female","female","female","male","female","male","female","male","male","female","male","female","male","female","male","female","female","male","female","female","male","female","female","male","female","female","male","female","female","male","female","female","female","female","female","female","female","female","male","female","female","male","female","female","male","male","male","female","female","male","female","female","male","male","female","male","male","female","female","male","female","female","male","female","male","female","male","female","female","female","female","female","male","male","male","female","male","female","female","female","female","male","female","female","female","male","female","male","male","female","female","male","female","male","female","male","male","female","female","male","female","male","female","female","male","male","male","male","male","female","female","female","female","female","female","female","male","male","female","male","female","male","male","male","male","male","male","female","male","male","male","male","male","female","male","male","male","male","female","female","male","female","female","male","male","female","female","male","male","male","male","female","male","female","female","male","female","male","male","male","female","female","female","female","female","female","female","male","female","female","male","female","female","male","male","female","female","female","male","female","female","male","female","female","female","female","female","female","male","male","male","female","male","male","male"],[18,19,18,17,17,18,18,17,18,14,17,20,17,18,17,17,18,18,22,14,16,14,17,18,15,18,18,17,16,20,18,20,16,20,16,18,17,19,20,17,20,18,17,20,16,14,20,18,18,18,21,17,18,14,22,16,16,19,17,17,22,21,19,21,19,16,17,16,19,21,17,18,17,18,16,16,18,17,18,17,17,18,20,20,21,18,21,20,18,16,19,19,16,20,21,17,17,21,20,19,17,18,20,20,19,20,16,18,16,19,19,18,19,15,18,18,18,21,18,16,18,18,17,20,19,20,19,16,21,16,16,15,15,17,15,19,18,15,18,16,18,17,19,19,18,17,16,15,15,20,17,22,14,16,17,19,18,19,19,19,19,20,18,15,21,18,18,18,21,18,21,17,19,18,22,16,20,15,15,20,15,15,17,16,21,15,15,17,18,18,21,18,16,21,17,18,19,17,17,18,15,18,16,19,19,14,18,17,19,19,17,17,16,16,17,16,17,15,16,17,15,15,16,16,18,18,20,20,19,17,17,18,18,19,18,18,15,18,17,19,18,17,17,22,18,19,22,22,19,16,22,15,15,18,17,15,22,14],[9,3,3,12,3,3,7,3,2,3,3,1,3,7,3,3,9,13,1,1,1,5,1,2,3,3,5,9,5,5,9,7,5,3,3,3,7,5,3,3,5,3,3,4,15,0,0,0,0,3,3,4,5,1,3,1,3,5,3,1,5,5,4,3,4,5,5,5,1,3,5,3,4,5,7,5,1,3,3,3,5,8,3,1,3,5,3,5,3,3,2,1,1,4,7,3,7,8,7,7,7,4,4,4,4,1,1,4,4,5,5,7,1,7,5,4,7,16,4,4,9,4,5,4,10,4,7,7,5,4,4,4,4,5,5,5,4,1,5,4,12,5,7,7,4,4,4,0,12,4,5,4,7,4,18,8,0,5,5,5,4,4,4,6,4,6,8,3,3,6,3,2,3,6,13,6,3,12,6,3,3,8,3,6,2,3,3,3,5,5,8,2,3,3,5,2,2,3,3,3,8,3,8,5,6,6,6,3,6,3,4,4,4,6,10,4,6,4,4,6,6,6,2,8,6,12,6,6,4,6,10,8,8,2,6,4,2,4,8,2,1,4,2,6,2,7,5,6,4,2,6,2,2,5,7,5,8,4],[26,13,18,19,18,20,17,19,19,24,27,21,15,14,9,9,19,6,14,18,14,19,4,16,17,25,19,15,16,18,9,20,7,11,22,18,14,11,20,9,17,16,6,22,17,20,19,17,18,14,21,15,12,12,19,18,22,17,17,20,18,24,7,21,8,15,17,9,19,9,17,20,14,20,19,21,16,19,18,18,12,6,20,27,8,17,14,15,16,13,7,9,23,14,10,12,13,13,20,22,14,21,22,14,22,17,17,25,14,15,13,13,12,19,12,23,20,12,23,19,15,14,17,19,9,18,8,13,14,18,13,13,13,19,14,13,12,18,19,23,8,21,7,7,16,20,17,23,15,11,27,12,21,23,17,7,22,14,26,26,22,15,19,17,17,12,14,19,16,18,19,20,24,18,15,18,22,8,17,17,19,13,10,6,27,18,19,17,24,3,15,20,15,13,16,22,14,17,17,25,19,20,14,18,10,21,19,17,10,24,10,19,15,27,10,14,10,25,23,10,19,19,26,13,18,24,15,15,16,14,10,21,21,21,18,13,21,12,14,8,17,21,20,23,16,8,23,23,24,17,23,12,12,18,13,19,18,21],["high","low","medium","medium","medium","high","medium","medium","medium","high","high","high","low","low","low","low","medium","low","low","medium","low","medium","low","medium","medium","high","medium","low","medium","medium","low","high","low","low","high","medium","low","low","high","low","medium","medium","low","high","medium","high","medium","medium","medium","low","high","low","low","low","medium","medium","high","medium","medium","high","medium","high","low","high","low","low","medium","low","medium","low","medium","high","low","high","medium","high","medium","medium","medium","medium","low","low","high","high","low","medium","low","low","medium","low","low","low","high","low","low","low","low","low","high","high","low","high","high","low","high","medium","medium","high","low","low","low","low","low","medium","low","high","high","low","high","medium","low","low","medium","medium","low","medium","low","low","low","medium","low","low","low","medium","low","low","low","medium","medium","high","low","high","low","low","medium","high","medium","high","low","low","high","low","high","high","medium","low","high","low","high","high","high","low","medium","medium","medium","low","low","medium","medium","medium","medium","high","high","medium","low","medium","high","low","medium","medium","medium","low","low","low","high","medium","medium","medium","high","low","low","high","low","low","medium","high","low","medium","medium","high","medium","high","low","medium","low","high","medium","medium","low","high","low","medium","low","high","low","low","low","high","high","low","medium","medium","high","low","medium","high","low","low","medium","low","low","high","high","high","medium","low","high","low","low","low","medium","high","high","high","medium","low","high","high","high","medium","high","low","low","medium","low","medium","medium","high"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>sex<\/th>\n      <th>age<\/th>\n      <th>time_spent<\/th>\n      <th>Score<\/th>\n      <th>Score_cat<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"tip","columnDefs":[{"className":"dt-right","targets":[2,3,4]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"sex","targets":1},{"name":"age","targets":2},{"name":"time_spent","targets":3},{"name":"Score","targets":4},{"name":"Score_cat","targets":5}],"order":[],"autoWidth":false,"orderClasses":false},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>&nbsp;</p>
 </section>
 <section id="summarizing-categorical-data-frequency-statistics" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="summarizing-categorical-data-frequency-statistics"><span class="header-section-number">2.2</span> Summarizing categorical data (Frequency Statistics)</h2>
-<section id="one-variable-frequency-tables" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="one-variable-frequency-tables"><span class="header-section-number">2.2.1</span> One variable frequency tables</h3>
+<section id="one-variable-frequency-tables-and-plots" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="one-variable-frequency-tables-and-plots"><span class="header-section-number">2.2.1</span> One variable frequency tables and plots</h3>
 <p>The first step in analyzing a categorical variable is to count the occurrences of each label and calculate their frequencies. This collection of frequencies for all possible categories is known as the <strong>frequency distribution</strong> of the variable. Additionally, we can express these frequencies as proportions of the total number of observations, which are referred to as <strong>relative frequencies</strong>. If we multiply these proportions by 100, we obtain <strong>percentages</strong> (%).</p>
 <p>&nbsp;</p>
 <p><strong>Sex variable</strong></p>
@@ -399,8 +432,8 @@ Tips for simple bar plots
 </div>
 </div>
 </section>
-<section id="two-variable-tables-contingency-tables" class="level3" data-number="2.2.2">
-<h3 data-number="2.2.2" class="anchored" data-anchor-id="two-variable-tables-contingency-tables"><span class="header-section-number">2.2.2</span> Two variable tables (Contingency tables)</h3>
+<section id="two-variable-tables-contingency-tables-and-plots" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="two-variable-tables-contingency-tables-and-plots"><span class="header-section-number">2.2.2</span> Two variable tables (Contingency tables) and plots</h3>
 <p><strong>A. Frequency contingency table</strong></p>
 <p>In addition to tabulating each categorical variable separately, we might be interested in the distribution of self-esteem levels (categorized as low, medium, and high) among male and female participants in the dataset. This can be achieved by creating a frequency <strong>contingency table</strong>, as shown in <a href="#fig-tb0" class="quarto-xref">Figure&nbsp;<span>2.7</span></a>. Each cell value in the table represents the number of occurrences (frequency) corresponding to the combination of categories from the two different variables.</p>
 <div id="fig-tb0" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -441,7 +474,6 @@ Figure&nbsp;2.9: Conditional distribution contingency table. The percentages are
 </figure>
 </div>
 <p>This data analysis indicates notable differences in self-esteem levels between male and female participants. Specifically, the percentage of female participants with low self-esteem (52.4%) is substantially greater than that of male participants (23.9%).</p>
-<p>&nbsp;</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -455,6 +487,7 @@ Figure&nbsp;2.9: Conditional distribution contingency table. The percentages are
 <p>If we are interested in the distribution of <strong>sex</strong> within each self-esteem level, focusing on how the proportion of males and females varies within each self-esteem category, we condition on self-esteem. This means we divide each cell’s frequency by the corresponding <strong>column total</strong>. For example, among those with low self-esteem, the percentage of females is (78/104) x 100 ≈ 75.0%</p>
 </div>
 </div>
+<p>&nbsp;</p>
 <p>We can also graphically present the data in the table shown in <a href="#fig-tb2" class="quarto-xref">Figure&nbsp;<span>2.9</span></a>. A side-by-side bar plot (<a href="#fig-sidebar" class="quarto-xref">Figure&nbsp;<span>2.10</span></a>) or, preferably, a grouped bar plot (<a href="#fig-groupbar" class="quarto-xref">Figure&nbsp;<span>2.11</span></a>) can facilitate easier visual comparisons.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -512,6 +545,132 @@ Caution
 <p>One consideration when using stacked bar plots is the number of variable levels: with many categories, stacked bar plots can become confusing.</p>
 </div>
 </div>
+<p>&nbsp;</p>
+</section>
+</section>
+<section id="summarizing-numerical-data-summary-statistics-and-plots" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="summarizing-numerical-data-summary-statistics-and-plots"><span class="header-section-number">2.3</span> Summarizing numerical data (Summary Statistics) and plots</h2>
+<p>Summary measures are <strong>single numerical values</strong> that summarize a set of data. Numeric data can be described using two main types of summary measures (@tbl-measures).</p>
+<ol type="1">
+<li><p>Measures of <strong>central location</strong>: These describe the “center” of the data distribution. Common examples include the mean, median, and mode.</p></li>
+<li><p>Measures of <strong>dispersion</strong>: These quantify the spread of values around the central value. Examples include the range, interquartile range (IQR), variance, and standard deviation.</p></li>
+</ol>
+<p>&nbsp;</p>
+<div id="tbl-measures" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-measures-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2.1: Common summary measures of central location and dispersion
+</figcaption>
+<div aria-describedby="tbl-measures-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 41%">
+<col style="width: 58%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Measures of Central Location</strong></th>
+<th style="text-align: left;"><strong>Measures of Dispersion</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">• Mean</td>
+<td style="text-align: left;">• Variance</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">• Median</td>
+<td style="text-align: left;">• Standard Deviation</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">• Mode</td>
+<td style="text-align: left;">• Range (Minimum, Maximum)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">• Interquartile Range (1st and 3rd Quartiles)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>&nbsp;</p>
+<p>Additionally, <strong>measures of shape</strong> such as the sample coefficients of <strong>skewness</strong> and <strong>kurtosis</strong> provide further insights by revealing the overall shape and characteristics of the distribution.</p>
+<section id="measures-of-central-location" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="measures-of-central-location"><span class="header-section-number">2.3.1</span> Measures of central location</h3>
+<p><strong>A. Sample Mean or Average</strong></p>
+<div class="content-box-purple">
+<p>The arithmetic mean, or average, denoted as <span class="math inline">\(\bar{x}\)</span>, is calculated by dividing the sum of all values by the total number of values.</p>
+</div>
+<p><strong><em>Example</em></strong></p>
+<p>The number of hours per day spent on the internet by 15-year-old females with low self-esteem in our subset are as follows:</p>
+<p><span class="math display">\[ 5 \ \ \ \ \  4  \ \ \ \ \ 12 \ \ \ \ \  8 \ \ \ \ \  4 \]</span></p>
+<p>To calculate the mean (<span class="math inline">\(\bar{x}\)</span>), we use the formula:</p>
+<p><span class="math display">\[\bar{x}= \frac{Sum \ of \ values}{Number \ of \ values} = \frac{5 + 4 + 12 + 8 + 4}{5} = \frac{33}{5} = 6.6 \ hours\]</span></p>
+<p>&nbsp;</p>
+<p>Suppose we add the value of 24 to the data: <span class="math display">\[ 5 \ \ \ \ \  4  \ \ \ \ \ 12 \ \ \ \ \  8 \ \ \ \ \  4 \ \ \ \ \ {\textbf{24}}\]</span></p>
+<p>The new mean, <span class="math inline">\(\bar{x}_{new}\)</span>, is calculated as follows:</p>
+<p><span class="math display">\[\bar{x}_{new}= \frac{5 + 4 + 12 + 8 + 4 + 24}{6} = \frac{57}{6} \approx 9.5 \ hours\]</span></p>
+<p>We observe that the mean is sensitive to extreme values, such as the inclusion of 24 hours in this data (noting that 24 hours is the maximum possible in a single day). After adding this extreme value, the mean increased from 6.6 to 9.5. This significant rise of 2.9 hours illustrates how outliers can distort the average, making it less representative of the dataset.</p>
+<p>&nbsp;</p>
+<div class="content-box-blue">
+<p><strong>Advantages of mean</strong></p>
+<ul>
+<li>It uses all the data values in the calculation and is the balance point of the data.</li>
+<li>It is algebraically defined and thus mathematically manageable.</li>
+</ul>
+<p><strong>Disadvantages of mean</strong></p>
+<ul>
+<li>It is highly influenced by the presence of <strong>outliers</strong>—values that are abnormally high or low—making it a non-resistant summary measure.</li>
+<li>It cannot be easily determined by simply inspecting the data and is usually not equal to any of the individual values in the sample.</li>
+</ul>
+</div>
+<p>&nbsp;</p>
+<p><strong>B. Median of the sample</strong></p>
+<p>The <strong>sample median</strong>, denoted as <em>md</em>, is an alternative measure of location that is less sensitive to outliers than mean.</p>
+<div class="content-box-purple">
+<p>The median is calculated by first sorting the observed values (i.e.&nbsp;arranging them in an ascending or descending order) and selecting the middle one. If the number of observations is <strong>odd</strong>, the median corresponds to the number in the middle of the sorted values. If the number of observations is <strong>even</strong>, the median is the average of the two middle numbers.</p>
+</div>
+<p><strong><em>Example</em></strong></p>
+<p>First, we sort the observed values from smallest to largest:</p>
+<p><strong>Observed values:</strong> <span class="math inline">\(\ \ \ \ \ 5 \ \ \ \ \  4  \ \ \ \ \ 12 \ \ \ \ \  8 \ \ \ \ \  4\)</span></p>
+<p><strong>Sorted values:</strong> <span class="math inline">\(\ \ \ \ \ \ \ \ \ \ 4 \ \ \ \ \  4 \ \ \ \ \   5 \ \ \ \ \  8  \ \ \ \ \ 12\)</span></p>
+<p>The number of observations is 5, which is an odd number; therefore, the median corresponds to the value in the middle of the sorted data:</p>
+<p><span class="math display">\[ 4 \ \ \ \ \ 4 \ \ \ \ \ \textcolor{red}{\textbf{5}} \ \ \ \ \ 8 \ \ \ \ \ 12 \]</span></p>
+<p><span class="math display">\[md = 5 \ hours\]</span> &nbsp;</p>
+<p>Let’s add the value of 24 to the data. In this case, the number of observations becomes 6, which is an even number. The new median, <span class="math inline">\(md_{new}\)</span>, is the average of the two middle numbers, 5 and 8:</p>
+<p><span class="math display">\[ 4 \ \ \ \ \ 4 \ \ \ \ \ \textcolor{red}{\textbf{5}} \ \ \ \ \ \textcolor{red}{\textbf{8}} \ \ \ \ \ 12 \ \ \ \ \ 24\]</span></p>
+<p><span class="math display">\[md_{new} = \frac{5 + 8}{2} = \frac{13}{2} = 6.5 \ hours\]</span></p>
+<p>We observe that the median is not strongly influenced by the addition of the extreme value of 24; the median increased from 5 to 6.5.</p>
+<p>&nbsp;</p>
+<div class="content-box-blue">
+<p><strong>Advantages of median</strong></p>
+<ul>
+<li><p>It is resistant to extreme values (outliers) compared to the mean.</p></li>
+<li><p>For data measured on an ordinal scale (e.g., rankings), the median is often more meaningful than the mean.</p></li>
+</ul>
+<p><strong>Disadvantages of median</strong></p>
+<ul>
+<li>It ignores the actual values of the data points, potentially losing some information about the data.</li>
+</ul>
+</div>
+<p>&nbsp;</p>
+<p><strong>C. Mode of the sample</strong></p>
+<p>Another measure of location is the <strong>mode</strong> of the sample.</p>
+<div class="content-box-purple">
+<p>Mode represents the value that occurs <strong>most frequently</strong> in a set of data values.</p>
+</div>
+<p>In our example, the value of 4 appears twice in the data:</p>
+<p><span class="math display">\[ 5 \ \ \ \ \ \textcolor{red}{\textbf{4}} \ \ \ \ \ 12 \ \ \ \ \ 8 \ \ \ \ \ \textcolor{red}{\textbf{4}} \]</span></p>
+<p>Therefore, the mode is:</p>
+<p><span class="math display">\[ Mode = 4\]</span></p>
+<p>It’s important to note that some datasets may not have a mode if each value occurs only once. For example, if we replace one of the fours with a three:</p>
+<p><span class="math display">\[ 5 \ \ \ \ \  \textbf{3}  \ \ \ \ \ 12 \ \ \ \ \  8 \ \ \ \ \  4 \]</span> In this case, no value repeats, so the dataset has no mode.</p>
+<p>&nbsp;</p>
+<p>However, if we replace the 12 with an 8, the dataset becomes:</p>
+<p><span class="math display">\[ 5 \ \ \ \ \  \textcolor{red}{\textbf{4}}  \ \ \ \ \ \textcolor{green}{\textbf{8}} \ \ \ \ \  \textcolor{green}{\textbf{8}} \ \ \ \ \  \textcolor{red}{\textbf{4}} \]</span></p>
+<p>Here, both 4 and 8 appear twice, making the dataset bimodal, meaning it has two modes.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
