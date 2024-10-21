@@ -326,7 +326,7 @@ One consideration when using stacked bar plots is the number of variable levels:
 
  
 
-## Summarizing numerical data (Summary Statistics) and plots
+## Summarizing numerical data (Summary Statistics)
 
 Summary measures are **single numerical values** that summarize a set of data. Numeric data can be described using two main types of summary measures (\@tbl-measures).
 
@@ -354,7 +354,7 @@ Additionally, **measures of shape** such as the sample coefficients of **skewnes
 **A. Sample Mean or Average**
 
 ::: content-box-purple
-The arithmetic mean, or average, denoted as $\bar{x}$, is calculated by dividing the sum of all values by the total number of values.
+The arithmetic mean, or average, denoted as $\bar{x}$, is calculated by dividing the sum of all values in a set by the total number of values in the set.
 :::
 
 
@@ -374,13 +374,17 @@ $$\bar{x} = \frac{5 + 4 + 12 + 8 + 4}{5} = \frac{33}{5} = 6.6 \ hours$$
 
  
 
-Suppose we add the value of 24 to the data: $$ 5 \ \ \ \ \  4  \ \ \ \ \ 12 \ \ \ \ \  8 \ \ \ \ \  4 \ \ \ \ \  \underline{24}$$
+To highlight how outliers affect the mean, suppose we add a value of 24 to the dataset. This new data point is considered an **outlier**, as it is substantially higher than the other values in the dataset. Since 24 hours is the maximum possible in a single day, this extreme value clearly stands out from the rest of the observations. 
 
-The new mean, $\bar{x}_{new}$, is calculated as follows:
+Our new dataset becomes: 
+
+$$ 5 \ \ \ \ \  4  \ \ \ \ \ 12 \ \ \ \ \  8 \ \ \ \ \  4 \ \ \ \ \  \underline{24}$$
+
+We can determine the new mean, $\bar{x}_{new}$, by adding up all six values and dividing by six:
 
 $$\bar{x}_{new}= \frac{5 + 4 + 12 + 8 + 4 + 24}{6} = \frac{57}{6} = 9.5 \ hours$$
 
-We observe that the mean is sensitive to extreme values, such as the inclusion of 24 hours in this data (noting that 24 hours is the maximum possible in a single day). After adding this extreme value, the mean increased from 6.6 to 9.5. This significant rise of 2.9 hours illustrates how outliers can distort the average, making it less representative of the dataset.
+After adding this outlier, the mean increased from 6.6 to 9.5. This significant rise of 2.9 hours illustrates how outliers can distort the average, making it less representative of the dataset.
 
  
 
@@ -414,19 +418,21 @@ First, we sort the observed values from smallest to largest:
 
 **Sorted values:** $\ \ \ \ \ \ \ \ \  4 \ \ \ \ \  4 \ \ \ \ \ \  5 \ \ \ \ \ \  8  \ \ \ \ \ 12$
 
-The number of observations is 5, which is an odd number; therefore, the median corresponds to the value in the middle of the sorted data:
+The number of observations is 5, which is an **odd** number; therefore, the median corresponds to the value in the middle of the sorted data:
 
 $$ 4 \ \ \ \ \ 4 \ \ \ \ \ \textcolor{black}{\textbf{5}} \ \ \ \ \ 8 \ \ \ \ \ 12 $$
 
 $$md = 5 \ hours$$  
 
-Let's add the value of 24 to the data. In this case, the number of observations becomes 6, which is an even number. The new median, $md_{new}$, is the average of the two middle numbers, 5 and 8:
+
+
+Now let's examine how the median responds to an outlier by adding the value of 24 to the data. In this case, the number of observations becomes 6, which is an **even** number. The new median, $md_{new}$, is the average of the two middle numbers, 5 and 8:
 
 $$ 4 \ \ \ \ \ 4 \ \ \ \ \ \textcolor{black}{\textbf{5}} \ \ \ \ \ \textcolor{black}{\textbf{8}} \ \ \ \ \ 12 \ \ \ \ \ \underline{24}$$
 
 $$md_{new} = \frac{5 + 8}{2} = \frac{13}{2} = 6.5 \ hours$$
 
-We observe that the median is not strongly influenced by the addition of the extreme value of 24; the median increased from 5 to 6.5.
+We observe that the median is not strongly influenced by the addition of the outlier, as it only increased from 5 to 6.5. This demonstrates that the median is more resistant to outliers compared to the mean.
 
  
 
@@ -434,8 +440,6 @@ We observe that the median is not strongly influenced by the addition of the ext
 **Advantages of median**
 
 -   It is resistant to extreme values (outliers) compared to the mean.
-
--   For data measured on an ordinal scale (e.g., rankings), the median is often more meaningful than the mean.
 
 **Disadvantages of median**
 
@@ -492,22 +496,24 @@ While the mode is less commonly used for numerical data, it can be a useful meas
 
 **A. Range of the sample**
 
-The **minimum (min)** value represents the lowest value observed in a dataset, while the **maximum (max)** value represents the highest value. These values provide valuable insights into the range and potential outliers within the dataset.
-
 ::: content-box-purple
-In mathematics, the **range** is the difference between the maximum and minimum values in a data set.
+The **range** is the difference between the maximum and minimum values in a dataset.
 :::
+
 
 $$range = Max - Min$$ {#eq-range}
 
 
+The **minimum (Min)** value represents the lowest value observed in a dataset, while the **maximum (Max)** value represents the highest value. These values provide valuable insights into the range and potential outliers within the dataset.
+
+
 ***Example***
 
-In our example, the minimum is Min = 4 hours, and the maximum is Max = 12 hours. 
+Let's determine the range for the sorted data in our example: 
 
 $$ \textcolor{black}{\textbf{4}} \ \ \ \ \  4 \ \ \ \ \ 5  \ \ \ \ \ 8 \ \ \ \ \ \textcolor{black}{\textbf{12}}$$
 
-Therefore, according to @eq-range:
+The minimum is Min = 4 hours, and the maximum is Max = 12 hours. Therefore, according to @eq-range:
 
 $$ range = 12 - 4 = 8 \ hours$$
 
@@ -525,9 +531,12 @@ $$range = 24 -4 = 20 \ hours$$
 The main disadvantages of the range as a measure of dispersion are its sensitivity to outliers and the fact that it uses only the extreme values, ignoring all other data points.
 :::
 
+
  
 
 **B. Inter-quartile range of the sample**
+
+In the presence of outliers, the interquartile range (IQR) can provide a more accurate measure of the spread of the majority of the data. Before we define the interquartile range (IQR), let's first clarify some basic concepts, specifically quantiles and quartiles.
 
 A quantile indicates the value below which a certain proportion of the data falls. The most commonly used quantiles are known as **quartiles**:
 
@@ -537,19 +546,21 @@ A quantile indicates the value below which a certain proportion of the data fall
 
 -   **$Q_3$ (upper quartile)** represents the value at which 75% of the data falls below it and 25% falls above it.
 
+
+
 ::: content-box-purple
 Interquartile range is the difference between the third quartile (or upper quartile) and the first quartile (or lower quartile) in an ordered data set.
 :::
 
-
 $$IQR = Q_3 - Q_1$$ {#eq-iqr} 
 
 
+Therefore, the IQR focuses on the middle 50% of the dataset.
 
 ![Quartiles and inter-quartile range.](images/iqr.png){#fig-iqr width="50%"}
 
+It's important to note that different statistical software packages may produce slightly different quartiles and interquartile ranges (IQRs) for the same dataset, especially when there are only a few values present. This discrepancy is due to the **numerous definitions** of sample quantiles used in statistical software packages [@hyndman1996]. While discussing these differences is beyond the scope of this introductory course, we will focus on the results provided by Jamovi.
 
-It is important to note that there are numerous definitions of sample quantiles used in statistical software packages, and discussing them is beyond the scope of this introductory course [@hyndman1996]. Therefore, we will rely on the results provided by Jamovi.
 
 
 ***Example***
@@ -602,7 +613,7 @@ The original values are:
 
 $$ 5 \ \ \ \ \  4  \ \ \ \ \ 12 \ \ \ \ \  8 \ \ \ \ \  4 $$
 
-and we have calculated the mean, $\bar{x} = 6.6$. The deviation from the mean for the first value is calculated as 5 - 6.6 = -1.6, and for the second value, it is 4 - 6.6 = -2.6, and so on.
+and we have calculated the mean, $\bar{x} = 6.6$. The deviation (difference) from the mean for the first value is calculated as 5 - 6.6 = -1.6, and for the second value, it is 4 - 6.6 = -2.6, and so on.
 
 
 Thus, according to @eq-var:
@@ -619,7 +630,8 @@ $$
 
  
 
-After adding 24 to the data, the new mean is $\bar{x}_{new} = 9.5$, and the variance is calculated as follows:
+
+Now let's examine how the variance responds to an outlier by adding the value of 24 to the data. The new mean is $\bar{x}_{new} = 9.5$, and the variance is calculated as follows:
 
 $$
 \begin{align*}
@@ -631,15 +643,21 @@ s^2 &= \frac{(5 - 9.5)^2 + (4 - 9.5)^2 + (12 - 9.5)^2 + (8 - 9.5)^2 + (4 - 9.5)^
 \end{align*}
 $$
 
+The variance is sensitive to outliers because it is based on the **squared** deviations from the mean. As a result, even a single extreme value can significantly increase the variance, making it a less reliable measure of spread when outliers are present.
 
-The variance, being expressed in square units, is not the preferred metric for describing the variability of data.
+
+::: content-box-gray
+
+The variance, being expressed in square units, **is not** the preferred metric for describing the variability of data.
+
+:::
+
 
  
 
 **D. Standard deviation of the sample**
 
-Standard deviation is a typical distance of observations from the mean.
-
+Standard deviation is one of the most common measures of spread and is particularly useful for assessing how far the data points are distributed from the mean.
 
 ::: content-box-purple
 
@@ -671,4 +689,174 @@ $$s = \sqrt{59.9} = 7.74 \ hours$$
 The standard deviation uses all observations in a dataset for its calculation and is expressed in the same units as the original data. However, it is sensitive to outliers, which can substantially  influence its value.
 
 :::
+
+
+ 
+
+### Plots for continuous variables
+
+When visualizing continuous data, several types of plots can be used to understand the distribution, spread, and overall patterns in the data. 
+
+In the following examples, we will use the **complete** dataset consisting of 258 observations.
+
+ 
+
+**A. Frequency histogram**
+
+The most common way to present the frequency distribution of numerical data, especially when there are many observations, is through a **histogram**. Histograms visualize the data distribution as **a series of bars without gaps** between them (unless a particular bin has zero frequency), in contrast to bar plots. Each bar typically represents a range of numeric values known as a **bin** (or class), with the height of the bar indicating the **frequency** of observations (counts) within that particular bin. Below are the frequency histograms for `age` and `time_spent`:
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-histog1
+#| fig-cap: "Histograms of age and time spent variables."
+#| fig-subcap: 
+#|   - "Histogram of age."
+#|   - "Histogram of time spent."
+#| layout-ncol: 2
+
+
+# histogram of age
+ggplot(rses1, aes(x = age)) +
+  geom_histogram(binwidth = 1, fill = "#7F7FFF", color="black", alpha = 0.6) + 
+  scale_x_continuous(breaks = seq(15, 25, by = 1)) +
+  theme_minimal(base_size = 14) +
+  labs(title = "Histogram: age", y = "Frequency")
+
+# histogram of time_spent
+ggplot(rses1, aes(x = time_spent)) +
+  geom_histogram(binwidth = 1, fill = "#7F7FFF", color="black", alpha = 0.6) +
+  scale_x_continuous(breaks = seq(0, 24, by = 1)) +
+  theme_minimal(base_size = 14) +
+  labs(title = "Histogram: Time spent", y = "Frequency")
+
+```
+
+In @fig-histog1(a), the `age` distribution exhibits a symmetrical bell-shaped form, with the highest frequency occurring around 18 years old. The participants’ ages range approximately from 14 to 22 years. In @fig-histog1(b), the `time_spent` variable follows a right-skewed distribution, with a higher frequency occurring around 3 hours and a range roughly from 0 to 18 hours.
+
+
+::: {.callout-tip icon="false"}
+## `r fa("comment", fill = "#1DC5CE")` Comment
+
+The visual appearance of a histogram is greatly influenced by the choice of the **binwidth** (the difference between the lower and upper limits of the bin). If the binwidth is too small (resulting in a large number of bins), the histogram may appear overly detailed and noisy, making it difficult to discern meaningful patterns. Conversely, if the binwidth is too large (resulting in a small number of bins), important features of the data distribution may be obscured.
+Experimenting with different binwidths helps us find the optimal setting that best represents the data, resulting in a more informative visualization.
+
+:::
+
+
+
+ 
+
+To summarize, a histogram provides information on:
+
+-   The distribution of the data, whether it's symmetrical or asymmetrical, and the presence of any outliers.
+
+-   The location of the peak(s) in the distribution.
+
+-   The degree of variability within the data, indicating the spread and range covered by the data.
+
+ 
+
+
+**B. Density plot**
+
+A **density plot** is another way to represent the distribution of numerical data, often seen as a smoother version of a histogram (@fig-density1). Moreover, density curves are typically scaled so that the area under the curve equals one. 
+
+ 
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-density1
+#| fig-cap: "Density plots of age and time spent variables."
+#| fig-subcap: 
+#|   - "Histogram of age."
+#|   - "Histogram of time spent."
+#| layout-ncol: 2
+
+
+# density plot of age
+ggplot(rses1, aes(x = age)) +
+  geom_density(fill="#7F7FFF", color="#8fb4d9", adjust = 1.5, alpha=0.6) +
+  theme_minimal(base_size = 12) +
+  labs(title = "Density Plot: age", y = "Density")
+
+# density plot of time_spent
+ggplot(rses1, aes(x = time_spent)) +
+  geom_density(fill="#7F7FFF", color="#8fb4d9", adjust = 1.5, alpha=0.6) +
+  theme_minimal(base_size = 12) +
+  labs(title = "Density Plot: Time spent", y = "Density")
+
+```
+
+ 
+
+**C. Box Plots**
+
+Box plots are useful for visualizing the central tendency and spread of continuous data, particularly when comparing distributions across multiple groups.
+
+![Anatomy of a (horizontal) boxplot.](images/boxplot.png){#fig-boxplot width="70%"}
+
+This type of graph uses boxes and lines to represent the distributions. In @fig-boxplot the box boundaries indicate the interquartile range (IQR), covering the middle 50% of the data, with a horizontal line inside the box representing the median. Whiskers extend from the box to capture the range of the remaining data, providing additional insight into the spread. Data points lying outside the whiskers are displayed as individual dots and are considered potential outliers.
+
+ 
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-boxplot1
+#| fig-cap: "Box plots of age and time spent variables."
+#| fig-subcap: 
+#|   - "Vertical box plot of age."
+#|   - "Vertical box plot of time spent."
+#| layout-ncol: 2
+
+
+# density plot of age
+ggplot(rses1, aes( y=age)) + 
+  geom_boxplot(fill="slateblue", alpha=0.2,width=0.5) + 
+  xlab("")+
+  ylab("Age in years")+ 
+  theme_minimal(base_size = 14) + 
+  theme(axis.ticks.x = element_blank(),
+        axis.text.x = element_blank(),
+        plot.margin = margin(t = 0.5,  # Top margin
+                             r = 5.5,  # Right margin
+                             b = 0.5,  # Bottom margin
+                             l = 5.5,  # Left margin
+                             unit = "cm"))
+
+# density plot of time_spent
+ggplot(rses1, aes( y=time_spent)) + 
+  geom_boxplot(fill="slateblue", alpha=0.2,width=0.5) + 
+  xlab("")+
+  ylab("Time spent in hours")+ 
+  theme_minimal(base_size = 14) + 
+  theme(axis.ticks.x = element_blank(),
+        axis.text.x = element_blank(),
+        plot.margin = margin(t = 0.5,  # Top margin
+                             r = 5.5,  # Right margin
+                             b = 0.5,  # Bottom margin
+                             l = 5.5,  # Left margin
+                             unit = "cm"))
+```
+
+
+
+::: {.callout-tip icon="false"}
+## `r fa("comment", fill = "#1DC5CE")` Comment
+
+We have already discussed outliers—observations that exhibit unusually large or small values compared to the rest of the dataset. Outliers can arise from several sources: they may result from incorrect measurements, such as data entry errors or instrument malfunctions, or they may originate from a different population than the rest of the data, indicating a "rare" event. Understanding the causes of outliers is essential for proper data analysis and interpretation.
+
+\vspace{10pt}
+
+We typically **identify outliers using the interquartile range** (IQR), where any value outside the interval (Q1 - 1.5 * IQR, Q3 + 1.5 * IQR) is considered a potential outlier (Tukey’s method). This interval extends 1.5 times the IQR below the first quartile (Q1) and above the third quartile (Q3).
+
+:::
+
 
