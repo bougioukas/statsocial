@@ -720,18 +720,22 @@ The most common way to present the frequency distribution of numerical data, esp
 
 
 # histogram of age
-ggplot(rses1, aes(x = age)) +
+p1 <- ggplot(rses1, aes(x = age)) +
   geom_histogram(binwidth = 1, fill = "#7F7FFF", color="black", alpha = 0.6) + 
-  scale_x_continuous(breaks = seq(15, 25, by = 1)) +
+  scale_x_continuous(breaks = seq(14, 22, by = 1)) +
   theme_minimal(base_size = 14) +
   labs(title = "Histogram: age", y = "Frequency")
 
+ggplotly(p1)
+
 # histogram of time_spent
-ggplot(rses1, aes(x = time_spent)) +
+p2 <- ggplot(rses1, aes(x = time_spent)) +
   geom_histogram(binwidth = 1, fill = "#7F7FFF", color="black", alpha = 0.6) +
-  scale_x_continuous(breaks = seq(0, 24, by = 1)) +
+  scale_x_continuous(breaks = seq(0, 18, by = 2)) +
   theme_minimal(base_size = 14) +
   labs(title = "Histogram: Time spent", y = "Frequency")
+
+ggplotly(p2)
 
 ```
 
@@ -819,22 +823,22 @@ This type of graph uses boxes and lines to represent the distributions. In @fig-
 
 
 # box plot of age
-p1 <- ggplot(rses1, aes( y=age)) + 
+p3 <- ggplot(rses1, aes( y=age)) + 
   geom_boxplot(fill="slateblue", alpha=0.2,width=0.5) + 
   xlab("")+
   ylab("Age in years")+ 
   theme_minimal(base_size = 14) 
 
-ggplotly(p1, tooltip = c("text", "size"))
+ggplotly(p3)
 
 # box plot of time_spent
-p2 <- ggplot(rses1, aes( y=time_spent)) + 
+p4 <- ggplot(rses1, aes( y=time_spent)) + 
   geom_boxplot(fill="slateblue", alpha=0.2,width=0.5) + 
   xlab("")+
   ylab("Time spent in hours")+ 
   theme_minimal(base_size = 14) 
 
-ggplotly(p2, tooltip = c("text", "size"))
+ggplotly(p4)
 ```
 
 
