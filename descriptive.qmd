@@ -13,6 +13,7 @@ library(ggsci)
 library(ggpubr)
 library(MESS)
 library(questionr)
+library(plotly)
 
 library(readxl)
 rses1 <- read_excel(here("data", "rses1.xlsx"))
@@ -575,7 +576,7 @@ $$IQR = Q_3 - Q1 = 8 - 4 = 4$$
 
  
 
-After adding an extreme value such as 24, our example dataset is as follows: 
+After adding an extreme value such as 24, our example sorted dataset is as follows: 
 
 $$ 4 \ \ \ \ \ 4 \ \ \ \ \ 5  \ \ \ \ \ 8 \ \ \ \ \ 12 \ \ \ \ \ \underline{24}$$ 
 
@@ -817,33 +818,23 @@ This type of graph uses boxes and lines to represent the distributions. In @fig-
 #| layout-ncol: 2
 
 
-# density plot of age
-ggplot(rses1, aes( y=age)) + 
+# box plot of age
+p1 <- ggplot(rses1, aes( y=age)) + 
   geom_boxplot(fill="slateblue", alpha=0.2,width=0.5) + 
   xlab("")+
   ylab("Age in years")+ 
-  theme_minimal(base_size = 14) + 
-  theme(axis.ticks.x = element_blank(),
-        axis.text.x = element_blank(),
-        plot.margin = margin(t = 0.5,  # Top margin
-                             r = 5.5,  # Right margin
-                             b = 0.5,  # Bottom margin
-                             l = 5.5,  # Left margin
-                             unit = "cm"))
+  theme_minimal(base_size = 14) 
 
-# density plot of time_spent
-ggplot(rses1, aes( y=time_spent)) + 
+ggplotly(p1, tooltip = c("text", "size"))
+
+# box plot of time_spent
+p2 <- ggplot(rses1, aes( y=time_spent)) + 
   geom_boxplot(fill="slateblue", alpha=0.2,width=0.5) + 
   xlab("")+
   ylab("Time spent in hours")+ 
-  theme_minimal(base_size = 14) + 
-  theme(axis.ticks.x = element_blank(),
-        axis.text.x = element_blank(),
-        plot.margin = margin(t = 0.5,  # Top margin
-                             r = 5.5,  # Right margin
-                             b = 0.5,  # Bottom margin
-                             l = 5.5,  # Left margin
-                             unit = "cm"))
+  theme_minimal(base_size = 14) 
+
+ggplotly(p2, tooltip = c("text", "size"))
 ```
 
 

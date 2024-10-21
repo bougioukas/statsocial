@@ -226,7 +226,7 @@ ul.task-list li input[type="checkbox"] {
 (function() {
   var script = document.currentScript;
   var qrcode = script.previousElementSibling;
-  qrcode.qrcode = new QRCode(qrcode, {"width":"100","text":"https://statsocial.netlify.app/","colorLight":"#ffffff","colorDark":"#0011bb","height":"100"});
+  qrcode.qrcode = new QRCode(qrcode, {"text":"https://statsocial.netlify.app/","height":"100","colorDark":"#0011bb","width":"100","colorLight":"#ffffff"});
   script.remove();
 })();
 </script>
