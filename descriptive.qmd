@@ -203,7 +203,7 @@ ggplot(dat3, aes(x = Score_cat, y = pct)) +
 
 **A. Frequency contingency table**
 
-In addition to tabulating each categorical variable separately, we might be interested in the distribution of self-esteem levels (categorized as low, medium, and high) among male and female participants in the dataset. This can be achieved by creating a frequency **contingency table**, as shown in @fig-tb0. Each cell value in the table represents the number of occurrences (frequency) corresponding to the combination of categories from the two different variables.
+In addition to tabulating each variable separately, we might also be interested in exploring the association between two categorical variables. In this case, the resulting frequency table is a cross-tabulation, where each combination of levels from both variables is displayed. This type of table is called a **contingency table** because it shows the frequency of each category in one variable, contingent upon the specific levels of the other variable, as shown in @fig-tb0.
 
 ![Frequency contingency table which cross tabulates sex and self-esteem levels. Each cell value in the table represents the count corresponding to the combination of categories from the two variables.](images/tb0.png){#fig-tb0 width="70%"}
 
@@ -358,10 +358,7 @@ Additionally, **measures of shape** such as the sample coefficients of **skewnes
 The arithmetic mean, or average, denoted as $\bar{x}$, is calculated by dividing the sum of all values in a set by the total number of values in the set.
 :::
 
-
 $$\bar{x}= \frac{Sum \ of \ values}{Number \ of \ values}$$ {#eq-mean}
-
-
 
 ***Example***
 
@@ -375,9 +372,9 @@ $$\bar{x} = \frac{5 + 4 + 12 + 8 + 4}{5} = \frac{33}{5} = 6.6 \ hours$$
 
  
 
-To highlight how outliers affect the mean, suppose we add a value of 24 to the dataset. This new data point is considered an **outlier**, as it is substantially higher than the other values in the dataset. Since 24 hours is the maximum possible in a single day, this extreme value clearly stands out from the rest of the observations. 
+To highlight how outliers affect the mean, suppose we add a value of 24 to the dataset. This new data point is considered an **outlier**, as it is substantially higher than the other values in the dataset. Since 24 hours is the maximum possible in a single day, this extreme value clearly stands out from the rest of the observations.
 
-Our new dataset becomes: 
+Our new dataset becomes:
 
 $$ 5 \ \ \ \ \  4  \ \ \ \ \ 12 \ \ \ \ \  8 \ \ \ \ \  4 \ \ \ \ \  \underline{24}$$
 
@@ -424,8 +421,6 @@ The number of observations is 5, which is an **odd** number; therefore, the medi
 $$ 4 \ \ \ \ \ 4 \ \ \ \ \ \textcolor{black}{\textbf{5}} \ \ \ \ \ 8 \ \ \ \ \ 12 $$
 
 $$md = 5 \ hours$$  
-
-
 
 Now let's examine how the median responds to an outlier by adding the value of 24 to the data. In this case, the number of observations becomes 6, which is an **even** number. The new median, $md_{new}$, is the average of the two middle numbers, 5 and 8:
 
@@ -501,16 +496,13 @@ While the mode is less commonly used for numerical data, it can be a useful meas
 The **range** is the difference between the maximum and minimum values in a dataset.
 :::
 
-
 $$range = Max - Min$$ {#eq-range}
-
 
 The **minimum (Min)** value represents the lowest value observed in a dataset, while the **maximum (Max)** value represents the highest value. These values provide valuable insights into the range and potential outliers within the dataset.
 
-
 ***Example***
 
-Let's determine the range for the sorted data in our example: 
+Let's determine the range for the sorted data in our example:
 
 $$ \textcolor{black}{\textbf{4}} \ \ \ \ \  4 \ \ \ \ \ 5  \ \ \ \ \ 8 \ \ \ \ \ \textcolor{black}{\textbf{12}}$$
 
@@ -522,7 +514,7 @@ $$ range = 12 - 4 = 8 \ hours$$
 
 Let's add the extreme value of 24 to the data.
 
-$$ \textcolor{black}{\textbf{4}} \ \ \ \ \ 4 \ \ \ \ \ 5  \ \ \ \ \ 8 \ \ \ \ \ 12 \ \ \ \ \ \underline{\textcolor{black}{\textbf{24}}}$$ 
+$$ \textcolor{black}{\textbf{4}} \ \ \ \ \ 4 \ \ \ \ \ 5  \ \ \ \ \ 8 \ \ \ \ \ 12 \ \ \ \ \ \underline{\textcolor{black}{\textbf{24}}}$$
 
 In this case, the range becomes:
 
@@ -532,7 +524,6 @@ $$range = 24 -4 = 20 \ hours$$
 The main disadvantages of the range as a measure of dispersion are its sensitivity to outliers and the fact that it uses only the extreme values, ignoring all other data points.
 :::
 
-
  
 
 **B. Inter-quartile range of the sample**
@@ -541,28 +532,23 @@ In the presence of outliers, the interquartile range (IQR) can provide a more ac
 
 A quantile indicates the value below which a certain proportion of the data falls. The most commonly used quantiles are known as **quartiles**:
 
--   **$Q_1$ (lower quartile)** represents the value at which 25% of the data falls below it and 75% falls above it.
+-   $Q_1$ (lower quartile) represents the value at which 25% of the data falls below it and 75% falls above it.
 
--   **$Q_2$ (median)** is the middle value when the data is arranged in ascending or descending order.
+-   $Q_2$ (median) is the middle value when the data is arranged in ascending or descending order.
 
--   **$Q_3$ (upper quartile)** represents the value at which 75% of the data falls below it and 25% falls above it.
-
-
+-   $Q_3$ (upper quartile) represents the value at which 75% of the data falls below it and 25% falls above it.
 
 ::: content-box-purple
 Interquartile range is the difference between the third quartile (or upper quartile) and the first quartile (or lower quartile) in an ordered data set.
 :::
 
-$$IQR = Q_3 - Q_1$$ {#eq-iqr} 
-
+$$IQR = Q_3 - Q_1$$ {#eq-iqr}
 
 Therefore, the IQR focuses on the middle 50% of the dataset.
 
 ![Quartiles and inter-quartile range.](images/iqr.png){#fig-iqr width="50%"}
 
 It's important to note that different statistical software packages may produce slightly different quartiles and interquartile ranges (IQRs) for the same dataset, especially when there are only a few values present. This discrepancy is due to the **numerous definitions** of sample quantiles used in statistical software packages [@hyndman1996]. While discussing these differences is beyond the scope of this introductory course, we will focus on the results provided by Jamovi.
-
-
 
 ***Example***
 
@@ -576,18 +562,15 @@ $$IQR = Q_3 - Q1 = 8 - 4 = 4$$
 
  
 
-After adding an extreme value such as 24, our example sorted dataset is as follows: 
+After adding an extreme value such as 24, our example sorted dataset is as follows:
 
-$$ 4 \ \ \ \ \ 4 \ \ \ \ \ 5  \ \ \ \ \ 8 \ \ \ \ \ 12 \ \ \ \ \ \underline{24}$$ 
-
+$$ 4 \ \ \ \ \ 4 \ \ \ \ \ 5  \ \ \ \ \ 8 \ \ \ \ \ 12 \ \ \ \ \ \underline{24}$$
 
 We would expect $Q_1$ to have a value between 4 and 5, and $Q_3$ to fall between 8 and 12. JAMOVI provides $Q_1 = 4.25$ hours, and $Q_3 =11$ hours. Therefore, the new inter-quartile range is:
 
 $$IQR_{new} = Q_3 - Q1 = 11 - 4.25 = 6.75$$
 
-
 ::: content-box-gray
-
 As with the range, greater variability in the data typically leads to a larger IQR. However, unlike the range, the **IQR is resistant to outliers**, as it is not influenced by observations below the first quartile or above the third quartile.
 :::
 
@@ -597,16 +580,11 @@ As with the range, greater variability in the data typically leads to a larger I
 
 Sample variance, denoted as $s^2$, is a measure of spread of the data based on the **deviations** of the data values from the mean. However, when we average these deviations, the sum always equals zero. This occurs because the mean acts as a balance point where the total positive and negative deviations cancel each other out. To resolve this issue, we calculate the variance using **squared deviations**, which ensures that all values contribute positively to the measure of spread.
 
-
 ::: content-box-purple
-
 Mathematically, the sample variance, $s^2$, is calculated as the sum of the squared deviations from the sample mean, divided by the number of observations minus 1.
 :::
 
-
-$$s^2 = \frac{\text{Sum of squared deviations}}{\text{Number of values} - 1}$$ {#eq-var} 
-
-
+$$s^2 = \frac{\text{Sum of squared deviations}}{\text{Number of values} - 1}$$ {#eq-var}
 
 ***Example***
 
@@ -615,7 +593,6 @@ The original values are:
 $$ 5 \ \ \ \ \  4  \ \ \ \ \ 12 \ \ \ \ \  8 \ \ \ \ \  4 $$
 
 and we have calculated the mean, $\bar{x} = 6.6$. The deviation (difference) from the mean for the first value is calculated as 5 - 6.6 = -1.6, and for the second value, it is 4 - 6.6 = -2.6, and so on.
-
 
 Thus, according to @eq-var:
 
@@ -631,7 +608,6 @@ $$
 
  
 
-
 Now let's examine how the variance responds to an outlier by adding the value of 24 to the data. The new mean is $\bar{x}_{new} = 9.5$, and the variance is calculated as follows:
 
 $$
@@ -646,13 +622,9 @@ $$
 
 The variance is sensitive to outliers because it is based on the **squared** deviations from the mean. As a result, even a single extreme value can significantly increase the variance, making it a less reliable measure of spread when outliers are present.
 
-
 ::: content-box-gray
-
 The variance, being expressed in square units, **is not** the preferred metric for describing the variability of data.
-
 :::
-
 
  
 
@@ -661,18 +633,13 @@ The variance, being expressed in square units, **is not** the preferred metric f
 Standard deviation is one of the most common measures of spread and is particularly useful for assessing how far the data points are distributed from the mean.
 
 ::: content-box-purple
-
 Standard deviation, denoted as *s* or *sd*, represents the typical distance of observations from the mean. It is calculated as the square root of the sample variance.
-
 :::
 
-
-$$s = \sqrt{s^2}$$ {#eq-sd} 
-
-
+$$s = \sqrt{s^2}$$ {#eq-sd}
 
 ***Example***
- 
+
 The standard deviation is:
 
 $$s = \sqrt{11.8} = 3.44 \ hours$$
@@ -686,17 +653,14 @@ With the addition of the value 25, the standard deviation becomes:
 $$s = \sqrt{59.9} = 7.74 \ hours$$
 
 ::: content-box-gray
-
-The standard deviation uses all observations in a dataset for its calculation and is expressed in the same units as the original data. However, it is sensitive to outliers, which can substantially  influence its value.
-
+The standard deviation uses all observations in a dataset for its calculation and is expressed in the same units as the original data. However, it is sensitive to outliers, which can substantially influence its value.
 :::
-
 
  
 
 ### Plots for continuous variables
 
-When visualizing continuous data, several types of plots can be used to understand the distribution, spread, and overall patterns in the data. 
+When visualizing continuous data, several types of plots can be used to understand the distribution, spread, and overall patterns in the data.
 
 In the following examples, we will use the **complete** dataset consisting of 258 observations.
 
@@ -705,7 +669,6 @@ In the following examples, we will use the **complete** dataset consisting of 25
 **A. Frequency histogram**
 
 The most common way to present the frequency distribution of numerical data, especially when there are many observations, is through a **histogram**. Histograms visualize the data distribution as **a series of bars without gaps** between them (unless a particular bin has zero frequency), in contrast to bar plots. Each bar typically represents a range of numeric values known as a **bin** (or class), with the height of the bar indicating the **frequency** of observations (counts) within that particular bin. Below are the frequency histograms for `age` and `time_spent`:
-
 
 ```{r}
 #| echo: false
@@ -741,16 +704,11 @@ ggplotly(p2)
 
 In @fig-histog1(a), the `age` distribution exhibits a symmetrical bell-shaped form, with the highest frequency occurring around 18 years old. The participants’ ages range approximately from 14 to 22 years. In @fig-histog1(b), the `time_spent` variable follows a right-skewed distribution, with a higher frequency occurring around 3 hours and a range roughly from 0 to 18 hours.
 
-
 ::: {.callout-tip icon="false"}
 ## `r fa("comment", fill = "#1DC5CE")` Comment
 
-The visual appearance of a histogram is greatly influenced by the choice of the **binwidth** (the difference between the lower and upper limits of the bin). If the binwidth is too small (resulting in a large number of bins), the histogram may appear overly detailed and noisy, making it difficult to discern meaningful patterns. Conversely, if the binwidth is too large (resulting in a small number of bins), important features of the data distribution may be obscured.
-Experimenting with different binwidths helps us find the optimal setting that best represents the data, resulting in a more informative visualization.
-
+The visual appearance of a histogram is greatly influenced by the choice of the **binwidth** (the difference between the lower and upper limits of the bin). If the binwidth is too small (resulting in a large number of bins), the histogram may appear overly detailed and noisy, making it difficult to discern meaningful patterns. Conversely, if the binwidth is too large (resulting in a small number of bins), important features of the data distribution may be obscured. Experimenting with different binwidths helps us find the optimal setting that best represents the data, resulting in a more informative visualization.
 :::
-
-
 
  
 
@@ -764,13 +722,11 @@ To summarize, a histogram provides information on:
 
  
 
-
 **B. Density plot**
 
-A **density plot** is another way to represent the distribution of numerical data, often seen as a smoother version of a histogram (@fig-density1). Moreover, density curves are typically scaled so that the area under the curve equals one. 
+A **density plot** is another way to represent the distribution of numerical data, often seen as a smoother version of a histogram (@fig-density1). Moreover, density curves are typically scaled so that the area under the curve equals one.
 
  
-
 
 ```{r}
 #| echo: false
@@ -841,8 +797,6 @@ p4 <- ggplot(rses1, aes( y=time_spent)) +
 ggplotly(p4)
 ```
 
-
-
 ::: {.callout-tip icon="false"}
 ## `r fa("comment", fill = "#1DC5CE")` Comment
 
@@ -850,8 +804,5 @@ We have already discussed outliers—observations that exhibit unusually large o
 
 \vspace{10pt}
 
-We typically **identify outliers using the interquartile range** (IQR), where any value outside the interval (Q1 - 1.5 * IQR, Q3 + 1.5 * IQR) is considered a potential outlier (Tukey’s method). This interval extends 1.5 times the IQR below the first quartile (Q1) and above the third quartile (Q3).
-
+We typically **identify outliers using the interquartile range** (IQR), where any value outside the interval (Q1 - 1.5 \* IQR, Q3 + 1.5 \* IQR) is considered a potential outlier (Tukey’s method). This interval extends 1.5 times the IQR below the first quartile (Q1) and above the third quartile (Q3).
 :::
-
-
