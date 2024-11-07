@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Konstantinos I. Bougioukas, PhD">
-<meta name="dcterms.date" content="2024-11-07">
 
-<title>Basic Statistics for the Social Sciences</title>
+<title>4&nbsp; LAB IV: Estimation and Confidence Interval – Basic Statistics for the Social Sciences</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./intro.html" rel="next">
+<link href="./references.html" rel="next">
+<link href="./lab1.html" rel="prev">
 <link href="./images/cover.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -43,7 +42,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/qrcodejs-v1.0.0/qrcode.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -84,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Welcome!</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lab1.html">Jamovi LAB</a></li><li class="breadcrumb-item"><a href="./lab4.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">LAB IV: Estimation and Confidence Interval</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -111,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome!</span></a>
   </div>
 </li>
@@ -155,7 +153,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lab4.html" class="sidebar-item-text sidebar-link">
+  <a href="./lab4.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">LAB IV: Estimation and Confidence Interval</span></span></a>
   </div>
 </li>
@@ -177,36 +175,24 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome!</a></li>
+  <li><a href="#the-sampling-distribution-of-mean-and-the-clt" id="toc-the-sampling-distribution-of-mean-and-the-clt" class="nav-link active" data-scroll-target="#the-sampling-distribution-of-mean-and-the-clt"><span class="header-section-number">4.1</span> The Sampling Distribution of mean and the CLT</a></li>
+  <li><a href="#the-confidence-interval-of-mean" id="toc-the-confidence-interval-of-mean" class="nav-link" data-scroll-target="#the-confidence-interval-of-mean"><span class="header-section-number">4.2</span> The confidence interval of mean</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lab1.html">Jamovi LAB</a></li><li class="breadcrumb-item"><a href="./lab4.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">LAB IV: Estimation and Confidence Interval</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Basic Statistics for the Social Sciences</h1>
-<p class="subtitle lead">1st Edition</p>
+<h1 class="title"><span id="sec-lab4" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">LAB IV: Estimation and Confidence Interval</span></span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Konstantinos I. Bougioukas, PhD <a href="https://orcid.org/0000-0002-6533-1391" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">November 7, 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -216,27 +202,175 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-
-<section id="welcome" class="level1 unnumbered">
-<h1 class="unnumbered">Welcome!</h1><p><img src="images/cover.png" title="Basic Statistics for the Social Sciences" class="quarto-cover-image img-fluid"></p>
-<p>This open course introduces students to key concepts and statistical methods used in the quantitative social and behavioral sciences to describe and test hypotheses about the social world and human behavior. Students will learn to:</p>
+<p>When we have finished this Lab, we should be able to:</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Learning objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li><p>Describe and summarize data distributions.</p></li>
-<li><p>Formulate and test various types of research hypotheses.</p></li>
-<li><p>Analyze associations between factors, characteristics, or events.</p></li>
-<li><p>Interpret and critically evaluate published statistics.</p></li>
+<li>Know the basic properties of sampling distribution of mean</li>
+<li>Understand the Central Limit Theorem (CLM)</li>
+<li>Understand the concept of the confidence interval of mean</li>
 </ul>
-<p>The student may also learn about the proper use of graphing and statistical software.</p>
-<div id="" class="qrcode"></div>
-<script type="text/javascript">
-(function() {
-  var script = document.currentScript;
-  var qrcode = script.previousElementSibling;
-  qrcode.qrcode = new QRCode(qrcode, {"text":"https://statsocial.netlify.app/","width":"100","colorLight":"#ffffff","height":"100","colorDark":"#0011bb"});
-  script.remove();
-})();
-</script>
-    
+</div>
+</div>
+<p>&nbsp;</p>
+<section id="the-sampling-distribution-of-mean-and-the-clt" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="the-sampling-distribution-of-mean-and-the-clt"><span class="header-section-number">4.1</span> The Sampling Distribution of mean and the CLT</h2>
+<p>In this Lab we will learn the Central Limit Theorem (CLT), which is the basis for many statistical concepts. We are going to explore this concept with the help of a <em>Shiny</em> application. So, clink on the following link <a href="https://gallery.shinyapps.io/CLT_mean/">CLM</a>.</p>
+<p>A <em>Shiny app</em> opens in a web window as shown below (<a href="#fig-shiny_app1" class="quarto-xref">Figure&nbsp;<span>4.1</span></a>):</p>
+<div id="fig-shiny_app1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-shiny_app1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/shiny_app1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-shiny_app1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.1: The Shiny application simulating the Central limit Theorem for Means
+</figcaption>
+</figure>
+</div>
+<p>To the left is the interactive panel with radio buttons and slider bars, and to the right there are three tabs:</p>
+<ul>
+<li><p>Population Distribution.</p></li>
+<li><p>Samples.</p></li>
+<li><p>Sampling Distribution.</p></li>
+</ul>
+<p>First we are asked to choose from a Normal, Uniform, Right Skewed or Left Skewed <em>Parent distribution (Population)</em> from the left panel. Let’s select <em>Right skewed</em> and then <em>High skew</em> from the drop down menu with the name <em>Skew</em>, as shown in <a href="#fig-shiny_app2" class="quarto-xref">Figure&nbsp;<span>4.2</span></a>.</p>
+<div id="fig-shiny_app2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-shiny_app2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/shiny_app2.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-shiny_app2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.2: The case of a high right skewed population distribution
+</figcaption>
+</figure>
+</div>
+<p>Next we set the <em>Sample size</em> slider bar to 5 and the <em>Number of samples</em> to 1000, then select the <em>Samples</em> tab, as shown in <a href="#fig-shiny_app2_1" class="quarto-xref">Figure&nbsp;<span>4.3</span></a>. The first eight samples randomly drawn from the original distribution are demonstrated in the panel. For example, in the first box labeled <em>Sample 1</em>, we observe five data points (the sample size we set), along with their sample mean and standard deviation (highlighted in the red circle).</p>
+<div id="fig-shiny_app2_1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-shiny_app2_1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/shiny_app2_1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-shiny_app2_1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.3: First eight samples randomly drawn from the original distribution.
+</figcaption>
+</figure>
+</div>
+<p>Finally, we select the <em>Sampling distribution</em> tab, which displays the distribution of the 1000 <strong>sample means</strong>. We observe that this distribution is right skewed with mean approximately equal to population mean (<a href="#fig-shiny_app3" class="quarto-xref">Figure&nbsp;<span>4.4</span></a>).</p>
+<div id="fig-shiny_app3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-shiny_app3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/shiny_app3.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-shiny_app3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.4: Distribution of means of 1000 random samples, each consisting of 5 observations from a high right skewed population distribution
+</figcaption>
+</figure>
+</div>
+<p>Now, try to increase the <em>sample size</em> to 30 (<a href="#fig-shiny_app4" class="quarto-xref">Figure&nbsp;<span>4.5</span></a>):</p>
+<div id="fig-shiny_app4" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-shiny_app4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/shiny_app4.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-shiny_app4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.5: Distribution of means of 1000 random samples, each consisting of 30 observations from a high right skewed population distribution
+</figcaption>
+</figure>
+</div>
+<p>and then increase it to 200 (<a href="#fig-shiny_app5" class="quarto-xref">Figure&nbsp;<span>4.6</span></a>):</p>
+<div id="fig-shiny_app5" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-shiny_app5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/shiny_app5.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-shiny_app5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.6: Distribution of means of 1000 random samples, each consisting of 200 observations from a high right skewed population distribution
+</figcaption>
+</figure>
+</div>
+<p>We observe that the sampling distribution becomes closer and closer to Normal and the standard error of the mean, <em>SE</em>, (the standard deviation of sample means) gets smaller as the sample size increases. The important point is that whatever the parent distribution of a variable, the distribution of the sample means will be nearly Normal, as long as the samples are large enough.</p>
+<p>&nbsp;</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Properties of the sampling distribution of the mean
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>The mean of the sampling distribution is the same as the mean of the population.</li>
+<li>The standard deviation of the sampling distribution (i.e., the standard error) gets smaller as the sample size increases.</li>
+<li><strong>According to the Central Limit Theorem (CLM)</strong>, the shape of the sampling distribution becomes normal as the sample size increases regardless of the variable’s population distribution.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="the-confidence-interval-of-mean" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="the-confidence-interval-of-mean"><span class="header-section-number">4.2</span> The confidence interval of mean</h2>
+<p>We are going to explore the concept of confidence interval (CI) of mean with the help of a <em>Shiny</em> application. So, clink on the following link <a href="https://shiny.rit.albany.edu/stat/confidence/">CIs</a>.</p>
+<p>A <em>Shiny</em> app opens in a web window as shown below (<a href="#fig-shiny_app6" class="quarto-xref">Figure&nbsp;<span>4.7</span></a>):</p>
+<div id="fig-shiny_app6" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-shiny_app6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/shiny_app6.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-shiny_app6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.7: Shiny application that simulates the concept of confidence interval (CI) of mean
+</figcaption>
+</figure>
+</div>
+<p>On the left is the interactive panel with radio buttons and drop down menus, and to the right there are two tabs:</p>
+<ul>
+<li><p>Plots.</p></li>
+<li><p>About.</p></li>
+</ul>
+<p>We retain active the <em>Plots</em> tab.</p>
+<p>First we are asked to choose if we want the <em>Confidence Interval Graph only</em> or the <em>Confidence Interval Graph Plus Sampling Distribution of the Mean</em>. Let’s select the first choice and set the <em>Number of Simulated Samples</em> to one and the <em>Sample Size</em> to 10 from the drop down menus, as shown in <a href="#fig-shiny_app7" class="quarto-xref">Figure&nbsp;<span>4.8</span></a>. A horizontal bar will be created which represents the confidence interval (CI), centered on the sample mean (point). In this case, the 95%CI for the sample mean includes the true value of the population mean (it crosses the solid vertical line) and it is drawn as a black line.</p>
+<div id="fig-shiny_app7" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-shiny_app7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/shiny_app7.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-shiny_app7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.8: Confidence Interval Graph with one random sample of 10 observations selected from a normal population distribution
+</figcaption>
+</figure>
+</div>
+<p>Now, try to increase the <em>Number of Simulated Samples</em> to 100 (<a href="#fig-shiny_app8" class="quarto-xref">Figure&nbsp;<span>4.9</span></a>):</p>
+<div id="fig-shiny_app8" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-shiny_app8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/shiny_app8.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-shiny_app8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.9: Confidence Interval Graph with 100 random samples, each consisting of 10 observations from a normal population distribution
+</figcaption>
+</figure>
+</div>
+<p>We observe that 5 out of 100 confidence intervals (red horizontal lines) do not include the true population mean (the solid vertical line) (<a href="#fig-shiny_app8" class="quarto-xref">Figure&nbsp;<span>4.9</span></a>). This is what we would expect – that the 95% confidence interval will not include the true population mean 5% of the time.</p>
+<p>Next, we create the confidence intervals of 100 randomly generated samples of size = 50 from the population (<a href="#fig-shiny_app9" class="quarto-xref">Figure&nbsp;<span>4.10</span></a>):</p>
+<div id="fig-shiny_app9" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-shiny_app9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/shiny_app9.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-shiny_app9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.10: Confidence Interval Graph with 100 random samples, each consisting of 50 observations from a normal population distribution
+</figcaption>
+</figure>
+</div>
+<p>We observe that the sample means are closer to the true population mean and the 95%CIs of the mean become narrower (<a href="#fig-shiny_app8" class="quarto-xref">Figure&nbsp;<span>4.9</span></a>) increasing the sample size.</p>
 
 
 </section>
@@ -669,10 +803,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./lab1.html" class="pagination-link" aria-label="LAB I: Introduction to Jamovi">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">LAB I: Introduction to Jamovi</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link" aria-label="Introduction">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link" aria-label="References">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

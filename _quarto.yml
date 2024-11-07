@@ -19,6 +19,7 @@ book:
     - part: "Jamovi LAB"
       chapters:
         - lab1.qmd
+        - lab4.qmd
     - references.qmd
 
   page-footer: 
