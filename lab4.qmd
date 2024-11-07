@@ -1,4 +1,4 @@
-# LAB IV: Estimation and Confidence Interval {#sec-lab4}
+# LAB IV: Sampling distribution and Confidence Interval {#sec-lab4}
 
 ```{r}
 #| include: false
@@ -85,7 +85,7 @@ On the left is the interactive panel with radio buttons and drop down menus, and
 
 We retain active the *Plots* tab.
 
-First we are asked to choose if we want the *Confidence Interval Graph only* or the *Confidence Interval Graph Plus Sampling Distribution of the Mean*. Let's select the first choice and set the *Number of Simulated Samples* to one and the *Sample Size* to 10 from the drop down menus, as shown in @fig-shiny_app7. A horizontal bar will be created which represents the confidence interval (CI), centered on the sample mean (point). In this case, the 95%CI for the sample mean includes the true value of the population mean (it crosses the solid vertical line) and it is drawn as a black line.
+First we are asked to choose if we want the *Confidence Interval Graph only* or the *Confidence Interval Graph Plus Sampling Distribution of the Mean*. Let's select the first choice and set the *Number of Simulated Samples* to one and the *Sample Size* to 10 from the drop down menus, as shown in @fig-shiny_app7. A horizontal bar will be created which represents the confidence interval (CI), centered on the sample mean (point). In this case, the 95% CI for the sample mean includes the true value of the population mean (it crosses the solid vertical line) and it is drawn as a black line.
 
 ![Confidence Interval Graph with one random sample of 10 observations selected from a normal population distribution](images/shiny_app7.png){#fig-shiny_app7}
 
@@ -99,4 +99,4 @@ Next, we create the confidence intervals of 100 randomly generated samples of si
 
 ![Confidence Interval Graph with 100 random samples, each consisting of 50 observations from a normal population distribution](images/shiny_app9.png){#fig-shiny_app9}
 
-We observe that the sample means are closer to the true population mean and the 95%CIs of the mean become narrower (@fig-shiny_app8) increasing the sample size.
+We observe that the sample means are closer to the true population mean and the 95% CIs of the mean become narrower (@fig-shiny_app8) increasing the sample size.

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>4&nbsp; LAB IV: Estimation and Confidence Interval – Basic Statistics for the Social Sciences</title>
+<title>4&nbsp; LAB IV: Sampling distribution and Confidence Interval – Basic Statistics for the Social Sciences</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -82,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lab1.html">Jamovi LAB</a></li><li class="breadcrumb-item"><a href="./lab4.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">LAB IV: Estimation and Confidence Interval</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lab1.html">Jamovi LAB</a></li><li class="breadcrumb-item"><a href="./lab4.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">LAB IV: Sampling distribution and Confidence Interval</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -154,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./lab4.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">LAB IV: Estimation and Confidence Interval</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">LAB IV: Sampling distribution and Confidence Interval</span></span></a>
   </div>
 </li>
       </ul>
@@ -183,9 +183,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lab1.html">Jamovi LAB</a></li><li class="breadcrumb-item"><a href="./lab4.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">LAB IV: Estimation and Confidence Interval</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lab1.html">Jamovi LAB</a></li><li class="breadcrumb-item"><a href="./lab4.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">LAB IV: Sampling distribution and Confidence Interval</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-lab4" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">LAB IV: Estimation and Confidence Interval</span></span></h1>
+<h1 class="title"><span id="sec-lab4" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">LAB IV: Sampling distribution and Confidence Interval</span></span></h1>
 </div>
 
 
@@ -336,7 +336,7 @@ Figure&nbsp;4.7: Shiny application that simulates the concept of confidence inte
 <li><p>About.</p></li>
 </ul>
 <p>We retain active the <em>Plots</em> tab.</p>
-<p>First we are asked to choose if we want the <em>Confidence Interval Graph only</em> or the <em>Confidence Interval Graph Plus Sampling Distribution of the Mean</em>. Let’s select the first choice and set the <em>Number of Simulated Samples</em> to one and the <em>Sample Size</em> to 10 from the drop down menus, as shown in <a href="#fig-shiny_app7" class="quarto-xref">Figure&nbsp;<span>4.8</span></a>. A horizontal bar will be created which represents the confidence interval (CI), centered on the sample mean (point). In this case, the 95%CI for the sample mean includes the true value of the population mean (it crosses the solid vertical line) and it is drawn as a black line.</p>
+<p>First we are asked to choose if we want the <em>Confidence Interval Graph only</em> or the <em>Confidence Interval Graph Plus Sampling Distribution of the Mean</em>. Let’s select the first choice and set the <em>Number of Simulated Samples</em> to one and the <em>Sample Size</em> to 10 from the drop down menus, as shown in <a href="#fig-shiny_app7" class="quarto-xref">Figure&nbsp;<span>4.8</span></a>. A horizontal bar will be created which represents the confidence interval (CI), centered on the sample mean (point). In this case, the 95% CI for the sample mean includes the true value of the population mean (it crosses the solid vertical line) and it is drawn as a black line.</p>
 <div id="fig-shiny_app7" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-shiny_app7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -370,7 +370,7 @@ Figure&nbsp;4.10: Confidence Interval Graph with 100 random samples, each consis
 </figcaption>
 </figure>
 </div>
-<p>We observe that the sample means are closer to the true population mean and the 95%CIs of the mean become narrower (<a href="#fig-shiny_app8" class="quarto-xref">Figure&nbsp;<span>4.9</span></a>) increasing the sample size.</p>
+<p>We observe that the sample means are closer to the true population mean and the 95% CIs of the mean become narrower (<a href="#fig-shiny_app8" class="quarto-xref">Figure&nbsp;<span>4.9</span></a>) increasing the sample size.</p>
 
 
 </section>
