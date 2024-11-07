@@ -203,7 +203,7 @@ ggplot(dat3, aes(x = Score_cat, y = pct)) +
 
 **A. Frequency contingency table**
 
-In addition to tabulating each variable separately, we might also be interested in exploring the association between two categorical variables. In this case, the resulting frequency table is a cross-tabulation, where each combination of levels from both variables is displayed. This type of table is called a **contingency table** because it shows the frequency of each category in one variable, contingent upon the specific levels of the other variable, as shown in @fig-tb0.
+In addition to tabulating each variable separately, we might also be interested in exploring the association between two categorical variables. In this case, the resulting frequency table is a cross-tabulation, where each combination of levels from both variables is displayed. This type of table is called a **contingency table** because it shows the frequency of each category in one variable (e.g., sex), contingent upon the specific levels of the other variable (e.g., self-esteem), as shown in @fig-tb0.
 
 ![Frequency contingency table which cross tabulates sex and self-esteem levels. Each cell value in the table represents the count corresponding to the combination of categories from the two variables.](images/tb0.png){#fig-tb0 width="70%"}
 
