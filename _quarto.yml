@@ -21,6 +21,7 @@ book:
         - lab1.qmd
         - lab4.qmd
         - data.qmd
+        - presentations.qmd
     - references.qmd
 
   page-footer: 

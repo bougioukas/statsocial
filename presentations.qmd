@@ -1,0 +1,4 @@
+# Presentations
+
+
+![psy-300-1introduction](presentations/psy-300-1introduction.pdf){width=60% height=400}

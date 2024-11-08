@@ -13,13 +13,20 @@ library(readxl)
 creatinine <- read_excel(here("data", "creatinine.xlsx"))
 ```
 
-
 ```{r}
 #| echo: false
 #| label: fig-creatinine
 #| fig-cap: Table with raw data.
 
 DT::datatable(creatinine, extensions = c('Scroller', 'Buttons'), rownames = FALSE,
-              options = list(deferRender = F, dom = 'Bt', scrollY = 452, scroller = TRUE, scrollX = T, pageLength = 10, buttons = 'csv'))
+              options = list(deferRender = F, dom = 'Bt', scrollY = 452, scroller = TRUE, scrollX = T, pageLength = 10, buttons = 
+      list(list(
+        extend = 'csv',
+        filename = 'creatinine'
+      ), list(
+        extend = 'excel',
+        filename = 'creatinine',
+        title = NULL
+      ))))
 
 ```
