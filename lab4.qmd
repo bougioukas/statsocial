@@ -99,4 +99,4 @@ Next, we create the confidence intervals of 100 randomly generated samples of si
 
 ![Confidence Interval Graph with 100 random samples, each consisting of 50 observations from a normal population distribution](images/shiny_app9.png){#fig-shiny_app9}
 
-We observe that the sample means are closer to the true population mean and the 95% CIs of the mean become narrower (@fig-shiny_app8) increasing the sample size.
+We observe that the sample means are closer to the true population mean and the 95% CIs of the mean become narrower (@fig-shiny_app9) increasing the sample size.
