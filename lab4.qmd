@@ -35,15 +35,13 @@ To the left is the interactive panel with radio buttons and slider bars, and to 
 
 -   Sampling Distribution.
 
-First we are asked to choose from a Normal, Uniform, Right Skewed or Left Skewed *Parent distribution (Population)* from the left panel. Let's select *Right skewed* and then *High skew* from the drop down menu with the name *Skew*, as shown in  @fig-shiny_app2.
+First we are asked to choose from a Normal, Uniform, Right Skewed or Left Skewed *Parent distribution (Population)* from the left panel. Let's select *Right skewed* and then *High skew* from the drop down menu with the name *Skew*, as shown in @fig-shiny_app2.
 
 ![The case of a high right skewed population distribution](images/shiny_app2.png){#fig-shiny_app2}
 
-Next we set the *Sample size* slider bar to 5 and the *Number of samples* to 1000, then select the *Samples* tab, as shown in  @fig-shiny_app2_1. 
-The first eight samples randomly drawn from the original distribution are demonstrated in the panel. For example, in the first box labeled *Sample 1*, we observe five data points (the sample size we set), along with their sample mean and standard deviation (highlighted in the red circle).
+Next we set the *Sample size* slider bar to 5 and the *Number of samples* to 1000, then select the *Samples* tab, as shown in @fig-shiny_app2_1. The first eight samples randomly drawn from the original distribution are demonstrated in the panel. For example, in the first box labeled *Sample 1*, we observe five data points (the sample size we set), along with their sample mean and standard deviation (highlighted in the red circle).
 
 ![First eight samples randomly drawn from the original distribution.](images/shiny_app2_1.png){#fig-shiny_app2_1}
-
 
 Finally, we select the *Sampling distribution* tab, which displays the distribution of the 1000 **sample means**. We observe that this distribution is right skewed with mean approximately equal to population mean (@fig-shiny_app3).
 
@@ -94,6 +92,8 @@ Now, try to increase the *Number of Simulated Samples* to 100 (@fig-shiny_app8):
 ![Confidence Interval Graph with 100 random samples, each consisting of 10 observations from a normal population distribution](images/shiny_app8.png){#fig-shiny_app8}
 
 We observe that 5 out of 100 confidence intervals (red horizontal lines) do not include the true population mean (the solid vertical line) (@fig-shiny_app8). This is what we would expect -- that the 95% confidence interval will not include the true population mean 5% of the time.
+
+ 
 
 Next, we create the confidence intervals of 100 randomly generated samples of size = 50 from the population (@fig-shiny_app9):
 
