@@ -11,7 +11,15 @@ library(fontawesome)
 
 library(readxl)
 creatinine <- read_excel(here("data", "creatinine.xlsx"))
+depression <- read_excel(here("data", "depression.xlsx"))
+weight <- read_excel(here("data", "weight.xlsx"))
+
 ```
+
+ 
+ 
+
+- **Dataset: creatinine**
 
 ```{r}
 #| echo: false
@@ -26,6 +34,56 @@ DT::datatable(creatinine, extensions = c('Scroller', 'Buttons'), rownames = FALS
       ), list(
         extend = 'excel',
         filename = 'creatinine',
+        title = NULL
+      ))))
+
+```
+
+
+ 
+ 
+
+
+- **Dataset: depression**
+
+
+```{r}
+#| echo: false
+#| label: fig-depression
+#| fig-cap: Table with raw data.
+
+DT::datatable(depression, extensions = c('Scroller', 'Buttons'), rownames = FALSE,
+              options = list(deferRender = F, dom = 'Bt', scrollY = 452, scroller = TRUE, scrollX = T, pageLength = 10, buttons = 
+      list(list(
+        extend = 'csv',
+        filename = 'depression'
+      ), list(
+        extend = 'excel',
+        filename = 'depression',
+        title = NULL
+      ))))
+
+```
+
+ 
+ 
+
+
+- **Dataset: weight**
+
+```{r}
+#| echo: false
+#| label: fig-weight
+#| fig-cap: Table with raw data.
+
+DT::datatable(weight, extensions = c('Scroller', 'Buttons'), rownames = FALSE,
+              options = list(deferRender = F, dom = 'Bt', scrollY = 452, scroller = TRUE, scrollX = T, pageLength = 10, buttons = 
+      list(list(
+        extend = 'csv',
+        filename = 'weight'
+      ), list(
+        extend = 'excel',
+        filename = 'weight',
         title = NULL
       ))))
 
