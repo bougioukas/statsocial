@@ -10,8 +10,6 @@
 
 ![psy-300-2_descriptive](presentations/psy-300-2_descriptive.pdf){width="60%" height="400"}
 
-
-
      
 
 -   **Lecture 3: Probability Distributions**
@@ -19,6 +17,12 @@
 ![psy-300-3_distributions](presentations/psy-300-3_distributions.pdf){width="60%" height="400"}
 
 
+
+     
+
+-   **Lecture 4: Sampling Distribution and Confidence Interval**
+
+![psy-300-4_sampling_distribution](presentations/psy-300-4_sampling_distribution.pdf){width="60%" height="400"}
 
 
 
