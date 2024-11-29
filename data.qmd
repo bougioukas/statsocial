@@ -96,10 +96,10 @@ DT::datatable(dataDWL, extensions = c('Scroller', 'Buttons'), rownames = FALSE,
               options = list(deferRender = F, dom = 'Bt', scrollY = 452, scroller = TRUE, scrollX = T, pageLength = 10, buttons = 
       list(list(
         extend = 'csv',
-        filename = 'weight'
+        filename = 'dataDWL'
       ), list(
         extend = 'excel',
-        filename = 'weight',
+        filename = 'dataDWL',
         title = NULL
       ))))
 
