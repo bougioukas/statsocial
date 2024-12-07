@@ -28,15 +28,25 @@
 
 ![psy-300-5_hypothesis_testing](presentations/psy-300-5_hypothesis_testing.pdf){width="60%" height="400"}
 
-
-
-
      
 
 -   **Lecture 6: Hypothesis testing for two samples**
 
 ![psy-300-6_two_samples](presentations/psy-300-6_two_samples.pdf){width="60%" height="400"}
 
+
+     
+
+-   **Lecture 7: ANOVA**
+
+![psy-300-7_ANOVA](presentations/psy-300-7_ANOVA.pdf){width="60%" height="400"}
+
+
+     
+
+-   **Lecture 8: Chi-square test**
+
+![psy-300-8_chi_square](presentations/psy-300-8_chi_square.pdf){width="60%" height="400"}
 
 
 
