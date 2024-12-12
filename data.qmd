@@ -106,3 +106,37 @@ DT::datatable(dataDWL, extensions = c('Scroller', 'Buttons'), rownames = FALSE,
 ```
 
 
+
+   
+
+-   **Dataset: prematurity**
+
+```{r}
+#| echo: false
+#| label: fig-prematurity
+#| fig-cap: Table with raw data.
+
+DT::datatable(dataDWL, extensions = c('Scroller', 'Buttons'), rownames = FALSE,
+              options = list(deferRender = F, dom = 'Bt', scrollY = 452, scroller = TRUE, scrollX = T, pageLength = 10, buttons = 
+      list(list(
+        extend = 'csv',
+        filename = 'prematurity'
+      ), list(
+        extend = 'excel',
+        filename = 'prematurity',
+        title = NULL
+      ))))
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
