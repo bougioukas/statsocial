@@ -116,7 +116,7 @@ DT::datatable(dataDWL, extensions = c('Scroller', 'Buttons'), rownames = FALSE,
 #| label: fig-prematurity
 #| fig-cap: Table with raw data.
 
-DT::datatable(dataDWL, extensions = c('Scroller', 'Buttons'), rownames = FALSE,
+DT::datatable(prematurity, extensions = c('Scroller', 'Buttons'), rownames = FALSE,
               options = list(deferRender = F, dom = 'Bt', scrollY = 452, scroller = TRUE, scrollX = T, pageLength = 10, buttons = 
       list(list(
         extend = 'csv',
@@ -128,15 +128,4 @@ DT::datatable(dataDWL, extensions = c('Scroller', 'Buttons'), rownames = FALSE,
       ))))
 
 ```
-
-
-
-
-
-
-
-
-
-
-
 
