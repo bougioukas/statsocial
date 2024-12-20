@@ -15,6 +15,7 @@ depression <- read_excel(here("data", "depression.xlsx"))
 weight <- read_excel(here("data", "weight.xlsx"))
 dataDWL <- read_excel(here("data", "dataDWL.xlsx"))
 prematurity <- read_excel(here("data", "prematurity.xlsx"))
+LungCapacity <- read_excel(here("data", "LungCapacity.xlsx"))
 ```
 
    
@@ -105,8 +106,6 @@ DT::datatable(dataDWL, extensions = c('Scroller', 'Buttons'), rownames = FALSE,
 
 ```
 
-
-
    
 
 -   **Dataset: prematurity**
@@ -127,5 +126,27 @@ DT::datatable(prematurity, extensions = c('Scroller', 'Buttons'), rownames = FAL
         title = NULL
       ))))
 
+```
+
+
+   
+
+-   **Dataset: LungCapacity**
+
+```{r}
+#| echo: false
+#| label: fig-LungCapacity
+#| fig-cap: Table with raw data.
+
+DT::datatable(LungCapacity, extensions = c('Scroller', 'Buttons'), rownames = FALSE,
+              options = list(deferRender = F, dom = 'Bt', scrollY = 452, scroller = TRUE, scrollX = T, pageLength = 10, buttons = 
+      list(list(
+        extend = 'csv',
+        filename = 'LungCapacity'
+      ), list(
+        extend = 'excel',
+        filename = 'LungCapacity',
+        title = NULL
+      ))))
 ```
 
