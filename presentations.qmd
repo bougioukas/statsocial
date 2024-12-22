@@ -34,19 +34,26 @@
 
 ![psy-300-6_two_samples](presentations/psy-300-6_two_samples.pdf){width="60%" height="400"}
 
-
      
 
 -   **Lecture 7: ANOVA**
 
 ![psy-300-7_ANOVA](presentations/psy-300-7_ANOVA.pdf){width="60%" height="400"}
 
-
      
 
 -   **Lecture 8: Chi-square test**
 
 ![psy-300-8_chi_square](presentations/psy-300-8_chi_square.pdf){width="60%" height="400"}
+
+
+
+
+     
+
+-   **Lecture 9-10: Correlation and Simple Linear Regression**
+
+![psy-300-9_10_Correlation_linear_regression](presentations/psy-300-9_10_Correlation_linear_regression.pdf){width="60%" height="400"}
 
 
 
