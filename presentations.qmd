@@ -1,5 +1,12 @@
 # Presentations
 
+-   **Yli 2024**
+
+![Yli-psy-300](presentations/Yli-psy-300.pdf){width="60%" height="400"}
+
+     
+
+
 -   **Lecture 1: Introduction**
 
 ![psy-300-1_introduction](presentations/psy-300-1_introduction.pdf){width="60%" height="400"}
@@ -46,14 +53,8 @@
 
 ![psy-300-8_chi_square](presentations/psy-300-8_chi_square.pdf){width="60%" height="400"}
 
-
-
-
      
 
 -   **Lecture 9-10: Correlation and Simple Linear Regression**
 
 ![psy-300-9_10_Correlation_linear_regression](presentations/psy-300-9_10_Correlation_linear_regression.pdf){width="60%" height="400"}
-
-
-
