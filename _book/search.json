@@ -230,25 +230,36 @@
     ]
   },
   {
-    "objectID": "data.html",
-    "href": "data.html",
-    "title": "5  Data",
+    "objectID": "lab10.html",
+    "href": "lab10.html",
+    "title": "5  LAB X: Simple linear regression",
     "section": "",
-    "text": "Dataset: creatinine\n\n\n\n\n\n\n\n\n\nFigure 5.1: Table with raw data.\n\n\n\n\n   \n\nDataset: depression\n\n\n\n\n\n\n\n\n\nFigure 5.2: Table with raw data.\n\n\n\n\n   \n\nDataset: weight\n\n\n\n\n\n\n\n\n\nFigure 5.3: Table with raw data.\n\n\n\n\n   \n\nDataset: dataDWL\n\n\n\n\n\n\n\n\n\nFigure 5.4: Table with raw data.\n\n\n\n\n   \n\nDataset: prematurity\n\n\n\n\n\n\n\n\n\nFigure 5.5: Table with raw data.\n\n\n\n\n   \n\nDataset: LungCapacity\n\n\n\n\n\n\n\n\n\nFigure 5.6: Table with raw data.",
+    "text": "When we have finished this Lab, we should be able to:\n\n\n\n\n\n\nLearning objectives\n\n\n\n\nUnderstand the linear regression model\nExplore how a factor (independent variable) affect a response (dependent) variable.\nInterpret the results\n\n\n\nIn this Lab, we will use the “LungCapacity” dataset.\n\n5.0.1 Opening the file\nOpen the dataset named “LungCapacity” from the file tab in the menu:\n\n\n\n\n\n\nFigure 5.1: The LungCapacity dataset\n\n\n\nDouble-click on the variable name Age and change the measure type from nominal  to continuous .\n\n\n5.0.2 Research question\nLet’s say that we want to model the association between age (in years) and lung capacity (in liters) for the sample of 725 participants in a survey. In other words, we want to find the parameters of a mathematical equation such as \\(y = \\alpha + \\beta \\cdot x\\).\n\n\n5.0.3 Hypothesis Testsing\n\n\n\n\n\n\nNull hypothesis and alternative hypothesis\n\n\n\n\n\\(H_{0}:\\) the two variables are not linearly related. There is no effect between age and lung capacity (\\(β = 0\\)).\n\\(H_{1}:\\) the two variables are linearly related. There is an effect between age and lung capacity (\\(β \\neq 0\\)).\n\n\n\n\n\n5.0.4 Scatter plot\nWe start our analysis by creating the scatter plot of the response variable LungCap and the explanatory variable Age.\n\n\n\n\n\n\nFigure 5.2: The Scatter plot of Age and Lung Capacity\n\n\n\nThere is a clear upward trend indicating that increase in Age tends to coincide with increase in LungCap. Moreover, the trend seems to be linear, so a straight line can capture the overall pattern.\n\n\n5.0.5 Linear regression\nThe process of fitting a linear regression model to the data involves finding a straight line that can be considered as the best representation of the overall association between age and lung capacity.\nTo choose a line, we need to explain what we mean by the “best representation” of the data. A “best-fitting” line refers to the line that minimizes the sum of squared residuals (RSS). Therefore, we refer to the resulting model as the least-squares linear regression model and to the corresponding line as the least-squares regression line.\n\n\n5.0.6 Fit a simple linear regression model\nOn the Jamovi top menu navigate to\n\n\n\n\n\nflowchart LR\n  A(Analyses) -.-&gt; B(Regression) -.-&gt; C(Linear Regression)\n\n\n\n\n\n\nas shown below (Figure 5.3).\n\n\n\n\n\n\nFigure 5.3: In the menu at the top, choose Analyses &gt; Regression &gt; Linear Regression.\n\n\n\nThe Linear Regression dialogue box opens (Figure 5.4). From the left-hand pane drag the variable LunCap into the Dependent Variable field and the variable Age into the Covariates field on the right-hand side, as shown below:\n\n\n\n\n\n\nFigure 5.4: The Linear Regression dialogue box options. Drag and drop the LunCap into the Dependent Variable field and the Age into the Covariates field.\n\n\n\nAdditionally, from the Model Coefficients section tick the box “Confidence interval” in Estimate (Figure 5.5):\n\n\n\n\n\n\nFigure 5.5: Check the Confidence interval box in the Model Coefficients section.\n\n\n\nThe output table with the model coefficients should look like the following (Figure 5.6):\n\n\n\n\n\n\nFigure 5.6: The model coefficients table.\n\n\n\nNow, let’s find the model equation from the regression table in Figure 5.6. In the Estimate column are the intercept \\(a=0.54\\) and the slope \\(b=0.26\\) for Age. Thus, the equation of the regression line becomes:\n\\[\n\\begin{aligned}\n\\widehat{y} &= a + b \\cdot x\\\\\n\\widehat{\\text{LungCap}} &= a + b \\cdot\\text{Age}\\\\\n\\widehat{\\text{LungCap}}&= 0.54 + 0.26\\cdot\\text{Age}\n\\end{aligned}\n\\]\nFinally, the quality of our simple linear model is presented in Figure 5.7:\n\n\n\n\n\n\nFigure 5.7: The coefficient of determination \\(R^2\\).\n\n\n\nIn our example takes the value 0.67. It indicates that about 67% of the variation in lung capacity can be explained by the variation of the age. In simple linear regression \\(\\sqrt{0.67} = 0.82\\) which equals to the Pearson’s correlation coefficient, r.\n \n\n\n\n\n\n\nInterpretation of the results\n\n\n\nThe regression coefficient (b=0.26) of the Age is significantly different from zero (p &lt; 0.001) and indicates that there’s on average an increase of 0.26 liters in lung capacity for every 1 year increase in age. Note that the \\(95\\%\\)CI (0.24 to 0.27) does not include the hypothesized null value of zero for the slope.",
     "crumbs": [
       "Jamovi LAB",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>LAB X: Simple linear regression</span>"
+    ]
+  },
+  {
+    "objectID": "data.html",
+    "href": "data.html",
+    "title": "6  Data",
+    "section": "",
+    "text": "Dataset: creatinine\n\n\n\n\n\n\n\n\n\nFigure 6.1: Table with raw data.\n\n\n\n\n   \n\nDataset: depression\n\n\n\n\n\n\n\n\n\nFigure 6.2: Table with raw data.\n\n\n\n\n   \n\nDataset: weight\n\n\n\n\n\n\n\n\n\nFigure 6.3: Table with raw data.\n\n\n\n\n   \n\nDataset: dataDWL\n\n\n\n\n\n\n\n\n\nFigure 6.4: Table with raw data.\n\n\n\n\n   \n\nDataset: prematurity\n\n\n\n\n\n\n\n\n\nFigure 6.5: Table with raw data.\n\n\n\n\n   \n\nDataset: LungCapacity\n\n\n\n\n\n\n\n\n\nFigure 6.6: Table with raw data.",
+    "crumbs": [
+      "Jamovi LAB",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Data</span>"
     ]
   },
   {
     "objectID": "presentations.html",
     "href": "presentations.html",
-    "title": "6  Presentations",
+    "title": "7  Presentations",
     "section": "",
     "text": "Yli 2024\n\n\n\n\nYli-psy-300\n\n\n     \n\nLecture 1: Introduction\n\n\n\n\npsy-300-1_introduction\n\n\n     \n\nLecture 2: Descriptive Statistics\n\n\n\n\npsy-300-2_descriptive\n\n\n     \n\nLecture 3: Probability Distributions\n\n\n\n\npsy-300-3_distributions\n\n\n     \n\nLecture 4: Sampling Distribution and Confidence Interval\n\n\n\n\npsy-300-4_sampling_distribution\n\n\n     \n\nLecture 5: Hypothesis testing\n\n\n\n\npsy-300-5_hypothesis_testing\n\n\n     \n\nLecture 6: Hypothesis testing for two samples\n\n\n\n\npsy-300-6_two_samples\n\n\n     \n\nLecture 7: ANOVA\n\n\n\n\npsy-300-7_ANOVA\n\n\n     \n\nLecture 8: Chi-square test\n\n\n\n\npsy-300-8_chi_square\n\n\n     \n\nLecture 9-10: Correlation and Simple Linear Regression\n\n\n\n\npsy-300-9_10_Correlation_linear_regression",
     "crumbs": [
       "Jamovi LAB",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Presentations</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Presentations</span>"
     ]
   },
   {
