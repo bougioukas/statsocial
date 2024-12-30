@@ -20,6 +20,7 @@ book:
       chapters:
         - lab1.qmd
         - lab4.qmd
+        - lab6.qmd
         - lab10.qmd
         - data.qmd
         - presentations.qmd

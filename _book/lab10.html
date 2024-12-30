@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5&nbsp; LAB X: Simple linear regression – Basic Statistics for the Social Sciences</title>
+<title>6&nbsp; LAB X: Simple linear regression – Basic Statistics for the Social Sciences</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./data.html" rel="next">
-<link href="./lab4.html" rel="prev">
+<link href="./lab6.html" rel="prev">
 <link href="./images/cover.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -114,7 +114,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lab1.html">Jamovi LAB</a></li><li class="breadcrumb-item"><a href="./lab10.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">LAB X: Simple linear regression</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lab1.html">Jamovi LAB</a></li><li class="breadcrumb-item"><a href="./lab10.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">LAB X: Simple linear regression</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -191,20 +191,26 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./lab6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">LAB VI: Inference for numerical data (2 samples)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./lab10.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">LAB X: Simple linear regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">LAB X: Simple linear regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./presentations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Presentations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Presentations</span></span></a>
   </div>
 </li>
       </ul>
@@ -225,21 +231,21 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#opening-the-file" id="toc-opening-the-file" class="nav-link active" data-scroll-target="#opening-the-file"><span class="header-section-number">5.0.1</span> Opening the file</a></li>
-  <li><a href="#research-question" id="toc-research-question" class="nav-link" data-scroll-target="#research-question"><span class="header-section-number">5.0.2</span> Research question</a></li>
-  <li><a href="#hypothesis-testsing" id="toc-hypothesis-testsing" class="nav-link" data-scroll-target="#hypothesis-testsing"><span class="header-section-number">5.0.3</span> Hypothesis Testsing</a></li>
-  <li><a href="#scatter-plot" id="toc-scatter-plot" class="nav-link" data-scroll-target="#scatter-plot"><span class="header-section-number">5.0.4</span> Scatter plot</a></li>
-  <li><a href="#linear-regression" id="toc-linear-regression" class="nav-link" data-scroll-target="#linear-regression"><span class="header-section-number">5.0.5</span> Linear regression</a></li>
-  <li><a href="#fit-a-simple-linear-regression-model" id="toc-fit-a-simple-linear-regression-model" class="nav-link" data-scroll-target="#fit-a-simple-linear-regression-model"><span class="header-section-number">5.0.6</span> Fit a simple linear regression model</a></li>
+  <li><a href="#opening-the-file" id="toc-opening-the-file" class="nav-link active" data-scroll-target="#opening-the-file"><span class="header-section-number">6.0.1</span> Opening the file</a></li>
+  <li><a href="#research-question" id="toc-research-question" class="nav-link" data-scroll-target="#research-question"><span class="header-section-number">6.0.2</span> Research question</a></li>
+  <li><a href="#hypothesis-testsing" id="toc-hypothesis-testsing" class="nav-link" data-scroll-target="#hypothesis-testsing"><span class="header-section-number">6.0.3</span> Hypothesis Testsing</a></li>
+  <li><a href="#scatter-plot" id="toc-scatter-plot" class="nav-link" data-scroll-target="#scatter-plot"><span class="header-section-number">6.0.4</span> Scatter plot</a></li>
+  <li><a href="#linear-regression" id="toc-linear-regression" class="nav-link" data-scroll-target="#linear-regression"><span class="header-section-number">6.0.5</span> Linear regression</a></li>
+  <li><a href="#fit-a-simple-linear-regression-model" id="toc-fit-a-simple-linear-regression-model" class="nav-link" data-scroll-target="#fit-a-simple-linear-regression-model"><span class="header-section-number">6.0.6</span> Fit a simple linear regression model</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lab1.html">Jamovi LAB</a></li><li class="breadcrumb-item"><a href="./lab10.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">LAB X: Simple linear regression</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lab1.html">Jamovi LAB</a></li><li class="breadcrumb-item"><a href="./lab10.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">LAB X: Simple linear regression</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-lab10" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">LAB X: Simple linear regression</span></span></h1>
+<h1 class="title"><span id="sec-lab10" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">LAB X: Simple linear regression</span></span></h1>
 </div>
 
 
@@ -275,8 +281,8 @@ Learning objectives
 </div>
 </div>
 <p>In this Lab, we will use the “LungCapacity” dataset.</p>
-<section id="opening-the-file" class="level3" data-number="5.0.1">
-<h3 data-number="5.0.1" class="anchored" data-anchor-id="opening-the-file"><span class="header-section-number">5.0.1</span> Opening the file</h3>
+<section id="opening-the-file" class="level3" data-number="6.0.1">
+<h3 data-number="6.0.1" class="anchored" data-anchor-id="opening-the-file"><span class="header-section-number">6.0.1</span> Opening the file</h3>
 <p>Open the dataset named “LungCapacity” from the file tab in the menu:</p>
 <div id="fig-lungcap1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -284,18 +290,18 @@ Learning objectives
 <img src="images/lungcap.png" class="img-fluid figure-img" style="width:75.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lungcap1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.1: The LungCapacity dataset
+Figure&nbsp;6.1: The LungCapacity dataset
 </figcaption>
 </figure>
 </div>
 <p>Double-click on the variable name <code>Age</code> and change the measure type from nominal <img src="images/nominal.png" width="23" height="21"> to continuous <img src="images/continuous.png" width="23" height="21">.</p>
 </section>
-<section id="research-question" class="level3" data-number="5.0.2">
-<h3 data-number="5.0.2" class="anchored" data-anchor-id="research-question"><span class="header-section-number">5.0.2</span> Research question</h3>
+<section id="research-question" class="level3" data-number="6.0.2">
+<h3 data-number="6.0.2" class="anchored" data-anchor-id="research-question"><span class="header-section-number">6.0.2</span> Research question</h3>
 <p>Let’s say that we want to <strong>model</strong> the association between age (in years) and lung capacity (in liters) for the sample of 725 participants in a survey. In other words, we want to find the parameters of a mathematical equation such as <span class="math inline">\(y = \alpha + \beta \cdot x\)</span>.</p>
 </section>
-<section id="hypothesis-testsing" class="level3" data-number="5.0.3">
-<h3 data-number="5.0.3" class="anchored" data-anchor-id="hypothesis-testsing"><span class="header-section-number">5.0.3</span> Hypothesis Testsing</h3>
+<section id="hypothesis-testsing" class="level3" data-number="6.0.3">
+<h3 data-number="6.0.3" class="anchored" data-anchor-id="hypothesis-testsing"><span class="header-section-number">6.0.3</span> Hypothesis Testsing</h3>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -313,8 +319,8 @@ Null hypothesis and alternative hypothesis
 </div>
 </div>
 </section>
-<section id="scatter-plot" class="level3" data-number="5.0.4">
-<h3 data-number="5.0.4" class="anchored" data-anchor-id="scatter-plot"><span class="header-section-number">5.0.4</span> Scatter plot</h3>
+<section id="scatter-plot" class="level3" data-number="6.0.4">
+<h3 data-number="6.0.4" class="anchored" data-anchor-id="scatter-plot"><span class="header-section-number">6.0.4</span> Scatter plot</h3>
 <p>We start our analysis by creating the scatter plot of the response variable <code>LungCap</code> and the explanatory variable <code>Age</code>.</p>
 <div id="fig-linear1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -322,19 +328,19 @@ Null hypothesis and alternative hypothesis
 <img src="images/linear1.png" class="img-fluid figure-img" style="width:65.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-linear1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.2: The Scatter plot of Age and Lung Capacity
+Figure&nbsp;6.2: The Scatter plot of Age and Lung Capacity
 </figcaption>
 </figure>
 </div>
 <p>There is a clear upward trend indicating that increase in <code>Age</code> tends to coincide with increase in <code>LungCap</code>. Moreover, the trend seems to be linear, so a straight line can capture the overall pattern.</p>
 </section>
-<section id="linear-regression" class="level3" data-number="5.0.5">
-<h3 data-number="5.0.5" class="anchored" data-anchor-id="linear-regression"><span class="header-section-number">5.0.5</span> Linear regression</h3>
+<section id="linear-regression" class="level3" data-number="6.0.5">
+<h3 data-number="6.0.5" class="anchored" data-anchor-id="linear-regression"><span class="header-section-number">6.0.5</span> Linear regression</h3>
 <p>The process of fitting a linear regression model to the data involves finding a straight line that can be considered as the <strong>best representation</strong> of the overall association between age and lung capacity.</p>
 <p>To choose a line, we need to explain what we mean by the “best representation” of the data. A “best-fitting” line refers to the line that <strong>minimizes</strong> the <strong>sum of squared residuals (RSS)</strong>. Therefore, we refer to the resulting model as the least-squares linear regression model and to the corresponding line as the <strong>least-squares regression line</strong>.</p>
 </section>
-<section id="fit-a-simple-linear-regression-model" class="level3" data-number="5.0.6">
-<h3 data-number="5.0.6" class="anchored" data-anchor-id="fit-a-simple-linear-regression-model"><span class="header-section-number">5.0.6</span> Fit a simple linear regression model</h3>
+<section id="fit-a-simple-linear-regression-model" class="level3" data-number="6.0.6">
+<h3 data-number="6.0.6" class="anchored" data-anchor-id="fit-a-simple-linear-regression-model"><span class="header-section-number">6.0.6</span> Fit a simple linear regression model</h3>
 <p>On the Jamovi top menu navigate to</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -349,51 +355,51 @@ Figure&nbsp;5.2: The Scatter plot of Age and Lung Capacity
 </div>
 </div>
 </div>
-<p>as shown below (<a href="#fig-linear2" class="quarto-xref">Figure&nbsp;<span>5.3</span></a>).</p>
+<p>as shown below (<a href="#fig-linear2" class="quarto-xref">Figure&nbsp;<span>6.3</span></a>).</p>
 <div id="fig-linear2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-linear2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/linear2.png" class="img-fluid figure-img" style="width:85.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-linear2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.3: In the menu at the top, choose Analyses &gt; Regression &gt; Linear Regression.
+Figure&nbsp;6.3: In the menu at the top, choose Analyses &gt; Regression &gt; Linear Regression.
 </figcaption>
 </figure>
 </div>
-<p>The <em>Linear Regression dialogue box</em> opens (<a href="#fig-linear3" class="quarto-xref">Figure&nbsp;<span>5.4</span></a>). From the left-hand pane drag the variable <code>LunCap</code> into the <em>Dependent Variable</em> field and the variable <code>Age</code> into the <em>Covariates</em> field on the right-hand side, as shown below:</p>
+<p>The <em>Linear Regression dialogue box</em> opens (<a href="#fig-linear3" class="quarto-xref">Figure&nbsp;<span>6.4</span></a>). From the left-hand pane drag the variable <code>LunCap</code> into the <em>Dependent Variable</em> field and the variable <code>Age</code> into the <em>Covariates</em> field on the right-hand side, as shown below:</p>
 <div id="fig-linear3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-linear3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/linear3.png" class="img-fluid figure-img" style="width:65.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-linear3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.4: The Linear Regression dialogue box options. Drag and drop the LunCap into the Dependent Variable field and the Age into the Covariates field.
+Figure&nbsp;6.4: The Linear Regression dialogue box options. Drag and drop the LunCap into the Dependent Variable field and the Age into the Covariates field.
 </figcaption>
 </figure>
 </div>
-<p>Additionally, from the <em>Model Coefficients</em> section tick the box “<strong>Confidence interval</strong>” in <strong>Estimate</strong> (<a href="#fig-linear4" class="quarto-xref">Figure&nbsp;<span>5.5</span></a>):</p>
+<p>Additionally, from the <em>Model Coefficients</em> section tick the box “<strong>Confidence interval</strong>” in <strong>Estimate</strong> (<a href="#fig-linear4" class="quarto-xref">Figure&nbsp;<span>6.5</span></a>):</p>
 <div id="fig-linear4" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-linear4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/linear4.png" class="img-fluid figure-img" style="width:75.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-linear4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.5: Check the Confidence interval box in the Model Coefficients section.
+Figure&nbsp;6.5: Check the Confidence interval box in the Model Coefficients section.
 </figcaption>
 </figure>
 </div>
-<p>The output table with the model coefficients should look like the following (<a href="#fig-linear5" class="quarto-xref">Figure&nbsp;<span>5.6</span></a>):</p>
+<p>The output table with the model coefficients should look like the following (<a href="#fig-linear5" class="quarto-xref">Figure&nbsp;<span>6.6</span></a>):</p>
 <div id="fig-linear5" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-linear5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/linear5.png" class="img-fluid figure-img" style="width:75.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-linear5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.6: The model coefficients table.
+Figure&nbsp;6.6: The model coefficients table.
 </figcaption>
 </figure>
 </div>
-<p>Now, let’s find the model equation from the regression table in <a href="#fig-linear5" class="quarto-xref">Figure&nbsp;<span>5.6</span></a>. In the <strong>Estimate</strong> column are the intercept <span class="math inline">\(a=0.54\)</span> and the slope <span class="math inline">\(b=0.26\)</span> for <code>Age</code>. Thus, the equation of the regression line becomes:</p>
+<p>Now, let’s find the model equation from the regression table in <a href="#fig-linear5" class="quarto-xref">Figure&nbsp;<span>6.6</span></a>. In the <strong>Estimate</strong> column are the intercept <span class="math inline">\(a=0.54\)</span> and the slope <span class="math inline">\(b=0.26\)</span> for <code>Age</code>. Thus, the equation of the regression line becomes:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \widehat{y} &amp;= a + b \cdot x\\
@@ -401,14 +407,14 @@ Figure&nbsp;5.6: The model coefficients table.
 \widehat{\text{LungCap}}&amp;= 0.54 + 0.26\cdot\text{Age}
 \end{aligned}
 \]</span></p>
-<p>Finally, the quality of our simple linear model is presented in <a href="#fig-linear6" class="quarto-xref">Figure&nbsp;<span>5.7</span></a>:</p>
+<p>Finally, the quality of our simple linear model is presented in <a href="#fig-linear6" class="quarto-xref">Figure&nbsp;<span>6.7</span></a>:</p>
 <div id="fig-linear6" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-linear6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/linear6.png" class="img-fluid figure-img" style="width:35.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-linear6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.7: The coefficient of determination <span class="math inline">\(R^2\)</span>.
+Figure&nbsp;6.7: The coefficient of determination <span class="math inline">\(R^2\)</span>.
 </figcaption>
 </figure>
 </div>
@@ -859,13 +865,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./lab4.html" class="pagination-link" aria-label="LAB IV: Sampling distribution and Confidence Interval">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">LAB IV: Sampling distribution and Confidence Interval</span></span>
+      <a href="./lab6.html" class="pagination-link" aria-label="LAB VI: Inference for numerical data (2 samples)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">LAB VI: Inference for numerical data (2 samples)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./data.html" class="pagination-link" aria-label="Data">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
