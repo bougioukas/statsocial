@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>References – Basic Statistics for the Social Sciences</title>
+<title>7&nbsp; LAB IX: Correlation – Basic Statistics for the Social Sciences</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -49,7 +30,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./presentations.html" rel="prev">
+<link href="./lab10.html" rel="next">
+<link href="./lab7.html" rel="prev">
 <link href="./images/cover.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -87,7 +69,39 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -100,7 +114,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lab1.html">Jamovi LAB</a></li><li class="breadcrumb-item"><a href="./lab9.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">LAB IX: Correlation</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -189,7 +203,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lab9.html" class="sidebar-item-text sidebar-link">
+  <a href="./lab9.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">LAB IX: Correlation</span></span></a>
   </div>
 </li>
@@ -215,7 +229,7 @@ div.csl-indent {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link active">
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -224,15 +238,25 @@ div.csl-indent {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#opening-the-file" id="toc-opening-the-file" class="nav-link active" data-scroll-target="#opening-the-file"><span class="header-section-number">7.0.1</span> Opening the file</a></li>
+  <li><a href="#research-question" id="toc-research-question" class="nav-link" data-scroll-target="#research-question"><span class="header-section-number">7.0.2</span> Research question</a></li>
+  <li><a href="#hypothesis-testsing" id="toc-hypothesis-testsing" class="nav-link" data-scroll-target="#hypothesis-testsing"><span class="header-section-number">7.0.3</span> Hypothesis Testsing</a></li>
+  <li><a href="#graphical-display-with-a-scatter-plot" id="toc-graphical-display-with-a-scatter-plot" class="nav-link" data-scroll-target="#graphical-display-with-a-scatter-plot"><span class="header-section-number">7.0.4</span> Graphical display with a scatter plot</a></li>
+  <li><a href="#applying-the-pearsons-correlation-coefficient-r" id="toc-applying-the-pearsons-correlation-coefficient-r" class="nav-link" data-scroll-target="#applying-the-pearsons-correlation-coefficient-r"><span class="header-section-number">7.0.5</span> Applying the Pearson’s correlation coefficient, r</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lab1.html">Jamovi LAB</a></li><li class="breadcrumb-item"><a href="./lab9.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">LAB IX: Correlation</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">References</h1>
+<h1 class="title"><span id="sec-lab9" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">LAB IX: Correlation</span></span></h1>
 </div>
 
 
@@ -249,33 +273,184 @@ div.csl-indent {
 </header>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-friligkou2024" class="csl-entry" role="listitem">
-Friligkou, Eleni, Solveig Løkhammer, Brenda Cabrera-Mendoza, Jie Shen,
-Jun He, Giovanni Deiana, Mihaela Diana Zanoaga, et al. 2024. <span>“Gene
-Discovery and Biological Insights into Anxiety Disorders from a
-Large-Scale Multi-Ancestry Genome-Wide Association Study.”</span>
-<em>Nature Genetics</em>, September. <a href="https://doi.org/10.1038/s41588-024-01908-2">https://doi.org/10.1038/s41588-024-01908-2</a>.
+<p>When we have finished this Lab, we should be able to:</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
-<div id="ref-garcía2019" class="csl-entry" role="listitem">
-García, Jorge Acosta, Francisco Checa y Olmos, Manuel Lucas Matheu, and
-Tesifón Parrón Carreño. 2019. <span>“Self Esteem Levels Vs Global Scores
-on the Rosenberg Self-Esteem Scale.”</span> <em>Heliyon</em> 5 (3):
-e01378. <a href="https://doi.org/10.1016/j.heliyon.2019.e01378">https://doi.org/10.1016/j.heliyon.2019.e01378</a>.
+<div class="callout-title-container flex-fill">
+Learning objectives
 </div>
-<div id="ref-grimes2002" class="csl-entry" role="listitem">
-Grimes, David A, and Kenneth F Schulz. 2002. <span>“Bias and Causal
-Associations in Observational Research.”</span> <em>The Lancet</em> 359
-(9302): 248–52. <a href="https://doi.org/10.1016/s0140-6736(02)07451-2">https://doi.org/10.1016/s0140-6736(02)07451-2</a>.
 </div>
-<div id="ref-hyndman1996" class="csl-entry" role="listitem">
-Hyndman, Rob J., and Yanan Fan. 1996. <span>“Sample Quantiles in
-Statistical Packages.”</span> <em>The American Statistician</em> 50 (4):
-361–65. <a href="https://doi.org/10.1080/00031305.1996.10473566">https://doi.org/10.1080/00031305.1996.10473566</a>.
+<div class="callout-body-container callout-body">
+<ul>
+<li>Understand the concept of correlation of two numeric variables.</li>
+<li>Compute Pearson’s r (or Spearmans <span class="math inline">\(r_{s}\)</span>) correlation coefficient between two numeric variables</li>
+<li>Discuss the possible meaning of correlation that we observe.</li>
+</ul>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>In this Lab, we will use the data from “LungCapacity” dataset.(<strong>Note:</strong> This starts by assuming we know how to get data into Jamovi).</p>
+<section id="opening-the-file" class="level3" data-number="7.0.1">
+<h3 data-number="7.0.1" class="anchored" data-anchor-id="opening-the-file"><span class="header-section-number">7.0.1</span> Opening the file</h3>
+<p>Open the dataset named “LungCapacity” from the file tab in the menu:</p>
+<div id="fig-lungcap1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-lungcap1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/lungcap.png" class="img-fluid figure-img" style="width:85.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lungcap1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.1: The “LungCapacity” dataset.
+</figcaption>
+</figure>
+</div>
+<p>The dataset “LungCapacity” has 725 participants and includes two variables. The numeric variables of interest are the <code>Age</code> and the <code>LungCap</code> (<a href="lab10.html#fig-lungcap1" class="quarto-xref">Figure&nbsp;<span>8.1</span></a>). Double-click on the variable name <code>Age</code> and change the measure type from nominal <img src="images/nominal.png" width="23" height="21"> to continuous <img src="images/continuous.png" width="23" height="21">.</p>
+</section>
+<section id="research-question" class="level3" data-number="7.0.2">
+<h3 data-number="7.0.2" class="anchored" data-anchor-id="research-question"><span class="header-section-number">7.0.2</span> Research question</h3>
+<p>Let’s say that we want to explore the association between age (in years) and lung capacity (in liters) for the sample of 725 participants in a survey.</p>
+</section>
+<section id="hypothesis-testsing" class="level3" data-number="7.0.3">
+<h3 data-number="7.0.3" class="anchored" data-anchor-id="hypothesis-testsing"><span class="header-section-number">7.0.3</span> Hypothesis Testsing</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Null hypothesis and alternative hypothesis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><span class="math inline">\(H_{0}:\)</span> there is not association between age and lung capacity (<span class="math inline">\(ρ = 0\)</span>).</p></li>
+<li><p><span class="math inline">\(H_{1}:\)</span> there is association between age and lung capacity (<span class="math inline">\(ρ \neq 0\)</span>).</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="graphical-display-with-a-scatter-plot" class="level3" data-number="7.0.4">
+<h3 data-number="7.0.4" class="anchored" data-anchor-id="graphical-display-with-a-scatter-plot"><span class="header-section-number">7.0.4</span> Graphical display with a scatter plot</h3>
+<p>A first step that is usually useful in studying the association between two continuous variables is to prepare a <strong>scatterplot</strong> of the data. The pattern made by the points plotted on the scatterplot usually suggests the basic nature and strength of the association between two variables.</p>
+<p>On the Jamovi top menu navigate to</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  A(Analyses) -.-&gt; B(Exploration) -.-&gt; C(Scatterplot)
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>as shown below in <a href="#fig-lungcap_scatter1" class="quarto-xref">Figure&nbsp;<span>7.2</span></a>.</p>
+<div id="fig-lungcap_scatter1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-lungcap_scatter1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/lungcap_scatter1.png" class="img-fluid figure-img" style="width:65.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lungcap_scatter1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.2: In the menu at the top, choose Analyses &gt; Exploration <img src="images/explor_icon.png" width="35" height="33" class="figure-img"> &gt; Scatterplot.
+</figcaption>
+</figure>
+</div>
+<p>The <em>Scatterplot dialogue box</em> opens (<a href="#fig-lungcap_scatter3" class="quarto-xref">Figure&nbsp;<span>7.3</span></a>). Transfer the <code>Age</code> and <code>LungCap</code> variables from the left-hand pane into the <em>X-Axis</em> and <em>Y-Axis</em> fields on the right-hand side, respectively, by highlighting the variables and pressing the Arrow Button (<img src="images/right_arrow.png" width="23" height="21">). Alternatively, drag and drop the variables. Finally, from <strong>Marginals</strong> click on the “<strong>Densities</strong>” radio button. We will end up with the following screen:</p>
+<div id="fig-lungcap_scatter3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-lungcap_scatter3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/lungcap_scatter3.png" width="500" height="442" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lungcap_scatter3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.3: The Scatterplot dialogue box options.
+</figcaption>
+</figure>
+</div>
+<p>The resulting graph looks like this (<a href="#fig-lungcap_scatter4" class="quarto-xref">Figure&nbsp;<span>7.4</span></a>):</p>
+<div id="fig-lungcap_scatter4" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-lungcap_scatter4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/lungcap_scatter4.png" class="img-fluid figure-img" width="600">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lungcap_scatter4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.4: The Scatter of Age and Lung Capacity with the marginal density plots
+</figcaption>
+</figure>
+</div>
+<p>The above density plots (light blue histograms) show that the data are approximately <strong>normally distributed</strong> for both <code>Age</code> and <code>LungCap</code> (we have a large sample so the graphs are reliable).</p>
+<p>Additionally, the points in the scatter plot seem to be scattered around an invisible <strong>line</strong>. The scatter plot also shows that, in general, older participants tend to have higher lung capacity (<strong>positive association</strong>).</p>
+<p>The Pearson’s correlation coefficient can quantify the strength of this linear association (alternative is Spearman’s correlation coefficients).</p>
+<p>&nbsp;</p>
+</section>
+<section id="applying-the-pearsons-correlation-coefficient-r" class="level3" data-number="7.0.5">
+<h3 data-number="7.0.5" class="anchored" data-anchor-id="applying-the-pearsons-correlation-coefficient-r"><span class="header-section-number">7.0.5</span> Applying the Pearson’s correlation coefficient, r</h3>
+<p>Running correlation in Jamovi requires only a few steps once the data is ready to go. In the top menu navigate to:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  A(Analyses) -.-&gt; B(Regression) -.-&gt; C(Correlation Matrix)
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>as shown below in <a href="#fig-lungcap_scatter5" class="quarto-xref">Figure&nbsp;<span>7.5</span></a>.</p>
+<div id="fig-lungcap_scatter5" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-lungcap_scatter5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/lungcap_scatter5.png" class="img-fluid figure-img" style="width:75.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lungcap_scatter5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.5: In the menu at the top, choose Analyses &gt; Regression <img src="images/reg_icon.png" width="35" height="33" class="figure-img"> &gt; Correlation Matrix.
+</figcaption>
+</figure>
+</div>
+<p>The <em>Correlation Matrix dialogue box</em> opens (<a href="#fig-lungcap_scatter7" class="quarto-xref">Figure&nbsp;<span>7.6</span></a>). Transfer both <code>Age</code> and <code>LungCap</code> variables from the left-hand pane into the right-hand pane by highlighting the variables and pressing the Arrow Button (<img src="images/right_arrow.png" width="23" height="21">). Additionally, from the <em>Correlation Coefficients</em> choices we can select between the following three options: Pearson’s, Spearman, or Kendall’s coefficient. We keep the default choice of “<strong>Pearson</strong>”. Finally, from <strong>Additional Options</strong> check “<strong>Flag significant correlations</strong>” and the “<strong>Confidence Intervals</strong>” boxes. We will end up with the following screen:</p>
+<div id="fig-lungcap_scatter7" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-lungcap_scatter7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/lungcap_scatter7.png" class="img-fluid figure-img" style="width:65.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lungcap_scatter7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.6: The Correlation Matrix dialogue box options. Drag and drop the <strong>Age</strong> and <strong>LungCap</strong> into the right-hand pane. Check the boxes of interest in the additional options.
+</figcaption>
+</figure>
+</div>
+<p>The output table should look like the following (<a href="#fig-lungcap_cortable" class="quarto-xref">Figure&nbsp;<span>7.7</span></a>):</p>
+<div id="fig-lungcap_cortable" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-lungcap_cortable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/lungcap_cortable.png" class="img-fluid figure-img" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lungcap_cortable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.7: The correlation matrix table.
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Interpretation of the results
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There is evidence of a <strong>very strong, positive, linear</strong> association between <strong>Age</strong> and <strong>Lung Capacity</strong> (r= 0.82, 95% CI: 0.79 to 0.84, p &lt; 0.001) which is significant.</p>
 </div>
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -705,11 +880,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./presentations.html" class="pagination-link" aria-label="Presentations">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Presentations</span></span>
+      <a href="./lab7.html" class="pagination-link" aria-label="LAB VII: Inference for numerical data (\>2 samples)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">LAB VII: Inference for numerical data (&gt;2 samples)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./lab10.html" class="pagination-link" aria-label="LAB X: Simple linear regression">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">LAB X: Simple linear regression</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
