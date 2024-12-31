@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>7&nbsp; LAB X: Simple linear regression – Basic Statistics for the Social Sciences</title>
+<title>6&nbsp; LAB VII: Inference for numerical data (&gt;2 samples) – Basic Statistics for the Social Sciences</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./data.html" rel="next">
-<link href="./lab7.html" rel="prev">
+<link href="./lab10.html" rel="next">
+<link href="./lab6.html" rel="prev">
 <link href="./images/cover.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -114,7 +114,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lab1.html">Jamovi LAB</a></li><li class="breadcrumb-item"><a href="./lab10.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">LAB X: Simple linear regression</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lab1.html">Jamovi LAB</a></li><li class="breadcrumb-item"><a href="./lab7.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">LAB VII: Inference for numerical data (\&gt;2 samples)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -197,13 +197,13 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lab7.html" class="sidebar-item-text sidebar-link">
+  <a href="./lab7.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">LAB VII: Inference for numerical data (\&gt;2 samples)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lab10.html" class="sidebar-item-text sidebar-link active">
+  <a href="./lab10.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">LAB X: Simple linear regression</span></span></a>
   </div>
 </li>
@@ -237,21 +237,25 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#opening-the-file" id="toc-opening-the-file" class="nav-link active" data-scroll-target="#opening-the-file"><span class="header-section-number">7.0.1</span> Opening the file</a></li>
-  <li><a href="#research-question" id="toc-research-question" class="nav-link" data-scroll-target="#research-question"><span class="header-section-number">7.0.2</span> Research question</a></li>
-  <li><a href="#hypothesis-testsing" id="toc-hypothesis-testsing" class="nav-link" data-scroll-target="#hypothesis-testsing"><span class="header-section-number">7.0.3</span> Hypothesis Testsing</a></li>
-  <li><a href="#scatter-plot" id="toc-scatter-plot" class="nav-link" data-scroll-target="#scatter-plot"><span class="header-section-number">7.0.4</span> Scatter plot</a></li>
-  <li><a href="#linear-regression" id="toc-linear-regression" class="nav-link" data-scroll-target="#linear-regression"><span class="header-section-number">7.0.5</span> Linear regression</a></li>
-  <li><a href="#fit-a-simple-linear-regression-model" id="toc-fit-a-simple-linear-regression-model" class="nav-link" data-scroll-target="#fit-a-simple-linear-regression-model"><span class="header-section-number">7.0.6</span> Fit a simple linear regression model</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">6.1</span> Introduction</a></li>
+  <li><a href="#one-way-analysis-of-variance-anova" id="toc-one-way-analysis-of-variance-anova" class="nav-link" data-scroll-target="#one-way-analysis-of-variance-anova"><span class="header-section-number">6.2</span> One-way Analysis of Variance (ANOVA)</a>
+  <ul class="collapse">
+  <li><a href="#opening-the-file" id="toc-opening-the-file" class="nav-link" data-scroll-target="#opening-the-file"><span class="header-section-number">6.2.1</span> Opening the file</a></li>
+  <li><a href="#research-question" id="toc-research-question" class="nav-link" data-scroll-target="#research-question"><span class="header-section-number">6.2.2</span> Research question</a></li>
+  <li><a href="#hypothesis-testsing-for-the-anova-test" id="toc-hypothesis-testsing-for-the-anova-test" class="nav-link" data-scroll-target="#hypothesis-testsing-for-the-anova-test"><span class="header-section-number">6.2.3</span> Hypothesis Testsing for the ANOVA test</a></li>
+  <li><a href="#assumptions" id="toc-assumptions" class="nav-link" data-scroll-target="#assumptions"><span class="header-section-number">6.2.4</span> Assumptions</a></li>
+  <li><a href="#run-the-anova-test" id="toc-run-the-anova-test" class="nav-link" data-scroll-target="#run-the-anova-test"><span class="header-section-number">6.2.5</span> Run the ANOVA test</a></li>
+  <li><a href="#run-post-hoc-tests" id="toc-run-post-hoc-tests" class="nav-link" data-scroll-target="#run-post-hoc-tests"><span class="header-section-number">6.2.6</span> Run post-hoc tests</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lab1.html">Jamovi LAB</a></li><li class="breadcrumb-item"><a href="./lab10.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">LAB X: Simple linear regression</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lab1.html">Jamovi LAB</a></li><li class="breadcrumb-item"><a href="./lab7.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">LAB VII: Inference for numerical data (\&gt;2 samples)</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-lab10" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">LAB X: Simple linear regression</span></span></h1>
+<h1 class="title"><span id="sec-lab7" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">LAB VII: Inference for numerical data (&gt;2 samples)</span></span></h1>
 </div>
 
 
@@ -280,34 +284,43 @@ Learning objectives
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Understand the linear regression model</li>
-<li>Explore how a factor (independent variable) affect a response (dependent) variable.</li>
+<li>Applying hypothesis testing</li>
+<li>Compare more than two independent samples</li>
 <li>Interpret the results</li>
 </ul>
 </div>
 </div>
-<p>In this Lab, we will use the “LungCapacity” dataset.</p>
-<section id="opening-the-file" class="level3" data-number="7.0.1">
-<h3 data-number="7.0.1" class="anchored" data-anchor-id="opening-the-file"><span class="header-section-number">7.0.1</span> Opening the file</h3>
-<p>Open the dataset named “LungCapacity” from the file tab in the menu:</p>
-<div id="fig-lungcap1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<section id="introduction" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">6.1</span> Introduction</h2>
+<p>The one-way analysis of variance (one-way ANOVA) or the non-parametric Kruskal-Wallis test are used to detect whether there are any differences between more than two independent (unrelated) samples.</p>
+<p>Although, these tests can detect a difference between several groups they do not inform about which groups are different from the others. At first sight we might clarify the question by comparing all groups in pairs with t-tests or Mann-Whitney U tests. However, that procedure may lead us to the wrong conclusions (known as multiple comparisons problem).</p>
+<p>Why is this procedure inappropriate? Quite simply, because we would be wrongly testing the null hypothesis. Each comparison one conducts increases the likelihood of committing at least one Type I error within a set of comparisons (famillywise Type I error rate).</p>
+<p>This is the reason why, after an ANOVA or Kruskal-Wallis test concluding on a difference between groups, we should not just compare all possible pairs of groups with t-tests or Mann-Whitney U tests. Instead we perform statistical tests that take into account the number of comparisons (post hoc tests). Some of the more commonly used ones are Tukey test, Games-Howell test, and Bonferroni correction.</p>
+</section>
+<section id="one-way-analysis-of-variance-anova" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="one-way-analysis-of-variance-anova"><span class="header-section-number">6.2</span> One-way Analysis of Variance (ANOVA)</h2>
+<p>One-way analysis of variance, usually referred to as one-way ANOVA, is a statistical test used when we want to compare several means. We may think of it as an extension of Student’s t-test to the case of more than two samples.</p>
+<section id="opening-the-file" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="opening-the-file"><span class="header-section-number">6.2.1</span> Opening the file</h3>
+<p>Open the dataset named “dataDWL” from the file tab in the menu:</p>
+<div id="fig-dataDWL" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-lungcap1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/lungcap.png" class="img-fluid figure-img" style="width:75.0%">
+<div aria-describedby="fig-dataDWL-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/dataDWL.png" class="img-fluid figure-img" style="width:85.0%">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lungcap1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.1: The LungCapacity dataset
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dataDWL-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.1: The dataDWL dataset
 </figcaption>
 </figure>
 </div>
-<p>Double-click on the variable name <code>Age</code> and change the measure type from nominal <img src="images/nominal.png" width="23" height="21"> to continuous <img src="images/continuous.png" width="23" height="21">.</p>
+<p>The dataset “dataDWL” has 60 participants and includes two variables (<a href="data.html#fig-dataDWL" class="quarto-xref">Figure&nbsp;<span>8.4</span></a>). The numeric <code>WeightLoss</code> variable and the <code>Diet</code> variable (with levels <code>A</code>, <code>B</code>, <code>C</code> and <code>D</code>).</p>
 </section>
-<section id="research-question" class="level3" data-number="7.0.2">
-<h3 data-number="7.0.2" class="anchored" data-anchor-id="research-question"><span class="header-section-number">7.0.2</span> Research question</h3>
-<p>Let’s say that we want to <strong>model</strong> the association between age (in years) and lung capacity (in liters) for the sample of 725 participants in a survey. In other words, we want to find the parameters of a mathematical equation such as <span class="math inline">\(y = \alpha + \beta \cdot x\)</span>.</p>
+<section id="research-question" class="level3" data-number="6.2.2">
+<h3 data-number="6.2.2" class="anchored" data-anchor-id="research-question"><span class="header-section-number">6.2.2</span> Research question</h3>
+<p>Consider the example of the variations between weight loss according to four different types of diet (<code>A</code>, <code>B</code>, <code>C</code>, and <code>D</code>). The question that may be asked is: does the average weight loss (units in kg) differ according to the diet?</p>
 </section>
-<section id="hypothesis-testsing" class="level3" data-number="7.0.3">
-<h3 data-number="7.0.3" class="anchored" data-anchor-id="hypothesis-testsing"><span class="header-section-number">7.0.3</span> Hypothesis Testsing</h3>
+<section id="hypothesis-testsing-for-the-anova-test" class="level3" data-number="6.2.3">
+<h3 data-number="6.2.3" class="anchored" data-anchor-id="hypothesis-testsing-for-the-anova-test"><span class="header-section-number">6.2.3</span> Hypothesis Testsing for the ANOVA test</h3>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -319,34 +332,32 @@ Null hypothesis and alternative hypothesis
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p><span class="math inline">\(H_{0}:\)</span> the two variables are not linearly related. There is no effect between age and lung capacity (<span class="math inline">\(β = 0\)</span>).</p></li>
-<li><p><span class="math inline">\(H_{1}:\)</span> the two variables are linearly related. There is an effect between age and lung capacity (<span class="math inline">\(β \neq 0\)</span>).</p></li>
+<li><span class="math inline">\(H_0\)</span>: all group means are equal (the means of weight loss in the four diets are equal: <span class="math inline">\(\mu_{A} = \mu_{B} = \mu_{C} = \mu_{D}\)</span>)</li>
+<li><span class="math inline">\(H_1\)</span>: at least one group mean differs from the others (there is at least one diet with mean weight loss different from the others)</li>
 </ul>
 </div>
 </div>
 </section>
-<section id="scatter-plot" class="level3" data-number="7.0.4">
-<h3 data-number="7.0.4" class="anchored" data-anchor-id="scatter-plot"><span class="header-section-number">7.0.4</span> Scatter plot</h3>
-<p>We start our analysis by creating the scatter plot of the response variable <code>LungCap</code> and the explanatory variable <code>Age</code>.</p>
-<div id="fig-linear1" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-linear1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/linear1.png" class="img-fluid figure-img" style="width:65.0%">
+<section id="assumptions" class="level3" data-number="6.2.4">
+<h3 data-number="6.2.4" class="anchored" data-anchor-id="assumptions"><span class="header-section-number">6.2.4</span> Assumptions</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-linear1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.2: The Scatter plot of Age and Lung Capacity
-</figcaption>
-</figure>
+<div class="callout-title-container flex-fill">
+Check if the following assumptions are satisfied
 </div>
-<p>There is a clear upward trend indicating that increase in <code>Age</code> tends to coincide with increase in <code>LungCap</code>. Moreover, the trend seems to be linear, so a straight line can capture the overall pattern.</p>
-</section>
-<section id="linear-regression" class="level3" data-number="7.0.5">
-<h3 data-number="7.0.5" class="anchored" data-anchor-id="linear-regression"><span class="header-section-number">7.0.5</span> Linear regression</h3>
-<p>The process of fitting a linear regression model to the data involves finding a straight line that can be considered as the <strong>best representation</strong> of the overall association between age and lung capacity.</p>
-<p>To choose a line, we need to explain what we mean by the “best representation” of the data. A “best-fitting” line refers to the line that <strong>minimizes</strong> the <strong>sum of squared residuals (RSS)</strong>. Therefore, we refer to the resulting model as the least-squares linear regression model and to the corresponding line as the <strong>least-squares regression line</strong>.</p>
-</section>
-<section id="fit-a-simple-linear-regression-model" class="level3" data-number="7.0.6">
-<h3 data-number="7.0.6" class="anchored" data-anchor-id="fit-a-simple-linear-regression-model"><span class="header-section-number">7.0.6</span> Fit a simple linear regression model</h3>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>The dependent variable, <code>WeightLoss</code>, should be approximately <strong>normally</strong> distributed for all groups</li>
+<li>The data in groups have similar <strong>variance</strong> (also named as homogeneity of variance or homoscedasticity)</li>
+</ol>
+</div>
+</div>
+<p><strong>A. Explore the descriptive characteristics of distribution for each group and check for normality</strong></p>
+<p>The distributions can be explored visually with appropriate plots. Additionally, summary statistics and significance tests to check for normality (e.g., Shapiro-Wilk test) and for equality of variances (e.g., Levene’s test) can be used.</p>
 <p>On the Jamovi top menu navigate to</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -354,93 +365,304 @@ Figure&nbsp;7.2: The Scatter plot of Age and Lung Capacity
 <p></p><figure class="figure"><p></p>
 <div>
 <pre class="mermaid mermaid-js">flowchart LR
-  A(Analyses) -.-&gt; B(Regression) -.-&gt; C(Linear Regression)
+  A(Analyses) -.-&gt; B(Exploration) -.-&gt; C(Descriptives)
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<p>as shown below (<a href="#fig-linear2" class="quarto-xref">Figure&nbsp;<span>7.3</span></a>).</p>
-<div id="fig-linear2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<p>as shown below in <a href="#fig-diet0" class="quarto-xref">Figure&nbsp;<span>6.2</span></a>.</p>
+<div id="fig-diet0" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-linear2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/linear2.png" class="img-fluid figure-img" style="width:85.0%">
+<div aria-describedby="fig-diet0-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/diet0.png" class="img-fluid figure-img" style="width:75.0%">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-linear2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.3: In the menu at the top, choose Analyses &gt; Regression &gt; Linear Regression.
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diet0-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.2: In the menu at the top, choose Analyses &gt; Exploration <img src="images/explor_icon.png" width="35" height="33" class="figure-img"> &gt; Descriptives.
 </figcaption>
 </figure>
 </div>
-<p>The <em>Linear Regression dialogue box</em> opens (<a href="#fig-linear3" class="quarto-xref">Figure&nbsp;<span>7.4</span></a>). From the left-hand pane drag the variable <code>LunCap</code> into the <em>Dependent Variable</em> field and the variable <code>Age</code> into the <em>Covariates</em> field on the right-hand side, as shown below:</p>
-<div id="fig-linear3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<p>The <em>Descriptives dialogue box</em> opens. Drag the variable <code>WeightLoss</code> into the <em>Variables</em> field and <em>split</em> it by the <code>Diet</code> variable. Additionally, select <strong>Variable across rows</strong>, as shown below (<a href="#fig-diet1" class="quarto-xref">Figure&nbsp;<span>6.3</span></a>):</p>
+<div id="fig-diet1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-linear3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/linear3.png" class="img-fluid figure-img" style="width:65.0%">
+<div aria-describedby="fig-diet1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/diet1.png" class="img-fluid figure-img" style="width:75.0%">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-linear3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.4: The Linear Regression dialogue box options. Drag and drop the LunCap into the Dependent Variable field and the Age into the Covariates field.
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diet1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.3: Split the variable <strong>WeightLoss</strong> by <strong>Diet</strong> group and select Variables across rows.
 </figcaption>
 </figure>
 </div>
-<p>Additionally, from the <em>Model Coefficients</em> section tick the box “<strong>Confidence interval</strong>” in <strong>Estimate</strong> (<a href="#fig-linear4" class="quarto-xref">Figure&nbsp;<span>7.5</span></a>):</p>
-<div id="fig-linear4" class="quarto-float quarto-figure quarto-figure-center anchored">
+<p>We can now select the relevant descriptive statistics such as <strong>Percantiles</strong>, <strong>Skewness</strong>, <strong>Kurtosis</strong> and the <strong>Shapiro-Wilk</strong> test from the <em>Statistics</em> section (<a href="#fig-descriptives13" class="quarto-xref">Figure&nbsp;<span>6.4</span></a>):</p>
+<div id="fig-descriptives13" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-linear4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/linear4.png" class="img-fluid figure-img" style="width:75.0%">
+<div aria-describedby="fig-descriptives13-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/descriptives13.png" class="img-fluid figure-img" style="width:70.0%">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-linear4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.5: Check the Confidence interval box in the Model Coefficients section.
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-descriptives13-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.4: In the Statistics section select the descriptive statistics of interest.
 </figcaption>
 </figure>
 </div>
-<p>The output table with the model coefficients should look like the following (<a href="#fig-linear5" class="quarto-xref">Figure&nbsp;<span>7.6</span></a>):</p>
-<div id="fig-linear5" class="quarto-float quarto-figure quarto-figure-center anchored">
+<p>Once we have selected our descriptive statistics, a table will appear in the output window on our right-hand side, as shown below (<a href="#fig-diet2" class="quarto-xref">Figure&nbsp;<span>6.5</span></a>):</p>
+<div id="fig-diet2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-linear5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/linear5.png" class="img-fluid figure-img" style="width:75.0%">
+<div aria-describedby="fig-diet2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/diet2.png" class="img-fluid figure-img">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-linear5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.6: The model coefficients table.
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diet2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.5: Descriptive statistics of <strong>WeightLoss</strong> by <strong>Diet</strong> group (click on figure to zoom in).
 </figcaption>
 </figure>
 </div>
-<p>Now, let’s find the model equation from the regression table in <a href="#fig-linear5" class="quarto-xref">Figure&nbsp;<span>7.6</span></a>. In the <strong>Estimate</strong> column are the intercept <span class="math inline">\(a=0.54\)</span> and the slope <span class="math inline">\(b=0.26\)</span> for <code>Age</code>. Thus, the equation of the regression line becomes:</p>
-<p><span class="math display">\[
-\begin{aligned}
-\widehat{y} &amp;= a + b \cdot x\\
-\widehat{\text{LungCap}} &amp;= a + b \cdot\text{Age}\\
-\widehat{\text{LungCap}}&amp;= 0.54 + 0.26\cdot\text{Age}
-\end{aligned}
-\]</span></p>
-<p>Finally, the quality of our simple linear model is presented in <a href="#fig-linear6" class="quarto-xref">Figure&nbsp;<span>7.7</span></a>:</p>
-<div id="fig-linear6" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-linear6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/linear6.png" class="img-fluid figure-img" style="width:35.0%">
+<p>The means are close to medians and the standard deviations are also similar indicating normal distributions for all groups. Additionally, both shape measures, skewness and (excess) kurtosis, have values in the acceptable range [-1, 1] which indicate symmetric and mesokurtic distributions, respectively.</p>
+<p>The Shapiro-Wilk tests of normality suggest that the data for the <code>WeightLoss</code> in all groups are normally distributed (p &gt; 0.05 <span class="math inline">\(\Rightarrow H_0\)</span> is not rejected).</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-linear6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.7: The coefficient of determination <span class="math inline">\(R^2\)</span>.
+<div class="callout-title-container flex-fill">
+Remember: Hypothesis testing for Shapiro-Wilk test for normality
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(H_{0}\)</span>: the data came from a normally distributed population.</p>
+<p><span class="math inline">\(H_{1}\)</span>: the data tested are not normally distributed.</p>
+<ul>
+<li>If p − value &lt; 0.05, reject the null hypothesis, <span class="math inline">\(H_{0}\)</span>.</li>
+<li>If p − value ≥ 0.05, do not reject the null hypothesis, <span class="math inline">\(H_{0}\)</span>.</li>
+</ul>
+</div>
+</div>
+<p>Then we can check the <strong>Density</strong> box from <em>Histograms</em> in the <em>Plot</em> section, as shown below (<a href="#fig-plots_density" class="quarto-xref">Figure&nbsp;<span>6.6</span></a>):</p>
+<div id="fig-plots_density" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-plots_density-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/plots_density.png" class="img-fluid figure-img" style="width:75.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-plots_density-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.6: In the Plots section select Density from Histograms.
 </figcaption>
 </figure>
 </div>
-<p>In our example takes the value 0.67. It indicates that about 67% of the variation in lung capacity can be explained by the variation of the age. In simple linear regression <span class="math inline">\(\sqrt{0.67} = 0.82\)</span> which equals to the Pearson’s correlation coefficient, r.</p>
+<p>A graph (<a href="#fig-diet3" class="quarto-xref">Figure&nbsp;<span>6.7</span></a>) is generated in the output window on our right-hand side:</p>
+<div id="fig-diet3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-diet3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/diet3.png" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diet3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.7: The Density plot of <strong>WeightLoss</strong> for each <strong>Diet</strong>.
+</figcaption>
+</figure>
+</div>
+<p>The above density plots show that the data are close to symmetry and the assumption of a normal distribution is reasonable for all diet groups.</p>
+<p><strong>B. Homogeneity of variance</strong></p>
+<p>The second assumption that should be satisfied is the homogeneity of variance. We observe in the summary table of <a href="#fig-diet2" class="quarto-xref">Figure&nbsp;<span>6.5</span></a> that the standard deviations are similar (see also below the Levene’s test for equality of variances in <a href="lab6.html#fig-t_test4" class="quarto-xref">Figure&nbsp;<span>5.11</span></a>).</p>
 <p>&nbsp;</p>
+</section>
+<section id="run-the-anova-test" class="level3" data-number="6.2.5">
+<h3 data-number="6.2.5" class="anchored" data-anchor-id="run-the-anova-test"><span class="header-section-number">6.2.5</span> Run the ANOVA test</h3>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Interpretation of the results
+Perform ANOVA in Jamovi
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The regression coefficient (b=0.26) of the <code>Age</code> is significantly different from zero (p &lt; 0.001) and indicates that there’s <strong>on average an increase of 0.26 liters</strong> in lung capacity for <strong>every 1 year increase in age</strong>. Note that the <span class="math inline">\(95\%\)</span>CI (0.24 to 0.27) <strong>does not</strong> include the hypothesized null value of zero for the slope.</p>
+<p>We will perform ANOVA to test the null hypothesis that the mean <code>WeightLoss</code> is the same for all <code>Diet</code> groups.</p>
+<p>On the Jamovi top menu navigate to</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  A(Analyses) -.-&gt; B(ANOVA) -.-&gt; C(One-Way ANOVA)
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>as shown below in <a href="#fig-diet4" class="quarto-xref">Figure&nbsp;<span>6.8</span></a>.</p>
+<div id="fig-diet4" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-diet4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/diet4.png" class="img-fluid figure-img" style="width:75.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diet4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.8: Conducting ANOVA test in Jamovi. In the menu at the top, choose Analyses &gt; ANOVA <img src="images/anova_icon.png" width="35" height="33" class="figure-img"> &gt; One-Way ANOVA.
+</figcaption>
+</figure>
+</div>
+<p>The <em>One-Way ANOVA dialogue box</em> opens. Drag and drop the <code>WeightLoss</code> to Dependent Variables field and the <code>Diet</code> to Grouping Variable, as shown below <a href="#fig-diet5" class="quarto-xref">Figure&nbsp;<span>6.9</span></a>:</p>
+<div id="fig-diet5" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-diet5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/diet5.png" class="img-fluid figure-img" style="width:75.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diet5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.9: One-Way ANOVA dialogue box. Drag the <strong>WeightLoss</strong> into the Dependent Variables field and the <strong>Diet</strong> into the Grouping Variable field.
+</figcaption>
+</figure>
+</div>
+<p>We observe that we can select between the following two Tests: Welch’s test (the default), or Fisher’s test. At the moment, we keep the default choice. Moreover, from <strong>Additional Statistics</strong> check the <strong>Descriptive</strong> and <strong>Descriptive plots</strong> boxes. Finally, from <strong>Assumption Checks</strong> tick the <strong>Homogeneity test</strong> box. We will end up with the following screen:</p>
+<div id="fig-diet6" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-diet6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/diet6.png" class="img-fluid figure-img" style="width:75.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diet6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.10: Additional statistics and tests.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>First, we look at the table of <strong>Levene’s test</strong> for equality of variances (<a href="#fig-diet7" class="quarto-xref">Figure&nbsp;<span>6.11</span></a>):</p>
+<div id="fig-diet7" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-diet7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/diet7.png" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diet7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.11: Levene’s test.
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Remember: Hypothesis testing for Levene’s test for equality of variances
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(H_{0}\)</span>: the variances of <code>WeightLoss</code> in all groups are equal (<span class="math inline">\(σ^2_A=σ^2_B=σ^2_C=σ^2_D\)</span>)</p>
+<p><span class="math inline">\(H_{1}\)</span>: the variances of <code>WeightLoss</code> differ between groups (<span class="math inline">\(σ^2_i\neq σ^2_j\)</span>, where <span class="math inline">\(i,j= A, B, C, D\)</span> and <span class="math inline">\(i\neq j\)</span>)</p>
+<ul>
+<li>If p − value &lt; 0.05, reject the null hypothesis, <span class="math inline">\(H_{0}\)</span>.</li>
+<li>If p − value ≥ 0.05, do not reject the null hypothesis, <span class="math inline">\(H_{0}\)</span>.</li>
+</ul>
+</div>
+</div>
+<p>Since p = 0.583 &gt; 0.05, the <span class="math inline">\(H_0\)</span> of the Levene’s test is not rejected and we have to perform the <strong>Fisher’s test</strong> which assumes equal variances (<a href="#fig-diet8" class="quarto-xref">Figure&nbsp;<span>6.12</span></a>). So, let’s tick on the <strong>Assume equal (Fisher’s)</strong> box. (NOTE: If the <span class="math inline">\(p \geq 0.05\)</span>, then the population variances of <code>WeightLoss</code> in all groups are assumed equal).</p>
+<div id="fig-diet8" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-diet8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/diet8.png" class="img-fluid figure-img" style="width:75.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diet8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.12: Fisher’s ANOVA test.
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+ANOVA test (Welch’s option)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If the assumption of equal variances is not satisfied (Levene’s test gives p &lt; 0.05, reject <span class="math inline">\(H_0\)</span>), the Welch’s option of ANOVA should be used from the available Tests in Jamovi (<a href="#fig-diet8" class="quarto-xref">Figure&nbsp;<span>6.12</span></a>).</p>
+</div>
+</div>
+<p>Next, we can inspect again the results in the group descriptives table (<a href="#fig-diet9" class="quarto-xref">Figure&nbsp;<span>6.13</span></a>) and pertinent plots (<a href="#fig-diet9" class="quarto-xref">Figure&nbsp;<span>6.13</span></a>):</p>
+<div id="fig-diet9" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-diet9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/diet9.png" class="img-fluid figure-img" style="width:65.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diet9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.13: Group descriptive statistics.
+</figcaption>
+</figure>
+</div>
+<div id="fig-diet10" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-diet10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/diet10.png" class="img-fluid figure-img" style="width:55.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diet10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.14: Plot of mean (95% CI) of WeightLoss by Diet.
+</figcaption>
+</figure>
+</div>
+<p>From the <a href="#fig-diet10" class="quarto-xref">Figure&nbsp;<span>6.14</span></a> we observe that the participants following the diet C have on average the higher weight loss.</p>
+<p>Finally, we present the results of the Fisher’s ANOVA test in the table of <a href="#fig-diet11" class="quarto-xref">Figure&nbsp;<span>6.15</span></a>:</p>
+<div id="fig-diet11" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-diet11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/diet11.png" class="img-fluid figure-img" style="width:55.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diet11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.15: The results of the Fisher’s ANOVA test.
+</figcaption>
+</figure>
+</div>
+<p>In <a href="#fig-diet11" class="quarto-xref">Figure&nbsp;<span>6.15</span></a>, F= 6.12 indicates the F-statistic:</p>
+<p><span class="math display">\[F= \frac{variation \ between \ sample \ means}{variation \ within \ the \ samples}\]</span></p>
+<p>Note that we compare this value to an F-distribution (F-test). The degrees of freedom in the numerator (df1) and the denominator (df2) are 3 and 56, respectively.</p>
+<p>The p-value=0.001 is less than 0.05 (reject <span class="math inline">\(H_0\)</span> of the ANOVA test). <strong>There is at least one diet with mean weight loss which is different from the other means</strong>.</p>
+<p>&nbsp;</p>
+</section>
+<section id="run-post-hoc-tests" class="level3" data-number="6.2.6">
+<h3 data-number="6.2.6" class="anchored" data-anchor-id="run-post-hoc-tests"><span class="header-section-number">6.2.6</span> Run post-hoc tests</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Perform post-hoc tests
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <strong>significant</strong> one-way ANOVA is generally followed by post-hoc tests to perform multiple pairwise comparisons between groups. From the <em>One-Way ANOVA dialogue box</em> click on <em>Post-Hoc Tests</em> section. We have got the following two options:</p>
+<ul>
+<li><p>Games-Howell (unequal variances)</p></li>
+<li><p>Tukey (equal variances)</p></li>
+</ul>
+<p>Based on the result of Levene’s test (p = 0.583 &gt; 0.05, the <span class="math inline">\(H_0\)</span> is not rejected) (<a href="#fig-diet7" class="quarto-xref">Figure&nbsp;<span>6.11</span></a>), we should select the <strong>Tukey (equal variances)</strong> post-hoc test. Additionally, check the <strong>Flag significant comparisons</strong> as shown below (<a href="#fig-diet12" class="quarto-xref">Figure&nbsp;<span>6.16</span></a>):</p>
+<div id="fig-diet12" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-diet12-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/diet12.png" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diet12-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.16: Select the appropriate post-hoc test. For equal variances the Tukey post hoc test.
+</figcaption>
+</figure>
+</div>
+<p>Once we have selected our post-hoc test, a table will appear in the output window on our right-hand side, as shown below (<a href="#fig-diet13" class="quarto-xref">Figure&nbsp;<span>6.17</span></a>):</p>
+<div id="fig-diet13" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-diet13-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/diet13.png" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diet13-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.17: Table with the results of the Tukey post-hoc test.
+</figcaption>
+</figure>
+</div>
+<p><strong>Interpretation</strong></p>
+<p>Pairwise comparisons were carried out using the method of Tukey and the adjusted p-values were calculated. <strong>The weight loss following diet C is significantly larger compared to diet A (mean difference = 2.93 kg, p=0.005 &lt;0.05) or diet B (mean difference = 3.21 kg, p=0.002 &lt;0.05)</strong>.</p>
 </div>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -871,13 +1093,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./lab7.html" class="pagination-link" aria-label="LAB VII: Inference for numerical data (\>2 samples)">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">LAB VII: Inference for numerical data (&gt;2 samples)</span></span>
+      <a href="./lab6.html" class="pagination-link" aria-label="LAB VI: Inference for numerical data (2 samples)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">LAB VI: Inference for numerical data (2 samples)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./data.html" class="pagination-link" aria-label="Data">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./lab10.html" class="pagination-link" aria-label="LAB X: Simple linear regression">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">LAB X: Simple linear regression</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
