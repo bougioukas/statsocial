@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3&nbsp; LAB I: Introduction to Jamovi – Basic Statistics for the Social Sciences</title>
+<title>3&nbsp; LAB I: Introduction to Jamovi and data preparation – Basic Statistics for the Social Sciences</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -78,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
 
 <link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
 
-<script src="site_libs/datatables-binding-0.33/datatables.js"></script>
+<script src="site_libs/datatables-binding-0.34.0/datatables.js"></script>
 
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 
@@ -102,9 +102,9 @@ ul.task-list li input[type="checkbox"] {
 
 <script src="site_libs/dt-ext-buttons-1.13.6/js/buttons.print.min.js"></script>
 
-<link href="site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<link href="site_libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
 
-<script src="site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<script src="site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
 
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -148,7 +148,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lab1.html">Jamovi LAB</a></li><li class="breadcrumb-item"><a href="./lab1.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">LAB I: Introduction to Jamovi</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lab1.html">Jamovi LAB</a></li><li class="breadcrumb-item"><a href="./lab1.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">LAB I: Introduction to Jamovi and data preparation</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -214,7 +214,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./lab1.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">LAB I: Introduction to Jamovi</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">LAB I: Introduction to Jamovi and data preparation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -286,19 +286,24 @@ window.Quarto = {
   <li><a href="#the-dataset" id="toc-the-dataset" class="nav-link" data-scroll-target="#the-dataset"><span class="header-section-number">3.5.1</span> The dataset</a></li>
   <li><a href="#opening-the-file" id="toc-opening-the-file" class="nav-link" data-scroll-target="#opening-the-file"><span class="header-section-number">3.5.2</span> Opening the file</a></li>
   </ul></li>
-  <li><a href="#transforming-data" id="toc-transforming-data" class="nav-link" data-scroll-target="#transforming-data"><span class="header-section-number">3.6</span> Transforming data</a>
+  <li><a href="#adding-labels-to-codes" id="toc-adding-labels-to-codes" class="nav-link" data-scroll-target="#adding-labels-to-codes"><span class="header-section-number">3.6</span> Adding labels to codes</a></li>
+  <li><a href="#changing-the-measure-type" id="toc-changing-the-measure-type" class="nav-link" data-scroll-target="#changing-the-measure-type"><span class="header-section-number">3.7</span> Changing the measure type</a></li>
+  <li><a href="#filtering-rows" id="toc-filtering-rows" class="nav-link" data-scroll-target="#filtering-rows"><span class="header-section-number">3.8</span> Filtering rows</a></li>
+  <li><a href="#transforming-a-variable" id="toc-transforming-a-variable" class="nav-link" data-scroll-target="#transforming-a-variable"><span class="header-section-number">3.9</span> Transforming a variable</a>
   <ul class="collapse">
-  <li><a href="#changing-the-measure-type" id="toc-changing-the-measure-type" class="nav-link" data-scroll-target="#changing-the-measure-type"><span class="header-section-number">3.6.1</span> Changing the measure type</a></li>
+  <li><a href="#transform-a-quantitative-variable-into-a-qualitative-variable" id="toc-transform-a-quantitative-variable-into-a-qualitative-variable" class="nav-link" data-scroll-target="#transform-a-quantitative-variable-into-a-qualitative-variable"><span class="header-section-number">3.9.1</span> Transform a quantitative variable into a qualitative variable</a></li>
+  <li><a href="#reverse-scoring-of-items" id="toc-reverse-scoring-of-items" class="nav-link" data-scroll-target="#reverse-scoring-of-items"><span class="header-section-number">3.9.2</span> Reverse scoring of items</a></li>
   </ul></li>
+  <li><a href="#compute-a-new-variable" id="toc-compute-a-new-variable" class="nav-link" data-scroll-target="#compute-a-new-variable"><span class="header-section-number">3.10</span> Compute a new variable</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lab1.html">Jamovi LAB</a></li><li class="breadcrumb-item"><a href="./lab1.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">LAB I: Introduction to Jamovi</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lab1.html">Jamovi LAB</a></li><li class="breadcrumb-item"><a href="./lab1.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">LAB I: Introduction to Jamovi and data preparation</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-lab1" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">LAB I: Introduction to Jamovi</span></span></h1>
+<h1 class="title"><span id="sec-lab1" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">LAB I: Introduction to Jamovi and data preparation</span></span></h1>
 </div>
 
 
@@ -315,7 +320,6 @@ window.Quarto = {
 </header>
 
 
-<p>When we have finished this Lab, we should be able to:</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -327,10 +331,10 @@ window.Quarto = {
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Navigate Jamovi, import files and transform the data.</li>
-<li>Filter data.</li>
-<li>Compute new variables based on other variables in our data.</li>
-<li>Transform existing variables.</li>
+<li>Navigate Jamovi and import datasets.</li>
+<li>Filter rows in the data for focused analysis.</li>
+<li>Transform existing variables to prepare data for analysis.</li>
+<li>Compute new variables based on other variables in the dataset.</li>
 </ul>
 </div>
 </div>
@@ -358,10 +362,11 @@ Figure&nbsp;3.1: Jamovi is free and open statistical software
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>Point-and-click environment</li>
-<li>It provides informative tables and neat visuals</li>
-<li>Enables integration with R</li>
-<li>Gives access to a user guide and community resources from the Jamovi website</li>
+<li>User-friendly point-and-click interface.</li>
+<li>Displays informative tables and clear visuals.</li>
+<li>Supports add-on modules for advanced statistical analysis.</li>
+<li>Allows integration with R.</li>
+<li>Provides access to a user guide and community resources on the Jamovi website.</li>
 </ol>
 </div>
 </div>
@@ -404,7 +409,7 @@ Figure&nbsp;3.3: The menu bar provides access to all functions of the program.
 </div>
 </div>
 </div>
-<p>There are six tabs in the Menu (from left to right): <strong>File</strong> (a layer with three horizontal levels <span class="math inline">\(\equiv\)</span>), <strong>Variables</strong>, <strong>Data</strong>, <strong>Analyses</strong>, <strong>Edit</strong>, and <strong>Settings</strong> (the three dots <span class="math inline">\(\vdots\)</span> at the top right of the window) tabs. A toolbar appears whenever we click on a Menu tab (<a href="#tbl-menu" class="quarto-xref">Table&nbsp;<span>3.1</span></a>).</p>
+<p>There are six tabs in the Menu (from left to right): 1. File (a layer with three horizontal levels <span class="math inline">\(\equiv\)</span>), 2. Variables, 3. Data, 4. Analyses, 5. Edit, and 6. Settings (the three dots <span class="math inline">\(\vdots\)</span> at the top right of the window) tabs. A toolbar appears whenever we click on a Menu tab (<a href="#tbl-menu" class="quarto-xref">Table&nbsp;<span>3.1</span></a>).</p>
 <p>&nbsp;</p>
 <div id="tbl-menu" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -498,7 +503,7 @@ Table&nbsp;3.1: Menu and toolbars of Jamovi
 <ul>
 <li><p>How many decimal numbers we want.</p></li>
 <li><p>If we want to learn R, we can also display the R syntax.</p></li>
-<li><p>Our graph colour scheme</p></li>
+<li><p>Our graph color scheme.</p></li>
 <li><p>Our default missing value.</p></li>
 </ul></td>
 </tr>
@@ -588,8 +593,8 @@ Table&nbsp;3.2: Types of data and measures
 <div id="fig-rses" class="cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-rses-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-7fe7e2bc11ca5248a2e4" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-7fe7e2bc11ca5248a2e4">{"x":{"filter":"none","vertical":false,"extensions":["Scroller","Buttons"],"data":[[2,2,1,1,1,1,2,1,2,2,2,2,1,2,2,2,2,2,2,2,1,2,1,1,2,1,2,2,1,2,2,2,2,2,2,1,2,2,2,2,1,2,2,1,2,2,2,1,1,2,1,2,2,1,1,2,1,2,2,1,2,1,2,2,2,2,1,2,1,2,1,1,2,1,2,1,2,1,2,2,1,2,2,1,2,2,1,2,2,1,2,2,1,2,2,2,2,2,2,2,2,1,2,2,1,2,2,1,1,1,2,2,1,2,2,1,1,2,1,1,2,2,1,2,2,1,2,1,2,1,2,2,2,2,2,1,1,1,2,1,2,2,2,2,1,2,2,2,1,2,1,1,2,2,1,2,1,2,1,1,2,2,1,2,1,2,2,1,1,1,1,1,2,2,2,2,2,2,2,1,1,2,1,2,1,1,1,1,1,1,2,1,1,1,1,1,2,1,1,1,1,2,2,1,2,2,1,1,2,2,1,1,1,1,2,1,2,2,1,2,1,1,1,2,2,2,2,2,2,2,1,2,2,1,2,2,1,1,2,2,2,1,2,2,1,2,2,2,2,2,2,1,1,1,2,1,1,1],[18,19,18,17,17,18,18,17,18,14,17,20,17,18,17,17,18,18,22,14,16,14,17,18,15,18,18,17,16,20,18,20,16,20,16,18,17,19,20,17,20,18,17,20,16,14,20,18,18,18,21,17,18,14,22,16,16,19,17,17,22,21,19,21,19,16,17,16,19,21,17,18,17,18,16,16,18,17,18,17,17,18,20,20,21,18,21,20,18,16,19,19,16,20,21,17,17,21,20,19,17,18,20,20,19,20,16,18,16,19,19,18,19,15,18,18,18,21,18,16,18,18,17,20,19,20,19,16,21,16,16,15,15,17,15,19,18,15,18,16,18,17,19,19,18,17,16,15,15,20,17,22,14,16,17,19,18,19,19,19,19,20,18,15,21,18,18,18,21,18,21,17,19,18,22,16,20,15,15,20,15,15,17,16,21,15,15,17,18,18,21,18,16,21,17,18,19,17,17,18,15,18,16,19,19,14,18,17,19,19,17,17,16,16,17,16,17,15,16,17,15,15,16,16,18,18,20,20,19,17,17,18,18,19,18,18,15,18,17,19,18,17,17,22,18,19,22,22,19,16,22,15,15,18,17,15,22,14],[9,3,3,12,3,3,7,3,2,3,3,1,3,7,3,3,9,13,1,1,1,5,1,2,3,3,5,9,5,5,9,7,5,3,3,3,7,5,3,3,5,3,3,4,15,0,0,0,0,3,3,4,5,1,3,1,3,5,3,1,5,5,4,3,4,5,5,5,1,3,5,3,4,5,7,5,1,3,3,3,5,8,3,1,3,5,3,5,3,3,2,1,1,4,7,3,7,8,7,7,7,4,4,4,4,1,1,4,4,5,5,7,1,7,5,4,7,16,4,4,9,4,5,4,10,4,7,7,5,4,4,4,4,5,5,5,4,1,5,4,12,5,7,7,4,4,4,0,12,4,5,4,7,4,18,8,0,5,5,5,4,4,4,6,4,6,8,3,3,6,3,2,3,6,13,6,3,12,6,3,3,8,3,6,2,3,3,3,5,5,8,2,3,3,5,2,2,3,3,3,8,3,8,5,6,6,6,3,6,3,4,4,4,6,10,4,6,4,4,6,6,6,2,8,6,12,6,6,4,6,10,8,8,2,6,4,2,4,8,2,1,4,2,6,2,7,5,6,4,2,6,2,2,5,7,5,8,4],[3,1,2,2,2,2,1,2,2,3,3,3,2,1,1,1,2,0,1,2,1,2,0,2,1,3,3,2,2,2,1,2,1,2,2,2,1,1,2,1,1,2,0,3,1,2,2,1,2,1,3,2,2,2,2,2,3,1,1,2,2,2,1,2,2,1,1,1,2,1,1,2,1,2,2,2,2,2,2,2,2,0,2,3,1,1,1,2,1,1,1,1,3,1,2,2,1,1,2,3,1,2,3,1,3,1,1,3,1,1,1,1,1,2,2,3,1,2,3,2,2,1,1,2,1,2,2,1,1,2,1,1,1,2,1,1,2,2,2,3,2,2,1,1,2,2,2,3,1,1,3,2,2,3,1,1,2,1,3,3,2,1,2,1,1,2,1,2,2,2,2,2,2,2,2,2,2,1,2,1,2,1,2,0,3,1,2,1,3,0,2,2,2,1,2,2,1,1,2,3,2,2,1,2,2,2,2,1,1,3,2,2,2,3,1,2,1,3,2,1,2,2,2,3,2,3,1,1,1,1,0,2,1,1,2,1,2,2,1,2,2,2,2,3,2,1,3,3,2,2,2,1,1,1,2,2,2,2],[3,2,2,2,2,2,1,1,1,2,3,2,1,1,0,1,1,1,1,2,1,2,1,1,1,3,2,1,1,2,1,2,1,1,3,2,1,1,2,0,1,1,1,2,1,2,2,1,2,1,2,1,1,1,2,2,2,1,1,2,3,2,1,2,1,1,2,1,1,1,1,2,1,2,1,2,1,1,2,2,1,1,2,3,1,1,1,1,1,2,0,1,2,1,1,2,2,2,2,2,1,2,2,1,2,3,1,3,1,1,2,2,1,1,1,2,3,1,2,1,1,2,1,1,1,2,1,2,1,3,1,2,2,1,1,2,1,2,1,2,1,2,0,1,1,2,2,2,1,1,3,1,2,3,1,0,3,1,3,3,3,2,1,1,1,1,1,2,2,2,1,2,2,2,1,2,3,1,2,1,2,1,1,1,2,3,2,2,2,0,1,2,1,2,1,3,2,1,2,3,1,2,1,1,1,2,1,2,1,3,1,1,1,3,1,1,1,2,2,1,1,1,2,3,3,2,1,1,2,1,2,2,2,2,2,2,2,1,2,1,1,2,2,2,1,1,3,2,2,1,2,1,1,2,1,1,2,2],[0,1,0,0,1,1,1,1,1,1,1,1,1,2,2,3,1,2,2,1,2,2,2,1,1,0,1,1,1,1,2,1,2,2,1,1,2,2,1,2,1,1,3,1,1,1,1,1,0,2,0,1,2,2,0,1,1,1,1,1,1,0,2,1,3,1,1,2,1,2,1,1,2,1,1,1,1,1,1,1,2,3,1,0,3,1,2,1,1,1,2,2,0,2,2,2,1,1,1,1,1,1,1,2,1,1,1,1,2,1,1,1,1,1,2,0,1,2,0,1,1,2,1,1,3,1,3,1,2,1,1,0,1,1,2,1,2,1,1,0,3,1,2,2,1,1,1,0,1,2,1,1,1,1,1,2,1,2,0,0,1,1,1,1,1,2,2,2,2,1,1,0,0,0,1,0,0,3,1,1,0,1,2,2,1,0,1,1,0,3,1,1,1,1,1,1,2,1,1,0,1,1,2,0,2,1,1,1,2,0,2,1,2,0,2,2,2,1,1,1,1,1,0,2,0,0,2,1,1,2,2,1,0,1,0,1,1,2,2,3,1,1,1,0,1,3,1,0,0,1,1,2,1,1,1,1,0,1],[2,2,1,1,2,3,1,2,1,2,3,2,1,1,1,1,1,1,1,2,1,3,1,2,1,3,2,1,2,2,1,3,0,1,2,2,1,1,2,1,1,2,1,3,1,2,1,1,2,1,2,1,1,1,3,2,2,1,1,2,2,2,0,2,1,2,2,1,2,1,1,2,1,2,2,2,2,2,2,2,1,0,2,3,2,1,1,1,2,2,0,1,3,1,1,1,3,3,2,2,1,2,2,1,2,1,1,3,1,2,2,3,1,2,1,3,2,1,3,2,1,1,1,2,1,2,1,3,1,2,2,3,3,3,1,3,1,2,2,3,1,2,1,0,2,2,1,3,1,1,3,1,2,3,1,1,2,1,2,2,3,1,2,1,1,1,1,2,2,2,2,1,2,1,1,1,1,1,1,1,1,2,1,1,3,1,3,2,2,0,1,2,1,3,1,2,1,1,1,3,2,2,1,1,1,2,2,1,1,2,1,2,1,2,1,1,1,3,2,1,2,2,3,1,1,3,1,1,2,1,2,2,2,2,1,3,2,1,1,1,1,2,2,3,2,2,3,2,2,1,3,1,1,1,3,2,1,2],[0,1,2,1,2,1,1,1,1,0,1,1,2,1,2,1,1,2,1,2,1,1,3,2,1,0,1,2,2,2,3,1,2,2,1,2,1,2,1,2,1,2,3,2,1,1,1,1,2,1,1,2,1,1,1,2,1,1,1,1,1,1,2,1,3,2,1,3,1,3,1,1,1,1,1,1,2,1,2,2,1,2,1,0,3,1,1,2,1,2,3,2,1,1,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,2,2,2,1,1,1,1,1,1,1,1,2,2,1,1,2,2,3,2,1,1,1,3,2,1,1,2,1,2,0,1,3,1,2,2,2,1,1,1,2,1,0,1,1,1,1,2,1,2,0,0,1,1,1,1,1,1,1,1,2,2,1,1,1,2,2,2,1,3,2,1,2,1,2,2,0,2,2,1,0,2,2,0,2,2,2,1,2,1,2,0,1,1,1,2,2,1,1,1,2,1,2,1,2,1,2,1,2,0,1,2,1,1,0,2,2,1,1,1,2,1,2,1,1,1,2,2,1,1,2,3,1,1,2,1,2,3,1,0,1,2,1,2,1,2,2,1,2,1],[2,1,2,2,2,2,2,2,2,3,3,2,2,1,0,2,2,1,1,2,1,1,1,2,2,2,2,2,2,2,1,1,1,1,2,2,1,2,2,0,2,2,1,2,2,2,2,2,1,1,1,2,1,1,2,2,2,2,2,2,2,3,1,2,1,2,1,1,2,1,2,2,1,2,2,2,2,2,2,2,1,1,2,3,1,2,1,2,2,1,1,0,2,1,1,1,1,1,2,2,1,2,2,1,2,2,2,2,1,2,1,1,2,2,1,2,2,1,2,2,2,1,2,2,1,2,1,1,1,2,2,1,1,1,1,1,1,2,2,2,1,2,1,1,2,2,1,2,1,1,3,1,2,2,2,1,2,1,1,2,2,2,2,2,2,1,1,2,2,2,2,2,3,2,2,2,2,1,1,2,2,1,1,1,3,2,1,1,3,0,2,1,2,1,1,2,1,2,1,2,2,2,1,3,1,2,2,2,1,3,1,2,2,3,1,1,1,2,3,1,2,2,3,1,1,2,2,2,2,1,1,2,2,2,2,1,2,1,1,1,2,2,2,2,2,1,2,2,3,2,3,2,1,2,1,2,2,2],[3,0,1,1,1,1,2,2,3,3,2,2,1,1,2,0,3,0,1,1,1,2,0,2,2,1,2,1,2,1,1,2,1,1,3,1,1,1,2,2,2,2,0,1,2,2,2,2,1,1,2,1,1,1,2,1,2,2,2,2,1,2,1,2,1,1,1,1,2,1,2,2,1,2,2,2,2,2,1,1,1,0,2,2,1,2,1,1,2,1,1,1,2,1,1,1,0,0,2,2,1,2,2,1,2,1,2,3,1,1,0,0,1,2,1,2,2,1,2,2,1,1,2,2,1,1,1,0,1,1,0,0,0,2,1,0,1,1,1,2,1,2,1,1,2,2,1,2,2,1,3,0,2,2,2,1,2,1,3,3,2,1,2,2,2,1,1,2,2,1,2,2,2,1,1,1,2,1,2,2,2,1,1,0,2,1,2,1,2,1,1,2,1,0,2,2,1,2,2,1,2,3,1,1,1,2,2,1,1,2,1,2,1,2,1,1,1,3,3,1,2,2,3,0,1,2,1,1,1,1,1,2,2,3,1,0,2,1,1,1,2,2,2,2,2,1,2,2,2,2,2,1,1,2,0,2,1,2],[1,2,1,1,1,1,1,1,1,1,0,1,1,1,2,1,1,2,1,1,1,1,3,2,1,1,1,1,2,1,2,1,3,2,1,1,1,2,1,2,1,2,2,1,1,1,1,1,1,1,1,1,2,2,2,1,1,1,1,1,1,0,3,1,3,1,1,2,1,2,1,1,1,1,1,1,2,1,1,1,2,2,1,0,3,1,1,1,2,2,2,2,1,1,3,2,2,2,1,1,2,1,1,1,1,1,1,1,1,1,2,2,2,1,2,1,1,2,1,1,1,1,1,1,2,1,3,2,1,2,2,2,2,1,1,2,2,1,1,1,3,1,3,3,2,1,1,1,1,2,1,2,1,1,1,3,1,0,1,1,1,1,1,1,1,2,1,1,2,1,1,1,0,1,1,1,1,2,1,1,1,2,3,3,0,1,1,1,1,3,1,1,1,2,1,1,1,1,1,0,1,2,1,1,3,1,1,1,2,1,3,1,1,0,2,1,2,1,1,2,1,1,1,2,1,1,1,1,2,1,3,1,1,1,1,2,1,2,1,3,2,1,1,1,2,3,1,1,0,1,0,2,2,0,2,1,1,1],[1,2,1,1,1,1,1,1,1,1,0,1,2,1,2,3,1,3,1,1,1,1,3,1,1,1,2,2,1,1,2,1,2,2,1,1,1,2,1,2,1,1,2,0,1,1,1,1,1,1,1,2,2,2,2,1,1,1,1,1,2,1,2,0,2,2,1,2,1,2,1,1,1,1,1,0,1,1,1,1,2,2,1,1,2,1,1,2,1,2,2,2,1,1,2,2,2,2,1,1,1,0,1,1,1,2,1,1,1,2,1,2,3,1,2,1,1,2,1,1,2,1,1,1,2,1,2,2,1,2,2,2,2,1,1,2,2,1,1,1,2,0,2,2,1,1,1,1,1,2,0,2,0,1,1,2,1,1,0,1,1,3,1,1,1,2,1,1,1,1,1,1,1,1,2,1,1,2,1,1,1,2,2,2,0,1,1,1,1,2,2,1,2,2,1,1,1,1,1,1,1,1,1,1,2,0,1,1,2,1,2,1,1,0,2,2,2,0,0,3,1,1,1,2,1,1,1,2,1,1,2,0,0,0,1,2,0,2,1,2,1,0,0,1,1,2,1,1,1,1,1,1,2,1,2,1,1,0],[0,2,1,1,1,1,1,1,1,1,0,1,1,1,2,3,1,3,1,1,1,1,3,2,1,0,2,1,2,1,2,1,3,2,1,1,1,2,1,2,1,2,2,0,1,1,1,1,1,1,1,1,2,2,2,1,0,1,1,1,2,0,3,1,2,1,1,2,1,2,1,1,1,1,1,1,2,1,1,1,2,2,1,1,2,1,1,1,2,2,2,2,1,1,2,2,2,2,1,0,1,1,0,1,0,1,1,0,1,1,2,2,2,1,2,1,1,2,1,1,1,1,1,1,2,1,2,2,1,1,2,2,2,1,1,2,2,1,1,1,2,1,3,3,2,1,1,1,1,2,1,2,1,1,1,3,0,1,0,0,1,1,1,1,1,2,1,1,2,1,1,1,0,1,1,1,0,2,1,1,1,2,2,3,0,1,1,1,1,3,1,1,1,2,1,0,1,1,1,1,1,1,1,1,2,1,1,1,2,1,2,1,1,0,2,1,2,1,1,2,1,1,0,2,1,0,1,1,1,1,2,1,1,1,1,2,1,2,1,2,1,1,1,1,2,2,1,1,0,1,1,2,2,1,2,1,1,1]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>sex<\/th>\n      <th>age<\/th>\n      <th>time_spent<\/th>\n      <th>q1<\/th>\n      <th>q2<\/th>\n      <th>q3<\/th>\n      <th>q4<\/th>\n      <th>q5<\/th>\n      <th>q6<\/th>\n      <th>q7<\/th>\n      <th>q8<\/th>\n      <th>q9<\/th>\n      <th>q10<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"deferRender":false,"dom":"Bt","columnDefs":[{"className":"dt-center","targets":[1,2,3,4,5,6]},{"className":"dt-right","targets":[0,7,8,9,10,11,12]},{"name":"sex","targets":0},{"name":"age","targets":1},{"name":"time_spent","targets":2},{"name":"q1","targets":3},{"name":"q2","targets":4},{"name":"q3","targets":5},{"name":"q4","targets":6},{"name":"q5","targets":7},{"name":"q6","targets":8},{"name":"q7","targets":9},{"name":"q8","targets":10},{"name":"q9","targets":11},{"name":"q10","targets":12}],"scrollY":452,"scroller":true,"scrollX":true,"pageLength":10,"buttons":["csv"],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-2898edfede93e2434389" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-2898edfede93e2434389">{"x":{"filter":"none","vertical":false,"extensions":["Scroller","Buttons"],"data":[[2,2,1,1,1,1,2,1,2,2,2,2,1,2,2,2,2,2,2,2,1,2,1,1,2,1,2,2,1,2,2,2,2,2,2,1,2,2,2,2,1,2,2,1,2,2,2,1,1,2,1,2,2,1,1,2,1,2,2,1,2,1,2,2,2,2,1,2,1,2,1,1,2,1,2,1,2,1,2,2,1,2,2,1,2,2,1,2,2,1,2,2,1,2,2,2,2,2,2,2,2,1,2,2,1,2,2,1,1,1,2,2,1,2,2,1,1,2,1,1,2,2,1,2,2,1,2,1,2,1,2,2,2,2,2,1,1,1,2,1,2,2,2,2,1,2,2,2,1,2,1,1,2,2,1,2,1,2,1,1,2,2,1,2,1,2,2,1,1,1,1,1,2,2,2,2,2,2,2,1,1,2,1,2,1,1,1,1,1,1,2,1,1,1,1,1,2,1,1,1,1,2,2,1,2,2,1,1,2,2,1,1,1,1,2,1,2,2,1,2,1,1,1,2,2,2,2,2,2,2,1,2,2,1,2,2,1,1,2,2,2,1,2,2,1,2,2,2,2,2,2,1,1,1,2,1,1,1],[18,19,18,17,17,18,18,17,18,14,17,20,17,18,17,17,18,18,22,14,16,14,17,18,15,18,18,17,16,20,18,20,16,20,16,18,17,19,20,17,20,18,17,20,16,14,20,18,18,18,21,17,18,14,22,16,16,19,17,17,22,21,19,21,19,16,17,16,19,21,17,18,17,18,16,16,18,17,18,17,17,18,20,20,21,18,21,20,18,16,19,19,16,20,21,17,17,21,20,19,17,18,20,20,19,20,16,18,16,19,19,18,19,15,18,18,18,21,18,16,18,18,17,20,19,20,19,16,21,16,16,15,15,17,15,19,18,15,18,16,18,17,19,19,18,17,16,15,15,20,17,22,14,16,17,19,18,19,19,19,19,20,18,15,21,18,18,18,21,18,21,17,19,18,22,16,20,15,15,20,15,15,17,16,21,15,15,17,18,18,21,18,16,21,17,18,19,17,17,18,15,18,16,19,19,14,18,17,19,19,17,17,16,16,17,16,17,15,16,17,15,15,16,16,18,18,20,20,19,17,17,18,18,19,18,18,15,18,17,19,18,17,17,22,18,19,22,22,19,16,22,15,15,18,17,15,22,14],[9,3,3,12,3,3,7,3,2,3,3,1,3,7,3,3,9,13,1,1,1,5,1,2,3,3,5,9,5,5,9,7,5,3,3,3,7,5,3,3,5,3,3,4,15,0,0,0,0,3,3,4,5,1,3,1,3,5,3,1,5,5,4,3,4,5,5,5,1,3,5,3,4,5,7,5,1,3,3,3,5,8,3,1,3,5,3,5,3,3,2,1,1,4,7,3,7,8,7,7,7,4,4,4,4,1,1,4,4,5,5,7,1,7,5,4,7,16,4,4,9,4,5,4,10,4,7,7,5,4,4,4,4,5,5,5,4,1,5,4,12,5,7,7,4,4,4,0,12,4,5,4,7,4,18,8,0,5,5,5,4,4,4,6,4,6,8,3,3,6,3,2,3,6,13,6,3,12,6,3,3,8,3,6,2,3,3,3,5,5,8,2,3,3,5,2,2,3,3,3,8,3,8,5,6,6,6,3,6,3,4,4,4,6,10,4,6,4,4,6,6,6,2,8,6,12,6,6,4,6,10,8,8,2,6,4,2,4,8,2,1,4,2,6,2,7,5,6,4,2,6,2,2,5,7,5,8,4],[3,1,2,2,2,2,1,2,2,3,3,3,2,1,1,1,2,0,1,2,1,2,0,2,1,3,3,2,2,2,1,2,1,2,2,2,1,1,2,1,1,2,0,3,1,2,2,1,2,1,3,2,2,2,2,2,3,1,1,2,2,2,1,2,2,1,1,1,2,1,1,2,1,2,2,2,2,2,2,2,2,0,2,3,1,1,1,2,1,1,1,1,3,1,2,2,1,1,2,3,1,2,3,1,3,1,1,3,1,1,1,1,1,2,2,3,1,2,3,2,2,1,1,2,1,2,2,1,1,2,1,1,1,2,1,1,2,2,2,3,2,2,1,1,2,2,2,3,1,1,3,2,2,3,1,1,2,1,3,3,2,1,2,1,1,2,1,2,2,2,2,2,2,2,2,2,2,1,2,1,2,1,2,0,3,1,2,1,3,0,2,2,2,1,2,2,1,1,2,3,2,2,1,2,2,2,2,1,1,3,2,2,2,3,1,2,1,3,2,1,2,2,2,3,2,3,1,1,1,1,0,2,1,1,2,1,2,2,1,2,2,2,2,3,2,1,3,3,2,2,2,1,1,1,2,2,2,2],[3,2,2,2,2,2,1,1,1,2,3,2,1,1,0,1,1,1,1,2,1,2,1,1,1,3,2,1,1,2,1,2,1,1,3,2,1,1,2,0,1,1,1,2,1,2,2,1,2,1,2,1,1,1,2,2,2,1,1,2,3,2,1,2,1,1,2,1,1,1,1,2,1,2,1,2,1,1,2,2,1,1,2,3,1,1,1,1,1,2,0,1,2,1,1,2,2,2,2,2,1,2,2,1,2,3,1,3,1,1,2,2,1,1,1,2,3,1,2,1,1,2,1,1,1,2,1,2,1,3,1,2,2,1,1,2,1,2,1,2,1,2,0,1,1,2,2,2,1,1,3,1,2,3,1,0,3,1,3,3,3,2,1,1,1,1,1,2,2,2,1,2,2,2,1,2,3,1,2,1,2,1,1,1,2,3,2,2,2,0,1,2,1,2,1,3,2,1,2,3,1,2,1,1,1,2,1,2,1,3,1,1,1,3,1,1,1,2,2,1,1,1,2,3,3,2,1,1,2,1,2,2,2,2,2,2,2,1,2,1,1,2,2,2,1,1,3,2,2,1,2,1,1,2,1,1,2,2],[0,1,0,0,1,1,1,1,1,1,1,1,1,2,2,3,1,2,2,1,2,2,2,1,1,0,1,1,1,1,2,1,2,2,1,1,2,2,1,2,1,1,3,1,1,1,1,1,0,2,0,1,2,2,0,1,1,1,1,1,1,0,2,1,3,1,1,2,1,2,1,1,2,1,1,1,1,1,1,1,2,3,1,0,3,1,2,1,1,1,2,2,0,2,2,2,1,1,1,1,1,1,1,2,1,1,1,1,2,1,1,1,1,1,2,0,1,2,0,1,1,2,1,1,3,1,3,1,2,1,1,0,1,1,2,1,2,1,1,0,3,1,2,2,1,1,1,0,1,2,1,1,1,1,1,2,1,2,0,0,1,1,1,1,1,2,2,2,2,1,1,0,0,0,1,0,0,3,1,1,0,1,2,2,1,0,1,1,0,3,1,1,1,1,1,1,2,1,1,0,1,1,2,0,2,1,1,1,2,0,2,1,2,0,2,2,2,1,1,1,1,1,0,2,0,0,2,1,1,2,2,1,0,1,0,1,1,2,2,3,1,1,1,0,1,3,1,0,0,1,1,2,1,1,1,1,0,1],[2,2,1,1,2,3,1,2,1,2,3,2,1,1,1,1,1,1,1,2,1,3,1,2,1,3,2,1,2,2,1,3,0,1,2,2,1,1,2,1,1,2,1,3,1,2,1,1,2,1,2,1,1,1,3,2,2,1,1,2,2,2,0,2,1,2,2,1,2,1,1,2,1,2,2,2,2,2,2,2,1,0,2,3,2,1,1,1,2,2,0,1,3,1,1,1,3,3,2,2,1,2,2,1,2,1,1,3,1,2,2,3,1,2,1,3,2,1,3,2,1,1,1,2,1,2,1,3,1,2,2,3,3,3,1,3,1,2,2,3,1,2,1,0,2,2,1,3,1,1,3,1,2,3,1,1,2,1,2,2,3,1,2,1,1,1,1,2,2,2,2,1,2,1,1,1,1,1,1,1,1,2,1,1,3,1,3,2,2,0,1,2,1,3,1,2,1,1,1,3,2,2,1,1,1,2,2,1,1,2,1,2,1,2,1,1,1,3,2,1,2,2,3,1,1,3,1,1,2,1,2,2,2,2,1,3,2,1,1,1,1,2,2,3,2,2,3,2,2,1,3,1,1,1,3,2,1,2],[0,1,2,1,2,1,1,1,1,0,1,1,2,1,2,1,1,2,1,2,1,1,3,2,1,0,1,2,2,2,3,1,2,2,1,2,1,2,1,2,1,2,3,2,1,1,1,1,2,1,1,2,1,1,1,2,1,1,1,1,1,1,2,1,3,2,1,3,1,3,1,1,1,1,1,1,2,1,2,2,1,2,1,0,3,1,1,2,1,2,3,2,1,1,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,2,2,2,1,1,1,1,1,1,1,1,2,2,1,1,2,2,3,2,1,1,1,3,2,1,1,2,1,2,0,1,3,1,2,2,2,1,1,1,2,1,0,1,1,1,1,2,1,2,0,0,1,1,1,1,1,1,1,1,2,2,1,1,1,2,2,2,1,3,2,1,2,1,2,2,0,2,2,1,0,2,2,0,2,2,2,1,2,1,2,0,1,1,1,2,2,1,1,1,2,1,2,1,2,1,2,1,2,0,1,2,1,1,0,2,2,1,1,1,2,1,2,1,1,1,2,2,1,1,2,3,1,1,2,1,2,3,1,0,1,2,1,2,1,2,2,1,2,1],[2,1,2,2,2,2,2,2,2,3,3,2,2,1,0,2,2,1,1,2,1,1,1,2,2,2,2,2,2,2,1,1,1,1,2,2,1,2,2,0,2,2,1,2,2,2,2,2,1,1,1,2,1,1,2,2,2,2,2,2,2,3,1,2,1,2,1,1,2,1,2,2,1,2,2,2,2,2,2,2,1,1,2,3,1,2,1,2,2,1,1,0,2,1,1,1,1,1,2,2,1,2,2,1,2,2,2,2,1,2,1,1,2,2,1,2,2,1,2,2,2,1,2,2,1,2,1,1,1,2,2,1,1,1,1,1,1,2,2,2,1,2,1,1,2,2,1,2,1,1,3,1,2,2,2,1,2,1,1,2,2,2,2,2,2,1,1,2,2,2,2,2,3,2,2,2,2,1,1,2,2,1,1,1,3,2,1,1,3,0,2,1,2,1,1,2,1,2,1,2,2,2,1,3,1,2,2,2,1,3,1,2,2,3,1,1,1,2,3,1,2,2,3,1,1,2,2,2,2,1,1,2,2,2,2,1,2,1,1,1,2,2,2,2,2,1,2,2,3,2,3,2,1,2,1,2,2,2],[3,0,1,1,1,1,2,2,3,3,2,2,1,1,2,0,3,0,1,1,1,2,0,2,2,1,2,1,2,1,1,2,1,1,3,1,1,1,2,2,2,2,0,1,2,2,2,2,1,1,2,1,1,1,2,1,2,2,2,2,1,2,1,2,1,1,1,1,2,1,2,2,1,2,2,2,2,2,1,1,1,0,2,2,1,2,1,1,2,1,1,1,2,1,1,1,0,0,2,2,1,2,2,1,2,1,2,3,1,1,0,0,1,2,1,2,2,1,2,2,1,1,2,2,1,1,1,0,1,1,0,0,0,2,1,0,1,1,1,2,1,2,1,1,2,2,1,2,2,1,3,0,2,2,2,1,2,1,3,3,2,1,2,2,2,1,1,2,2,1,2,2,2,1,1,1,2,1,2,2,2,1,1,0,2,1,2,1,2,1,1,2,1,0,2,2,1,2,2,1,2,3,1,1,1,2,2,1,1,2,1,2,1,2,1,1,1,3,3,1,2,2,3,0,1,2,1,1,1,1,1,2,2,3,1,0,2,1,1,1,2,2,2,2,2,1,2,2,2,2,2,1,1,2,0,2,1,2],[1,2,1,1,1,1,1,1,1,1,0,1,1,1,2,1,1,2,1,1,1,1,3,2,1,1,1,1,2,1,2,1,3,2,1,1,1,2,1,2,1,2,2,1,1,1,1,1,1,1,1,1,2,2,2,1,1,1,1,1,1,0,3,1,3,1,1,2,1,2,1,1,1,1,1,1,2,1,1,1,2,2,1,0,3,1,1,1,2,2,2,2,1,1,3,2,2,2,1,1,2,1,1,1,1,1,1,1,1,1,2,2,2,1,2,1,1,2,1,1,1,1,1,1,2,1,3,2,1,2,2,2,2,1,1,2,2,1,1,1,3,1,3,3,2,1,1,1,1,2,1,2,1,1,1,3,1,0,1,1,1,1,1,1,1,2,1,1,2,1,1,1,0,1,1,1,1,2,1,1,1,2,3,3,0,1,1,1,1,3,1,1,1,2,1,1,1,1,1,0,1,2,1,1,3,1,1,1,2,1,3,1,1,0,2,1,2,1,1,2,1,1,1,2,1,1,1,1,2,1,3,1,1,1,1,2,1,2,1,3,2,1,1,1,2,3,1,1,0,1,0,2,2,0,2,1,1,1],[1,2,1,1,1,1,1,1,1,1,0,1,2,1,2,3,1,3,1,1,1,1,3,1,1,1,2,2,1,1,2,1,2,2,1,1,1,2,1,2,1,1,2,0,1,1,1,1,1,1,1,2,2,2,2,1,1,1,1,1,2,1,2,0,2,2,1,2,1,2,1,1,1,1,1,0,1,1,1,1,2,2,1,1,2,1,1,2,1,2,2,2,1,1,2,2,2,2,1,1,1,0,1,1,1,2,1,1,1,2,1,2,3,1,2,1,1,2,1,1,2,1,1,1,2,1,2,2,1,2,2,2,2,1,1,2,2,1,1,1,2,0,2,2,1,1,1,1,1,2,0,2,0,1,1,2,1,1,0,1,1,3,1,1,1,2,1,1,1,1,1,1,1,1,2,1,1,2,1,1,1,2,2,2,0,1,1,1,1,2,2,1,2,2,1,1,1,1,1,1,1,1,1,1,2,0,1,1,2,1,2,1,1,0,2,2,2,0,0,3,1,1,1,2,1,1,1,2,1,1,2,0,0,0,1,2,0,2,1,2,1,0,0,1,1,2,1,1,1,1,1,1,2,1,2,1,1,0],[0,2,1,1,1,1,1,1,1,1,0,1,1,1,2,3,1,3,1,1,1,1,3,2,1,0,2,1,2,1,2,1,3,2,1,1,1,2,1,2,1,2,2,0,1,1,1,1,1,1,1,1,2,2,2,1,0,1,1,1,2,0,3,1,2,1,1,2,1,2,1,1,1,1,1,1,2,1,1,1,2,2,1,1,2,1,1,1,2,2,2,2,1,1,2,2,2,2,1,0,1,1,0,1,0,1,1,0,1,1,2,2,2,1,2,1,1,2,1,1,1,1,1,1,2,1,2,2,1,1,2,2,2,1,1,2,2,1,1,1,2,1,3,3,2,1,1,1,1,2,1,2,1,1,1,3,0,1,0,0,1,1,1,1,1,2,1,1,2,1,1,1,0,1,1,1,0,2,1,1,1,2,2,3,0,1,1,1,1,3,1,1,1,2,1,0,1,1,1,1,1,1,1,1,2,1,1,1,2,1,2,1,1,0,2,1,2,1,1,2,1,1,0,2,1,0,1,1,1,1,2,1,1,1,1,2,1,2,1,2,1,1,1,1,2,2,1,1,0,1,1,2,2,1,2,1,1,1]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>sex<\/th>\n      <th>age<\/th>\n      <th>time_spent<\/th>\n      <th>q1<\/th>\n      <th>q2<\/th>\n      <th>q3<\/th>\n      <th>q4<\/th>\n      <th>q5<\/th>\n      <th>q6<\/th>\n      <th>q7<\/th>\n      <th>q8<\/th>\n      <th>q9<\/th>\n      <th>q10<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"deferRender":false,"dom":"Bt","scrollY":452,"scroller":true,"scrollX":true,"pageLength":10,"buttons":[{"extend":"csv","filename":"rses"}],"columnDefs":[{"className":"dt-right","targets":[0,1,2,3,4,5,6,7,8,9,10,11,12]},{"name":"sex","targets":0},{"name":"age","targets":1},{"name":"time_spent","targets":2},{"name":"q1","targets":3},{"name":"q2","targets":4},{"name":"q3","targets":5},{"name":"q4","targets":6},{"name":"q5","targets":7},{"name":"q6","targets":8},{"name":"q7","targets":9},{"name":"q8","targets":10},{"name":"q9","targets":11},{"name":"q10","targets":12}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rses-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3.4: Table with raw data.
@@ -597,28 +602,46 @@ Figure&nbsp;3.4: Table with raw data.
 </figure>
 </div>
 </div>
+<p>(<strong>NOTE:</strong> You can find other formats of the data (OMV, Excel) at the link: <a href="https://osf.io/gvctz/" class="uri">https://osf.io/gvctz/</a>).</p>
+<p>&nbsp; &nbsp;</p>
 <p>The meta-data (data about the data) for this dataset are as following:</p>
 <ol type="1">
-<li><strong>sex:</strong> sex (1 = male, 2 = female)</li>
-<li><strong>age:</strong> age in years</li>
-<li><strong>time_spend:</strong> hours spent on social media</li>
-<li><span class="math inline">\(q_1 ... q_{10}\)</span>: Ten questions (items) of Rosenberg Self-Esteem Scale (RSES). The 10 items are answered on a four point scale ranging from strongly disagree to strongly agree.(0 = Strongly Disagree, 1 = Disagree, 2 = Agree, 3 = Strongly Agree)</li>
+<li><strong>sex:</strong> sex (1 = male, 2 = female).</li>
+<li><strong>age:</strong> age in years.</li>
+<li><strong>time_spend:</strong> hours spent on social media.</li>
+<li><span class="math inline">\(q_1 ... q_{10}\)</span>: Ten questions (items) of Rosenberg Self-Esteem Scale (RSES). The 10 items are answered on a four point scale ranging from strongly agree to strongly disagree coded as follows: Strongly Agree = 3, Agree = 2, Disagree = 1, and Strongly Disagree = 0.</li>
 </ol>
+<ul>
+<li><p>Positively worded Items 1, 2, 4, 6, and 7.</p></li>
+<li><p>Negatively worded Items 3, 5, 8, 9, and 10 (codes should be reversed).</p></li>
+</ul>
+<div id="fig-rsescode" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-rsescode-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/rsescode.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rsescode-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.5: Codes should be reversed for the negatively worded Items.
+</figcaption>
+</figure>
+</div>
+<p>The scale ranges from 0-30 (we add the scores for all items), with 30 indicating the highest total score possible.</p>
+<p>More information for the RSES: <a href="https://socy.umd.edu/about-us/using-rosenberg-self-esteem-scale">Rosenberg Self-Esteem Scale</a>.</p>
 </section>
 <section id="opening-the-file" class="level3" data-number="3.5.2">
 <h3 data-number="3.5.2" class="anchored" data-anchor-id="opening-the-file"><span class="header-section-number">3.5.2</span> Opening the file</h3>
-<p>To open this <code>csv</code> file, click on the <strong>File</strong> tab <img src="images/hbars.png" width="28" height="17"> at the top left hand corner (just left of the <strong>Variables</strong> tab) (<a href="#fig-tab_analysis_file" class="quarto-xref">Figure&nbsp;<span>3.5</span></a>).</p>
+<p>To open this <code>csv</code> file, click on the <strong>File</strong> tab <img src="images/hbars.png" width="28" height="17"> at the top left hand corner (just left of the <strong>Variables</strong> tab) (<a href="#fig-tab_analysis_file" class="quarto-xref">Figure&nbsp;<span>3.6</span></a>).</p>
 <div id="fig-tab_analysis_file" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-tab_analysis_file-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/tab_analysis_file.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tab_analysis_file-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.5: Click on the File tab
+Figure&nbsp;3.6: Click on the File tab
 </figcaption>
 </figure>
 </div>
-<p>This will open the menu shown in <a href="#fig-open_file" class="quarto-xref">Figure&nbsp;<span>3.6</span></a>. Select ‘<strong>Open</strong>’ and then ‘<strong>This PC</strong>’. Choose the downloaded file from the files listed on ‘<strong>Browse</strong>’ which are stored on our computer folders:</p>
+<p>This will open the menu shown in <a href="#fig-open_file" class="quarto-xref">Figure&nbsp;<span>3.7</span></a>. Select ‘<strong>Open</strong>’ and then ‘<strong>This PC</strong>’. Choose the downloaded file from the files listed on ‘<strong>Browse</strong>’ which are stored on our computer folders:</p>
 <div class="cell" data-layout-align="left">
 <div class="cell-output-display">
 <div id="fig-open_file" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left">
@@ -627,7 +650,7 @@ Figure&nbsp;3.5: Click on the File tab
 <img src="images/open_file.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:95.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-open_file-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.6: Open an existing file stored on our computer into Jamovi.
+Figure&nbsp;3.7: Open an existing file stored on our computer into Jamovi.
 </figcaption>
 </figure>
 </div>
@@ -649,7 +672,7 @@ Figure&nbsp;3.6: Open an existing file stored on our computer into Jamovi.
 </div>
 </div>
 <p>&nbsp;</p>
-<p>We should see data now in the Spreadsheet view (<a href="#fig-dataset" class="quarto-xref">Figure&nbsp;<span>3.7</span></a>).</p>
+<p>We should see data now in the Spreadsheet view (<a href="#fig-dataset" class="quarto-xref">Figure&nbsp;<span>3.8</span></a>).</p>
 <div class="cell" data-layout-align="left">
 <div class="cell-output-display">
 <div id="fig-dataset" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left">
@@ -658,7 +681,7 @@ Figure&nbsp;3.6: Open an existing file stored on our computer into Jamovi.
 <img src="images/dataset.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:95.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dataset-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.7: Our dataset.
+Figure&nbsp;3.8: Our dataset.
 </figcaption>
 </figure>
 </div>
@@ -667,36 +690,416 @@ Figure&nbsp;3.7: Our dataset.
 <p>As we can see this is a data set with 258 observations and 13 variables. JAMOVI has classified all the variables as nominal <img src="images/nominal.png" width="24" height="22">; however, only the <code>sex</code> variable is actually nominal.</p>
 </section>
 </section>
-<section id="transforming-data" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="transforming-data"><span class="header-section-number">3.6</span> Transforming data</h2>
-<section id="changing-the-measure-type" class="level3" data-number="3.6.1">
-<h3 data-number="3.6.1" class="anchored" data-anchor-id="changing-the-measure-type"><span class="header-section-number">3.6.1</span> Changing the measure type</h3>
-<p>First, we will change the measure type from nominal to continuous for all variables except <code>sex</code>. For example, double-click on the variable name <code>age</code>. This will open an additional menu at the top of the JAMOVI screen, as shown in <a href="#fig-type_age" class="quarto-xref">Figure&nbsp;<span>3.8</span></a>:</p>
+<section id="adding-labels-to-codes" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="adding-labels-to-codes"><span class="header-section-number">3.6</span> Adding labels to codes</h2>
+<ul>
+<li><strong>sex variable</strong></li>
+</ul>
+<p>The first variable, named <code>sex</code>, is a categorical variable coded as 1 for males and 2 for females. Notice that it is correctly identified as a nominal <img src="images/nominal.png" width="24" height="22"> variable in Jamovi.</p>
+<p>We can assign labels to numerically coded values of categorical variables, such as <code>sex</code>, by accessing the data variable settings. One way to achieve this is by double-clicking on the variable name <code>sex</code>, which opens the additional menu of variable settings at the top of the Jamovi screen (<a href="#fig-labels0" class="quarto-xref">Figure&nbsp;<span>3.9</span></a>).</p>
+<div id="fig-labels0" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-labels0-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/labels0.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-labels0-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.9: An additional menu appears at the top of the Jamovi screen after double-clicking on the variable name sex.
+</figcaption>
+</figure>
+</div>
+<p>&nbsp;</p>
+<p>In this menu, we will find the <em>Levels</em> setup. Here, we can specify the labels that should appear for each category level. Click on the number “1” in the <em>Levels</em> box to edit its label, changing it from “1” to “male”. Similarly, click on the number “2” and change it to “female” (<a href="#fig-labels" class="quarto-xref">Figure&nbsp;<span>3.10</span></a>).</p>
+<div id="fig-labels" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-labels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/labels.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-labels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.10: Adding labels to numerically coded Values.
+</figcaption>
+</figure>
+</div>
+<p>Notice how the numbers “1” and “2” have moved to the lower right under the text we’re typing, allowing us to still see which label corresponds to each numerical code. Press <code>Enter</code> or click anywhere outside the labels box to save these labels.</p>
+<p>We close the variable settings by pressing the arrow in the top-right corner <img src="images/up_arrow.png" width="25" height="25">.</p>
+</section>
+<section id="changing-the-measure-type" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="changing-the-measure-type"><span class="header-section-number">3.7</span> Changing the measure type</h2>
+<p>Next, we will change the measure type of <code>age</code> and <code>time_spent</code> variables from nominal to continuous.</p>
+<ul>
+<li><strong>age variable</strong></li>
+</ul>
+<p>Double-click on the variable name <code>age</code> to open the data variable settings, as shown in <a href="#fig-type_age" class="quarto-xref">Figure&nbsp;<span>3.11</span></a>:</p>
 <div id="fig-type_age" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-type_age-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/type_age.png" class="img-fluid figure-img" style="width:90.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-type_age-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.8: Extra menu for data variables.
+Figure&nbsp;3.11: Data variable menu settings for the age variable.
 </figcaption>
 </figure>
 </div>
-<p>From the drop-down list of “Measure type” we select the continuous type <img src="images/continuous.png" width="23" height="21">, as shown in <a href="#fig-type_age2" class="quarto-xref">Figure&nbsp;<span>3.9</span></a>.</p>
+<p>&nbsp;</p>
+<p>From the drop-down list of “Measure type” we select the continuous type <img src="images/continuous.png" width="23" height="21">, as shown in <a href="#fig-type_age2" class="quarto-xref">Figure&nbsp;<span>3.12</span></a>.</p>
 <div id="fig-type_age2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-type_age2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/type_age2.png" class="img-fluid figure-img" style="width:80.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-type_age2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.9: Extra menu for data variables.
+Figure&nbsp;3.12: Change the measure type of age from nominal to continuous. .
 </figcaption>
 </figure>
 </div>
-<p>The categorical variable <code>sex</code> is coded as 1 for males and 2 for females, and it is stored as nominal <img src="images/nominal.png" width="24" height="22">.</p>
-
-
+<p>&nbsp;</p>
+<ul>
+<li><strong>time_spent variable</strong></li>
+</ul>
+<p>Instead of closing the data variable menu using the arrow in the top-right corner, we can click on the <img src="images/greater.png" width="25" height="25"> to proceed to the next variable setting, <code>time_spent</code>. As before, we select the continuous type for this variable from the “Measure type” drop-down list, as shown in <a href="#fig-time" class="quarto-xref">Figure&nbsp;<span>3.13</span></a>.</p>
+<div id="fig-time" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-time-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/time.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-time-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.13: Change the measure type of time_spent from nominal to continuous.
+</figcaption>
+</figure>
+</div>
+<p>We close the variable settings by pressing the arrow in the top-right corner <img src="images/up_arrow.png" width="25" height="25">.</p>
+<p>&nbsp;</p>
+<ul>
+<li><strong>q1 to q10 variables</strong></li>
+</ul>
+<p>Finally, we will change the measure type of <code>q1</code> to <code>q10</code> variables from nominal to ordinal. In the Variables tab, we select the checkboxes for the <code>q1</code> through <code>q10</code> variables, as shown in <a href="#fig-q1_10" class="quarto-xref">Figure&nbsp;<span>3.14</span></a>.</p>
+<div id="fig-q1_10" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-q1_10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/q1_10.png" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-q1_10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.14: Change the measure type of time_spent from nominal to continuous.
+</figcaption>
+</figure>
+</div>
+<p>&nbsp;</p>
+<p>After that, we click on the Edit button <img src="images/edit.png" width="36" height="40"> to open the data variable settings, as shown in <a href="#fig-multiple_q1_10" class="quarto-xref">Figure&nbsp;<span>3.15</span></a>.</p>
+<div id="fig-multiple_q1_10" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-multiple_q1_10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/multiple_q1_10.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-multiple_q1_10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.15: Change the measure type of time_spent from nominal to continuous.
+</figcaption>
+</figure>
+</div>
+<p>&nbsp;</p>
+<p>From the drop-down list of “Measure type” we select the ordinal type <img src="images/ordinal.png" width="23" height="21">, as shown in <a href="#fig-ordinal_multipleq1_10" class="quarto-xref">Figure&nbsp;<span>3.16</span></a>.</p>
+<div id="fig-ordinal_multipleq1_10" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ordinal_multipleq1_10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/ordinal_multipleq1_10.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ordinal_multipleq1_10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.16: Change the measure type of q1 to q10 from nominal to ordinal.
+</figcaption>
+</figure>
+</div>
+<p>&nbsp;</p>
 </section>
+<section id="filtering-rows" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="filtering-rows"><span class="header-section-number">3.8</span> Filtering rows</h2>
+<p>Next, we select the <strong>Filters button</strong> <img src="images/filters.png" width="30" height="28"> from the <strong>Data</strong> tab. This opens the “Row FILTERS” view at the top of the Jamovi screen where we can add a filter called “<strong>Filter 1</strong>” (<a href="#fig-filter1_age" class="quarto-xref">Figure&nbsp;<span>3.17</span></a>). Let’s say that we want to study only the adults from the participants in this survey.</p>
+<ul>
+<li><strong>Simple condition</strong></li>
+</ul>
+<p>In order to access functions, press the <img src="images/fx.png" width="30" height="28"> icon in the filter settings and from “<strong>VARIABLES</strong>” double-click on <code>age</code> (or we just type the variable name but if the variable has a space, we must use ticks <code>''</code> around the variable name). Then type the condition <code>age &gt;= 18</code> in the formula box and press <strong>ENTER</strong> from the keyboard (<a href="#fig-filter1_age" class="quarto-xref">Figure&nbsp;<span>3.17</span></a>).</p>
+<div id="fig-filter1_age" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-filter1_age-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/filter1_age.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-filter1_age-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.17: Adding a filter.
+</figcaption>
+</figure>
+</div>
+<p>&nbsp;</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Relational (or comparison) operators in Jamovi
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><strong>symbol</strong></th>
+<th style="text-align: left;"><strong>read as</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>&lt;</td>
+<td style="text-align: left;">less than</td>
+</tr>
+<tr class="even">
+<td>&gt;</td>
+<td style="text-align: left;">greater than</td>
+</tr>
+<tr class="odd">
+<td>==</td>
+<td style="text-align: left;">equal to</td>
+</tr>
+<tr class="even">
+<td>&lt;=</td>
+<td style="text-align: left;">less than or equal to</td>
+</tr>
+<tr class="odd">
+<td>&gt;=</td>
+<td style="text-align: left;">greater than or equal to</td>
+</tr>
+<tr class="even">
+<td>!=</td>
+<td style="text-align: left;">not equal to</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>Notice that a column named <code>Filter 1</code> has been added to the Spreadsheet view. Cells that meet the condition <code>age &gt;= 18</code> are checked with a green tick <img src="images/tick.png" width="24" height="21">, while the rest have a red x symbol <img src="images/x.png" width="24" height="21">. Lines with an <code>X</code> are grayed out indicating that these observations are now outside of the current dataset.</p>
+<p>There is also a switch where we can activate <img src="images/active.png" width="27" height="20"> or inactivate <img src="images/inactive.png" width="27" height="20"> the filter (note that an inactivate filter will remain visible and can be toggled to active at any time).</p>
+<p>It is also possible to hide all filter columns by clicking on the eye symbol <img src="images/eye.png" width="26" height="23"> of the filters. In this case, all filters and the filtered data will remain active but will be invisible.</p>
+<p>Finally, if we want to delete the filter permanently, we can click on the <img src="images/x_del.png" width="27" height="20"> of the filter .</p>
+<p>&nbsp;</p>
+<ul>
+<li><strong>Multiple conditions</strong></li>
+</ul>
+<p>But we can do more complicated filters than this! Let’s say that we’re interested in the <strong>adult females</strong>. In fact we can specify this in three ways:</p>
+<p><strong>a)</strong> by using the <code>and</code> operator in “<strong>Filter 1</strong>” which means that both conditions (adults and females) in the expression must be true at the same time. Therefore, we type the expression <code>age &gt;= 18 and sex == 'female'</code> (<a href="#fig-filter1_age_and_sex" class="quarto-xref">Figure&nbsp;<span>3.18</span></a>):</p>
+<div id="fig-filter1_age_and_sex" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-filter1_age_and_sex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/filter1_age_and_sex.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-filter1_age_and_sex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.18: Combining conditions with “and” operator in one expression.
+</figcaption>
+</figure>
+</div>
+<p>Note that in the above expression we can also use double quotes around the <code>"female"</code> (i.e., <code>age &gt;= 18 and sex == "female"</code>) or even the coded value (i.e., <code>age &gt;= 18 and sex == 2</code>).</p>
+<p><strong>b)</strong> by adding the second condition (i.e.&nbsp;<code>sex == "female"</code>) as <strong>another expression</strong> to “<strong>Filter 1</strong>” (by clicking the small <code>+</code> beside the first expression) (<a href="#fig-filter1_age_sex" class="quarto-xref">Figure&nbsp;<span>3.19</span></a>):</p>
+<div id="fig-filter1_age_sex" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-filter1_age_sex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/filter1_age_sex.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-filter1_age_sex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.19: Multiple expressions in the same filter.
+</figcaption>
+</figure>
+</div>
+<p>This additional expression comes to be represented with its own column <code>F1(2)</code> (<a href="#fig-filter1_age_sex" class="quarto-xref">Figure&nbsp;<span>3.19</span></a>), and by looking at the ticks and crosses, we can see which expression is responsible for excluding each row.</p>
+<p><strong>c)</strong> adding a new “<strong>Filter 2</strong>” (by selecting the <strong>large +</strong> to the left of the filters dialog box) (<a href="#fig-filter2" class="quarto-xref">Figure&nbsp;<span>3.20</span></a>). In this case, we can activate or inactivate the filters separately.</p>
+<div id="fig-filter2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-filter2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/filter2.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-filter2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.20: Multiple expressions using multiple filters.
+</figcaption>
+</figure>
+</div>
+<p>We close the filter settings by pressing the arrow in the top-right corner <img src="images/up_arrow.png" width="25" height="25">.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Filters in Jamovi exclude the rows for which the expression is not true. When filters are active, <strong>all results</strong> will be based on the filtered data. If we want to see unfiltered results we will either need to delete the filter or toggle it to inactive.</p>
+</div>
+</div>
+<p>&nbsp;</p>
+</section>
+<section id="transforming-a-variable" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="transforming-a-variable"><span class="header-section-number">3.9</span> Transforming a variable</h2>
+<section id="transform-a-quantitative-variable-into-a-qualitative-variable" class="level3" data-number="3.9.1">
+<h3 data-number="3.9.1" class="anchored" data-anchor-id="transform-a-quantitative-variable-into-a-qualitative-variable"><span class="header-section-number">3.9.1</span> Transform a quantitative variable into a qualitative variable</h3>
+<p>Sometimes it can be useful to convert a quantitative variable into a qualitative variable with levels. For example, the <code>time_spent</code> can be categorized as follows:</p>
+<ul>
+<li><p>less than or equal to 3 <svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:orange;overflow:visible;position:relative;"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"></path></svg> “0-3”</p></li>
+<li><p>4 to 7 <svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:orange;overflow:visible;position:relative;"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"></path></svg> “4-7”</p></li>
+<li><p>8 to 11 <svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:orange;overflow:visible;position:relative;"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"></path></svg> “8-11”</p></li>
+<li><p>greater than 11 <svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:orange;overflow:visible;position:relative;"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"></path></svg> “&gt;11”</p></li>
+</ul>
+<p>Select <code>time_spent</code> variable and click the Transform button <img src="images/transform_button.png" width="40" height="36"> from the toolbar of the Data tab. This opens the “<strong>TRANSFORMED VARIABLE</strong>” view, where we can set the name of the transformed variable such as <code>time_spent2</code> and create the transformation. To do this, select the source variable, the <code>time_spent</code> in this case, in the <em>Source Variable</em> field and create a new transformation using transform field (<a href="#fig-create_new_transf" class="quarto-xref">Figure&nbsp;<span>3.21</span></a>), which is initially set to ‘none’.</p>
+<div id="fig-create_new_transf" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-create_new_transf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/create_new_transf.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-create_new_transf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.21: Setting up a new transformation of a variable.
+</figcaption>
+</figure>
+</div>
+<p>&nbsp;</p>
+<p>This opens the “TRANSFORM” view where Jamovi gives each transformation a name (e.g., <code>Transform 1</code>; if we want we can change it). This allows us to use it again later on other variables if we wish. We can also add a description (<a href="#fig-transf_view" class="quarto-xref">Figure&nbsp;<span>3.22</span></a>).</p>
+<div id="fig-transf_view" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-transf_view-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/transf_view.png" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-transf_view-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.22: Box for adding conditions to the transformation.
+</figcaption>
+</figure>
+</div>
+<p>Now we need to <strong>add conditions</strong>. Jamovi uses simple <code>if ... else</code> statements and executes each statement starting from the top. So let’s start!</p>
+<p>First, select <strong><code>+ Add recode condition</code></strong>. Second, we need to fill the <strong>boxes</strong> with the information as follows (<a href="#fig-recode1" class="quarto-xref">Figure&nbsp;<span>3.23</span></a>):</p>
+<ul>
+<li>The <strong><code>$source</code></strong> is the variable we want to transform (here <code>time_spent</code>)- don’t change this.</li>
+<li>Select the appropriate <strong>comparison operator</strong> (here <code>&lt;=</code> )</li>
+<li>In the next box, we will put the <code>time_spent</code> value we want as the cut off point (e.g., 3).</li>
+<li>After the use, add our new label (here <code>'0-3'</code>). If we are using text we must enclose it in <code>'...'</code></li>
+</ul>
+<div id="fig-recode1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-recode1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/recode1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-recode1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.23: Adding the first condition (0-3).
+</figcaption>
+</figure>
+</div>
+<p>&nbsp;</p>
+<p>We can add as many conditions as we want by selecting <code>+ Add recode condition</code>. This will add a new <code>if $source</code> line into the box (<a href="#fig-recode2" class="quarto-xref">Figure&nbsp;<span>3.24</span></a>). Remember they will be executed in order.</p>
+<div id="fig-recode2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-recode2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/recode2.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-recode2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.24: Adding the second condition (4-7).
+</figcaption>
+</figure>
+</div>
+<p>&nbsp;</p>
+<div id="fig-recode3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-recode3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/recode3.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-recode3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.25: Adding the third condition (8-11).
+</figcaption>
+</figure>
+</div>
+<p>&nbsp;</p>
+<p>Finally, after the <code>else use</code> box just add the label for the data that does not meet the above conditions (here <code>'&gt;11'</code>), as shown in <a href="#fig-recode4" class="quarto-xref">Figure&nbsp;<span>3.26</span></a>.</p>
+<div id="fig-recode4" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-recode4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/recode4.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-recode4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.26: Adding the final label for the data that does not meet the above conditions (&gt;11).
+</figcaption>
+</figure>
+</div>
+<p>&nbsp;</p>
+</section>
+<section id="reverse-scoring-of-items" class="level3" data-number="3.9.2">
+<h3 data-number="3.9.2" class="anchored" data-anchor-id="reverse-scoring-of-items"><span class="header-section-number">3.9.2</span> Reverse scoring of items</h3>
+<p>To compute the total score for all items of the RSES, we first need to reverse the scores of the negatively worded questions (3, 5, 8, 9, and 10). To do this, we can follow these simple steps.</p>
+<p>In the Variables tab, we select the checkboxes for the <code>q3</code>, <code>q5</code>, <code>q8</code>, <code>q9</code>, and <code>q10</code> variables, as shown in <a href="#fig-rev_items" class="quarto-xref">Figure&nbsp;<span>3.27</span></a>.</p>
+<div id="fig-rev_items" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-rev_items-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/rev_items.png" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rev_items-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.27: Select the variables to be reversed.
+</figcaption>
+</figure>
+</div>
+<p>&nbsp;</p>
+<p>After that, we click on the Transform button <img src="images/transform_button.png" width="40" height="36">) from the toolbar of the Variables tab to open the Transform variable settings. Then, we <code>Create New Transform</code>, as shown in <a href="#fig-new_transf" class="quarto-xref">Figure&nbsp;<span>3.28</span></a>.</p>
+<div id="fig-new_transf" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-new_transf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/new_transf.png" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-new_transf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.28: Open the Transform variable settings.
+</figcaption>
+</figure>
+</div>
+<p>&nbsp;</p>
+<p>In the Transform view, we enter <code>_R</code> as a suffix for the variable names and specify <code>3-$source</code> in the condition box, as shown in <a href="#fig-transform2" class="quarto-xref">Figure&nbsp;<span>3.29</span></a>.</p>
+<div id="fig-transform2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-transform2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/transform2.png" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-transform2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.29: Transform variable settings.
+</figcaption>
+</figure>
+</div>
+<div id="fig-reversed_data" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-reversed_data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/reversed_data.png" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-reversed_data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.30: Data with the reversed variables.
+</figcaption>
+</figure>
+</div>
+<p>&nbsp;</p>
+</section>
+</section>
+<section id="compute-a-new-variable" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="compute-a-new-variable"><span class="header-section-number">3.10</span> Compute a new variable</h2>
+<p>Finally, we compute each participant’s total score (ranging from 0 to 30) based on their responses to the 10 questions of the Rosenberg Self-Esteem Scale.</p>
+<p>Adding computed variables to a Jamovi spreadsheet is straightforward. Click on the Compute button <img src="images/compute_button.png" width="40" height="36">) from the toolbar of the Data tab. An empty column has been created at the end of our dataset (<a href="#fig-compute1" class="quarto-xref">Figure&nbsp;<span>3.31</span></a>). The black dot symbol in the right of the column header indicates that this is a computed variable.</p>
+<div id="fig-compute1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-compute1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/compute1.png" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-compute1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.31: Compute a new variable.
+</figcaption>
+</figure>
+</div>
+<p>To set up the computed variable, either double-click the column header, or click the <strong>Setup</strong> button <img src="images/setup_button.png" width="34" height="36">) in the <strong>Data</strong> tab. This opens the “<strong>COMPUTED VARIABLE</strong>” view, where we can name the computed variable <code>score</code>. Next, we select the <code>SUM</code> function from the available options for use in the <strong>Formula</strong> box. Finally, we add the <code>q</code>-variables in the formula separated by comma (note that we must use the reversed variables in the sum) and we press <code>ENTER</code> (<a href="#fig-sum_score" class="quarto-xref">Figure&nbsp;<span>3.32</span></a>).</p>
+<div id="fig-sum_score" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sum_score-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/sum_score.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sum_score-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.32: Computation of the total score.
+</figcaption>
+</figure>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -1141,7 +1544,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>© Copyright 2024, Konstantinos I. Bougioukas. License: <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivs 4.0</a>.</p>
+<p>© Copyright 2025-26, Konstantinos I. Bougioukas. License: <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivs 4.0</a>.</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

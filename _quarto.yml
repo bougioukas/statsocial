@@ -30,7 +30,7 @@ book:
 
   page-footer: 
     right: "Built with [Quarto](https://quarto.org/)^®^"
-    left: "&copy; Copyright 2024, Konstantinos I. Bougioukas. License: [Creative Commons Attribution-NonCommercial-NoDerivs 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)."
+    left: "&copy; Copyright 2025-26, Konstantinos I. Bougioukas. License: [Creative Commons Attribution-NonCommercial-NoDerivs 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)."
   back-to-top-navigation: true
 
 bibliography: references.bib
