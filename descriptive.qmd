@@ -235,7 +235,7 @@ If we are interested in the distribution of **sex** within each self-esteem leve
 
  
 
-We can also graphically present the data in the table shown in @fig-tb2. A side-by-side bar plot (@fig-sidebar) or, preferably, a grouped bar plot (@fig-groupbar) can facilitate easier visual comparisons.
+We can also graphically present the data in the table shown in @fig-tb2. A side-by-side bar plot (@fig-sidebar) can facilitate easier visual comparisons.
 
 ```{r}
 #| echo: false
@@ -268,7 +268,7 @@ ggplot(dat4) +
 ```
 
 ```{r}
-#| echo: false
+#| include: false
 #| warning: false
 #| message: false
 #| label: fig-groupbar
