@@ -1,0 +1,60 @@
+# Presentations
+
+-   **Yli 2024**
+
+![Yli-psy-300](presentations/Yli-psy-300.pdf){width="60%" height="400"}
+
+     
+
+
+-   **Lecture 1: Introduction**
+
+![psy-300-1_introduction](presentations/psy-300-1_introduction.pdf){width="60%" height="400"}
+
+     
+
+-   **Lecture 2: Descriptive Statistics**
+
+![psy-300-2_descriptive](presentations/psy-300-2_descriptive.pdf){width="60%" height="400"}
+
+     
+
+-   **Lecture 3: Probability Distributions**
+
+![psy-300-3_distributions](presentations/psy-300-3_distributions.pdf){width="60%" height="400"}
+
+     
+
+-   **Lecture 4: Sampling Distribution and Confidence Interval**
+
+![psy-300-4_sampling_distribution](presentations/psy-300-4_sampling_distribution.pdf){width="60%" height="400"}
+
+     
+
+-   **Lecture 5: Hypothesis testing**
+
+![psy-300-5_hypothesis_testing](presentations/psy-300-5_hypothesis_testing.pdf){width="60%" height="400"}
+
+     
+
+-   **Lecture 6: Hypothesis testing for two samples**
+
+![psy-300-6_two_samples](presentations/psy-300-6_two_samples.pdf){width="60%" height="400"}
+
+     
+
+-   **Lecture 7: ANOVA**
+
+![psy-300-7_ANOVA](presentations/psy-300-7_ANOVA.pdf){width="60%" height="400"}
+
+     
+
+-   **Lecture 8: Chi-square test**
+
+![psy-300-8_chi_square](presentations/psy-300-8_chi_square.pdf){width="60%" height="400"}
+
+     
+
+-   **Lecture 9-10: Correlation and Simple Linear Regression**
+
+![psy-300-9_10_Correlation_linear_regression](presentations/psy-300-9_10_Correlation_linear_regression.pdf){width="60%" height="400"}
