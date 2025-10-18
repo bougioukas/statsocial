@@ -10,6 +10,7 @@ library(fontawesome)
 
 
 library(readxl)
+rses <- read_excel(here("data", "rses.xlsx"))
 creatinine <- read_excel(here("data", "creatinine.xlsx"))
 depression <- read_excel(here("data", "depression.xlsx"))
 weight <- read_excel(here("data", "weight.xlsx"))
@@ -17,6 +18,30 @@ dataDWL <- read_excel(here("data", "dataDWL.xlsx"))
 prematurity <- read_excel(here("data", "prematurity.xlsx"))
 LungCapacity <- read_excel(here("data", "LungCapacity.xlsx"))
 ```
+
+   
+
+-   **Dataset: rses**
+
+```{r}
+#| echo: false
+#| label: fig-rses
+#| fig-cap: Table with raw data.
+
+DT::datatable(rses, extensions = c('Scroller', 'Buttons'), rownames = FALSE,
+              options = list(deferRender = F, dom = 'Bt', scrollY = 452, scroller = TRUE, scrollX = T, pageLength = 10, buttons = 
+      list(list(
+        extend = 'csv',
+        filename = 'rses'
+      ), list(
+        extend = 'excel',
+        filename = 'rses',
+        title = NULL
+      ))))
+
+```
+
+
 
    
 
@@ -128,7 +153,6 @@ DT::datatable(prematurity, extensions = c('Scroller', 'Buttons'), rownames = FAL
 
 ```
 
-
    
 
 -   **Dataset: LungCapacity**
@@ -149,4 +173,3 @@ DT::datatable(LungCapacity, extensions = c('Scroller', 'Buttons'), rownames = FA
         title = NULL
       ))))
 ```
-
