@@ -9,3 +9,13 @@
 -   **Lecture 1: Introduction**
 
 ![psy-300-1_introduction](presentations/psy-300-1_introduction.pdf){width="60%" height="400"}
+
+
+-   **Lecture 2: Descriptive Statistics**
+
+![psy-300-2_descriptive](presentations/psy-300-2_descriptive.pdf){width="60%" height="400"}
+
+     
+
+
+
