@@ -33,11 +33,11 @@ DT::datatable(rses, extensions = c('Scroller', 'Buttons'), rownames = FALSE,
       list(list(
         extend = 'csv',
         filename = 'rses'
-      ), list(
-        extend = 'excel',
-        filename = 'rses',
-        title = NULL
-      ))))
+      )#, list(
+        #extend = 'excel',
+        #filename = 'rses',
+        #title = NULL)
+      )))
 
 ```
 
@@ -57,11 +57,11 @@ DT::datatable(creatinine, extensions = c('Scroller', 'Buttons'), rownames = FALS
       list(list(
         extend = 'csv',
         filename = 'creatinine'
-      ), list(
-        extend = 'excel',
-        filename = 'creatinine',
-        title = NULL
-      ))))
+      )#, list(
+        #extend = 'excel',
+        #filename = 'creatinine',
+        #title = NULL)
+      )))
 
 ```
 
@@ -79,11 +79,11 @@ DT::datatable(depression, extensions = c('Scroller', 'Buttons'), rownames = FALS
       list(list(
         extend = 'csv',
         filename = 'depression'
-      ), list(
-        extend = 'excel',
-        filename = 'depression',
-        title = NULL
-      ))))
+      )#, list(
+        #extend = 'excel',
+        #filename = 'depression',
+        #title = NULL)
+      )))
 
 ```
 
@@ -101,11 +101,11 @@ DT::datatable(weight, extensions = c('Scroller', 'Buttons'), rownames = FALSE,
       list(list(
         extend = 'csv',
         filename = 'weight'
-      ), list(
-        extend = 'excel',
-        filename = 'weight',
-        title = NULL
-      ))))
+      )#, list(
+        #extend = 'excel',
+        #filename = 'weight',
+        #title = NULL)
+      )))
 
 ```
 
@@ -123,11 +123,11 @@ DT::datatable(dataDWL, extensions = c('Scroller', 'Buttons'), rownames = FALSE,
       list(list(
         extend = 'csv',
         filename = 'dataDWL'
-      ), list(
-        extend = 'excel',
-        filename = 'dataDWL',
-        title = NULL
-      ))))
+      )#, list(
+        #extend = 'excel',
+        #filename = 'dataDWL',
+        #title = NULL)
+      )))
 
 ```
 
@@ -145,11 +145,11 @@ DT::datatable(prematurity, extensions = c('Scroller', 'Buttons'), rownames = FAL
       list(list(
         extend = 'csv',
         filename = 'prematurity'
-      ), list(
-        extend = 'excel',
-        filename = 'prematurity',
-        title = NULL
-      ))))
+      )#, list(
+        #extend = 'excel',
+        #filename = 'prematurity',
+        #title = NULL)
+      )))
 
 ```
 
@@ -167,9 +167,9 @@ DT::datatable(LungCapacity, extensions = c('Scroller', 'Buttons'), rownames = FA
       list(list(
         extend = 'csv',
         filename = 'LungCapacity'
-      ), list(
-        extend = 'excel',
-        filename = 'LungCapacity',
-        title = NULL
-      ))))
+      )#, list(
+        #extend = 'excel',
+        #filename = 'LungCapacity',
+        #title = NULL)
+      )))
 ```
