@@ -34,7 +34,6 @@
 
      
 
-
 -   **Lecture 6: Hypothesis testing for two samples**
 
 ![psy-300-6_two_samples](presentations/psy-300-6_two_samples.pdf){width="60%" height="400"}
