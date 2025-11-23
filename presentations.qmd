@@ -39,3 +39,16 @@
 ![psy-300-6_two_samples](presentations/psy-300-6_two_samples.pdf){width="60%" height="400"}
 
      
+
+
+
+-   **Lecture 7: ANOVA**
+
+![psy-300-7_ANOVA](presentations/psy-300-7_ANOVA.pdf){width="60%" height="400"}
+
+     
+
+
+
+
+
