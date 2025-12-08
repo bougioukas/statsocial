@@ -40,14 +40,18 @@
 
      
 
-
-
 -   **Lecture 7: ANOVA**
 
 ![psy-300-7_ANOVA](presentations/psy-300-7_ANOVA.pdf){width="60%" height="400"}
 
      
 
+
+-   **Lectures 8-9: Chi-square test**
+
+![psy-300-8_chi_square](presentations/psy-300-8_chi_square.pdf){width="60%" height="400"}
+
+     
 
 
 
