@@ -48,7 +48,7 @@
 
 -   **Lectures 8-9: Chi-square test**
 
-![psy-300-8_chi_square](presentations/psy-300-8_chi_square.pdf){width="60%" height="400"}
+![psy-300-8_9_chi_square](presentations/psy-300-8_9_chi_square.pdf){width="60%" height="400"}
 
      
 
