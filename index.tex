@@ -1,0 +1,5574 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod,
+  oneside]{scrreprt}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[left=1in,marginparwidth=2.0666666666667in,textwidth=4.1333333333333in,marginparsep=0.3in]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{sidenotes}{}{\usepackage{sidenotes}}
+\@ifpackageloaded{marginnote}{}{\usepackage{marginnote}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{qrcode}{}{\usepackage{qrcode}}
+\makeatother
+
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Basic Statistics for the Social Sciences},
+  pdfauthor={Konstantinos I. Bougioukas, PhD},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Basic Statistics for the Social Sciences}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{1st Edition}
+\author{Konstantinos I. Bougioukas, PhD}
+\date{2025-12-24}
+
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Table of contents}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+
+\bookmarksetup{startatroot}
+
+\chapter*{Welcome!}\label{welcome}
+\addcontentsline{toc}{chapter}{Welcome!}
+
+\markboth{Welcome!}{Welcome!}
+
+This open course introduces students to key concepts and statistical
+methods used in the quantitative social and behavioral sciences to
+describe and test hypotheses about the social world and human behavior.
+Students will learn to:
+
+\begin{itemize}
+\item
+  Describe and summarize data distributions.
+\item
+  Formulate and test various types of research hypotheses.
+\item
+  Analyze associations between factors, characteristics, or events.
+\item
+  Interpret and critically evaluate published statistics.
+\end{itemize}
+
+The student may also learn about the proper use of graphing and
+statistical software.
+
+\qrcode[]{https://statsocial.netlify.app/}
+    
+
+\part{Statistical Thinking}
+
+\chapter{Introduction}\label{sec-introduction}
+
+When we have finished this chapter, we should be able to:
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title={\includegraphics[width=1em,height=1em]{intro_files/figure-pdf/fa-icon-fd658532f1071e4d71f26381511f9b57.pdf}
+Learning objectives}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-caution-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-caution-color!10!white]
+
+\begin{itemize}
+\tightlist
+\item
+  Distinguish descriptive from inferential statistics.
+\item
+  Understand the importance of data and identify the main sources of
+  primary data.
+\item
+  Comprehend the importance of social statistics.
+\item
+  Understand the difference between dependent and independent variables,
+  and be introduced to the concept of confounding.
+\item
+  Explain the difference between qualitative and quantitative data, and
+  identify the type of any given variable.
+\end{itemize}
+
+\end{tcolorbox}
+
+\section{Why learn basic statistics?}\label{why-learn-basic-statistics}
+
+Knowledge of the fundamental principles of statistics, data analysis,
+and research methodology is essential for professionals in psychology
+and other social sciences today for three main reasons:
+
+\begin{itemize}
+\item
+  \textbf{Understanding key statistical indicators:} This knowledge
+  allows professionals to interpret data and indicators from sources
+  such as ELSTAT, EUROSTAT, and WHO. With this expertise, they can
+  effectively assess and verify relevant information from around the
+  world, hereby helping to counter misinformation. Key examples of these
+  indicators include population health status, social inequalities,
+  rates of violence and crime, unemployment rates, educational
+  attainment levels, poverty rates, and access to healthcare services.
+\item
+  \textbf{Critically analyzing research studies:} Professionals are
+  better equipped to evaluate research studies and their findings,
+  ensuring they can identify strengths, weaknesses, and potential
+  biases.
+\item
+  \textbf{Conducting independent research:} Familiarity with statistics
+  enables professionals who conduct their own research to collaborate
+  more effectively with statistical experts, enhancing the overall
+  quality of their work.
+\end{itemize}
+
+\section{The discipline of
+Statistics}\label{the-discipline-of-statistics}
+
+The word ``statistics'' originates from the Latin \textbf{``status''}.
+Initially, it referred to the political state of a region, with
+``statista'' used for recording information like censuses or data on a
+state's wealth. Over time, the meaning and use of statistics broadened,
+and its scope evolved.
+
+Today, \textbf{Statistics} is an applied mathematical science that,
+according to Croxton and Cowden, can be defined as ``the science of
+collection, presentation, analysis, and interpretation of
+\textbf{numerical data}''.
+
+Statistics includes different theoretical frameworks such as
+\textbf{traditional} (frequentist) statistics and \textbf{Bayesian}
+statistics. In this course, we will cover classical parametric and
+nonparametric statistical tests of traditional statistics.
+
+Relying heavily on \textbf{probability theory} and empirical methods,
+statistics aims to describe and summarize data as well as to draw
+inferences about the population from which the data are derived.
+Therefore, the discipline of traditional (frequentist) statistics
+includes two main branches (Figure~\ref{fig-branches}):
+
+\begin{itemize}
+\item
+  \textbf{Descriptive} statistics that includes measures of frequency
+  and measures of location and dispersion. It also includes a
+  description of the shape of the data distributions.
+\item
+  \textbf{Inferential} statistics that aims at generalizing conclusions
+  made on a sample to a whole population. It includes estimation and
+  hypothesis testing.
+\end{itemize}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=9in,height=5.25in]{intro_files/figure-latex/mermaid-figure-1.png}
+
+}
+
+\caption{\label{fig-branches}The discipline of statistics and its two
+branches, descriptive statistics and inferential statistics}
+
+\end{figure}%
+
+In a research study, \textbf{both} descriptive and inferential
+statistics are commonly used. First, researchers present descriptive
+statistics (e.g., demographic data, baseline characteristics) to provide
+a clear snapshot of the sample. Then, inferential statistics are applied
+to test hypotheses and draw conclusions about the broader population
+from which the sample was drawn.
+
+\section{Talking about data}\label{talking-about-data}
+
+\subsection{The ``Age of data''}\label{the-age-of-data}
+
+\includegraphics[width=2.08333in,height=\textheight]{images/gwas.png}\hfill
+
+We are living in the ``Age of Data'', where every day, an astonishing
+2.5 quintillion (\(10^{18}\)) bytes of data are generated worldwide. An
+example of how this era is transforming scientific research can be seen
+in large-scale multi-ancestry genome-wide association studies (GWAS),
+which are used to uncover the genetic basis of complex conditions like
+anxiety disorders. In a recent study, researchers analyzed genomic data
+from more than 1.2 million individuals across diverse populations,
+identifying more than 100 genes associated with stress and anxiety
+(Friligkou et al. 2024).
+
+A second example is chatbots, which are designed to simulate
+conversations with users. ELIZA (1966) was one such program. Its famous
+``DOCTOR'' script emulated a psychotherapist by rephrasing user
+statements as questions (Figure~\ref{fig-eliza}). Modern chatbots, such
+as ChatGPT, Gemini and Copilot, are large language models trained on
+\textbf{vast amounts of text data} (e.g., books, articles, websites, and
+user-generated content), hence the term ``large''. Using deep learning
+techniques, these models aim to understand and generate human-like text,
+effectively responding to a wide range of user queries.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/eliza.png}
+
+}
+
+\caption{\label{fig-eliza}The most famous scenario simulated a
+psychotherapist of the Rogerian school.}
+
+\end{figure}%
+
+~
+
+Next is a YouTube video that explores the history of Eliza and chatbots.
+
+\url{https://www.youtube.com/watch?v=zhxNI7V2IxM}
+
+\subsection{Structure of data}\label{structure-of-data}
+
+There are three main data structures:
+
+\begin{itemize}
+\item
+  \textbf{Structured data} generally refer to highly organized tabular
+  data, facilitating straightforward search, analysis, and processing.
+  Examples include data stored in spreadsheets, such as Excel files, or
+  in comma-separated values (CSV) files.
+\item
+  \textbf{Semi-Structured data} are a form of structured data that do
+  not follow a strict tabular format but still have some organizational
+  properties. For example, emails are semi-structured; they include
+  fields like sender, recipient, subject, date, and time, and are also
+  organized into folders such as Inbox, Sent, and Trash.
+\item
+  \textbf{Unstructured data} refer to information that lacks a
+  predefined format or organization, such as open text (e.g., social
+  media posts), images, videos, and other forms of multimedia.
+\end{itemize}
+
+In this course, we use data organized in a structured format, such as
+spreadsheets. Tabular data refer to data organized in a table with rows
+and columns (Figure~\ref{fig-datable}). Each row represents an
+observation (or record), corresponding to a statistical unit in the
+dataset. The columns represent the variables (or characteristics) of
+interest. Cells are the individual units where rows and columns
+intersect. Each cell contains a data value corresponding to the
+observation for that row and the variable for that column.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.85\textwidth,height=\textheight]{images/datable.png}
+
+}
+
+\caption{\label{fig-datable}A typical excel spreadsheet with row and
+columns.}
+
+\end{figure}%
+
+\subsection{Sources of social and health
+data}\label{sources-of-social-and-health-data}
+
+Data in the social and health sciences refers to the information
+collected and analyzed to understand human behavior, societal structures
+and interactions. This data originates from various sources, each
+offering unique insights into different aspects of human and societal
+dynamics. These sources include:
+
+\begin{itemize}
+\item
+  \textbf{Self-Reports:}
+  \includegraphics[width=0.36458in,height=0.34375in]{images/q_icon.png}
+  These are collected through interviews, questionnaires, and surveys,
+  capturing individual experiences, behaviors, and attitudes. They
+  provide qualitative insights that enhance our understanding of
+  personal perspectives and social phenomena.
+\item
+  \textbf{Internet and Social Media:}
+  \includegraphics[width=0.36458in,height=0.34375in]{images/internet_icon.png}
+  These platforms generate vast amounts of data on online interactions,
+  behaviors, and social trends, offering valuable information on how
+  people communicate and engage in the digital space.
+\item
+  \textbf{Wearable Technology:}
+  \includegraphics[width=0.36458in,height=0.34375in]{images/wearable_icon.png}
+  Devices such as smartwatches, fitness trackers, smart glasses, and
+  smart clothing equipped with sensors have become revolutionary tools
+  for tracking and monitoring physiological and behavioral metrics in
+  real-time. They provide critical insights into health, fitness, and
+  daily habits.
+\item
+  \textbf{Electronic Health Records (EHRs):}
+  \includegraphics[width=0.36458in,height=0.34375in]{images/ehr_icon.png}
+  EHRs offer detailed information about patients' medical histories,
+  treatments, and health outcomes, facilitating research on health
+  trends and the effectiveness of interventions.
+\item
+  \textbf{Health Surveillance Systems:}
+  \includegraphics[width=0.36458in,height=0.34375in]{images/surveillance_icon.png}
+  These systems continuously monitor and analyze trends in real-time,
+  including disease outbreaks, vaccination uptake, public health
+  patterns, substance abuse trends, and crime statistics, thereby
+  informing timely interventions and policy decisions.
+\item
+  \textbf{Clinical Registries:}
+  \includegraphics[width=0.36458in,height=0.34375in]{images/cl_registry_icon.png}
+  These collect data on patients with specific medical conditions or
+  treatments, providing valuable insights into health outcomes and
+  social determinants of health.
+\item
+  \textbf{Biobanks:}
+  \includegraphics[width=0.36458in,height=0.34375in]{images/biobank_icon.png}
+  Biobanks store biological samples (e.g., blood, tissue) along with
+  health and lifestyle data, enabling research into the intersections of
+  genetics, environment, and social factors.
+\end{itemize}
+
+\subsection{From data to knowledge and
+decisions}\label{from-data-to-knowledge-and-decisions}
+
+Social, behavioral, and biomedical \textbf{data} can be transformed into
+\textbf{information}. This information can evolve into
+\textbf{knowledge} when social scientists and stakeholders interpret and
+understand it, allowing them to make \textbf{informed decisions}, shape
+policies, and implement interventions that address societal and
+health-related challenges more effectively (Figure~\ref{fig-info}).
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.9\textwidth,height=\textheight]{images/info.png}
+
+}
+
+\caption{\label{fig-info}From data to knowledge and action.}
+
+\end{figure}%
+
+\section{Social Statistics}\label{social-statistics}
+
+\textbf{Social statistics} is a field of statistics applied in the
+social sciences to study \textbf{social phenomena} and \textbf{trends}.
+It employs various statistical methods of data collection, such as
+censuses, social surveys, and administrative records. These methods are
+commonly used by international organizations, government agencies,
+institutions, and researchers to analyze data related to social life,
+human behavior, and society as a whole.
+
+The primary goal of social statistics is to provide objective,
+quantitative evidence that aids in understanding and interpreting social
+issues, ultimately informing the development of appropriate social
+policies.
+
+Let's explore some examples of \textbf{official statistics} from
+national governments and international organizations.
+
+\textbf{Example 1}
+
+\includegraphics[width=1.04167in,height=\textheight]{images/elstat_icon.png}\hfill
+
+Through its quarterly report \emph{Greece in Figures}, the Hellenic
+Statistical Authority
+(\href{https://www.statistics.gr/en/greece-in-figures}{ELSTAT}) presents
+current and detailed statistical insights into Greece's population,
+social structure, and economy.
+
+An important socio-economic indicator at country level is the percentage
+of people at risk of poverty or social exclusion. Poverty and social
+exclusion severely disrupt the lives of those affected, perpetuating a
+cycle of disadvantage that can last for generations. This cycle not only
+limits personal growth but also poses significant challenges to social
+cohesion and economic stability within communities.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.7\textwidth,height=\textheight]{images/poverty.png}
+
+}
+
+\caption{\label{fig-poverty}The percentage of people at risk of poverty
+or social exclusion in Eurozone. Greece (EL) is highlihgted.}
+
+\end{figure}%
+
+In 2023, over a quarter (26.1\%) of the Greek population was at risk of
+poverty or social exclusion, ranking Greece (EL) among the highest in
+the Eurozone, just behind Spain (ES; 26.5\%), as shown in
+Figure~\ref{fig-poverty}.
+
+~
+
+\textbf{Example 2}
+
+\includegraphics[width=1.04167in,height=\textheight]{images/violence.png}\hfill
+
+Gender inequalities and violence against women and girls are urgent
+social and public health issues that require immediate attention. A
+report, based on data from 2018 and published in May 2021, conducted by
+the World Health Organization, the London School of Hygiene and Tropical
+Medicine and the South African Medical Research Council, presents
+findings on the prevalence of violence against women.
+
+The report found that the global lifetime prevalence of intimate partner
+violence among ever-partnered women was \textbf{30.0\%} (95\% CI =
+27.8\% to 32.2\%).
+
+It is important to note that this estimated percentage (30\%) is
+accompanied by a confidence interval (CI), which indicates a range from
+27.8\% to 32.2\%. This interval reflects the precision of the estimate,
+and we will discuss it further in the subsequent sections of the course.
+
+The report also mentioned that the prevalence of intimate partner
+violence among ever-partnered women was highest in the WHO African,
+Eastern Mediterranean and South-East Asia Regions with an estimated
+prevalence of approximately 37\%. In contrast, the prevalence was lower
+in the high-income regions of America (23\%) and the European and
+Western Pacific Regions (25\%). This indicates that the prevalence of
+violence against women can differ significantly among regions,
+influenced by a range of socio-economic factors. In statistical terms,
+this suggests that there is a large \textbf{variance} in the data.
+
+\includegraphics[width=3.125in,height=\textheight]{images/kirabati.png}\hfill
+
+The report also references the
+\href{https://iris.who.int/handle/10665/207758}{Kiribati case}; a
+country consisting of 33 islands situated in the central Pacific Ocean.
+The
+\href{https://pacific.unfpa.org/sites/default/files/pub-pdf/Kiribati-Family-Health-and-Support-Study_0.pdf}{Kiribati
+family health study} revealed an alarming prevalence of violence against
+women in Kiribati, with 68\% of women aged 15--49 who had been in a
+relationship reporting experiences of violence (emotional, physical,
+and/or sexual) from a partner. This finding highlights how social
+statistics can assist in identifying \textbf{rare cases} (extreme
+values) to raise global concern and prompt immediate action.
+
+The following YouTube video from \emph{UN Women} is a campaign aimed at
+raising awareness about violence against women and girls.
+
+\url{https://www.youtube.com/watch?v=W_ZPHPutN-c}
+
+~
+
+\section{Variables}\label{variables}
+
+\subsection{Independent and dependent
+variables}\label{independent-and-dependent-variables}
+
+A \textbf{variable} is a quantity or characteristic that is free to
+vary, or take on different values. Researchers design studies to test
+whether changes to one or more variables are associated with changes in
+another variable of interest.
+
+\includegraphics[width=2.08333in,height=\textheight]{images/falls.png}\hfill
+
+For example, if researchers hypothesize that a psychological
+intervention can help prevent falls in older adults living in the
+community more effectively than a standard approach, they could create a
+study to test this hypothesis. Participants would be randomly assigned
+to one of two groups: the experimental group, which receives the
+psychological intervention aimed at preventing falls, and the control
+group, which receives the usual care.
+
+In this example, the type of intervention each participant received
+(i.e., the psychological intervention vs.~usual care) is the
+\textbf{independent variable} (X), as it is the variable that the
+researchers manipulate. The \textbf{dependent} variable (Y), or the
+outcome variable, is the rate of falls over a time period, as it
+reflects the effect or outcome that the researchers measure to determine
+whether the intervention has an impact on reducing falls among older
+adults living in the community.
+
+An \textbf{independent variable} (X) is the variable that is changed or
+controlled in a research study to examine its effect on another variable
+(Y), which represents the outcome being measured.
+
+A \textbf{dependent variable} (Y) is the variable that is measured and
+assessed in a research study, influenced by the independent variables
+(Xs) being studied. It represents the outcome of the study.
+
+It is important to note that we can construct both simple bivariate
+models and more complex, realistic multivariable models:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Diagram of a Bivariate Model (X → Y)}
+\end{itemize}
+
+In this model, X is assumed to influence or predict Y. It's commonly
+used to explore simple cause-and-effect associations or correlations,
+such as how a psychological intervention (X) might affect rate of falls
+in elderly (Y).
+
+\includegraphics[width=4.91in,height=0.72in]{intro_files/figure-latex/mermaid-figure-5.png}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Diagram of Multivariable Model (X1, X2, X3 → Y)}
+\end{itemize}
+
+This model allows for a more complex analysis, where several factors are
+considered simultaneously. For example, it can be used to study how a
+psychological intervention, gender, and balance (X1, X2, X3) together
+might affect rate of falls in elderly (Y), helping to capture the
+combined effects of multiple influences on the outcome.
+
+\includegraphics[width=4.91in,height=2.86in]{intro_files/figure-latex/mermaid-figure-4.png}
+
+~
+
+\subsection{Confounding variable}\label{confounding-variable}
+
+It is often essential to analyze the association between an independent
+variable (X) and a dependent variable (Y) while considering confounding
+variables, which should be controlled to prevent distortion of results.
+
+A confounding variable is defined as one that is related with both the
+independent and the dependent variables and does not lie on the causal
+pathway between them.
+
+For example, consider a study investigating the link between caffeine
+intake (X) and lung cancer (Y). Without accounting for confounding
+variables, such as smoking, the results may suggest a misleading
+association between caffeine and occurrence of lung cancer that is not
+truly causal.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.7\textwidth,height=\textheight]{images/confounder.png}
+
+}
+
+\caption{\label{fig-confounder}From data to knowledge and action.}
+
+\end{figure}%
+
+Smoking may be a potential confounding variable because it is:
+
+\begin{itemize}
+\item
+  \textbf{related to caffeine consumption:} Smokers often consume more
+  caffeine (e.g., through coffee or energy drinks).
+\item
+  \textbf{direct Cause of lung cancer:} Smoking is a well-established
+  cause of lung cancer and significantly increases the risk of
+  developing the disease.
+\item
+  \textbf{not directly part of the causal pathway:} Smoking does not lie
+  in the causal pathway between caffeine and lung cancer.
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title={\includegraphics[width=1em,height=1em]{intro_files/figure-pdf/fa-icon-ee56651b74f8b687021aa43846e40a59.pdf}
+Comment}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-tip-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-tip-color!10!white]
+
+The causal pathway refers to the sequence of events or mechanisms
+through which an independent variable influences a dependent variable.
+It demonstrates how changes in the independent variable lead to changes
+in the dependent variable, often involving intermediary variables.
+
+\includegraphics[width=6.97in,height=0.72in]{intro_files/figure-latex/mermaid-figure-3.png}
+
+\end{tcolorbox}
+
+Confounding can be controlled either before or after a study is
+conducted. Various methods are available to control for confounding,
+including matching, stratification, and more advanced multivariate
+techniques (Grimes and Schulz 2002).
+
+\begin{itemize}
+\item
+  \textbf{Pairwise matching:} In a case-control study where smoking is
+  considered a confounding variable, cases and controls can be matched
+  based on smoking status.
+\item
+  \textbf{Stratification:} After a study is conducted, results can be
+  stratified by levels of the confounding variable. In the smoking
+  example, results would be calculated separately for smokers and
+  non-smokers to determine if the same effect occurs independently of
+  smoking.
+\item
+  \textbf{Multivariate techniques:} Mathematical modelling examines the
+  potential effect of one variable while simultaneously controlling for
+  the effect of many other variables.
+\end{itemize}
+
+\section{Types of data in variables}\label{types-of-data-in-variables}
+
+Data in variables can be either \textbf{categorical} or
+\textbf{numerical} (otherwise known as qualitative and quantitative) in
+nature (Figure~\ref{fig-data_types}):
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=9in,height=3.97in]{intro_files/figure-latex/mermaid-figure-2.png}
+
+}
+
+\caption{\label{fig-data_types}Broad classification of the different
+types of data with examples.}
+
+\end{figure}%
+
+~
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title={Note}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-tip-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-tip-color!10!white]
+
+The \textbf{type of data} in variables is an important factor in
+determining the most appropriate \textbf{statistical analysis} of the
+data.
+
+\end{tcolorbox}
+
+\subsection{Categorical data}\label{categorical-data}
+
+\textbf{A. Nominal data}
+
+Nominal data consists of distinct, unordered categories that are labeled
+but not measured, only \textbf{counted}. These categories can be binary,
+such as diagnosed/not diagnosed with depression, or they can have more
+than two categories, such as \textbf{eye color} (e.g., brown, blue,
+green, gray) or \textbf{type of therapy} (e.g., cognitive-behavioral
+therapy, psychoanalysis, humanistic therapy).
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Numerical representation of categories are just codes}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-important-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-important-color!10!white]
+
+We can represent diagnosed/not diagnosed with depression as 1/0 and
+cognitive-behavioral therapy/psychoanalysis/humanistic therapy as 1/2/3
+for therapy type. Unlike numerical data, the numbers assigned to
+categories do not have mathematical meaning; they are merely
+\textbf{codes}.
+
+\end{tcolorbox}
+
+~
+
+\textbf{B. Ordinal data}
+
+When categories can be ordered, the data are of \textbf{ordinal type}.
+For example, patients may rate their \textbf{pain} as minimal, moderate,
+severe, or unbearable. In this case, there is a natural order to the
+values, as moderate pain is more intense than minimal but less than
+severe. Another common example of ordinal data is the \textbf{Likert
+scale}, where respondents might indicate their level of agreement with a
+statement on a scale such as from 1 (strongly disagree) to 5 (strongly
+agree).
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{IMPORTANT}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-important-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-important-color!10!white]
+
+\begin{itemize}
+\item
+  Ordinal data are often transformed into binary data to simplify
+  analysis, presentation, and interpretation, though this can result in
+  a \textbf{loss of information}.
+\item
+  Although the \textbf{Likert scale} consists of ordered categories, the
+  levels can be \textbf{treated like numeric data}, allowing scores from
+  a questionnaire to be summed or averaged for a comprehensive
+  assessment of respondents' attitudes or feelings (total score of the
+  participant).
+\end{itemize}
+
+\end{tcolorbox}
+
+\subsection{Numerical data}\label{numerical-data}
+
+\textbf{A. Discrete data}
+
+Discrete data can take only a \textbf{finite number of values} (usually
+integers) in a range, for example, the number of children in a family or
+the number of days missed from work. Other examples are often
+\textbf{counts per unit of time} such as the number of visits to the
+psychotherapist in a year, or the number of epileptic seizures a patient
+has per month.
+
+In practice discrete data are often treated in statistical analyses as
+if they were ordinal data. Although this approach may be acceptable, it
+may not fully optimize the use of our data.
+
+\vspace{15pt}
+
+\textbf{B. Continuous data}
+
+Continuous data are numbers (usually with units) that can
+\textbf{theoretically} take \textbf{any value} within a given range.
+Examples of continuous variables include \textbf{height},
+\textbf{weight}, \textbf{body temperature}, and \textbf{reaction time}.
+However, in practice, these variables are often measured
+\textbf{discretely}, constrained by the precision of measuring
+instruments and the study's specific objectives. For instance, although
+height can be a continuous value, it is typically recorded in discrete
+steps. A person may measure 172.345 cm tall, but this would usually be
+recorded as 172 cm.
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Categorization of numerical data leads to a loss of information}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-important-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-important-color!10!white]
+
+It is important to note that continuous data are often categorized to
+create categorical variables. For example, body mass index (BMI)---a
+continuous variable that measures weight relative to height---is
+typically converted into an ordinal variable with four categories:
+underweight, normal weight, overweight, and obese. However, dividing
+continuous variables into categories results in a \textbf{considerable
+loss of information}. Furthermore, the reverse transformation is
+impossible; a categorical variable cannot be transformed into a
+continuous variable.
+
+\end{tcolorbox}
+
+Next is a YouTube video by Associate Professor Mike Marin from the
+University of British Columbia that comprehensively explains the
+different types of variables.
+
+\url{https://www.youtube.com/watch?v=ZxV-kf0yBss&t=2s}
+
+\chapter{Descriptive statistics}\label{sec-descriptive}
+
+When we have finished this chapter, we should be able to:
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title={\includegraphics[width=1em,height=1em]{descriptive_files/figure-pdf/fa-icon-fd658532f1071e4d71f26381511f9b57.pdf}
+Learning objectives}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-caution-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-caution-color!10!white]
+
+\begin{itemize}
+\tightlist
+\item
+  Use frequency counts and percentages to describe categorical
+  variables.
+\item
+  Display frequency distributions for categorical variables using bar
+  plots.
+\item
+  Use statistical measures such as mean, median, standard deviation and
+  interquartile range to describe numerical variables.
+\item
+  Generate and assess visualizations like histograms, density plots, and
+  box plots to understand the distribution and spread of numerical data.
+\end{itemize}
+
+\end{tcolorbox}
+
+~
+
+\section{Data}\label{data}
+
+We will explore a dataset containing 258 participants (rows) and 8
+variables (columns). The variables include sex (female/male), age (in
+years), time spent on the internet and social media (in hours), the
+total score (0-30) from responses to 10 questions on the Rosenberg
+Self-Esteem Scale
+(\href{https://socy.umd.edu/about-us/using-rosenberg-self-esteem-scale}{RSES}),
+and the categorization of that score into three levels of self-esteem:
+low (0-15), medium (16-19), and high (20-30) (García et al. 2019).
+
+~
+
+\includegraphics{descriptive_files/figure-pdf/unnamed-chunk-2-1.pdf}
+
+~
+
+\section{Summarizing categorical data (Frequency
+Statistics)}\label{summarizing-categorical-data-frequency-statistics}
+
+\subsection{One variable frequency tables and
+plots}\label{one-variable-frequency-tables-and-plots}
+
+The first step in analyzing a categorical variable is to count the
+occurrences of each label and calculate their frequencies. This
+collection of frequencies for all possible categories is known as the
+\textbf{frequency distribution} of the variable. Additionally, we can
+express these frequencies as proportions of the total number of
+observations, which are referred to as \textbf{relative frequencies}. If
+we multiply these proportions by 100, we obtain \textbf{percentages}
+(\%).
+
+~
+
+\textbf{Sex variable}
+
+Let's create a a frequency table for the \texttt{sex} variable:
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.7\textwidth,height=\textheight]{images/tb001.png}
+
+}
+
+\caption{\label{fig-tb001}Fequency table for the sex.}
+
+\end{figure}%
+
+The table displays the following:
+
+\begin{itemize}
+\item
+  \textbf{Absolute frequency (n):} The number of participants in each
+  category (male: 109, female: 149).
+\item
+  \textbf{Percentage (\%):} The proportion of participants in each
+  category relative to the total number of participants (relative
+  frequency) multiplied by 100\% (male: 109/258 x 100 = 42.2\%, female:
+  149/258 x 100 = 57.8\%). Note that the percentages sum up to 100\%
+  (42.2\% + 57.8\%).
+\item
+  \textbf{Cumulative percentage (\%):} The sum of the percentage
+  contributions of all categories up to and including the current one.
+  For example, for the male category, the cumulative percentage is
+  42.2\%. When combining male and female categories, the cumulative
+  percentage is 42.2\% + 57.8\% = 100\%. Therefore, the final cumulative
+  percentage must equal 100\%.
+\end{itemize}
+
+While frequency tables are extremely useful, plotting the data often
+provides a clearer presentation. For categorical variables, such as sex,
+it is straightforward to display the number of occurrences in each
+category using \textbf{bar plots}. The x-axis typically represents the
+categories of the variable---in this case, ``male'' and ``female''. The
+y-axis represents the frequency or count of occurrences for each
+category.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{descriptive_files/figure-pdf/fig-barsex1-1.pdf}
+
+}
+
+\caption{\label{fig-barsex1}Bar plot showing the frequency distribution
+of the sex.}
+
+\end{figure}%
+
+\vspace{15pt}
+
+If the y-axis represents percentages (\%), then each bar's height
+corresponds to the percentage of participants in that category. For
+example, the percentage of female participants is 57.8\%.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{descriptive_files/figure-pdf/fig-barsex2-1.pdf}
+
+}
+
+\caption{\label{fig-barsex2}Bar plot showing the percentage of
+participants for each level of self-esteem.}
+
+\end{figure}%
+
+~
+
+\textbf{Score\_cat variable (self-esteem)}
+
+Similarly, we can create the frequency table for the \texttt{Score\_cat}
+(self-esteem) variable:
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.7\textwidth,height=\textheight]{images/tb002.png}
+
+}
+
+\caption{\label{fig-tb002}Frequency table for the levels of
+self-esteem.}
+
+\end{figure}%
+
+In the above table, we observe that 40.3\% (104 out of 258) of
+participants have a low level of self-esteem. When we combine the low
+and medium categories, the cumulative percentage is: 40.3\% + 32.6\% =
+72.9\%. Finally, for all categories (low, medium, high), the cumulative
+percentage sums to 72.9\% + 27.1\% = 100\%.
+
+Figure~\ref{fig-baresteem1} illustrates the frequency distribution of
+self-esteem. The horizontal axis (\emph{x-axis}) displays the different
+self-esteem categories, ordered according to increasing self-esteem
+levels, while the vertical axis (y-axis) shows the frequency of each
+category.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{descriptive_files/figure-pdf/fig-baresteem1-1.pdf}
+
+}
+
+\caption{\label{fig-baresteem1}Bar plot showing the frequency for each
+level of self-esteem.}
+
+\end{figure}%
+
+Figure~\ref{fig-baresteem2} illustrates the distribution of self-esteem
+using percentages. Most participants fall into the category of low
+self-esteem, accounting for 40.3\% (172 out of 428), highlighting a
+significant portion of the sample that may benefit from targeted
+interventions or support.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{descriptive_files/figure-pdf/fig-baresteem2-1.pdf}
+
+}
+
+\caption{\label{fig-baresteem2}Bar plot showing the percentage of
+participants for each level of self-esteem.}
+
+\end{figure}%
+
+~
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Tips for simple bar plots}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-important-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-important-color!10!white]
+
+\begin{itemize}
+\tightlist
+\item
+  All bars should have equal width and equal spacing between them.
+\item
+  The height of each bar should correspond to the data it represents.
+\item
+  The bars should be plotted against a \textbf{common zero-valued
+  baseline}.
+\end{itemize}
+
+\end{tcolorbox}
+
+\subsection{Two variable tables (Contingency tables) and
+plots}\label{two-variable-tables-contingency-tables-and-plots}
+
+\textbf{A. Frequency contingency table}
+
+In addition to tabulating each variable separately, we might also be
+interested in exploring the association between two categorical
+variables. In this case, the resulting frequency table is a
+cross-tabulation, where each combination of levels from both variables
+is displayed. This type of table is called a \textbf{contingency table}
+because it shows the frequency of each category in one variable (e.g.,
+sex), contingent upon the specific levels of the other variable (e.g.,
+self-esteem), as shown in Figure~\ref{fig-tb0}.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.7\textwidth,height=\textheight]{images/tb0.png}
+
+}
+
+\caption{\label{fig-tb0}Frequency contingency table which cross
+tabulates sex and self-esteem levels. Each cell value in the table
+represents the count corresponding to the combination of categories from
+the two variables.}
+
+\end{figure}%
+
+\textbf{Note:} The table also typically includes \textbf{row and column
+totals}, also known as marginal totals, that sum the counts for each row
+and column, respectively.
+
+~
+
+\textbf{B. Joint distribution contingency table}
+
+A \textbf{joint distribution} contingency table displays both the
+frequency of observations across categories of two variables and the
+\textbf{percentage distributions} of those frequencies. The percentages
+are calculated by dividing the frequency in each cell by the
+\textbf{overall total} (258), then multiplying the result by 100. This
+shows the percentage of the total observations that fall into each
+category combination.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/tb1.png}
+
+}
+
+\caption{\label{fig-tb1}Joint distribution contingency table. The
+percentages are calculated by dividing the frequency in each cell by the
+overall total.}
+
+\end{figure}%
+
+~
+
+\textbf{C. Conditional distribution contingency table}
+
+Suppose we are interested in the distribution of \textbf{self-esteem
+levels} within each sex group, meaning we are observing how self-esteem
+vary \textbf{among males} and \textbf{among females}. By
+\textbf{conditioning} on sex, we divide each cell's frequency by the
+corresponding \textbf{row total} (row marginal total), rather than the
+overall total. This method allows us to examine the \textbf{conditional
+distribution} of self-esteem within each sex group. For example, the
+percentage of participants with low self-esteem, given that the
+participant is female, is calculated as (78/149) x 100 ≈ 52.4\%.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/tb2.png}
+
+}
+
+\caption{\label{fig-tb2}Conditional distribution contingency table. The
+percentages are calculated by dividing the frequency in each cell by the
+row marginal total.}
+
+\end{figure}%
+
+This data analysis indicates notable differences in self-esteem levels
+between male and female participants. Specifically, the percentage of
+female participants with low self-esteem (52.4\%) is substantially
+greater than that of male participants (23.9\%).
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title={\includegraphics[width=1em,height=1em]{descriptive_files/figure-pdf/fa-icon-ee56651b74f8b687021aa43846e40a59.pdf}
+Comment}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-tip-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-tip-color!10!white]
+
+If we are interested in the distribution of \textbf{sex} within each
+self-esteem level, focusing on how the proportion of males and females
+varies within each self-esteem category, we condition on self-esteem.
+This means we divide each cell's frequency by the corresponding
+\textbf{column total}. For example, among those with low self-esteem,
+the percentage of females is (78/104) x 100 ≈ 75.0\%
+
+\end{tcolorbox}
+
+~
+
+We can also graphically present the data in the table shown in
+Figure~\ref{fig-tb2}. A side-by-side bar plot (Figure~\ref{fig-sidebar})
+can facilitate easier visual comparisons.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{descriptive_files/figure-pdf/fig-sidebar-1.pdf}
+
+}
+
+\caption{\label{fig-sidebar}Side-by-side bar plot showing by self-esteem
+level and sex.}
+
+\end{figure}%
+
+Alternatively, we can create a stacked bar plot, where the bars are
+segmented by self-esteem levels. Figure~\ref{fig-stackbar} illustrates a
+\textbf{100\% stacked bar plot}, which displays the percentage of each
+self-esteem level (low, medium, high) among male and female
+participants, emphasizing the relative differences within each group.
+For example, the plot shows that a higher proportion of females have low
+self-esteem (52.4\%) compared to males (23.9\%), while males have a
+higher proportion of medium (43.1\%) and high self-esteem (33\%)
+compared to females.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{descriptive_files/figure-pdf/fig-stackbar-1.pdf}
+
+}
+
+\caption{\label{fig-stackbar}A horizontal stacked bar plot showing the
+distribution of self-esteem stratified by sex.}
+
+\end{figure}%
+
+\vspace{10pt}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Caution}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-warning-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-warning-color!10!white]
+
+One consideration when using stacked bar plots is the number of variable
+levels: with many categories, stacked bar plots can become confusing.
+
+\end{tcolorbox}
+
+~
+
+\section{Summarizing numerical data (Summary
+Statistics)}\label{summarizing-numerical-data-summary-statistics}
+
+Summary measures are \textbf{single numerical values} that summarize a
+set of data. Numeric data can be described using two main types of
+summary measures (@tbl-measures).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Measures of \textbf{central location}: These describe the ``center''
+  of the data distribution. Common examples include the mean, median,
+  and mode.
+\item
+  Measures of \textbf{dispersion}: These quantify the spread of values
+  around the central value. Examples include the range, interquartile
+  range (IQR), variance, and standard deviation.
+\end{enumerate}
+
+~
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.4167}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5833}}@{}}
+\caption{Common summary measures of central location and
+dispersion}\label{tbl-measures}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Measures of Central Location}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Measures of Dispersion}
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Measures of Central Location}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Measures of Dispersion}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+• Mean & • Variance \\
+• Median & • Standard Deviation \\
+• Mode & • Range (Minimum, Maximum) \\
+& • Interquartile Range (1st and 3rd Quartiles) \\
+\end{longtable}
+
+~
+
+Additionally, \textbf{measures of shape} such as the sample coefficients
+of \textbf{skewness} and \textbf{kurtosis} provide further insights by
+revealing the overall shape and characteristics of the distribution.
+
+\subsection{Measures of central
+location}\label{measures-of-central-location}
+
+\textbf{A. Sample Mean or Average}
+
+The arithmetic mean, or average, denoted as \(\bar{x}\), is calculated
+by dividing the sum of all values in a set by the total number of values
+in the set.
+
+\begin{equation}\phantomsection\label{eq-mean}{\bar{x}= \frac{Sum \ of \ values}{Number \ of \ values}}\end{equation}
+
+\textbf{\emph{Example}}
+
+We subset the data to a smaller sample to make it easier to manually
+calculate the summary measures. As an example, we will use the number of
+hours per day spent on the internet by 15-year-old females with low
+self-esteem, which are as follows:
+
+\[ 5 \ \ \ \ \  4  \ \ \ \ \ 12 \ \ \ \ \  8 \ \ \ \ \  4 \]
+
+To calculate the mean, we use the Equation~\ref{eq-mean}:
+
+\[\bar{x} = \frac{5 + 4 + 12 + 8 + 4}{5} = \frac{33}{5} = 6.6 \ hours\]
+
+~
+
+To highlight how outliers affect the mean, suppose we add a value of 24
+to the dataset. This new data point is considered an \textbf{outlier},
+as it is substantially higher than the other values in the dataset.
+Since 24 hours is the maximum possible in a single day, this extreme
+value clearly stands out from the rest of the observations.
+
+Our new dataset becomes:
+
+\[ 5 \ \ \ \ \  4  \ \ \ \ \ 12 \ \ \ \ \  8 \ \ \ \ \  4 \ \ \ \ \  \underline{24}\]
+
+We can determine the new mean, \(\bar{x}_{new}\), by adding up all six
+values and dividing by six:
+
+\[\bar{x}_{new}= \frac{5 + 4 + 12 + 8 + 4 + 24}{6} = \frac{57}{6} = 9.5 \ hours\]
+
+After adding this outlier, the mean increased from 6.6 to 9.5. This
+significant rise of 2.9 hours illustrates how outliers can distort the
+average, making it less representative of the dataset.
+
+~
+
+\textbf{Advantages of mean}
+
+\begin{itemize}
+\tightlist
+\item
+  It uses all the data values in the calculation and is the balance
+  point of the data.
+\item
+  It is algebraically defined and thus mathematically manageable.
+\end{itemize}
+
+\textbf{Disadvantages of mean}
+
+\begin{itemize}
+\tightlist
+\item
+  It is highly influenced by the presence of \textbf{outliers}---values
+  that are abnormally high or low---making it a non-resistant summary
+  measure.
+\item
+  It cannot be easily determined by simply inspecting the data and is
+  usually not equal to any of the individual values in the sample.
+\end{itemize}
+
+~
+
+\textbf{B. Median of the sample}
+
+The \textbf{sample median}, denoted as \emph{md}, is an alternative
+measure of location that is less sensitive to outliers than mean.
+
+The median is calculated by first sorting the observed values
+(i.e.~arranging them in an ascending or descending order) and selecting
+the middle one. If the number of observations is \textbf{odd}, the
+median corresponds to the number in the middle of the sorted values. If
+the number of observations is \textbf{even}, the median is the average
+of the two middle numbers.
+
+\textbf{\emph{Example}}
+
+First, we sort the observed values from smallest to largest:
+
+\textbf{Observed values:}
+\(\ \ \ \ \ 5 \ \ \ \ \  4  \ \ \ \ \ 12 \ \ \ \ \  8 \ \ \ \ \  4\)
+
+\textbf{Sorted values:}
+\(\ \ \ \ \ \ \ \ \  4 \ \ \ \ \  4 \ \ \ \ \ \  5 \ \ \ \ \ \  8  \ \ \ \ \ 12\)
+
+The number of observations is 5, which is an \textbf{odd} number;
+therefore, the median corresponds to the value in the middle of the
+sorted data:
+
+\[ 4 \ \ \ \ \ 4 \ \ \ \ \ \textcolor{black}{\textbf{5}} \ \ \ \ \ 8 \ \ \ \ \ 12 \]
+
+\[md = 5 \ hours\] ~
+
+Now let's examine how the median responds to an outlier by adding the
+value of 24 to the data. In this case, the number of observations
+becomes 6, which is an \textbf{even} number. The new median,
+\(md_{new}\), is the average of the two middle numbers, 5 and 8:
+
+\[ 4 \ \ \ \ \ 4 \ \ \ \ \ \textcolor{black}{\textbf{5}} \ \ \ \ \ \textcolor{black}{\textbf{8}} \ \ \ \ \ 12 \ \ \ \ \ \underline{24}\]
+
+\[md_{new} = \frac{5 + 8}{2} = \frac{13}{2} = 6.5 \ hours\]
+
+We observe that the median is not strongly influenced by the addition of
+the outlier, as it only increased from 5 to 6.5. This demonstrates that
+the median is more resistant to outliers compared to the mean.
+
+~
+
+\textbf{Advantages of median}
+
+\begin{itemize}
+\tightlist
+\item
+  It is resistant to extreme values (outliers) compared to the mean.
+\end{itemize}
+
+\textbf{Disadvantages of median}
+
+\begin{itemize}
+\tightlist
+\item
+  It ignores the actual values of the data points, potentially losing
+  some information about the data.
+\end{itemize}
+
+~
+
+\textbf{C. Mode of the sample}
+
+Another measure of location is the \textbf{mode} of the sample.
+
+Mode represents the value that occurs \textbf{most frequently} in a set
+of data values.
+
+\textbf{\emph{Example}}
+
+In our example, the value of 4 appears twice in the data:
+
+\[ 5 \ \ \ \ \ \textcolor{black}{\textbf{4}} \ \ \ \ \ 12 \ \ \ \ \ 8 \ \ \ \ \ \textcolor{black}{\textbf{4}} \]
+
+Therefore, the mode is:
+
+\[ Mode = 4\]
+
+It's important to note that some datasets may not have a mode if each
+value occurs only once. For example, if we replace one of the fours with
+a three:
+
+\[ 5 \ \ \ \ \  \underline{3}  \ \ \ \ \ 12 \ \ \ \ \  8 \ \ \ \ \  4 \]
+In this case, no value repeats, so the dataset has no mode.
+
+~
+
+However, if we replace the 12 with an 8, the dataset becomes:
+
+\[ 5 \ \ \ \ \  \textcolor{red}{\textbf{4}}  \ \ \ \ \ \underline{\textcolor{green}{\textbf{8}}} \ \ \ \ \  \textcolor{green}{\textbf{8}} \ \ \ \ \  \textcolor{red}{\textbf{4}} \]
+
+Here, both 4 and 8 appear twice, making the dataset bimodal, meaning it
+has two modes.
+
+\[ \textcolor{red}{Mode1 = 4}\] and
+
+\[ \textcolor{green}{Mode2 = 8}\]
+
+~
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title={\includegraphics[width=1em,height=1em]{descriptive_files/figure-pdf/fa-icon-ee56651b74f8b687021aa43846e40a59.pdf}
+Comment}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-tip-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-tip-color!10!white]
+
+While the mode is less commonly used for numerical data, it can be a
+useful measure of central tendency for categorical data, representing
+the category with the highest frequency.
+
+\end{tcolorbox}
+
+~
+
+\subsection{Measures of dispersion}\label{measures-of-dispersion}
+
+\textbf{A. Range of the sample}
+
+The \textbf{range} is the difference between the maximum and minimum
+values in a dataset.
+
+\begin{equation}\phantomsection\label{eq-range}{range = Max - Min}\end{equation}
+
+The \textbf{minimum (Min)} value represents the lowest value observed in
+a dataset, while the \textbf{maximum (Max)} value represents the highest
+value. These values provide valuable insights into the range and
+potential outliers within the dataset.
+
+\textbf{\emph{Example}}
+
+Let's determine the range for the sorted data in our example:
+
+\[ \textcolor{black}{\textbf{4}} \ \ \ \ \  4 \ \ \ \ \ 5  \ \ \ \ \ 8 \ \ \ \ \ \textcolor{black}{\textbf{12}}\]
+
+The minimum is Min = 4 hours, and the maximum is Max = 12 hours.
+Therefore, according to Equation~\ref{eq-range}:
+
+\[ range = 12 - 4 = 8 \ hours\]
+
+~
+
+Let's add the extreme value of 24 to the data.
+
+\[ \textcolor{black}{\textbf{4}} \ \ \ \ \ 4 \ \ \ \ \ 5  \ \ \ \ \ 8 \ \ \ \ \ 12 \ \ \ \ \ \underline{\textcolor{black}{\textbf{24}}}\]
+
+In this case, the range becomes:
+
+\[range = 24 -4 = 20 \ hours\]
+
+The main disadvantages of the range as a measure of dispersion are its
+sensitivity to outliers and the fact that it uses only the extreme
+values, ignoring all other data points.
+
+~
+
+\textbf{B. Inter-quartile range of the sample}
+
+In the presence of outliers, the interquartile range (IQR) can provide a
+more accurate measure of the spread of the majority of the data. Before
+we define the interquartile range (IQR), let's first clarify some basic
+concepts, specifically quantiles and quartiles.
+
+A quantile indicates the value below which a certain proportion of the
+data falls. The most commonly used quantiles are known as
+\textbf{quartiles}:
+
+\begin{itemize}
+\item
+  \(Q_1\) (lower quartile) represents the value at which 25\% of the
+  data falls below it and 75\% falls above it.
+\item
+  \(Q_2\) (median) is the middle value when the data is arranged in
+  ascending or descending order.
+\item
+  \(Q_3\) (upper quartile) represents the value at which 75\% of the
+  data falls below it and 25\% falls above it.
+\end{itemize}
+
+Interquartile range is the difference between the third quartile (or
+upper quartile) and the first quartile (or lower quartile) in an ordered
+data set.
+
+\begin{equation}\phantomsection\label{eq-iqr}{IQR = Q_3 - Q_1}\end{equation}
+
+Therefore, the IQR focuses on the middle 50\% of the dataset.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.5\textwidth,height=\textheight]{images/iqr.png}
+
+}
+
+\caption{\label{fig-iqr}Quartiles and inter-quartile range.}
+
+\end{figure}%
+
+It's important to note that different statistical software packages may
+produce slightly different quartiles and interquartile ranges (IQRs) for
+the same dataset, especially when there are only a few values present.
+This discrepancy is due to the \textbf{numerous definitions} of sample
+quantiles used in statistical software packages (Hyndman and Fan 1996).
+While discussing these differences is beyond the scope of this
+introductory course, we will focus on the results provided by Jamovi.
+
+\textbf{\emph{Example}}
+
+In our example, the first quartile is \(Q_1 = 4\) hours, and the third
+quartile is \(Q_3 = 8\) hours.
+
+\[ 4 \ \ \ \ \  \textcolor{black}{\textbf{4}} \ \ \ \ \ 5  \ \ \ \ \ \textcolor{black}{\textbf{8}} \ \ \ \ \ 12\]
+
+Therefore, the inter-quartile range is:
+
+\[IQR = Q_3 - Q1 = 8 - 4 = 4\]
+
+~
+
+After adding an extreme value such as 24, our example sorted dataset is
+as follows:
+
+\[ 4 \ \ \ \ \ 4 \ \ \ \ \ 5  \ \ \ \ \ 8 \ \ \ \ \ 12 \ \ \ \ \ \underline{24}\]
+
+We would expect \(Q_1\) to have a value between 4 and 5, and \(Q_3\) to
+fall between 8 and 12. JAMOVI provides \(Q_1 = 4.25\) hours, and
+\(Q_3 =11\) hours. Therefore, the new inter-quartile range is:
+
+\[IQR_{new} = Q_3 - Q1 = 11 - 4.25 = 6.75\]
+
+As with the range, greater variability in the data typically leads to a
+larger IQR. However, unlike the range, the \textbf{IQR is resistant to
+outliers}, as it is not influenced by observations below the first
+quartile or above the third quartile.
+
+~
+
+\textbf{C. Sample variance}
+
+Sample variance, denoted as \(s^2\), is a measure of spread of the data
+based on the \textbf{deviations} of the data values from the mean.
+However, when we average these deviations, the sum always equals zero.
+This occurs because the mean acts as a balance point where the total
+positive and negative deviations cancel each other out. To resolve this
+issue, we calculate the variance using \textbf{squared deviations},
+which ensures that all values contribute positively to the measure of
+spread.
+
+Mathematically, the sample variance, \(s^2\), is calculated as the sum
+of the squared deviations from the sample mean, divided by the number of
+observations minus 1.
+
+\begin{equation}\phantomsection\label{eq-var}{s^2 = \frac{\text{Sum of squared deviations}}{\text{Number of values} - 1}}\end{equation}
+
+\textbf{\emph{Example}}
+
+The original values are:
+
+\[ 5 \ \ \ \ \  4  \ \ \ \ \ 12 \ \ \ \ \  8 \ \ \ \ \  4 \]
+
+and we have calculated the mean, \(\bar{x} = 6.6\). The deviation
+(difference) from the mean for the first value is calculated as 5 - 6.6
+= -1.6, and for the second value, it is 4 - 6.6 = -2.6, and so on.
+
+Thus, according to Equation~\ref{eq-var}:
+
+\[
+\begin{align*}
+s^2 &= \frac{(5 - 6.6)^2 + (4 - 6.6)^2 + (12 - 6.6)^2 + (8 - 6.6)^2 + (4 - 6.6)^2}{5 - 1} \\
+    &= \frac{(-1.6)^2 + (-2.6)^2 + (5.4)^2 + (1.4)^2 + (-2.6)^2}{4} \\
+    &= \frac{2.56 + 6.76 + 29.16 + 1.96 + 6.76}{4} \\
+    &= \frac{47.20}{4} \\
+    &= 11.80 \ hours^2
+\end{align*}
+\]
+
+~
+
+Now let's examine how the variance responds to an outlier by adding the
+value of 24 to the data. The new mean is \(\bar{x}_{new} = 9.5\), and
+the variance is calculated as follows:
+
+\[
+\begin{align*}
+s^2 &= \frac{(5 - 9.5)^2 + (4 - 9.5)^2 + (12 - 9.5)^2 + (8 - 9.5)^2 + (4 - 9.5)^2 + (24 - 9.5)^2}{6 - 1} \\
+    &= \frac{(-4.5)^2 + (-5.5)^2 + (2.5)^2 + (-1.5)^2 + (-5.5)^2 + (14.5)^2}{5} \\
+    &= \frac{20.25 + 30.25 + 6.25 + 2.25 + 30.25 + 210.25}{5} \\
+    &= \frac{299.5}{5} \\
+    &= 59.9 \ hours^2
+\end{align*}
+\]
+
+The variance is sensitive to outliers because it is based on the
+\textbf{squared} deviations from the mean. As a result, even a single
+extreme value can significantly increase the variance, making it a less
+reliable measure of spread when outliers are present.
+
+The variance, being expressed in square units, \textbf{is not} the
+preferred metric for describing the variability of data.
+
+~
+
+\textbf{D. Standard deviation of the sample}
+
+Standard deviation is one of the most common measures of spread and is
+particularly useful for assessing how far the data points are
+distributed from the mean.
+
+Standard deviation, denoted as \emph{s} or \emph{sd}, represents the
+typical distance of observations from the mean. It is calculated as the
+square root of the sample variance.
+
+\begin{equation}\phantomsection\label{eq-sd}{s = \sqrt{s^2}}\end{equation}
+
+\textbf{\emph{Example}}
+
+The standard deviation is:
+
+\[s = \sqrt{11.8} = 3.44 \ hours\]
+
+and is expressed in the same units as the original data values.
+
+~
+
+With the addition of the value 25, the standard deviation becomes:
+
+\[s = \sqrt{59.9} = 7.74 \ hours\]
+
+The standard deviation uses all observations in a dataset for its
+calculation and is expressed in the same units as the original data.
+However, it is sensitive to outliers, which can substantially influence
+its value.
+
+~
+
+\subsection{Plots for continuous
+variables}\label{plots-for-continuous-variables}
+
+When visualizing continuous data, several types of plots can be used to
+understand the distribution, spread, and overall patterns in the data.
+
+In the following examples, we will use the \textbf{complete} dataset
+consisting of 258 observations.
+
+~
+
+\textbf{A. Frequency histogram}
+
+The most common way to present the frequency distribution of numerical
+data, especially when there are many observations, is through a
+\textbf{histogram}. Histograms visualize the data distribution as
+\textbf{a series of bars without gaps} between them (unless a particular
+bin has zero frequency), in contrast to bar plots. Each bar typically
+represents a range of numeric values known as a \textbf{bin} (or class),
+with the height of the bar indicating the \textbf{frequency} of
+observations (counts) within that particular bin. Below are the
+frequency histograms for \texttt{age} and \texttt{time\_spent}:
+
+\begin{figure}
+
+\begin{minipage}{0.50\linewidth}
+
+\centering{
+
+\includegraphics{descriptive_files/figure-pdf/fig-histog1-1.pdf}
+
+}
+
+\subcaption{\label{fig-histog1-1}Histogram of age.}
+
+\end{minipage}%
+%
+\begin{minipage}{0.50\linewidth}
+
+\centering{
+
+\includegraphics{descriptive_files/figure-pdf/fig-histog1-2.pdf}
+
+}
+
+\subcaption{\label{fig-histog1-2}Histogram of time spent.}
+
+\end{minipage}%
+
+\caption{\label{fig-histog1}Histograms of age and time spent variables.}
+
+\end{figure}%
+
+In Figure~\ref{fig-histog1}(a), the \texttt{age} distribution exhibits a
+symmetrical bell-shaped form, with the highest frequency occurring
+around 18 years old. The participants' ages range approximately from 14
+to 22 years. In Figure~\ref{fig-histog1}(b), the \texttt{time\_spent}
+variable follows a right-skewed distribution, with a higher frequency
+occurring around 3 hours and a range roughly from 0 to 18 hours.
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title={\includegraphics[width=1em,height=1em]{descriptive_files/figure-pdf/fa-icon-ee56651b74f8b687021aa43846e40a59.pdf}
+Comment}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-tip-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-tip-color!10!white]
+
+The visual appearance of a histogram is greatly influenced by the choice
+of the \textbf{binwidth} (the difference between the lower and upper
+limits of the bin). If the binwidth is too small (resulting in a large
+number of bins), the histogram may appear overly detailed and noisy,
+making it difficult to discern meaningful patterns. Conversely, if the
+binwidth is too large (resulting in a small number of bins), important
+features of the data distribution may be obscured. Experimenting with
+different binwidths helps us find the optimal setting that best
+represents the data, resulting in a more informative visualization.
+
+\end{tcolorbox}
+
+~
+
+To summarize, a histogram provides information on:
+
+\begin{itemize}
+\item
+  The distribution of the data, whether it's symmetrical or
+  asymmetrical, and the presence of any outliers.
+\item
+  The location of the peak(s) in the distribution.
+\item
+  The degree of variability within the data, indicating the spread and
+  range covered by the data.
+\end{itemize}
+
+~
+
+\textbf{B. Density plot}
+
+A \textbf{density plot} is another way to represent the distribution of
+numerical data, often seen as a smoother version of a histogram
+(Figure~\ref{fig-density1}). Moreover, density curves are typically
+scaled so that the area under the curve equals one.
+
+~
+
+\begin{figure}
+
+\begin{minipage}{0.50\linewidth}
+
+\centering{
+
+\includegraphics{descriptive_files/figure-pdf/fig-density1-1.pdf}
+
+}
+
+\subcaption{\label{fig-density1-1}Histogram of age.}
+
+\end{minipage}%
+%
+\begin{minipage}{0.50\linewidth}
+
+\centering{
+
+\includegraphics{descriptive_files/figure-pdf/fig-density1-2.pdf}
+
+}
+
+\subcaption{\label{fig-density1-2}Histogram of time spent.}
+
+\end{minipage}%
+
+\caption{\label{fig-density1}Density plots of age and time spent
+variables.}
+
+\end{figure}%
+
+~
+
+\textbf{C. Box Plots}
+
+Box plots are useful for visualizing the central tendency and spread of
+continuous data, particularly when comparing distributions across
+multiple groups.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.7\textwidth,height=\textheight]{images/boxplot.png}
+
+}
+
+\caption{\label{fig-boxplot}Anatomy of a (horizontal) boxplot.}
+
+\end{figure}%
+
+This type of graph uses boxes and lines to represent the distributions.
+In Figure~\ref{fig-boxplot} the box boundaries indicate the
+interquartile range (IQR), covering the middle 50\% of the data, with a
+horizontal line inside the box representing the median. Whiskers extend
+from the box to capture the range of the remaining data, providing
+additional insight into the spread. Data points lying outside the
+whiskers are displayed as individual dots and are considered potential
+outliers.
+
+~
+
+\begin{figure}
+
+\begin{minipage}{0.50\linewidth}
+
+\centering{
+
+\includegraphics{descriptive_files/figure-pdf/fig-boxplot1-1.pdf}
+
+}
+
+\subcaption{\label{fig-boxplot1-1}Vertical box plot of age.}
+
+\end{minipage}%
+%
+\begin{minipage}{0.50\linewidth}
+
+\centering{
+
+\includegraphics{descriptive_files/figure-pdf/fig-boxplot1-2.pdf}
+
+}
+
+\subcaption{\label{fig-boxplot1-2}Vertical box plot of time spent.}
+
+\end{minipage}%
+
+\caption{\label{fig-boxplot1}Box plots of age and time spent variables.}
+
+\end{figure}%
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title={\includegraphics[width=1em,height=1em]{descriptive_files/figure-pdf/fa-icon-ee56651b74f8b687021aa43846e40a59.pdf}
+Comment}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-tip-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-tip-color!10!white]
+
+We have already discussed outliers---observations that exhibit unusually
+large or small values compared to the rest of the dataset. Outliers can
+arise from several sources: they may result from incorrect measurements,
+such as data entry errors or instrument malfunctions, or they may
+originate from a different population than the rest of the data,
+indicating a ``rare'' event. Understanding the causes of outliers is
+essential for proper data analysis and interpretation.
+
+\vspace{10pt}
+
+We typically \textbf{identify outliers using the interquartile range}
+(IQR), where any value outside the interval (Q1 - 1.5 * IQR, Q3 + 1.5 *
+IQR) is considered a potential outlier (Tukey's method). This interval
+extends 1.5 times the IQR below the first quartile (Q1) and above the
+third quartile (Q3).
+
+\end{tcolorbox}
+
+\part{Jamovi LAB}
+
+\chapter{LAB I: Introduction to Jamovi and data
+preparation}\label{sec-lab1}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title={\includegraphics[width=1em,height=1em]{lab1_files/figure-pdf/fa-icon-fd658532f1071e4d71f26381511f9b57.pdf}
+Learning objectives}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-caution-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-caution-color!10!white]
+
+\begin{itemize}
+\tightlist
+\item
+  Navigate Jamovi and import datasets.
+\item
+  Filter rows in the data for focused analysis.
+\item
+  Transform existing variables to prepare data for analysis.
+\item
+  Compute new variables based on other variables in the dataset.
+\end{itemize}
+
+\end{tcolorbox}
+
+\section{Why Jamovi?}\label{why-jamovi}
+
+Jamovi is a new fee open ``3rd generation'' statistical software that is
+built on top of the programming language R (Figure~\ref{fig-jamovi_0}).
+Designed from the ground up to be easy to use, Jamovi is a compelling
+alternative to costly statistical products such as SPSS and SAS.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.95\textwidth,height=\textheight]{images/jamovi_0.png}
+
+}
+
+\caption{\label{fig-jamovi_0}Jamovi is free and open statistical
+software}
+
+\end{figure}%
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title={\textbf{Some other advantages are:}}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-note-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-note-color!10!white]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  User-friendly point-and-click interface.
+\item
+  Displays informative tables and clear visuals.
+\item
+  Supports add-on modules for advanced statistical analysis.
+\item
+  Allows integration with R.
+\item
+  Provides access to a user guide and community resources on the Jamovi
+  website.
+\end{enumerate}
+
+\end{tcolorbox}
+
+\section{Downloading and installing
+Jamovi}\label{downloading-and-installing-jamovi}
+
+\textbf{Jamovi} is available for Windows (64-bit), macOS, Linux and
+ChromeOS. Installation on desktop is quite straight-forward. Just go to
+the Jamovi download page \url{https://www.jamovi.org/download.html}, and
+download the latest version (current release) for your operating system.
+
+\section{Navigating Jamovi}\label{navigating-jamovi}
+
+When jamovi first opens, we will see a screen something like in
+Figure~\ref{fig-jamovi1}.
+
+\begin{figure}
+
+\includegraphics[width=0.95\textwidth,height=\textheight]{images/jamovi1.png}
+
+\caption{\label{fig-jamovi1}Jamovi starts up!.}
+
+\end{figure}%
+
+To the left is the spreadsheet view, and to the right is where the
+results of statistical tests appear. Down the middle is a bar separating
+these two regions, and this can be dragged to the left or the right to
+change their sizes.
+
+~
+
+Let's take a quick look at the Jamovi Main Menu, referred to hereafter
+as the \textbf{Menu}, as shown in Figure~\ref{fig-menu1}. This Menu is
+displayed at the very top of the Jamovi screen:
+
+\begin{figure}
+
+\includegraphics[width=0.95\textwidth,height=\textheight]{images/menu1.png}
+
+\caption{\label{fig-menu1}The menu bar provides access to all functions
+of the program.}
+
+\end{figure}%
+
+There are six tabs in the Menu (from left to right): 1. File (a layer
+with three horizontal levels \(\equiv\)), 2. Variables, 3. Data, 4.
+Analyses, 5. Edit, and 6. Settings (the three dots \(\vdots\) at the top
+right of the window) tabs. A toolbar appears whenever we click on a Menu
+tab (Table~\ref{tbl-menu}).
+
+~
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5130}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.4870}}@{}}
+\caption{Menu and toolbars of Jamovi}\label{tbl-menu}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Menu tab
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Toolbar
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Menu tab
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Toolbar
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{File tab} (\(\equiv\))
+
+  The file tab
+  \includegraphics[width=0.25in,height=0.17708in]{images/hbars.png}
+  allows us to open/import existing files, save and export our files.
+\end{enumerate}
+\end{minipage} &
+\includegraphics[width=0.4\textwidth,height=\textheight]{images/tab_file.png} \\
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  \textbf{Variables tab}
+
+  This allows us to view and search our variables in a list view.
+\end{enumerate}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\includegraphics[width=1\textwidth,height=\textheight]{images/tab_variables.png}
+
+This view allows us to easily navigate our variables and do the
+following:
+
+\begin{itemize}
+\item
+  Search for a variable by scrolling through the list or search for one
+  by name.
+\item
+  Edit the variable names and descriptions by double-clicking in the
+  relevant field.
+\item
+  Edit our variable details by double-clicking on the data symbol (the
+  screen will appear for us to add all the necessary information).
+\item
+  Create a new variable by clicking on
+  the\includegraphics[width=0.35417in,height=\textheight]{images/plus_icon.png}
+  in the bottom right corner. \textbar{}
+\end{itemize}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\item
+  \textbf{Data tab}
+
+  Here we will see our raw data which are organised like Excel in rows
+  and columns. We can also manipulate our data and add new variables
+  when necessary.
+\end{enumerate}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\includegraphics[width=1\textwidth,height=\textheight]{images/tab_data.png}
+
+Specifically, this tab allows us to do the following:
+
+\begin{itemize}
+\item
+  Rename and add details to existing variables. Click on the
+  \emph{Setup} button, or double-click on the variable we want to
+  manage.
+\item
+  Compute and transform variables
+\item
+  Add and/or Delete variables (columns)
+\item
+  Add Filters
+\item
+  Add and/or Delete Rows
+\end{itemize}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\item
+  \textbf{Analyses tab}
+
+  It includes the available statistical analyses that can be performed
+  by Jamovi.
+\end{enumerate}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\includegraphics{images/tab_analysis.png}
+
+We will spend most of our time in the Analyses Tab. The following six
+modules are pre-installed:
+
+\begin{itemize}
+\item
+  Exploration
+\item
+  T-Tests
+\item
+  ANOVA
+\item
+  Regression
+\item
+  Frequencies
+\item
+  Factor
+\end{itemize}
+
+For example, if we want to perform regression analysis, we simply click
+the '\,'Regression'' button.
+
+All other modules need to be installed using the \textbf{Modules} button
+(Plus button) in our top-right
+\includegraphics[width=0.45833in,height=\textheight]{images/modules.png}
+\textbar{}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\item
+  \textbf{Edit tab}
+
+  It includes a toolbar similar to a word processor.
+\end{enumerate}
+\end{minipage} & \includegraphics{images/tab_edit.png}
+
+We can add extra information to our results using the buttons that are
+very similar to what we would find in Word (though there are fewer
+options). \\
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\item
+  \textbf{Settings tab}
+
+  (the three dots \({\vdots}\) at the top right of the window)
+
+  \includegraphics[width=0.14583in,height=0.30208in]{images/dots.png}
+
+  It includes the application settings that can be manged by the users
+  according to their preferences.
+\end{enumerate}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\includegraphics[width=1.77083in,height=\textheight]{images/prefrences.png}
+
+We can apply our preferences for a number of settings such as:
+
+\begin{itemize}
+\item
+  How many decimal numbers we want.
+\item
+  If we want to learn R, we can also display the R syntax.
+\item
+  Our graph color scheme.
+\item
+  Our default missing value.
+\end{itemize}
+\end{minipage} \\
+\end{longtable}
+
+~
+
+\section{Types of Variables in
+Jamovi}\label{types-of-variables-in-jamovi}
+
+Data variables can be one of four \textbf{measure types}:
+
+\begin{itemize}
+\item
+  \includegraphics[width=0.25in,height=0.22917in]{images/nominal.png}
+  \textbf{Nominal}: This type is for nominal categorical variables.
+\item
+  \includegraphics[width=0.27083in,height=\textheight]{images/ordinal.png}
+  \textbf{Ordinal}: This type is for ordinal categorical variables.
+\item
+  \includegraphics[width=0.23958in,height=0.21875in]{images/continuous.png}
+  \textbf{Continuous} : this type is for variables with numeric values
+  which are considered to be of \emph{Interval} or \emph{Ratio} scales.
+\item
+  \includegraphics[width=0.25in,height=\textheight]{images/id.png}
+  \textbf{ID}: This will usally be our first column. This can be text or
+  numbers, but it should be unique to each row.
+\end{itemize}
+
+~
+
+Additionally, data variables can be one of three \textbf{data types}:
+
+\begin{itemize}
+\item
+  \textbf{Integer}: These are full numbers e.g.~1, 2, 3, \ldots{} 100,
+  etc. - Integers can be used for all three measure types . When used
+  for Nominal/Ordinal data numbers will represent labels e.g.~male=1;
+  female=2.
+\item
+  \textbf{Decimal:} These are numbers with decimal points. e.g.~1.3,
+  5.6, 7.8, etc. - This will usually only be used for continuous data.
+\item
+  \textbf{Text:} This can be used for ordinal and nominal data.
+\end{itemize}
+
+The measure types are designated by the symbol in the header of the
+variable's column. Note that some combinations of data-type and
+measure-type don't make sense, and Jamovi won't let us choose these.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2222}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2361}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2361}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2361}}@{}}
+\caption{Types of data and measures}\label{tbl-types}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Measure
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Measure
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Data} & Nominal & Ordinal & Continuous \\
+Integer & \({\checkmark}\) & \({\checkmark}\) & \({\checkmark}\) \\
+Decimal & & & \({\checkmark}\) \\
+Text & \({\checkmark}\) & \({\checkmark}\) & \\
+\end{longtable}
+
+~
+
+\section{Importing data}\label{importing-data}
+
+\subsection{The dataset}\label{the-dataset}
+
+It is possible to simply begin typing values into the Jamovi spreadsheet
+as we would with any other spreadsheet software. Alternatively, existing
+datasets in a range of formats (OMV, Excel, CSV, SPSS, R data, Stata,
+SAS) can be opened in Jamovi. We will use the following dataset as an
+example (Figure~\ref{fig-rses}).
+
+\begin{verbatim}
+file:///C:/Users/kboug/AppData/Local/Temp/Rtmp88kkK1/file42fc662e71f4/widget42fc48d4b4d.html screenshot completed
+\end{verbatim}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{lab1_files/figure-pdf/fig-rses-1.pdf}
+
+}
+
+\caption{\label{fig-rses}Table with raw data.}
+
+\end{figure}%
+
+(\textbf{NOTE:} You can find other formats of the data (OMV, Excel) at
+the link: \url{https://osf.io/gvctz/}).
+
+~ ~
+
+The meta-data (data about the data) for this dataset are as following:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{sex:} sex (1 = male, 2 = female).
+\item
+  \textbf{age:} age in years.
+\item
+  \textbf{time\_spend:} hours spent on social media.
+\item
+  \(q_1 ... q_{10}\): Ten questions (items) of Rosenberg Self-Esteem
+  Scale (RSES). The 10 items are answered on a four point scale ranging
+  from strongly agree to strongly disagree coded as follows: Strongly
+  Agree = 3, Agree = 2, Disagree = 1, and Strongly Disagree = 0.
+\end{enumerate}
+
+\begin{itemize}
+\item
+  Positively worded Items 1, 2, 4, 6, and 7.
+\item
+  Negatively worded Items 3, 5, 8, 9, and 10 (codes should be reversed).
+\end{itemize}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{images/rsescode.png}
+
+}
+
+\caption{\label{fig-rsescode}Codes should be reversed for the negatively
+worded Items.}
+
+\end{figure}%
+
+The scale ranges from 0-30 (we add the scores for all items), with 30
+indicating the highest total score possible.
+
+More information for the RSES:
+\href{https://socy.umd.edu/about-us/using-rosenberg-self-esteem-scale}{Rosenberg
+Self-Esteem Scale}.
+
+\subsection{Opening the file}\label{opening-the-file}
+
+To open this \texttt{csv} file, click on the \textbf{File} tab
+\includegraphics[width=0.29167in,height=0.17708in]{images/hbars.png} at
+the top left hand corner (just left of the \textbf{Variables} tab)
+(Figure~\ref{fig-tab_analysis_file}).
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{images/tab_analysis_file.png}
+
+}
+
+\caption{\label{fig-tab_analysis_file}Click on the File tab}
+
+\end{figure}%
+
+This will open the menu shown in Figure~\ref{fig-open_file}. Select
+`\textbf{Open}' and then `\textbf{This PC}'. Choose the downloaded file
+from the files listed on `\textbf{Browse}' which are stored on our
+computer folders:
+
+\begin{figure}
+
+\includegraphics[width=0.95\textwidth,height=\textheight]{images/open_file.png}
+
+\caption{\label{fig-open_file}Open an existing file stored on our
+computer into Jamovi.}
+
+\end{figure}%
+
+~
+
+The flowchart of the process is:
+
+\includegraphics[width=6.62in,height=0.72in]{lab1_files/figure-latex/mermaid-figure-1.png}
+
+~
+
+We should see data now in the Spreadsheet view
+(Figure~\ref{fig-dataset}).
+
+\begin{figure}
+
+\includegraphics[width=0.95\textwidth,height=\textheight]{images/dataset.png}
+
+\caption{\label{fig-dataset}Our dataset.}
+
+\end{figure}%
+
+As we can see this is a data set with 258 observations and 13 variables.
+JAMOVI has classified all the variables as nominal
+\includegraphics[width=0.25in,height=0.22917in]{images/nominal.png};
+however, only the \texttt{sex} variable is actually nominal.
+
+\section{Adding labels to codes}\label{adding-labels-to-codes}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{sex variable}
+\end{itemize}
+
+The first variable, named \texttt{sex}, is a categorical variable coded
+as 1 for males and 2 for females. Notice that it is correctly identified
+as a nominal
+\includegraphics[width=0.25in,height=0.22917in]{images/nominal.png}
+variable in Jamovi.
+
+We can assign labels to numerically coded values of categorical
+variables, such as \texttt{sex}, by accessing the data variable
+settings. One way to achieve this is by double-clicking on the variable
+name \texttt{sex}, which opens the additional menu of variable settings
+at the top of the Jamovi screen (Figure~\ref{fig-labels0}).
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{images/labels0.png}
+
+}
+
+\caption{\label{fig-labels0}An additional menu appears at the top of the
+Jamovi screen after double-clicking on the variable name sex.}
+
+\end{figure}%
+
+~
+
+In this menu, we will find the \emph{Levels} setup. Here, we can specify
+the labels that should appear for each category level. Click on the
+number ``1'' in the \emph{Levels} box to edit its label, changing it
+from ``1'' to ``male''. Similarly, click on the number ``2'' and change
+it to ``female'' (Figure~\ref{fig-labels}).
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{images/labels.png}
+
+}
+
+\caption{\label{fig-labels}Adding labels to numerically coded Values.}
+
+\end{figure}%
+
+Notice how the numbers ``1'' and ``2'' have moved to the lower right
+under the text we're typing, allowing us to still see which label
+corresponds to each numerical code. Press \texttt{Enter} or click
+anywhere outside the labels box to save these labels.
+
+We close the variable settings by pressing the arrow in the top-right
+corner
+\includegraphics[width=0.26042in,height=0.26042in]{images/up_arrow.png}.
+
+\section{Changing the measure type}\label{changing-the-measure-type}
+
+Next, we will change the measure type of \texttt{age} and
+\texttt{time\_spent} variables from nominal to continuous.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{age variable}
+\end{itemize}
+
+Double-click on the variable name \texttt{age} to open the data variable
+settings, as shown in Figure~\ref{fig-type_age}:
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.9\textwidth,height=\textheight]{images/type_age.png}
+
+}
+
+\caption{\label{fig-type_age}Data variable menu settings for the age
+variable.}
+
+\end{figure}%
+
+~
+
+From the drop-down list of ``Measure type'' we select the continuous
+type
+\includegraphics[width=0.23958in,height=0.21875in]{images/continuous.png},
+as shown in Figure~\ref{fig-type_age2}.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.8\textwidth,height=\textheight]{images/type_age2.png}
+
+}
+
+\caption{\label{fig-type_age2}Change the measure type of age from
+nominal to continuous. .}
+
+\end{figure}%
+
+~
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{time\_spent variable}
+\end{itemize}
+
+Instead of closing the data variable menu using the arrow in the
+top-right corner, we can click on the
+\includegraphics[width=0.26042in,height=0.26042in]{images/greater.png}
+to proceed to the next variable setting, \texttt{time\_spent}. As
+before, we select the continuous type for this variable from the
+``Measure type'' drop-down list, as shown in Figure~\ref{fig-time}.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.8\textwidth,height=\textheight]{images/time.png}
+
+}
+
+\caption{\label{fig-time}Change the measure type of time\_spent from
+nominal to continuous.}
+
+\end{figure}%
+
+We close the variable settings by pressing the arrow in the top-right
+corner
+\includegraphics[width=0.26042in,height=0.26042in]{images/up_arrow.png}.
+
+~
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{q1 to q10 variables}
+\end{itemize}
+
+Finally, we will change the measure type of \texttt{q1} to \texttt{q10}
+variables from nominal to ordinal. In the Variables tab, we select the
+checkboxes for the \texttt{q1} through \texttt{q10} variables, as shown
+in Figure~\ref{fig-q1_10}.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.6\textwidth,height=\textheight]{images/q1_10.png}
+
+}
+
+\caption{\label{fig-q1_10}Change the measure type of time\_spent from
+nominal to continuous.}
+
+\end{figure}%
+
+~
+
+After that, we click on the Edit button
+\includegraphics[width=0.375in,height=0.41667in]{images/edit.png} to
+open the data variable settings, as shown in
+Figure~\ref{fig-multiple_q1_10}.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{images/multiple_q1_10.png}
+
+}
+
+\caption{\label{fig-multiple_q1_10}Change the measure type of
+time\_spent from nominal to continuous.}
+
+\end{figure}%
+
+~
+
+From the drop-down list of ``Measure type'' we select the ordinal type
+\includegraphics[width=0.23958in,height=0.21875in]{images/ordinal.png},
+as shown in Figure~\ref{fig-ordinal_multipleq1_10}.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.8\textwidth,height=\textheight]{images/ordinal_multipleq1_10.png}
+
+}
+
+\caption{\label{fig-ordinal_multipleq1_10}Change the measure type of q1
+to q10 from nominal to ordinal.}
+
+\end{figure}%
+
+~
+
+\section{Filtering rows}\label{filtering-rows}
+
+Next, we select the \textbf{Filters button}
+\includegraphics[width=0.3125in,height=0.29167in]{images/filters.png}
+from the \textbf{Data} tab. This opens the ``Row FILTERS'' view at the
+top of the Jamovi screen where we can add a filter called
+``\textbf{Filter 1}'' (Figure~\ref{fig-filter1_age}). Let's say that we
+want to study only the adults from the participants in this survey.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Simple condition}
+\end{itemize}
+
+In order to access functions, press the
+\includegraphics[width=0.3125in,height=0.29167in]{images/fx.png} icon in
+the filter settings and from ``\textbf{VARIABLES}'' double-click on
+\texttt{age} (or we just type the variable name but if the variable has
+a space, we must use ticks \texttt{\textquotesingle{}\textquotesingle{}}
+around the variable name). Then type the condition
+\texttt{age\ \textgreater{}=\ 18} in the formula box and press
+\textbf{ENTER} from the keyboard (Figure~\ref{fig-filter1_age}).
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{images/filter1_age.png}
+
+}
+
+\caption{\label{fig-filter1_age}Adding a filter.}
+
+\end{figure}%
+
+~
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Relational (or comparison) operators in Jamovi}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-tip-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-tip-color!10!white]
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+\textbf{symbol} & \textbf{read as} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textless{} & less than \\
+\textgreater{} & greater than \\
+== & equal to \\
+\textless= & less than or equal to \\
+\textgreater= & greater than or equal to \\
+!= & not equal to \\
+\end{longtable}
+
+\end{tcolorbox}
+
+~
+
+Notice that a column named \texttt{Filter\ 1} has been added to the
+Spreadsheet view. Cells that meet the condition
+\texttt{age\ \textgreater{}=\ 18} are checked with a green tick
+\includegraphics[width=0.25in,height=0.21875in]{images/tick.png}, while
+the rest have a red x symbol
+\includegraphics[width=0.25in,height=0.21875in]{images/x.png}. Lines
+with an \texttt{X} are grayed out indicating that these observations are
+now outside of the current dataset.
+
+There is also a switch where we can activate
+\includegraphics[width=0.28125in,height=0.20833in]{images/active.png} or
+inactivate
+\includegraphics[width=0.28125in,height=0.20833in]{images/inactive.png}
+the filter (note that an inactivate filter will remain visible and can
+be toggled to active at any time).
+
+It is also possible to hide all filter columns by clicking on the eye
+symbol
+\includegraphics[width=0.27083in,height=0.23958in]{images/eye.png} of
+the filters. In this case, all filters and the filtered data will remain
+active but will be invisible.
+
+Finally, if we want to delete the filter permanently, we can click on
+the \includegraphics[width=0.28125in,height=0.20833in]{images/x_del.png}
+of the filter .
+
+~
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Multiple conditions}
+\end{itemize}
+
+But we can do more complicated filters than this! Let's say that we're
+interested in the \textbf{adult females}. In fact we can specify this in
+three ways:
+
+\textbf{a)} by using the \texttt{and} operator in ``\textbf{Filter 1}''
+which means that both conditions (adults and females) in the expression
+must be true at the same time. Therefore, we type the expression
+\texttt{age\ \textgreater{}=\ 18\ and\ sex\ ==\ \textquotesingle{}female\textquotesingle{}}
+(Figure~\ref{fig-filter1_age_and_sex}):
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{images/filter1_age_and_sex.png}
+
+}
+
+\caption{\label{fig-filter1_age_and_sex}Combining conditions with
+``and'' operator in one expression.}
+
+\end{figure}%
+
+Note that in the above expression we can also use double quotes around
+the \texttt{"female"} (i.e.,
+\texttt{age\ \textgreater{}=\ 18\ and\ sex\ ==\ "female"}) or even the
+coded value (i.e., \texttt{age\ \textgreater{}=\ 18\ and\ sex\ ==\ 2}).
+
+\textbf{b)} by adding the second condition
+(i.e.~\texttt{sex\ ==\ "female"}) as \textbf{another expression} to
+``\textbf{Filter 1}'' (by clicking the small \texttt{+} beside the first
+expression) (Figure~\ref{fig-filter1_age_sex}):
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{images/filter1_age_sex.png}
+
+}
+
+\caption{\label{fig-filter1_age_sex}Multiple expressions in the same
+filter.}
+
+\end{figure}%
+
+This additional expression comes to be represented with its own column
+\texttt{F1(2)} (Figure~\ref{fig-filter1_age_sex}), and by looking at the
+ticks and crosses, we can see which expression is responsible for
+excluding each row.
+
+\textbf{c)} adding a new ``\textbf{Filter 2}'' (by selecting the
+\textbf{large +} to the left of the filters dialog box)
+(Figure~\ref{fig-filter2}). In this case, we can activate or inactivate
+the filters separately.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{images/filter2.png}
+
+}
+
+\caption{\label{fig-filter2}Multiple expressions using multiple
+filters.}
+
+\end{figure}%
+
+We close the filter settings by pressing the arrow in the top-right
+corner
+\includegraphics[width=0.26042in,height=0.26042in]{images/up_arrow.png}.
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-important-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-important-color!10!white]
+
+Filters in Jamovi exclude the rows for which the expression is not true.
+When filters are active, \textbf{all results} will be based on the
+filtered data. If we want to see unfiltered results we will either need
+to delete the filter or toggle it to inactive.
+
+\end{tcolorbox}
+
+~
+
+\section{Transforming a variable}\label{transforming-a-variable}
+
+\subsection{Transform a quantitative variable into a qualitative
+variable}\label{transform-a-quantitative-variable-into-a-qualitative-variable}
+
+Sometimes it can be useful to convert a quantitative variable into a
+qualitative variable with levels. For example, the \texttt{time\_spent}
+can be categorized as follows:
+
+\begin{itemize}
+\item
+  less than or equal to 3
+  \includegraphics[width=0.88em,height=1em]{lab1_files/figure-pdf/fa-icon-21c27fa153c8e039995b178d5d474e3f.pdf}
+  ``0-3''
+\item
+  4 to 7
+  \includegraphics[width=0.88em,height=1em]{lab1_files/figure-pdf/fa-icon-21c27fa153c8e039995b178d5d474e3f.pdf}
+  ``4-7''
+\item
+  8 to 11
+  \includegraphics[width=0.88em,height=1em]{lab1_files/figure-pdf/fa-icon-21c27fa153c8e039995b178d5d474e3f.pdf}
+  ``8-11''
+\item
+  greater than 11
+  \includegraphics[width=0.88em,height=1em]{lab1_files/figure-pdf/fa-icon-21c27fa153c8e039995b178d5d474e3f.pdf}
+  ``\textgreater11''
+\end{itemize}
+
+Select \texttt{time\_spent} variable and click the Transform button
+\includegraphics[width=0.41667in,height=0.375in]{images/transform_button.png}
+from the toolbar of the Data tab. This opens the ``\textbf{TRANSFORMED
+VARIABLE}'' view, where we can set the name of the transformed variable
+such as \texttt{time\_spent2} and create the transformation. To do this,
+select the source variable, the \texttt{time\_spent} in this case, in
+the \emph{Source Variable} field and create a new transformation using
+transform field (Figure~\ref{fig-create_new_transf}), which is initially
+set to `none'.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{images/create_new_transf.png}
+
+}
+
+\caption{\label{fig-create_new_transf}Setting up a new transformation of
+a variable.}
+
+\end{figure}%
+
+~
+
+This opens the ``TRANSFORM'' view where Jamovi gives each transformation
+a name (e.g., \texttt{Transform\ 1}; if we want we can change it). This
+allows us to use it again later on other variables if we wish. We can
+also add a description (Figure~\ref{fig-transf_view}).
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.6\textwidth,height=\textheight]{images/transf_view.png}
+
+}
+
+\caption{\label{fig-transf_view}Box for adding conditions to the
+transformation.}
+
+\end{figure}%
+
+Now we need to \textbf{add conditions}. Jamovi uses simple
+\texttt{if\ ...\ else} statements and executes each statement starting
+from the top. So let's start!
+
+First, select \textbf{\texttt{+\ Add\ recode\ condition}}. Second, we
+need to fill the \textbf{boxes} with the information as follows
+(Figure~\ref{fig-recode1}):
+
+\begin{itemize}
+\tightlist
+\item
+  The \textbf{\texttt{\$source}} is the variable we want to transform
+  (here \texttt{time\_spent})- don't change this.
+\item
+  Select the appropriate \textbf{comparison operator} (here
+  \texttt{\textless{}=} )
+\item
+  In the next box, we will put the \texttt{time\_spent} value we want as
+  the cut off point (e.g., 3).
+\item
+  After the use, add our new label (here
+  \texttt{\textquotesingle{}0-3\textquotesingle{}}). If we are using
+  text we must enclose it in
+  \texttt{\textquotesingle{}...\textquotesingle{}}
+\end{itemize}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{images/recode1.png}
+
+}
+
+\caption{\label{fig-recode1}Adding the first condition (0-3).}
+
+\end{figure}%
+
+~
+
+We can add as many conditions as we want by selecting
+\texttt{+\ Add\ recode\ condition}. This will add a new
+\texttt{if\ \$source} line into the box (Figure~\ref{fig-recode2}).
+Remember they will be executed in order.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{images/recode2.png}
+
+}
+
+\caption{\label{fig-recode2}Adding the second condition (4-7).}
+
+\end{figure}%
+
+~
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{images/recode3.png}
+
+}
+
+\caption{\label{fig-recode3}Adding the third condition (8-11).}
+
+\end{figure}%
+
+~
+
+Finally, after the \texttt{else\ use} box just add the label for the
+data that does not meet the above conditions (here
+\texttt{\textquotesingle{}\textgreater{}11\textquotesingle{}}), as shown
+in Figure~\ref{fig-recode4}.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{images/recode4.png}
+
+}
+
+\caption{\label{fig-recode4}Adding the final label for the data that
+does not meet the above conditions (\textgreater11).}
+
+\end{figure}%
+
+~
+
+\subsection{Reverse scoring of items}\label{reverse-scoring-of-items}
+
+To compute the total score for all items of the RSES, we first need to
+reverse the scores of the negatively worded questions (3, 5, 8, 9, and
+10). To do this, we can follow these simple steps.
+
+In the Variables tab, we select the checkboxes for the \texttt{q3},
+\texttt{q5}, \texttt{q8}, \texttt{q9}, and \texttt{q10} variables, as
+shown in Figure~\ref{fig-rev_items}.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.6\textwidth,height=\textheight]{images/rev_items.png}
+
+}
+
+\caption{\label{fig-rev_items}Select the variables to be reversed.}
+
+\end{figure}%
+
+~
+
+After that, we click on the Transform button
+\includegraphics[width=0.41667in,height=0.375in]{images/transform_button.png})
+from the toolbar of the Variables tab to open the Transform variable
+settings. Then, we \texttt{Create\ New\ Transform}, as shown in
+Figure~\ref{fig-new_transf}.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.6\textwidth,height=\textheight]{images/new_transf.png}
+
+}
+
+\caption{\label{fig-new_transf}Open the Transform variable settings.}
+
+\end{figure}%
+
+~
+
+In the Transform view, we enter \texttt{\_R} as a suffix for the
+variable names and specify \texttt{3-\$source} in the condition box, as
+shown in Figure~\ref{fig-transform2}.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.6\textwidth,height=\textheight]{images/transform2.png}
+
+}
+
+\caption{\label{fig-transform2}Transform variable settings.}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.6\textwidth,height=\textheight]{images/reversed_data.png}
+
+}
+
+\caption{\label{fig-reversed_data}Data with the reversed variables.}
+
+\end{figure}%
+
+~
+
+\section{Compute a new variable}\label{compute-a-new-variable}
+
+Finally, we compute each participant's total score (ranging from 0 to
+30) based on their responses to the 10 questions of the Rosenberg
+Self-Esteem Scale.
+
+Adding computed variables to a Jamovi spreadsheet is straightforward.
+Click on the Compute button
+\includegraphics[width=0.41667in,height=0.375in]{images/compute_button.png})
+from the toolbar of the Data tab. An empty column has been created at
+the end of our dataset (Figure~\ref{fig-compute1}). The black dot symbol
+in the right of the column header indicates that this is a computed
+variable.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.6\textwidth,height=\textheight]{images/compute1.png}
+
+}
+
+\caption{\label{fig-compute1}Compute a new variable.}
+
+\end{figure}%
+
+To set up the computed variable, either double-click the column header,
+or click the \textbf{Setup} button
+\includegraphics[width=0.35417in,height=0.375in]{images/setup_button.png})
+in the \textbf{Data} tab. This opens the ``\textbf{COMPUTED VARIABLE}''
+view, where we can name the computed variable \texttt{score}. Next, we
+select the \texttt{SUM} function from the available options for use in
+the \textbf{Formula} box. Finally, we add the \texttt{q}-variables in
+the formula separated by comma (note that we must use the reversed
+variables in the sum) and we press \texttt{ENTER}
+(Figure~\ref{fig-sum_score}).
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{images/sum_score.png}
+
+}
+
+\caption{\label{fig-sum_score}Computation of the total score.}
+
+\end{figure}%
+
+\chapter{LAB IV: Sampling distribution and Confidence
+Interval}\label{sec-lab4}
+
+When we have finished this Lab, we should be able to:
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title={Learning objectives}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-caution-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-caution-color!10!white]
+
+\begin{itemize}
+\tightlist
+\item
+  Know the basic properties of sampling distribution of mean
+\item
+  Understand the Central Limit Theorem (CLM)
+\item
+  Understand the concept of the confidence interval of mean
+\end{itemize}
+
+\end{tcolorbox}
+
+~
+
+\section{The Sampling Distribution of mean and the
+CLT}\label{the-sampling-distribution-of-mean-and-the-clt}
+
+In this Lab we will learn the Central Limit Theorem (CLT), which is the
+basis for many statistical concepts. We are going to explore this
+concept with the help of a \emph{Shiny} application. So, clink on the
+following link \href{https://gallery.shinyapps.io/CLT_mean/}{CLM}.
+
+A \emph{Shiny app} opens in a web window as shown below
+(Figure~\ref{fig-shiny_app1}):
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{images/shiny_app1.png}
+
+}
+
+\caption{\label{fig-shiny_app1}The Shiny application simulating the
+Central limit Theorem for Means}
+
+\end{figure}%
+
+To the left is the interactive panel with radio buttons and slider bars,
+and to the right there are three tabs:
+
+\begin{itemize}
+\item
+  Population Distribution.
+\item
+  Samples.
+\item
+  Sampling Distribution.
+\end{itemize}
+
+First we are asked to choose from a Normal, Uniform, Right Skewed or
+Left Skewed \emph{Parent distribution (Population)} from the left panel.
+Let's select \emph{Right skewed} and then \emph{High skew} from the drop
+down menu with the name \emph{Skew}, as shown in
+Figure~\ref{fig-shiny_app2}.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{images/shiny_app2.png}
+
+}
+
+\caption{\label{fig-shiny_app2}The case of a high right skewed
+population distribution}
+
+\end{figure}%
+
+Next we set the \emph{Sample size} slider bar to 5 and the \emph{Number
+of samples} to 1000, then select the \emph{Samples} tab, as shown in
+Figure~\ref{fig-shiny_app2_1}. The first eight samples randomly drawn
+from the original distribution are demonstrated in the panel. For
+example, in the first box labeled \emph{Sample 1}, we observe five data
+points (the sample size we set), along with their sample mean and
+standard deviation (highlighted in the red circle).
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{images/shiny_app2_1.png}
+
+}
+
+\caption{\label{fig-shiny_app2_1}First eight samples randomly drawn from
+the original distribution.}
+
+\end{figure}%
+
+Finally, we select the \emph{Sampling distribution} tab, which displays
+the distribution of the 1000 \textbf{sample means}. We observe that this
+distribution is right skewed with mean approximately equal to population
+mean (Figure~\ref{fig-shiny_app3}).
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{images/shiny_app3.png}
+
+}
+
+\caption{\label{fig-shiny_app3}Distribution of means of 1000 random
+samples, each consisting of 5 observations from a high right skewed
+population distribution}
+
+\end{figure}%
+
+Now, try to increase the \emph{sample size} to 30
+(Figure~\ref{fig-shiny_app4}):
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{images/shiny_app4.png}
+
+}
+
+\caption{\label{fig-shiny_app4}Distribution of means of 1000 random
+samples, each consisting of 30 observations from a high right skewed
+population distribution}
+
+\end{figure}%
+
+and then increase it to 200 (Figure~\ref{fig-shiny_app5}):
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{images/shiny_app5.png}
+
+}
+
+\caption{\label{fig-shiny_app5}Distribution of means of 1000 random
+samples, each consisting of 200 observations from a high right skewed
+population distribution}
+
+\end{figure}%
+
+We observe that the sampling distribution becomes closer and closer to
+Normal and the standard error of the mean, \emph{SE}, (the standard
+deviation of sample means) gets smaller as the sample size increases.
+The important point is that whatever the parent distribution of a
+variable, the distribution of the sample means will be nearly Normal, as
+long as the samples are large enough.
+
+~
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title={Properties of the sampling distribution of the mean}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-tip-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-tip-color!10!white]
+
+\begin{itemize}
+\tightlist
+\item
+  The mean of the sampling distribution is the same as the mean of the
+  population.
+\item
+  The standard deviation of the sampling distribution (i.e., the
+  standard error) gets smaller as the sample size increases.
+\item
+  \textbf{According to the Central Limit Theorem (CLM)}, the shape of
+  the sampling distribution becomes normal as the sample size increases
+  regardless of the variable's population distribution.
+\end{itemize}
+
+\end{tcolorbox}
+
+\section{The confidence interval of
+mean}\label{the-confidence-interval-of-mean}
+
+We are going to explore the concept of confidence interval (CI) of mean
+with the help of a \emph{Shiny} application. So, clink on the following
+link \href{https://shiny.rit.albany.edu/stat/confidence/}{CIs}.
+
+A \emph{Shiny} app opens in a web window as shown below
+(Figure~\ref{fig-shiny_app6}):
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{images/shiny_app6.png}
+
+}
+
+\caption{\label{fig-shiny_app6}Shiny application that simulates the
+concept of confidence interval (CI) of mean}
+
+\end{figure}%
+
+On the left is the interactive panel with radio buttons and drop down
+menus, and to the right there are two tabs:
+
+\begin{itemize}
+\item
+  Plots.
+\item
+  About.
+\end{itemize}
+
+We retain active the \emph{Plots} tab.
+
+First we are asked to choose if we want the \emph{Confidence Interval
+Graph only} or the \emph{Confidence Interval Graph Plus Sampling
+Distribution of the Mean}. Let's select the first choice and set the
+\emph{Number of Simulated Samples} to one and the \emph{Sample Size} to
+10 from the drop down menus, as shown in Figure~\ref{fig-shiny_app7}. A
+horizontal bar will be created which represents the confidence interval
+(CI), centered on the sample mean (point). In this case, the 95\% CI for
+the sample mean includes the true value of the population mean (it
+crosses the solid vertical line) and it is drawn as a black line.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{images/shiny_app7.png}
+
+}
+
+\caption{\label{fig-shiny_app7}Confidence Interval Graph with one random
+sample of 10 observations selected from a normal population
+distribution}
+
+\end{figure}%
+
+Now, try to increase the \emph{Number of Simulated Samples} to 100
+(Figure~\ref{fig-shiny_app8}):
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{images/shiny_app8.png}
+
+}
+
+\caption{\label{fig-shiny_app8}Confidence Interval Graph with 100 random
+samples, each consisting of 10 observations from a normal population
+distribution}
+
+\end{figure}%
+
+We observe that 5 out of 100 confidence intervals (red horizontal lines)
+do not include the true population mean (the solid vertical line)
+(Figure~\ref{fig-shiny_app8}). This is what we would expect -- that the
+95\% confidence interval will not include the true population mean 5\%
+of the time.
+
+~
+
+Next, we create the confidence intervals of 100 randomly generated
+samples of size = 50 from the population (Figure~\ref{fig-shiny_app9}):
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{images/shiny_app9.png}
+
+}
+
+\caption{\label{fig-shiny_app9}Confidence Interval Graph with 100 random
+samples, each consisting of 50 observations from a normal population
+distribution}
+
+\end{figure}%
+
+We observe that the sample means are closer to the true population mean
+and the 95\% CIs of the mean become narrower
+(Figure~\ref{fig-shiny_app9}) increasing the sample size.
+
+\chapter{LAB VI: Inference for numerical data (2
+samples)}\label{sec-lab6}
+
+When we have finished this Lab, we should be able to:
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title={Learning objectives}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-caution-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-caution-color!10!white]
+
+\begin{itemize}
+\tightlist
+\item
+  Applying hypothesis testing
+\item
+  Compare two independent samples
+\item
+  Compare paired (related) samples
+\item
+  Interpret the results
+\end{itemize}
+
+\end{tcolorbox}
+
+\section{Two-sample t-test (Student's
+t-test)}\label{two-sample-t-test-students-t-test}
+
+Two sample t-test (Student's t-test) can be used if we have two
+independent (unrelated) groups (e.g., males-females, treatment-non
+treatment) and one quantitative variable of interest.
+
+\subsection{Opening the file}\label{opening-the-file-1}
+
+Open the dataset named \texttt{depression} from the file tab in the
+menu:
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.85\textwidth,height=\textheight]{images/depression1.png}
+
+}
+
+\caption{\label{fig-depression1}The depression dataset}
+
+\end{figure}%
+
+The dataset \texttt{depression} includes 76 patients and has two
+variables. The \texttt{treatment} variable and the \texttt{HDRS}
+variable (Figure~\ref{fig-depression1}). Double-click on the variable
+name \texttt{HDRS} and change the measure type from nominal
+\includegraphics[width=0.23958in,height=0.21875in]{images/nominal.png}
+to continuous
+\includegraphics[width=0.23958in,height=0.21875in]{images/continuous.png}.
+
+\subsection{Research question}\label{research-question}
+
+In an experiment designed to test the effectiveness of paroxetine for
+treating bipolar depression, the participants were randomly assigned
+into two groups (intervention Vs placebo).
+
+The researchers used the Hamilton Depression Rating Scale (HDRS) to
+measure the depression state of the participants and wanted to find out
+if the HDRS score is different in paroxetine group as compared to
+placebo group at the end of the experiment. The significance level α was
+set to 0.05.
+
+Note A score of 0--7 in HDRS is generally accepted to be within the
+normal range, while a score of 20 or higher indicates at least moderate
+severity.
+
+\subsection{Hypothesis Testsing for the Student's
+t-test}\label{hypothesis-testsing-for-the-students-t-test}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title={Null hypothesis and alternative hypothesis}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-note-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-note-color!10!white]
+
+\begin{itemize}
+\tightlist
+\item
+  \(H_0\): the means of HDRS in the two groups are equal
+  (\(\mu_{1} = \mu_{2}\))
+\item
+  \(H_1\): the means of HDRS in the two groups are not equal
+  (\(\mu_{1} \neq \mu_{2}\))
+\end{itemize}
+
+\end{tcolorbox}
+
+\subsection{Assumptions}\label{assumptions}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title={Check if the following assumptions are satisfied}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-note-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-note-color!10!white]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  The data are \textbf{normally} distributed in both groups
+\item
+  The data in both groups have similar \textbf{variance} (also named as
+  homogeneity of variance or homoscedasticity)
+\end{enumerate}
+
+\end{tcolorbox}
+
+\textbf{A. Explore the descriptive characteristics of distribution for
+each group and check for normality}
+
+The distributions can be explored visually with appropriate plots.
+Additionally, summary statistics and significance tests to check for
+normality (e.g., Shapiro-Wilk test) and for equality of variances (e.g.,
+Levene's test) can be used.
+
+On the Jamovi top menu navigate to
+
+\includegraphics[width=4.06in,height=0.52in]{lab6_files/figure-latex/mermaid-figure-1.png}
+
+as shown below in Figure~\ref{fig-hdrs0}.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/hdrs0.png}
+
+}
+
+\caption{\label{fig-hdrs0}In the Analyses Tab select Exploration and
+click on Descriptives.}
+
+\end{figure}%
+
+The \texttt{Descriptives} dialogue box opens. Drag the variable
+\texttt{HDRS} into the \texttt{Variables} box and split it by the
+\texttt{treatment} variable, as shown below
+(Figure~\ref{fig-descriptives12}):
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/descriptives12.png}
+
+}
+
+\caption{\label{fig-descriptives12}Split the variable HDRS by treatment
+group}
+
+\end{figure}%
+
+We can now select the relevant descriptive statistics such as
+\texttt{Percantiles}, \texttt{Skewness}, \texttt{Kurtosis} and the
+\texttt{Shapiro-Wilk} test from the \texttt{Statistics} section:
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/descriptives13.png}
+
+}
+
+\caption{\label{fig-descriptives13}In the Statistics section select the
+descriptive statistics of interest.}
+
+\end{figure}%
+
+Once we have selected our descriptive statistics, a table will appear in
+the output window on our right-hand side, as shown below:
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{images/descriptives14.png}
+
+}
+
+\caption{\label{fig-descriptives14}Descriptive statistics of HDSR by
+treatment group}
+
+\end{figure}%
+
+The means are close to medians (20.3 vs 21 and 21.5 vs 21). The skewness
+is approximately zero (symmetric distribution) and the (excess) kurtosis
+is close to zero (mesokurtic distribution) indicating normal
+distributions for both groups.
+
+Additionally, the Shapiro-Wilk tests of normality suggest that the data
+for the \texttt{HDRS} in both groups, paroxetine and placebo, are
+normally distributed (p=0.67 \textgreater0.05 and p=0.61
+\textgreater0.05, respectively). (NOTE: If the \(p \geq 0.05\), then the
+data came from a normally distributed population).
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Remember: Hypothesis testing for Shapiro-Wilk test for normality}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-important-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-important-color!10!white]
+
+\(H_{0}\): the data came from a normally distributed population.
+
+\(H_{1}\): the data tested are not normally distributed.
+
+\begin{itemize}
+\tightlist
+\item
+  If p − value \textless{} 0.05, reject the null hypothesis, \(H_{0}\).
+\item
+  If p − value ≥ 0.05, do not reject the null hypothesis, \(H_{0}\).
+\end{itemize}
+
+\end{tcolorbox}
+
+Then we can check the \texttt{Density} from \texttt{Histograms} in the
+\texttt{Plot} section, as shown below (Figure~\ref{fig-descriptives15}):
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/plots_density.png}
+
+}
+
+\caption{\label{fig-plots_density}In the Plot section select Density
+from Histograms.}
+
+\end{figure}%
+
+A graph is generated in the output window on our right-hand side, as
+shown below:
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/descriptives15.png}
+
+}
+
+\caption{\label{fig-descriptives15}In the Plots section select Density
+from Histograms.}
+
+\end{figure}%
+
+The above figure shows that the data are close to symmetry and the
+assumption of a normal distribution is reasonable.
+
+\textbf{B. Homogeneity of variance}
+
+The second assumption that should be satisfied is the homogeneity of
+variance. We observe in the summary table of
+Figure~\ref{fig-descriptives14} that the two standard deviations (3.65
+vs 3.41) are similar (see also below the Levene's test for equality of
+variances in Figure~\ref{fig-t_test4}).
+
+~
+
+\subsection{Run the Student's t-test}\label{run-the-students-t-test}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title={Perform a Student's t-test}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-note-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-note-color!10!white]
+
+We will perform a Student's t-test to test the null hypothesis that the
+mean HDRS score is the same for both groups (paroxetine and placebo).
+
+We select:
+
+\includegraphics[width=4.9in,height=0.52in]{lab6_files/figure-latex/mermaid-figure-4.png}
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/t_test1.png}
+
+}
+
+\caption{\label{fig-t_test1}Conducting an Independent Samples T-Test.}
+
+\end{figure}%
+
+The \texttt{Independent\ Samples\ T-Test} dialogue box opens. Drag and
+drop the numeric variable \texttt{HSDR} to Dependent Variables and the
+independent variable \texttt{treatment} to Grouping Variable, as shown
+below Figure~\ref{fig-t_test2}:
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/t_test2.png}
+
+}
+
+\caption{\label{fig-t_test2}The Independent Samples T-Test dialogue box}
+
+\end{figure}%
+
+We observe that we can select between the following three Tests:
+Students's (the default), Welch's, or Mann-Whitney U. At the moment, we
+keep the default choice of Students's test. From
+\texttt{Additional\ Statistics} check the \texttt{Mean\ difference},
+\texttt{Confidence\ Intervals}, \texttt{Descriptive}, and
+\texttt{Descriptive\ plots} boxes. Finally, from
+\texttt{Assumption\ Checks} tick the \texttt{Homogeneity\ test}. We will
+end up with the following screen:
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/t_test3.png}
+
+}
+
+\caption{\label{fig-t_test3}Additional statistics and tests.}
+
+\end{figure}%
+
+First, we look at the table of \texttt{Levene\textquotesingle{}s\ test}
+for equality of variances (Figure~\ref{fig-t_test4}):
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.6\textwidth,height=\textheight]{images/t_test4.png}
+
+}
+
+\caption{\label{fig-t_test4}Levene's test.}
+
+\end{figure}%
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Remember: Hypothesis testing for Levene's test for equality of variances}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-important-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-important-color!10!white]
+
+\(H_{0}\): the variances of HDRs in two groups are equal
+
+\(H_{1}\): the variances of HDRs in two groups are not equal
+
+\begin{itemize}
+\tightlist
+\item
+  If p − value \textless{} 0.05, reject the null hypothesis, \(H_{0}\).
+\item
+  If p − value ≥ 0.05, do not reject the null hypothesis, \(H_{0}\).
+\end{itemize}
+
+\end{tcolorbox}
+
+Since p = 0.646 \textgreater{} 0.05, the \(H_0\) of the Levene's test is
+not rejected and we keep the default choice of \textbf{Students's} test
+(Figure~\ref{fig-t_test3}). (NOTE: If the \(p \geq 0.05\), then the
+population variances of HDRS in two groups groups are assumed equal).
+
+If the assumption of equal variances is not satisfied (Levene's test
+gives p \textless{} 0.05, reject \(H_0\)), the Welch's test should be
+used from the available Tests in Jamovi (Figure~\ref{fig-t_test3}).
+
+Next, we can inspect again the results in the group descriptives table
+(Figure~\ref{fig-t_test5}) and pertinent plots
+(Figure~\ref{fig-t_test6}):
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/t_test5.png}
+
+}
+
+\caption{\label{fig-t_test5}Group descriptives.}
+
+\end{figure}%
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/t_test6.png}
+
+}
+
+\caption{\label{fig-t_test6}Plot of mean (95\% CI) and median of HDRS by
+treatment.}
+
+\end{figure}%
+
+Finally, we present the results of the Student's t-test in the table of
+the Figure~\ref{fig-t_test7}:
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.9\textwidth,height=\textheight]{images/t_test7.png}
+
+}
+
+\caption{\label{fig-t_test7}The results of the Student's t-test.}
+
+\end{figure}%
+
+The p-value = 0.16 is greater than 0.05. There is \textbf{no evidence}
+of a significant difference in mean HDRS between the two groups (failed
+to reject \(H_0\)). The difference between means (20.33 - 21.49) equals
+to -1.16 units of the HDRS and note that the 95\% confidence interval of
+the difference in means (-2.78 to 0.47) \textbf{includes} the
+hypothesized null value of 0. Based on these results, there is not
+evidence that paroxetine is effective as a treatment for bipolar
+depression.
+
+Note that the paroxetine sample (n= 33) has 32 (33-1) degrees of freedom
+and the placebo sample (n= 43) has 42 (43-1), so we have 74 (32 + 42) df
+in total. Another way of thinking of this is that the complete sample
+size is 76, and we have estimated two parameters from the data (the two
+means), so we have 76-2 = 74 df.
+
+The Student t-test for two independent samples does not have any
+restrictions on \(n_1\) and \(n_2\) ---\textbf{they can be equal or
+unequal}. However, equal samples are preferred because when a total of
+2n subjects are available, their equal division among the groups
+maximizes the power to detect a specified difference.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title={Mann-Whitney U test}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-important-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-important-color!10!white]
+
+When there is violation of normality, the Mann-Whitney U test can be
+selected from the available Tests in Jamovi (Figure~\ref{fig-t_test4}).
+This test compares two independent samples based on the ranks of the
+values and is often considered the non-parametric equivalent to the
+Student's t-test.
+
+\end{tcolorbox}
+
+~
+
+\section{Paired samples t-test}\label{paired-samples-t-test}
+
+The paired samples design can effectively reduce the effect of
+non-treatment factors and improve the efficiency of the experiment. A
+paired samples t-test is used to estimate whether the means of two
+related measurements are significantly different from one another.
+
+Open the dataset named \texttt{weight} from the file tab in the menu:
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.85\textwidth,height=\textheight]{images/weight_data.png}
+
+}
+
+\caption{\label{fig-weight_data}The weight dataset}
+
+\end{figure}%
+
+The dataset \texttt{weight} contains the birth and discharge weight of
+25 newborns (Figure~\ref{fig-weight_data}). Double-click on the name of
+the variables \texttt{birth\_weight} and \texttt{discharge\_weight} to
+change the measure type from nominal
+\includegraphics[width=0.23958in,height=0.21875in]{images/nominal.png}
+to continuous
+\includegraphics[width=0.23958in,height=0.21875in]{images/continuous.png}.
+
+\subsection{Research question}\label{research-question-1}
+
+We might ask if the \textbf{mean difference} of the weight in birth and
+in discharge equals to zero or not. If the \textbf{differences} between
+the pairs of measurements are normally distributed, a paired t-test is
+the most appropriate statistical test.
+
+\subsection{Hypothesis Testsing for the paired samples
+t-test}\label{hypothesis-testsing-for-the-paired-samples-t-test}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title={Null hypothesis and alternative hypothesis}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-note-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-note-color!10!white]
+
+\begin{itemize}
+\tightlist
+\item
+  H\textsubscript{0}: the mean difference in weight is zero
+  (\(\mu_{d} = 0\))
+\item
+  H\textsubscript{1}: the mean difference in weight is non-zero
+  (\(\mu_{d} \neq 0\))
+\end{itemize}
+
+\end{tcolorbox}
+
+\subsection{Assumptions}\label{assumptions-1}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title={Check if the following assumption is satisfied}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-note-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-note-color!10!white]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  The \textbf{differences} between the pairs of measurements,
+  \(d_{i}\)s, are normally distributed. (NOTE: It is not essential for
+  the original observations to be normally distributed).
+\end{enumerate}
+
+\end{tcolorbox}
+
+\textbf{Explore the characteristics of the distribution of differences,}
+\(d_{i}\)
+
+First, we have to calculate the differences
+\(d_{i}= birth\_weight_i - discharge\_weight_i\)
+(Figure~\ref{fig-paired2}) from Data tab in the main menu of Jamovi. For
+more details go to the section \emph{11.6 Transforming data: Computing a
+new variable} in Chapter~\ref{sec-lab1}.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.9\textwidth,height=\textheight]{images/paired2.png}
+
+}
+
+\caption{\label{fig-paired2}Calculation of the variable of differences
+d}
+
+\end{figure}%
+
+The distributions of the differences,\(d_{i}\), can be explored with
+appropriate plots and summary statistics.
+
+On the Jamovi top menu navigate to
+
+\includegraphics[width=4.06in,height=0.52in]{lab6_files/figure-latex/mermaid-figure-3.png}
+
+as shown below in Figure~\ref{fig-weight0}.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/weight0.png}
+
+}
+
+\caption{\label{fig-weight0}In the Analyses Tab select Exploration and
+click on Descriptives.}
+
+\end{figure}%
+
+The \texttt{Descriptives} dialogue box opens. Drag the variable
+\texttt{d} into the \texttt{Variables} box, as shown below
+(Figure~\ref{fig-paired3}):
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/paired3.png}
+
+}
+
+\caption{\label{fig-paired3}Drag the variable of the differences
+\texttt{d} into the \texttt{Variables} box}
+
+\end{figure}%
+
+We can now select the relevant descriptive statistics such as
+\texttt{Percantiles}, \texttt{Skewness}, \texttt{Kurtosis} and the
+\texttt{Shapiro-Wilk} test from the \texttt{Statistics} section:
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=0.75\textwidth,height=\textheight]{images/descriptives13.png}
+
+}
+
+\caption{In the Statistics section select the descriptive statistics of
+interest.}
+
+\end{figure}%
+
+Once we have selected our descriptive statistics, a table will appear in
+the output window on our right-hand side, as shown below:
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{images/paired4.png}
+
+}
+
+\caption{\label{fig-paired4}Descriptive statistics of the differences.}
+
+\end{figure}%
+
+The mean is close to median (39.6 vs 40). Moreover, both skewness and
+(excess) kurtosis are approximately zero indicating a symmetric and
+mesokurtic distribution of the weight differences.
+
+Then we can check the \texttt{Density} from \texttt{Histograms} in the
+\texttt{Plot} section, as shown below (Figure~\ref{fig-plots_density}):
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=0.75\textwidth,height=\textheight]{images/plots_density.png}
+
+}
+
+\caption{In the Plot section select Density from Histograms.}
+
+\end{figure}%
+
+A graph is generated in the output window on our right-hand side, as
+shown below:
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.65\textwidth,height=\textheight]{images/paired5.png}
+
+}
+
+\caption{\label{fig-paired5}In the Plots section select Density from
+Histograms.}
+
+\end{figure}%
+
+The above figure shows that the data are close to symmetry and the
+assumption of a normal distribution is reasonable.
+
+Additionally, the Shapiro-Wilk test of normality suggests that the data
+for the differences, \(d_{i}\), are normally distributed (p=0.74
+\textgreater0.05). (NOTE: If the \(p \geq 0.05\), then the data came
+from a normally distributed population).
+
+\subsection{Run the paired samples
+t-test}\label{run-the-paired-samples-t-test}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title={Perform a paired samples t-test}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-note-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-note-color!10!white]
+
+We will perform a paired samples t-test to test the null hypothesis that
+the mean difference in weight is zero.
+
+We select:
+
+\includegraphics[width=4.44in,height=0.52in]{lab6_files/figure-latex/mermaid-figure-2.png}
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/paired1.png}
+
+}
+
+\caption{\label{fig-paired1}Conducting a Paired Samples T-Test.}
+
+\end{figure}%
+
+The \texttt{Paired\ Samples\ T-Test} dialogue box opens. Drag and drop
+the variables \texttt{birth\_weight} and \texttt{discharge\_weight} to
+Paired Variables, as shown below Figure~\ref{fig-paired6}:
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/paired6.png}
+
+}
+
+\caption{\label{fig-paired6}The Paired Samples T-Test dialogue box}
+
+\end{figure}%
+
+We observe that we can select between the following two Tests:
+Students's or Wilcoxon rank. We keep the default choice of Students's
+paired t-test. Moreover, from \texttt{Additional\ Statistics} check the
+\texttt{Mean\ difference}, \texttt{Confidence\ Intervals},
+\texttt{Descriptive}, and \texttt{Descriptive\ plots} boxes. Finally,
+from \texttt{Assumption\ Checks} tick the \texttt{Normality\ test}. We
+will end up with the following screen:
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/paired7.png}
+
+}
+
+\caption{\label{fig-paired7}Additional statistics and tests.}
+
+\end{figure}%
+
+Next, we can inspect the results in the table with descriptive
+statistics (Figure~\ref{fig-paired8}) and plots
+(Figure~\ref{fig-t_test6}):
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/paired8.png}
+
+}
+
+\caption{\label{fig-paired8}Table with descriptive statistics.}
+
+\end{figure}%
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/paired9.png}
+
+}
+
+\caption{\label{fig-paired9}Plot of mean and median of \emph{birth
+weigt} and \emph{discharge\_weight}.}
+
+\end{figure}%
+
+The Shapiro-Wilk test of normality of the differences has previously
+calculated (Figure~\ref{fig-paired4}) and is also presented below:
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.55\textwidth,height=\textheight]{images/paired90.png}
+
+}
+
+\caption{\label{fig-paired90}Test of normality of the differences.}
+
+\end{figure}%
+
+Finally, we present the results of the Student's paired samples t-test
+in the table of the Figure~\ref{fig-paired10}:
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.95\textwidth,height=\textheight]{images/paired10.png}
+
+}
+
+\caption{\label{fig-paired10}The results of the Paired Samples t-test.}
+
+\end{figure}%
+
+There was a \textbf{significant} reduction in weight (39.6 g) after the
+discharge (p-value \textless0.001 that is lower than 0.05; reject
+\(H_0\)). Note that the 95\% confidence interval (26.3 to 52.9)
+\textbf{doesn't include} the null hypothesized value of 0. However, is
+this reduction of clinical importance?
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title={Wilcoxon Signed-Rank test}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-important-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-important-color!10!white]
+
+When there is violation of normality, the Wilcoxon Rank test can be
+selected from the available Tests in Jamovi (Figure~\ref{fig-paired7}).
+This test is based on the sign and the magnitude of the rank of the
+differences between pairs of measurements, rather than the actual
+values. It is often considered the non-parametric equivalent to the
+Student's paired samples t-test.
+
+\end{tcolorbox}
+
+\chapter{LAB VII: Inference for numerical data (\textgreater2
+samples)}\label{sec-lab7}
+
+When we have finished this Lab, we should be able to:
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title={Learning objectives}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-caution-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-caution-color!10!white]
+
+\begin{itemize}
+\tightlist
+\item
+  Applying hypothesis testing
+\item
+  Compare more than two independent samples
+\item
+  Interpret the results
+\end{itemize}
+
+\end{tcolorbox}
+
+\section{Introduction}\label{introduction}
+
+The one-way analysis of variance (one-way ANOVA) or the non-parametric
+Kruskal-Wallis test are used to detect whether there are any differences
+between more than two independent (unrelated) samples.
+
+Although, these tests can detect a difference between several groups
+they do not inform about which groups are different from the others. At
+first sight we might clarify the question by comparing all groups in
+pairs with t-tests or Mann-Whitney U tests. However, that procedure may
+lead us to the wrong conclusions (known as multiple comparisons
+problem).
+
+Why is this procedure inappropriate? Quite simply, because we would be
+wrongly testing the null hypothesis. Each comparison one conducts
+increases the likelihood of committing at least one Type I error within
+a set of comparisons (famillywise Type I error rate).
+
+This is the reason why, after an ANOVA or Kruskal-Wallis test concluding
+on a difference between groups, we should not just compare all possible
+pairs of groups with t-tests or Mann-Whitney U tests. Instead we perform
+statistical tests that take into account the number of comparisons (post
+hoc tests). Some of the more commonly used ones are Tukey test,
+Games-Howell test, and Bonferroni correction.
+
+\section{One-way Analysis of Variance
+(ANOVA)}\label{one-way-analysis-of-variance-anova}
+
+One-way analysis of variance, usually referred to as one-way ANOVA, is a
+statistical test used when we want to compare several means. We may
+think of it as an extension of Student's t-test to the case of more than
+two samples.
+
+\subsection{Opening the file}\label{opening-the-file-2}
+
+Open the dataset named ``dataDWL'' from the file tab in the menu:
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.85\textwidth,height=\textheight]{images/dataDWL.png}
+
+}
+
+\caption{\label{fig-dataDWL}The dataDWL dataset}
+
+\end{figure}%
+
+The dataset ``dataDWL'' has 60 participants and includes two variables
+(Figure~\ref{fig-dataDWL}). The numeric \texttt{WeightLoss} variable and
+the \texttt{Diet} variable (with levels \texttt{A}, \texttt{B},
+\texttt{C} and \texttt{D}).
+
+\subsection{Research question}\label{research-question-2}
+
+Consider the example of the variations between weight loss according to
+four different types of diet (\texttt{A}, \texttt{B}, \texttt{C}, and
+\texttt{D}). The question that may be asked is: does the average weight
+loss (units in kg) differ according to the diet?
+
+\subsection{Hypothesis Testsing for the ANOVA
+test}\label{hypothesis-testsing-for-the-anova-test}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title={Null hypothesis and alternative hypothesis}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-note-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-note-color!10!white]
+
+\begin{itemize}
+\tightlist
+\item
+  \(H_0\): all group means are equal (the means of weight loss in the
+  four diets are equal: \(\mu_{A} = \mu_{B} = \mu_{C} = \mu_{D}\))
+\item
+  \(H_1\): at least one group mean differs from the others (there is at
+  least one diet with mean weight loss different from the others)
+\end{itemize}
+
+\end{tcolorbox}
+
+\subsection{Assumptions}\label{assumptions-2}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title={Check if the following assumptions are satisfied}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-note-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-note-color!10!white]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  The dependent variable, \texttt{WeightLoss}, should be approximately
+  \textbf{normally} distributed for all groups
+\item
+  The data in groups have similar \textbf{variance} (also named as
+  homogeneity of variance or homoscedasticity)
+\end{enumerate}
+
+\end{tcolorbox}
+
+\textbf{A. Explore the descriptive characteristics of distribution for
+each group and check for normality}
+
+The distributions can be explored visually with appropriate plots.
+Additionally, summary statistics and significance tests to check for
+normality (e.g., Shapiro-Wilk test) and for equality of variances (e.g.,
+Levene's test) can be used.
+
+On the Jamovi top menu navigate to
+
+\includegraphics[width=4.06in,height=0.52in]{lab7_files/figure-latex/mermaid-figure-1.png}
+
+as shown below in Figure~\ref{fig-diet0}.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/diet0.png}
+
+}
+
+\caption{\label{fig-diet0}In the menu at the top, choose Analyses
+\textgreater{} Exploration
+\includegraphics[width=0.36458in,height=0.34375in]{images/explor_icon.png}
+\textgreater{} Descriptives.}
+
+\end{figure}%
+
+The \emph{Descriptives dialogue box} opens. Drag the variable
+\texttt{WeightLoss} into the \emph{Variables} field and \emph{split} it
+by the \texttt{Diet} variable. Additionally, select \textbf{Variable
+across rows}, as shown below (Figure~\ref{fig-diet1}):
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/diet1.png}
+
+}
+
+\caption{\label{fig-diet1}Split the variable \textbf{WeightLoss} by
+\textbf{Diet} group and select Variables across rows.}
+
+\end{figure}%
+
+We can now select the relevant descriptive statistics such as
+\textbf{Percantiles}, \textbf{Skewness}, \textbf{Kurtosis} and the
+\textbf{Shapiro-Wilk} test from the \emph{Statistics} section
+(Figure~\ref{fig-descriptives13}):
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.7\textwidth,height=\textheight]{images/descriptives13.png}
+
+}
+
+\caption{\label{fig-descriptives13}In the Statistics section select the
+descriptive statistics of interest.}
+
+\end{figure}%
+
+Once we have selected our descriptive statistics, a table will appear in
+the output window on our right-hand side, as shown below
+(Figure~\ref{fig-diet2}):
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{images/diet2.png}
+
+}
+
+\caption{\label{fig-diet2}Descriptive statistics of \textbf{WeightLoss}
+by \textbf{Diet} group (click on figure to zoom in).}
+
+\end{figure}%
+
+The means are close to medians and the standard deviations are also
+similar indicating normal distributions for all groups. Additionally,
+both shape measures, skewness and (excess) kurtosis, have values in the
+acceptable range {[}-1, 1{]} which indicate symmetric and mesokurtic
+distributions, respectively.
+
+The Shapiro-Wilk tests of normality suggest that the data for the
+\texttt{WeightLoss} in all groups are normally distributed (p
+\textgreater{} 0.05 \(\Rightarrow H_0\) is not rejected).
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Remember: Hypothesis testing for Shapiro-Wilk test for normality}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-important-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-important-color!10!white]
+
+\(H_{0}\): the data came from a normally distributed population.
+
+\(H_{1}\): the data tested are not normally distributed.
+
+\begin{itemize}
+\tightlist
+\item
+  If p − value \textless{} 0.05, reject the null hypothesis, \(H_{0}\).
+\item
+  If p − value ≥ 0.05, do not reject the null hypothesis, \(H_{0}\).
+\end{itemize}
+
+\end{tcolorbox}
+
+Then we can check the \textbf{Density} box from \emph{Histograms} in the
+\emph{Plot} section, as shown below (Figure~\ref{fig-plots_density}):
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/plots_density.png}
+
+}
+
+\caption{\label{fig-plots_density}In the Plots section select Density
+from Histograms.}
+
+\end{figure}%
+
+A graph (Figure~\ref{fig-diet3}) is generated in the output window on
+our right-hand side:
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.7\textwidth,height=\textheight]{images/diet3.png}
+
+}
+
+\caption{\label{fig-diet3}The Density plot of \textbf{WeightLoss} for
+each \textbf{Diet}.}
+
+\end{figure}%
+
+The above density plots show that the data are close to symmetry and the
+assumption of a normal distribution is reasonable for all diet groups.
+
+\textbf{B. Homogeneity of variance}
+
+The second assumption that should be satisfied is the homogeneity of
+variance. We observe in the summary table of Figure~\ref{fig-diet2} that
+the standard deviations are similar (see also below the Levene's test
+for equality of variances in Figure~\ref{fig-t_test4}).
+
+~
+
+\subsection{Run the ANOVA test}\label{run-the-anova-test}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title={Perform ANOVA in Jamovi}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-note-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-note-color!10!white]
+
+We will perform ANOVA to test the null hypothesis that the mean
+\texttt{WeightLoss} is the same for all \texttt{Diet} groups.
+
+On the Jamovi top menu navigate to
+
+\includegraphics[width=4in,height=0.52in]{lab7_files/figure-latex/mermaid-figure-2.png}
+
+as shown below in Figure~\ref{fig-diet4}.
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/diet4.png}
+
+}
+
+\caption{\label{fig-diet4}Conducting ANOVA test in Jamovi. In the menu
+at the top, choose Analyses \textgreater{} ANOVA
+\includegraphics[width=0.36458in,height=0.34375in]{images/anova_icon.png}
+\textgreater{} One-Way ANOVA.}
+
+\end{figure}%
+
+The \emph{One-Way ANOVA dialogue box} opens. Drag and drop the
+\texttt{WeightLoss} to Dependent Variables field and the \texttt{Diet}
+to Grouping Variable, as shown below Figure~\ref{fig-diet5}:
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/diet5.png}
+
+}
+
+\caption{\label{fig-diet5}One-Way ANOVA dialogue box. Drag the
+\textbf{WeightLoss} into the Dependent Variables field and the
+\textbf{Diet} into the Grouping Variable field.}
+
+\end{figure}%
+
+We observe that we can select between the following two Tests: Welch's
+test (the default), or Fisher's test. At the moment, we keep the default
+choice. Moreover, from \textbf{Additional Statistics} check the
+\textbf{Descriptive} and \textbf{Descriptive plots} boxes. Finally, from
+\textbf{Assumption Checks} tick the \textbf{Homogeneity test} box. We
+will end up with the following screen:
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/diet6.png}
+
+}
+
+\caption{\label{fig-diet6}Additional statistics and tests.}
+
+\end{figure}%
+
+\end{tcolorbox}
+
+First, we look at the table of \textbf{Levene's test} for equality of
+variances (Figure~\ref{fig-diet7}):
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.6\textwidth,height=\textheight]{images/diet7.png}
+
+}
+
+\caption{\label{fig-diet7}Levene's test.}
+
+\end{figure}%
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Remember: Hypothesis testing for Levene's test for equality of variances}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-important-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-important-color!10!white]
+
+\(H_{0}\): the variances of \texttt{WeightLoss} in all groups are equal
+(\(σ^2_A=σ^2_B=σ^2_C=σ^2_D\))
+
+\(H_{1}\): the variances of \texttt{WeightLoss} differ between groups
+(\(σ^2_i\neq σ^2_j\), where \(i,j= A, B, C, D\) and \(i\neq j\))
+
+\begin{itemize}
+\tightlist
+\item
+  If p − value \textless{} 0.05, reject the null hypothesis, \(H_{0}\).
+\item
+  If p − value ≥ 0.05, do not reject the null hypothesis, \(H_{0}\).
+\end{itemize}
+
+\end{tcolorbox}
+
+Since p = 0.583 \textgreater{} 0.05, the \(H_0\) of the Levene's test is
+not rejected and we have to perform the \textbf{Fisher's test} which
+assumes equal variances (Figure~\ref{fig-diet8}). So, let's tick on the
+\textbf{Assume equal (Fisher's)} box. (NOTE: If the \(p \geq 0.05\),
+then the population variances of \texttt{WeightLoss} in all groups are
+assumed equal).
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/diet8.png}
+
+}
+
+\caption{\label{fig-diet8}Fisher's ANOVA test.}
+
+\end{figure}%
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title={ANOVA test (Welch's option)}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-important-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-important-color!10!white]
+
+If the assumption of equal variances is not satisfied (Levene's test
+gives p \textless{} 0.05, reject \(H_0\)), the Welch's option of ANOVA
+should be used from the available Tests in Jamovi
+(Figure~\ref{fig-diet8}).
+
+\end{tcolorbox}
+
+Next, we can inspect again the results in the group descriptives table
+(Figure~\ref{fig-diet9}) and pertinent plots (Figure~\ref{fig-diet9}):
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.65\textwidth,height=\textheight]{images/diet9.png}
+
+}
+
+\caption{\label{fig-diet9}Group descriptive statistics.}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.55\textwidth,height=\textheight]{images/diet10.png}
+
+}
+
+\caption{\label{fig-diet10}Plot of mean (95\% CI) of WeightLoss by
+Diet.}
+
+\end{figure}%
+
+From the Figure~\ref{fig-diet10} we observe that the participants
+following the diet C have on average the higher weight loss.
+
+Finally, we present the results of the Fisher's ANOVA test in the table
+of Figure~\ref{fig-diet11}:
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.55\textwidth,height=\textheight]{images/diet11.png}
+
+}
+
+\caption{\label{fig-diet11}The results of the Fisher's ANOVA test.}
+
+\end{figure}%
+
+In Figure~\ref{fig-diet11}, F= 6.12 indicates the F-statistic:
+
+\[F= \frac{variation \ between \ sample \ means}{variation \ within \ the \ samples}\]
+
+Note that we compare this value to an F-distribution (F-test). The
+degrees of freedom in the numerator (df1) and the denominator (df2) are
+3 and 56, respectively.
+
+The p-value=0.001 is less than 0.05 (reject \(H_0\) of the ANOVA test).
+\textbf{There is at least one diet with mean weight loss which is
+different from the other means}.
+
+~
+
+\subsection{Run post-hoc tests}\label{run-post-hoc-tests}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title={Perform post-hoc tests}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-note-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-note-color!10!white]
+
+A \textbf{significant} one-way ANOVA is generally followed by post-hoc
+tests to perform multiple pairwise comparisons between groups. From the
+\emph{One-Way ANOVA dialogue box} click on \emph{Post-Hoc Tests}
+section. We have got the following two options:
+
+\begin{itemize}
+\item
+  Games-Howell (unequal variances)
+\item
+  Tukey (equal variances)
+\end{itemize}
+
+Based on the result of Levene's test (p = 0.583 \textgreater{} 0.05, the
+\(H_0\) is not rejected) (Figure~\ref{fig-diet7}), we should select the
+\textbf{Tukey (equal variances)} post-hoc test. Additionally, check the
+\textbf{Flag significant comparisons} as shown below
+(Figure~\ref{fig-diet12}):
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.7\textwidth,height=\textheight]{images/diet12.png}
+
+}
+
+\caption{\label{fig-diet12}Select the appropriate post-hoc test. For
+equal variances the Tukey post hoc test.}
+
+\end{figure}%
+
+Once we have selected our post-hoc test, a table will appear in the
+output window on our right-hand side, as shown below
+(Figure~\ref{fig-diet13}):
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.7\textwidth,height=\textheight]{images/diet13.png}
+
+}
+
+\caption{\label{fig-diet13}Table with the results of the Tukey post-hoc
+test.}
+
+\end{figure}%
+
+\textbf{Interpretation}
+
+Pairwise comparisons were carried out using the method of Tukey and the
+adjusted p-values were calculated. \textbf{The weight loss following
+diet C is significantly larger compared to diet A (mean difference =
+2.93 kg, p=0.005 \textless0.05) or diet B (mean difference = 3.21 kg,
+p=0.002 \textless0.05)}.
+
+\end{tcolorbox}
+
+\chapter{LAB IX: Correlation}\label{sec-lab9}
+
+When we have finished this Lab, we should be able to:
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title={Learning objectives}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-caution-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-caution-color!10!white]
+
+\begin{itemize}
+\tightlist
+\item
+  Understand the concept of correlation of two numeric variables.
+\item
+  Compute Pearson's r (or Spearmans \(r_{s}\)) correlation coefficient
+  between two numeric variables
+\item
+  Discuss the possible meaning of correlation that we observe.
+\end{itemize}
+
+\end{tcolorbox}
+
+~
+
+In this Lab, we will use the data from ``LungCapacity''
+dataset.(\textbf{Note:} This starts by assuming we know how to get data
+into Jamovi).
+
+\subsection{Opening the file}\label{opening-the-file-3}
+
+Open the dataset named ``LungCapacity'' from the file tab in the menu:
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.85\textwidth,height=\textheight]{images/lungcap.png}
+
+}
+
+\caption{\label{fig-lungcap1}The ``LungCapacity'' dataset.}
+
+\end{figure}%
+
+The dataset ``LungCapacity'' has 725 participants and includes two
+variables. The numeric variables of interest are the \texttt{Age} and
+the \texttt{LungCap} (Figure~\ref{fig-lungcap1}). Double-click on the
+variable name \texttt{Age} and change the measure type from nominal
+\includegraphics[width=0.23958in,height=0.21875in]{images/nominal.png}
+to continuous
+\includegraphics[width=0.23958in,height=0.21875in]{images/continuous.png}.
+
+\subsection{Research question}\label{research-question-3}
+
+Let's say that we want to explore the association between age (in years)
+and lung capacity (in liters) for the sample of 725 participants in a
+survey.
+
+\subsection{Hypothesis Testsing}\label{hypothesis-testsing}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title={Null hypothesis and alternative hypothesis}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-note-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-note-color!10!white]
+
+\begin{itemize}
+\item
+  \(H_{0}:\) there is not association between age and lung capacity
+  (\(ρ = 0\)).
+\item
+  \(H_{1}:\) there is association between age and lung capacity
+  (\(ρ \neq 0\)).
+\end{itemize}
+
+\end{tcolorbox}
+
+\subsection{Graphical display with a scatter
+plot}\label{graphical-display-with-a-scatter-plot}
+
+A first step that is usually useful in studying the association between
+two continuous variables is to prepare a \textbf{scatterplot} of the
+data. The pattern made by the points plotted on the scatterplot usually
+suggests the basic nature and strength of the association between two
+variables.
+
+On the Jamovi top menu navigate to
+
+\includegraphics[width=4in,height=0.52in]{lab9_files/figure-latex/mermaid-figure-1.png}
+
+as shown below in Figure~\ref{fig-lungcap_scatter1}.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.65\textwidth,height=\textheight]{images/lungcap_scatter1.png}
+
+}
+
+\caption{\label{fig-lungcap_scatter1}In the menu at the top, choose
+Analyses \textgreater{} Exploration
+\includegraphics[width=0.36458in,height=0.34375in]{images/explor_icon.png}
+\textgreater{} Scatterplot.}
+
+\end{figure}%
+
+The \emph{Scatterplot dialogue box} opens
+(Figure~\ref{fig-lungcap_scatter3}). Transfer the \texttt{Age} and
+\texttt{LungCap} variables from the left-hand pane into the
+\emph{X-Axis} and \emph{Y-Axis} fields on the right-hand side,
+respectively, by highlighting the variables and pressing the Arrow
+Button
+(\includegraphics[width=0.23958in,height=0.21875in]{images/right_arrow.png}).
+Alternatively, drag and drop the variables. Finally, from
+\textbf{Marginals} click on the ``\textbf{Densities}'' radio button. We
+will end up with the following screen:
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=5.20833in,height=4.60417in]{images/lungcap_scatter3.png}
+
+}
+
+\caption{\label{fig-lungcap_scatter3}The Scatterplot dialogue box
+options.}
+
+\end{figure}%
+
+The resulting graph looks like this (Figure~\ref{fig-lungcap_scatter4}):
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=6.25in,height=\textheight]{images/lungcap_scatter4.png}
+
+}
+
+\caption{\label{fig-lungcap_scatter4}The Scatter of Age and Lung
+Capacity with the marginal density plots}
+
+\end{figure}%
+
+The above density plots (light blue histograms) show that the data are
+approximately \textbf{normally distributed} for both \texttt{Age} and
+\texttt{LungCap} (we have a large sample so the graphs are reliable).
+
+Additionally, the points in the scatter plot seem to be scattered around
+an invisible \textbf{line}. The scatter plot also shows that, in
+general, older participants tend to have higher lung capacity
+(\textbf{positive association}).
+
+The Pearson's correlation coefficient can quantify the strength of this
+linear association (alternative is Spearman's correlation coefficients).
+
+~
+
+\subsection{Applying the Pearson's correlation coefficient,
+r}\label{applying-the-pearsons-correlation-coefficient-r}
+
+Running correlation in Jamovi requires only a few steps once the data is
+ready to go. In the top menu navigate to:
+
+\includegraphics[width=4.45in,height=0.52in]{lab9_files/figure-latex/mermaid-figure-2.png}
+
+as shown below in Figure~\ref{fig-lungcap_scatter5}.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/lungcap_scatter5.png}
+
+}
+
+\caption{\label{fig-lungcap_scatter5}In the menu at the top, choose
+Analyses \textgreater{} Regression
+\includegraphics[width=0.36458in,height=0.34375in]{images/reg_icon.png}
+\textgreater{} Correlation Matrix.}
+
+\end{figure}%
+
+The \emph{Correlation Matrix dialogue box} opens
+(Figure~\ref{fig-lungcap_scatter7}). Transfer both \texttt{Age} and
+\texttt{LungCap} variables from the left-hand pane into the right-hand
+pane by highlighting the variables and pressing the Arrow Button
+(\includegraphics[width=0.23958in,height=0.21875in]{images/right_arrow.png}).
+Additionally, from the \emph{Correlation Coefficients} choices we can
+select between the following three options: Pearson's, Spearman, or
+Kendall's coefficient. We keep the default choice of
+``\textbf{Pearson}''. Finally, from \textbf{Additional Options} check
+``\textbf{Flag significant correlations}'' and the ``\textbf{Confidence
+Intervals}'' boxes. We will end up with the following screen:
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.65\textwidth,height=\textheight]{images/lungcap_scatter7.png}
+
+}
+
+\caption{\label{fig-lungcap_scatter7}The Correlation Matrix dialogue box
+options. Drag and drop the \textbf{Age} and \textbf{LungCap} into the
+right-hand pane. Check the boxes of interest in the additional options.}
+
+\end{figure}%
+
+The output table should look like the following
+(Figure~\ref{fig-lungcap_cortable}):
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.5\textwidth,height=\textheight]{images/lungcap_cortable.png}
+
+}
+
+\caption{\label{fig-lungcap_cortable}The correlation matrix table.}
+
+\end{figure}%
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title={Interpretation of the results}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-note-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-note-color!10!white]
+
+There is evidence of a \textbf{very strong, positive, linear}
+association between \textbf{Age} and \textbf{Lung Capacity} (r= 0.82,
+95\% CI: 0.79 to 0.84, p \textless{} 0.001) which is significant.
+
+\end{tcolorbox}
+
+\chapter{LAB X: Simple linear regression}\label{sec-lab10}
+
+When we have finished this Lab, we should be able to:
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title={Learning objectives}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-caution-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-caution-color!10!white]
+
+\begin{itemize}
+\tightlist
+\item
+  Understand the linear regression model
+\item
+  Explore how a factor (independent variable) affect a response
+  (dependent) variable.
+\item
+  Interpret the results
+\end{itemize}
+
+\end{tcolorbox}
+
+In this Lab, we will use the ``LungCapacity'' dataset.
+
+\subsection{Opening the file}\label{opening-the-file-4}
+
+Open the dataset named ``LungCapacity'' from the file tab in the menu:
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/lungcap.png}
+
+}
+
+\caption{\label{fig-lungcap1}The LungCapacity dataset}
+
+\end{figure}%
+
+Double-click on the variable name \texttt{Age} and change the measure
+type from nominal
+\includegraphics[width=0.23958in,height=0.21875in]{images/nominal.png}
+to continuous
+\includegraphics[width=0.23958in,height=0.21875in]{images/continuous.png}.
+
+\subsection{Research question}\label{research-question-4}
+
+Let's say that we want to \textbf{model} the association between age (in
+years) and lung capacity (in liters) for the sample of 725 participants
+in a survey. In other words, we want to find the parameters of a
+mathematical equation such as \(y = \alpha + \beta \cdot x\).
+
+\subsection{Hypothesis Testsing}\label{hypothesis-testsing-1}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title={Null hypothesis and alternative hypothesis}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-note-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-note-color!10!white]
+
+\begin{itemize}
+\item
+  \(H_{0}:\) the two variables are not linearly related. There is no
+  effect between age and lung capacity (\(β = 0\)).
+\item
+  \(H_{1}:\) the two variables are linearly related. There is an effect
+  between age and lung capacity (\(β \neq 0\)).
+\end{itemize}
+
+\end{tcolorbox}
+
+\subsection{Scatter plot}\label{scatter-plot}
+
+We start our analysis by creating the scatter plot of the response
+variable \texttt{LungCap} and the explanatory variable \texttt{Age}.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.65\textwidth,height=\textheight]{images/linear1.png}
+
+}
+
+\caption{\label{fig-linear1}The Scatter plot of Age and Lung Capacity}
+
+\end{figure}%
+
+There is a clear upward trend indicating that increase in \texttt{Age}
+tends to coincide with increase in \texttt{LungCap}. Moreover, the trend
+seems to be linear, so a straight line can capture the overall pattern.
+
+\subsection{Linear regression}\label{linear-regression}
+
+The process of fitting a linear regression model to the data involves
+finding a straight line that can be considered as the \textbf{best
+representation} of the overall association between age and lung
+capacity.
+
+To choose a line, we need to explain what we mean by the ``best
+representation'' of the data. A ``best-fitting'' line refers to the line
+that \textbf{minimizes} the \textbf{sum of squared residuals (RSS)}.
+Therefore, we refer to the resulting model as the least-squares linear
+regression model and to the corresponding line as the
+\textbf{least-squares regression line}.
+
+\subsection{Fit a simple linear regression
+model}\label{fit-a-simple-linear-regression-model}
+
+On the Jamovi top menu navigate to
+
+\includegraphics[width=4.39in,height=0.52in]{lab10_files/figure-latex/mermaid-figure-1.png}
+
+as shown below (Figure~\ref{fig-linear2}).
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.85\textwidth,height=\textheight]{images/linear2.png}
+
+}
+
+\caption{\label{fig-linear2}In the menu at the top, choose Analyses
+\textgreater{} Regression \textgreater{} Linear Regression.}
+
+\end{figure}%
+
+The \emph{Linear Regression dialogue box} opens
+(Figure~\ref{fig-linear3}). From the left-hand pane drag the variable
+\texttt{LunCap} into the \emph{Dependent Variable} field and the
+variable \texttt{Age} into the \emph{Covariates} field on the right-hand
+side, as shown below:
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.65\textwidth,height=\textheight]{images/linear3.png}
+
+}
+
+\caption{\label{fig-linear3}The Linear Regression dialogue box options.
+Drag and drop the LunCap into the Dependent Variable field and the Age
+into the Covariates field.}
+
+\end{figure}%
+
+Additionally, from the \emph{Model Coefficients} section tick the box
+``\textbf{Confidence interval}'' in \textbf{Estimate}
+(Figure~\ref{fig-linear4}):
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/linear4.png}
+
+}
+
+\caption{\label{fig-linear4}Check the Confidence interval box in the
+Model Coefficients section.}
+
+\end{figure}%
+
+The output table with the model coefficients should look like the
+following (Figure~\ref{fig-linear5}):
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/linear5.png}
+
+}
+
+\caption{\label{fig-linear5}The model coefficients table.}
+
+\end{figure}%
+
+Now, let's find the model equation from the regression table in
+Figure~\ref{fig-linear5}. In the \textbf{Estimate} column are the
+intercept \(a=0.54\) and the slope \(b=0.26\) for \texttt{Age}. Thus,
+the equation of the regression line becomes:
+
+\[
+\begin{aligned}
+\widehat{y} &= a + b \cdot x\\
+\widehat{\text{LungCap}} &= a + b \cdot\text{Age}\\
+\widehat{\text{LungCap}}&= 0.54 + 0.26\cdot\text{Age}
+\end{aligned}
+\]
+
+Finally, the quality of our simple linear model is presented in
+Figure~\ref{fig-linear6}:
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.35\textwidth,height=\textheight]{images/linear6.png}
+
+}
+
+\caption{\label{fig-linear6}The coefficient of determination \(R^2\).}
+
+\end{figure}%
+
+In our example takes the value 0.67. It indicates that about 67\% of the
+variation in lung capacity can be explained by the variation of the age.
+In simple linear regression \(\sqrt{0.67} = 0.82\) which equals to the
+Pearson's correlation coefficient, r.
+
+~
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, title={Interpretation of the results}, toprule=.15mm, opacitybacktitle=0.6, coltitle=black, opacityback=0, rightrule=.15mm, leftrule=.75mm, colback=white, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-note-color-frame, arc=.35mm, breakable, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-note-color!10!white]
+
+The regression coefficient (b=0.26) of the \texttt{Age} is significantly
+different from zero (p \textless{} 0.001) and indicates that there's
+\textbf{on average an increase of 0.26 liters} in lung capacity for
+\textbf{every 1 year increase in age}. Note that the \(95\%\)CI (0.24 to
+0.27) \textbf{does not} include the hypothesized null value of zero for
+the slope.
+
+\end{tcolorbox}
+
+\chapter{Data}\label{data-1}
+
+~ ~
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Dataset: rses}
+\end{itemize}
+
+\begin{verbatim}
+file:///C:/Users/kboug/AppData/Local/Temp/Rtmpy02wTQ/file3168602afc4/widget31685d9639d.html screenshot completed
+\end{verbatim}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{data_files/figure-pdf/fig-rses-1.pdf}
+
+}
+
+\caption{\label{fig-rses}Table with raw data.}
+
+\end{figure}%
+
+~ ~
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Dataset: creatinine}
+\end{itemize}
+
+\begin{verbatim}
+file:///C:/Users/kboug/AppData/Local/Temp/Rtmpy02wTQ/file316854097b41/widget31683954595.html screenshot completed
+\end{verbatim}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{data_files/figure-pdf/fig-creatinine-1.pdf}
+
+}
+
+\caption{\label{fig-creatinine}Table with raw data.}
+
+\end{figure}%
+
+~ ~
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Dataset: depression}
+\end{itemize}
+
+\begin{verbatim}
+file:///C:/Users/kboug/AppData/Local/Temp/Rtmpy02wTQ/file31687972cef/widget3168705c68e6.html screenshot completed
+\end{verbatim}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{data_files/figure-pdf/fig-depression-1.pdf}
+
+}
+
+\caption{\label{fig-depression}Table with raw data.}
+
+\end{figure}%
+
+~ ~
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Dataset: weight}
+\end{itemize}
+
+\begin{verbatim}
+file:///C:/Users/kboug/AppData/Local/Temp/Rtmpy02wTQ/file31686caa74ec/widget316860e8335e.html screenshot completed
+\end{verbatim}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{data_files/figure-pdf/fig-weight-1.pdf}
+
+}
+
+\caption{\label{fig-weight}Table with raw data.}
+
+\end{figure}%
+
+~ ~
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Dataset: dataDWL}
+\end{itemize}
+
+\begin{verbatim}
+file:///C:/Users/kboug/AppData/Local/Temp/Rtmpy02wTQ/file31683a1b640a/widget316840577555.html screenshot completed
+\end{verbatim}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{data_files/figure-pdf/fig-dataDWL-1.pdf}
+
+}
+
+\caption{\label{fig-dataDWL}Table with raw data.}
+
+\end{figure}%
+
+~ ~
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Dataset: prematurity}
+\end{itemize}
+
+\begin{verbatim}
+file:///C:/Users/kboug/AppData/Local/Temp/Rtmpy02wTQ/file316810e27117/widget3168652a228c.html screenshot completed
+\end{verbatim}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{data_files/figure-pdf/fig-prematurity-1.pdf}
+
+}
+
+\caption{\label{fig-prematurity}Table with raw data.}
+
+\end{figure}%
+
+~ ~
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Dataset: LungCapacity}
+\end{itemize}
+
+\begin{verbatim}
+file:///C:/Users/kboug/AppData/Local/Temp/Rtmpy02wTQ/file316848154953/widget316838201753.html screenshot completed
+\end{verbatim}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{data_files/figure-pdf/fig-LungCapacity-1.pdf}
+
+}
+
+\caption{\label{fig-LungCapacity}Table with raw data.}
+
+\end{figure}%
+
+\chapter{Presentations}\label{presentations}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Yli 2024}
+\end{itemize}
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=0.6\textwidth,height=4.16667in]{presentations/Yli-psy-300-2025-26.pdf}
+
+}
+
+\caption{Yli-psy-300-2025-26}
+
+\end{figure}%
+
+~ ~ ~
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Lecture 1: Introduction}
+\end{itemize}
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=0.6\textwidth,height=4.16667in]{presentations/psy-300-1_introduction.pdf}
+
+}
+
+\caption{psy-300-1\_introduction}
+
+\end{figure}%
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Lecture 2: Descriptive Statistics}
+\end{itemize}
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=0.6\textwidth,height=4.16667in]{presentations/psy-300-2_descriptive.pdf}
+
+}
+
+\caption{psy-300-2\_descriptive}
+
+\end{figure}%
+
+~ ~ ~
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Lecture 3: Probability Distributions}
+\end{itemize}
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=0.6\textwidth,height=4.16667in]{presentations/psy-300-3_distributions.pdf}
+
+}
+
+\caption{psy-300-3\_distributions}
+
+\end{figure}%
+
+~ ~ ~
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Lecture 4: Sampling Distribution and Confidence Interval}
+\end{itemize}
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=0.6\textwidth,height=4.16667in]{presentations/psy-300-4_sampling_distribution.pdf}
+
+}
+
+\caption{psy-300-4\_sampling\_distribution}
+
+\end{figure}%
+
+~ ~ ~
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Lecture 5: Hypothesis testing}
+\end{itemize}
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=0.6\textwidth,height=4.16667in]{presentations/psy-300-5_hypothesis_testing.pdf}
+
+}
+
+\caption{psy-300-5\_hypothesis\_testing}
+
+\end{figure}%
+
+~ ~ ~
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Lecture 6: Hypothesis testing for two samples}
+\end{itemize}
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=0.6\textwidth,height=4.16667in]{presentations/psy-300-6_two_samples.pdf}
+
+}
+
+\caption{psy-300-6\_two\_samples}
+
+\end{figure}%
+
+~ ~ ~
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Lecture 7: ANOVA}
+\end{itemize}
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=0.6\textwidth,height=4.16667in]{presentations/psy-300-7_ANOVA.pdf}
+
+}
+
+\caption{psy-300-7\_ANOVA}
+
+\end{figure}%
+
+~ ~ ~
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Lectures 8-9: Chi-square test}
+\end{itemize}
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=0.6\textwidth,height=4.16667in]{presentations/psy-300-8_chi_square.pdf}
+
+}
+
+\caption{psy-300-8\_chi\_square}
+
+\end{figure}%
+
+~ ~ ~
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Lecture 9-10: Correlation and Simple Linear Regression}
+\end{itemize}
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=0.6\textwidth,height=4.16667in]{presentations/psy-300-9_10_correlation-linear.pdf}
+
+}
+
+\caption{psy-300-9\_10\_correlation-linear}
+
+\end{figure}%
+
+\bookmarksetup{startatroot}
+
+\chapter*{References}\label{references}
+\addcontentsline{toc}{chapter}{References}
+
+\markboth{References}{References}
+
+\phantomsection\label{refs}
+\begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-friligkou2024}
+Friligkou, Eleni, Solveig Løkhammer, Brenda Cabrera-Mendoza, Jie Shen,
+Jun He, Giovanni Deiana, Mihaela Diana Zanoaga, et al. 2024. {``Gene
+Discovery and Biological Insights into Anxiety Disorders from a
+Large-Scale Multi-Ancestry Genome-Wide Association Study.''}
+\emph{Nature Genetics}, September.
+\url{https://doi.org/10.1038/s41588-024-01908-2}.
+
+\bibitem[\citeproctext]{ref-garcuxeda2019}
+García, Jorge Acosta, Francisco Checa y Olmos, Manuel Lucas Matheu, and
+Tesifón Parrón Carreño. 2019. {``Self Esteem Levels Vs Global Scores on
+the Rosenberg Self-Esteem Scale.''} \emph{Heliyon} 5 (3): e01378.
+\url{https://doi.org/10.1016/j.heliyon.2019.e01378}.
+
+\bibitem[\citeproctext]{ref-grimes2002}
+Grimes, David A, and Kenneth F Schulz. 2002. {``Bias and Causal
+Associations in Observational Research.''} \emph{The Lancet} 359 (9302):
+248--52. \url{https://doi.org/10.1016/s0140-6736(02)07451-2}.
+
+\bibitem[\citeproctext]{ref-hyndman1996}
+Hyndman, Rob J., and Yanan Fan. 1996. {``Sample Quantiles in Statistical
+Packages.''} \emph{The American Statistician} 50 (4): 361--65.
+\url{https://doi.org/10.1080/00031305.1996.10473566}.
+
+\end{CSLReferences}
+
+
+
+
+\end{document}
