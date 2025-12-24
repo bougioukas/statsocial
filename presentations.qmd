@@ -52,6 +52,6 @@
 
      
 
--   **Lectures 9-10: Correlation and Simple Linear Regression**
+-   **Lectures 10-11: Correlation and Simple Linear Regression**
 
-![psy-300-9_10_correlation-linear](presentations/psy-300-9_10_correlation-linear.pdf){width="60%" height="400"}
+![psy-300-10_11_correlation-linear](presentations/psy-300-10_11_correlation-linear.pdf){width="60%" height="400"}
